@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LegionWebApp.Models;
 
 namespace LegionWebApp.Data
 {
@@ -9,5 +10,6 @@ namespace LegionWebApp.Data
             : base(options)
         {
         }
+        public DbSet<LegionWebApp.Models.ContentModel>? ContentModel { get; set; }
     }
 }

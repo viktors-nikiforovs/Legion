@@ -6,14 +6,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//  options.UseSqlServer(connectionString));
 
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("herokypostgresql");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-  options.UseMySql(connectionString, new MySqlServerVersion(new Version(5, 6, 50))));
+  options.UseNpgsql(connectionString));
 
 
 
@@ -50,7 +46,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=UA}/{action=About}/{id?}");
+    pattern: "{controller=EN}/{action=Index}/{id?}");
 
 app.MapRazorPages();
 
