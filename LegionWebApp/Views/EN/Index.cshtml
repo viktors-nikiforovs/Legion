@@ -1,21 +1,52 @@
-﻿
-@{
-    ViewData["Title"] = "Homepage";
+﻿@{
+	ViewData["Title"] = "Homepage";
 }
 
-<div>Title</div>
-<div>Text</div>
-<div>Date</div>
-<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade vh-100" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?stp=dst-jpg_s600x600&_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT9B1BbtcTw-NfDQXDu8Mpy1AnV6gQlOweUmEOieWIeroQ&oe=62AE46A1" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=DXA9mqPLmQUAX9FQHTU&_nc_ht=scontent.fman4-2.fna&oh=00_AT-84Eo5mK7K_ICE0pu4bW_Iy9-FZbGp2wciyBUdQyKRBw&oe=62AF5C9F" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?stp=dst-jpg_s600x600&_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT-x3iB1L_ifm7jvYLOa1YTJ24hapBeqB4PK2tsMFmBX4Q&oe=62AF95DC" class="d-block w-100" alt="...">
-    </div>
-  </div>
+
+<div class="feed">
+	<div class="title">Some title</div>
+	<div class="images"><div class="card">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?stp=dst-jpg_s600x600&_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT9B1BbtcTw-NfDQXDu8Mpy1AnV6gQlOweUmEOieWIeroQ&oe=62AE46A1" style="max-height: 50vh">
+		</div>
+		<div class="carousel-item">
+			<img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=DXA9mqPLmQUAX9FQHTU&_nc_ht=scontent.fman4-2.fna&oh=00_AT-84Eo5mK7K_ICE0pu4bW_Iy9-FZbGp2wciyBUdQyKRBw&oe=62AF5C9F" style="max-height: 50vh">
+		</div>
+		<div class="carousel-item">
+			<img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?stp=dst-jpg_s600x600&_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT-x3iB1L_ifm7jvYLOa1YTJ24hapBeqB4PK2tsMFmBX4Q&oe=62AF95DC" style="max-height: 50vh">
+		</div>
+	</div>
+</div></div>
+	<div class="text">some text in here. today is monday....</div>
 </div>
+
+
+@*<div class="card">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?stp=dst-jpg_s600x600&_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT9B1BbtcTw-NfDQXDu8Mpy1AnV6gQlOweUmEOieWIeroQ&oe=62AE46A1" style="max-height: 50vh">
+		</div>
+		<div class="carousel-item">
+			<img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=DXA9mqPLmQUAX9FQHTU&_nc_ht=scontent.fman4-2.fna&oh=00_AT-84Eo5mK7K_ICE0pu4bW_Iy9-FZbGp2wciyBUdQyKRBw&oe=62AF5C9F" style="max-height: 50vh">
+		</div>
+		<div class="carousel-item">
+			<img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?stp=dst-jpg_s600x600&_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT-x3iB1L_ifm7jvYLOa1YTJ24hapBeqB4PK2tsMFmBX4Q&oe=62AF95DC" style="max-height: 50vh">
+		</div>
+	</div>
+</div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <a class="card-text">In Mariupol, the Russians finally refused to search for the bodies of those killed under the rubble. They began to demolish buildings
+This was announced by Petro Andryushchenko, adviser to the mayor of Mariupol.
+🔻 According to the adviser, the Left Bank district suffered the most from the shelling of the enemy "Grad" from late February – to early March.
+💬 “We will never know how many Mariupol residents died and remain under these blockages. They will be buried at the Left Bank landfill along with garbage. No words. Only anger, "Andryushchenko added
+(UA)
+У Маріуполі росіяни остаточно відмовилися від пошуку тіл загиблих під завалами. Вони перейшли до знесення будівель
+Про це повідомляє Петро Андрющенко, радник міського голови Маріуполя.
+🔻 За словами радника, Лівобережний район найбільше постраждав від обстрілів ворожих «Градів» наприкінці лютого – початку березня.
+💬 «Скільки маріупольців загинуло і досі під цими завалами – ми вже не дізнаємось ніколи. Разом зі сміттям вони будуть поховані на Лівобережному сміттезбірному полігоні. Нема слів. Лише лють», – додав Андрющенко</a>
+  </div>
+</div>*@

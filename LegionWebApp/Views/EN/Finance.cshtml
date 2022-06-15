@@ -2,47 +2,93 @@
 	ViewData["Title"] = "Finance aid";
 }
 
-<div>
-	<h4>CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»</h4>
-	<p>Postal address: 03142 Kyiv -142, box 28 / Поштова адреса: 03142, Київ-142, а/с 28;</p>
-	<p>e-mail: legion.charity@gmail.com:</p>
-	<h5><b>Attention! Be sure to include the name of the organization and the purpose of the payment</b></h5>
-	<p>Purpose of payment: <b>Charitable donation</b></p>
-	<p>Company Name: <b>CHARITABLE ORGANIZATION: «CHARITY FOUNDATION «LEGION» or CO “CF “Legion”</b></p>
-	<p><u>SWIFT transfers</u></p>
-	<p>EUR     Сompany Name: СО «CF «LEGION»</p>
-	<p>ID Code: 44899188</p>
-	<p>Name of the bank:</p>
-	<p>FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine</p>
-	<p>IBAN: UA803348510000000026001177709</p>
-	<p>SWIFT BIC: FUIBUA2X</p>
-	<p>Correspondent banks</p>
-	<ul>
-		<li>Commerzbank AG, Kaiserplatz, 60261, Frankfurt am Main, Germany SWIFT: COBADEFF</li>
-		<li>Raiffeisen Bank International AG Am Stadtpark, 9, A-1030,Vienna, Austria SWIFT: RZBAATWW</li>
-		<li>Landesbank Baden-Wurttemberg Germany, D-70173, Stuttgart, Am Hauptbahnhof, 2 SWIFT: SOLADEST</li>
-	</ul>
-	<p>USD     Сompany Name: СО «CF «LEGION»</p>
-	<p>ID Code: 44899188</p>
-	<p>Name of the bank:</p>
-	<p>FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine</p>
-	<p>IBAN: UA803348510000000026001177709</p>
-	<p>SWIFT BIC: FUIBUA2X</p>
-	<p>Correspondent banks</p>
-	<ul>
-		<li>JPMorgan Chase Bank N.A.* 270 Park Avenue, NY 10017, New York, United States SWIFT: CHASUS33</li>
-		<li>The Bank of New York Mellon 240 Greenwich Street, New York, NY 10286, United States SWIFT: IRVTUS3N</li>
-	</ul>
-	<p>GBP     Сompany Name: СО «CF «LEGION»</p>
-	<p>ID Code: 44899188</p>
-	<p>Name of the bank:</p>
-	<p>FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine</p>
-	<p>IBAN: UA803348510000000026001177709</p>
-	<p>SWIFT BIC: FUIBUA2X</p>
-	<p>Correspondent banks</p>
-	<ul>
-		<li>Raiffeisen Bank International AG Am Stadtpark, 9, A-1030, Vienna, Austria SWIFT: RZBAATWW</li>
-	</ul>
-	<p>PayPal</p>
-	<p>stepenkopaypal@gmail.com</p>
+<h4>CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»</h4>
+<address>
+	E-mail: <a href="mailto:legion.charity@gmail.com">legion.charity@gmail.com</a><br>
+	Postal address: 03142 Kyiv -142, box 28
+</address>
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">SWIFT transfers</h5>
+		<h6><b><p>Attention! Be sure to include the name of the organization and the purpose of the payment!</p></b></h6>
+		<table class="table table-striped table-hover table-sm">
+			<tbody>
+				<tr>
+					<td>Purpose of payment:</td>
+					<td><b>Charitable donation</b></td>
+				</tr>
+				<tr>
+					<td scope="row">Сompany Name:</td>
+					<td>СО «CF «LEGION»</td>
+				</tr>
+				<tr>
+					<td>ID Code:</td>
+					<td>44899188</td>
+				</tr>
+				<tr>
+					<td>Name of the bank:</td>
+					<td>FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine</td>
+				</tr>
+				<tr>
+					<td>IBAN:</td>
+					<td>UA803348510000000026001177709</td>
+				</tr>
+				<tr>
+					<td>SWIFT BIC:</td>
+					<td>FUIBUA2X</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="accordion" id="accordionExample">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="headingOne">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+						Correspondent banks: EUR
+					</button>
+				</h2>
+				<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<ul>
+							<li>Commerzbank AG, Kaiserplatz, 60261, Frankfurt am Main, Germany SWIFT: COBADEFF</li>
+							<li>Raiffeisen Bank International AG Am Stadtpark, 9, A-1030,Vienna, Austria SWIFT: RZBAATWW</li>
+							<li>Landesbank Baden-Wurttemberg Germany, D-70173, Stuttgart, Am Hauptbahnhof, 2 SWIFT: SOLADEST</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="headingTwo">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						Correspondent banks: USD
+					</button>
+				</h2>
+				<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<ul>
+							<li>JPMorgan Chase Bank N.A.* 270 Park Avenue, NY 10017, New York, United States SWIFT: CHASUS33</li>
+							<li>The Bank of New York Mellon 240 Greenwich Street, New York, NY 10286, United States SWIFT: IRVTUS3N</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="headingThree">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						Correspondent banks: GBP
+					</button>
+				</h2>
+				<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+					<div class="accordion-body">
+						<ul>
+							<li>Raiffeisen Bank International AG Am Stadtpark, 9, A-1030, Vienna, Austria SWIFT: RZBAATWW</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
