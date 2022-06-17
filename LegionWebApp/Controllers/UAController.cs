@@ -14,7 +14,7 @@ namespace LegionWebApp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Vechiles()
+        public IActionResult Vehicles()
         {
             return View();
         }

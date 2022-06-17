@@ -1,11 +1,17 @@
 ﻿@{
-	var temp = this.ViewContext.RouteData.Values["controller"];
+	var tempController = this.ViewContext.RouteData.Values["controller"];
+	var tempAction = this.ViewContext.RouteData.Values["action"];
 	string lang = "UA";
-	if (temp != null)
+	string view = "Index";
+	if (tempController != null)
 	{
 		lang = this.ViewContext.RouteData.Values["controller"].ToString();
 	}
-	string vechiles;
+		if (tempAction != null)
+	{
+		view = this.ViewContext.RouteData.Values["action"].ToString();
+	}
+	string Vehicles;
 	string needs;
 	string finance;
 	string about;
@@ -18,7 +24,7 @@
 	switch (lang)
 	{
 		case "EN":
-			vechiles = "Vechiles";
+			Vehicles = "Vehicles";
 			needs = "Constant Needs";
 			finance = "Finance Aid";
 			about = "About Us";
@@ -30,7 +36,7 @@
 			deActive = "";
 			break;
 		case "FR":
-			vechiles = "Véhicules de l'armée";
+			Vehicles = "Véhicules de l'armée";
 			needs = "Besoins permanents";
 			finance = "L'aide financière";
 			about = "À propos de nous";
@@ -42,7 +48,7 @@
 			deActive = "";
 			break;
 		case "DE":
-			vechiles = "Autos für die Armee";
+			Vehicles = "Autos für die Armee";
 			needs = "Hilfe bei Material und technischer Ausstattung";
 			finance = "Hilfe mit Geld";
 			about = "Über uns";
@@ -54,7 +60,7 @@
 			frActive = "";
 			break;
 		default:
-			vechiles = "Авто";
+			Vehicles = "Авто";
 			needs = "Потреби";
 			finance = "Фінансова";
 			about = "Про нас";
@@ -68,31 +74,28 @@
 	}
 }
 
-<div class="btn-group tn-group-sm float-end">
-	<a onclick="location.href='@Url.Action("About","UA")'" class="btn btn-outline-primary @uaActive">UA</a>
-	<a onclick="location.href='@Url.Action("About","EN")'" class="btn btn-outline-primary @enActive">EN</a>
-	<a onclick="location.href='@Url.Action("About","FR")'" class="btn btn-outline-primary @frActive">FR</a>
-	<a onclick="location.href='@Url.Action("About","DE")'" class="btn btn-outline-primary @deActive">DE</a>
+<div class="btn-group tn-group-sm float-sm-end">
+	<a onclick="location.href='@Url.Action(@view,"UA")'" class="btn btn-outline-primary @uaActive">UA</a>
+	<a onclick="location.href='@Url.Action(@view,"EN")'" class="btn btn-outline-primary @enActive">EN</a>
+	<a onclick="location.href='@Url.Action(@view,"FR")'" class="btn btn-outline-primary @frActive">FR</a>
+	<a onclick="location.href='@Url.Action(@view,"DE")'" class="btn btn-outline-primary @deActive">DE</a>
 </div>
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
 	<div class="container-fluid">
-		<a class="navbar-brand" asp-area="" asp-controller=@lang asp-action="About"><img src="https://legion-foundation.org/img/logo.png" width=100px; height=100px; /></a>
+		<a class="navbar-brand" asp-area="" asp-controller=@lang asp-action="Index"><img src="https://legion-foundation.org/img/logo.png" width=100px; height=100px; /></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 				aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
-
-
-
 		<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 			<ul class="navbar-nav flex-grow-1">
 				<li class="nav-item">
 					<a class="nav-link text-dark" asp-area="" asp-controller=EN asp-action="Index">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Vechiles">@vechiles</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Vehicles">@Vehicles</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Needs">@needs</a>
@@ -114,6 +117,7 @@
 				</li>
 			</ul>
 			<partial name="_LoginPartial" />
+
 		</div>
 	</div>
 </nav>
