@@ -41,10 +41,6 @@ namespace LegionWebApp.Controllers
         {
             return View();
         }
-        public IActionResult Details()
-        {
-            return View();
-        }
         public IActionResult Index()
         {
             return View();

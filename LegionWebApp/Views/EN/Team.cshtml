@@ -1,18 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Our Team";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer T
+@{
+    ViewData["Title"] = @T["Our Team"];
 }
 
 <div>
-    <h4>Our team</h4>
-    <h5>Founders</h5>
-    <p>Project Manager Mykola Stepenko</p>
-    <p>Director of the Foundation Alexander Nikiforov</p>
-    <h5>Team</h5>
+    <h4>@T["Our Team"]</h4>
+    <h5>@T["Founders"]</h5>
+    <p>@T["Project Manager Mykola Stepenko"]</p>
+    <p>@T["Director of the Foundation Alexander Nikiforov"]</p>
+    <h5>@T["Participants"]</h5>
     <ul>
-        <li>Volunteer consultant Yuriy Kondratiev</li>
-        <li>Media Communications Manager Anna Melnychenko</li>
-        <li>Manager in English-speaking countries Adelina Saharova</li>
-        <li>Manager in French-speaking countries - Victoria Azarova</li>
+        <li>@T["Volunteer consultant - Yuriy Kondratiev"]</li>
+        <li>@T["Media Communications Manager - Anna Melnychenko"]</li>
+        <li>@T["Manager in English-speaking countries - Adelina Saharova"]</li>
+        <li>@T["Manager in French-speaking countries - Victoria Azarova"]</li>
     </ul>
 </div>
 

@@ -1,7 +1,9 @@
 using LegionWebApp.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+builder.Services.AddPortableObjectLocalization()
+    .Configure<RequestLocalizationOptions>(options =>
+    {
+        var supportedCultures = new List<CultureInfo>
+        {
+            new CultureInfo("en-US"),
+            new CultureInfo("en-GB"),
+            new CultureInfo("uk-UA"),
+            new CultureInfo("fr-FR"),
+            new CultureInfo("de-DE"),
+        };
+        options.DefaultRequestCulture = new RequestCulture("en-Us");
+        options.SupportedCultures = supportedCultures;
+        options.SupportedUICultures = supportedCultures;
+    });
 
 var app = builder.Build();
 
@@ -43,6 +60,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRequestLocalization();
 
 app.MapControllerRoute(
     name: "default",

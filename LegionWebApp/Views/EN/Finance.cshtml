@@ -1,33 +1,35 @@
-﻿@{
-	ViewData["Title"] = "Finance aid";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer T
+@{
+	ViewData["Title"] = @T["Finance aid"];
 }
 
-<h4>CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»</h4>
+<h4>@T["CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"]</h4>
 <address>
-	E-mail: <a href="mailto:legion.charity@gmail.com">legion.charity@gmail.com</a><br>
-	Postal address: 03142 Kyiv -142, box 28
+	@T["E-mail"]: <a href="mailto:legion.charity@gmail.com">legion.charity@gmail.com</a><br>
+	@T["Postal address"]: @T["03142 Kyiv -142, box 28"]
 </address>
 <div class="card">
 	<div class="card-body">
-		<h5 class="card-title">SWIFT transfers</h5>
-		<h6><b><p>Attention! Be sure to include the name of the organization and the purpose of the payment!</p></b></h6>
+		<h5 class="card-title">SWIFT @T["transfers"]</h5>
+		<h6><b><p>@T["Attention"]! @T["Be sure to include the name of the organization and the purpose of the payment"]!</p></b></h6>
 		<table class="table table-striped table-hover table-sm">
 			<tbody>
 				<tr>
-					<td>Purpose of payment:</td>
-					<td><b>Charitable donation</b></td>
+					<td>@T["Purpose of payment"]:</td>
+					<td><b>@T["Charitable donation"]</b></td>
 				</tr>
 				<tr>
-					<td scope="row">Сompany Name:</td>
-					<td>СО «CF «LEGION»</td>
+					<td scope="row">@T["Сompany Name"]:</td>
+					<td>@T["CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"] @T["or"] @T["СО «CF «LEGION»"]</td>
 				</tr>
 				<tr>
-					<td>ID Code:</td>
+					<td>@T["ID Code"]:</td>
 					<td>44899188</td>
 				</tr>
 				<tr>
-					<td>Name of the bank:</td>
-					<td>FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine</td>
+					<td>@T["Name of the bank"]:</td>
+					<td>@T["FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine"]</td>
 				</tr>
 				<tr>
 					<td>IBAN:</td>
@@ -43,7 +45,7 @@
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingOne">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						Correspondent banks: EUR
+						@T["Correspondent banks"]: EUR
 					</button>
 				</h2>
 				<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -60,7 +62,7 @@
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingTwo">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						Correspondent banks: USD
+						@T["Correspondent banks"]: USD
 					</button>
 				</h2>
 				<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -75,7 +77,7 @@
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingThree">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						Correspondent banks: GBP
+						@T["Correspondent banks"]: GBP
 					</button>
 				</h2>
 				<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -92,8 +94,8 @@
 <br />
 <div class="card">
 	<div class="card-body">
-		<h5 class="card-title">PayPal transfers</h5>
-		Amount in U.S. dollars: <input type="text" name="paypal-amount" size="7" /> <div id="paypal-button-container" style="max-width: 300px"></div>
+		<h5 class="card-title">PayPal @T["transfers"]</h5>
+		@T["Amount in U.S. dollars"]: <input type="text" name="paypal-amount" size="7" /> <div id="paypal-button-container" style="max-width: 300px"></div>
 
 	</div>
 </div>

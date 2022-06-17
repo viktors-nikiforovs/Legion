@@ -1,13 +1,15 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer T
+@{
 	var tempController = this.ViewContext.RouteData.Values["controller"];
 	var tempAction = this.ViewContext.RouteData.Values["action"];
-	string lang = "UA";
+	string lang = "EN";
 	string view = "Index";
 	if (tempController != null)
 	{
-		lang = this.ViewContext.RouteData.Values["controller"].ToString();
+		//lang = this.ViewContext.RouteData.Values["controller"].ToString();
 	}
-		if (tempAction != null)
+	if (tempAction != null)
 	{
 		view = this.ViewContext.RouteData.Values["action"].ToString();
 	}
@@ -74,12 +76,7 @@
 	}
 }
 
-<div class="btn-group tn-group-sm float-sm-end">
-	<a onclick="location.href='@Url.Action(@view,"UA")'" class="btn btn-outline-primary @uaActive">UA</a>
-	<a onclick="location.href='@Url.Action(@view,"EN")'" class="btn btn-outline-primary @enActive">EN</a>
-	<a onclick="location.href='@Url.Action(@view,"FR")'" class="btn btn-outline-primary @frActive">FR</a>
-	<a onclick="location.href='@Url.Action(@view,"DE")'" class="btn btn-outline-primary @deActive">DE</a>
-</div>
+
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
@@ -92,30 +89,33 @@
 		<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 			<ul class="navbar-nav flex-grow-1">
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=EN asp-action="Index">Home</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Index">@T["Home"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Vehicles">@Vehicles</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Vehicles">@T["Vehicles"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Needs">@needs</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Needs">@T["Constant Needs"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Finance">@finance</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Finance">@T["Finance Aid"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="About">@about</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="About">@T["About Us"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Team">@team</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Team">@T["Our Team"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Contact">@contact</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-dark" asp-area="" asp-controller=EN asp-action="Details">Media</a>
+					<a class="nav-link text-dark" asp-area="" asp-controller=@lang asp-action="Contact">@T["Contact Us"]</a>
 				</li>
 			</ul>
+			@*<div class="langbar btn-group tn-group-sm">
+				<a onclick="location.href='@Url.Action(@view,"UA")'" class="btn btn-outline-primary @uaActive">UA</a>
+				<a onclick="location.href='@Url.Action(@view,"EN")'" class="btn btn-outline-primary @enActive">EN</a>
+				<a onclick="location.href='@Url.Action(@view,"FR")'" class="btn btn-outline-primary @frActive">FR</a>
+				<a onclick="location.href='@Url.Action(@view,"DE")'" class="btn btn-outline-primary @deActive">DE</a>
+			</div>*@
 			<partial name="_LoginPartial" />
 
 		</div>

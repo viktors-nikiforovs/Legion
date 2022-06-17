@@ -1,0 +1,265 @@
+﻿msgid "Login"
+msgstr "Входу"
+
+msgid "Vehicles"
+msgstr "Авто"
+
+msgid "Constant Needs"
+msgstr "Потреби"
+
+msgid "Finance Aid"
+msgstr "Фінансова"
+
+msgid "About Us"
+msgstr "Про Нас"
+
+msgid "Our Team"
+msgstr "Команда"
+
+msgid "Contact Us"
+msgstr "Контакти"
+
+msgid "Login"
+msgstr "Входу"
+
+msgid "Home"
+msgstr "Домашня сторінка"
+
+msgid "CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
+msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ «БЛАГОДІЙНИЙ ФОНД «ЛЕГІОН»
+CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
+
+msgid "Postal address"
+msgstr "Поштова адреса"
+
+msgid "03142 Kyiv -142, post office 28"
+msgstr "03142, Київ-142, а/с 28;"
+
+msgid "Attention"
+msgstr "Увага"
+
+msgid "Be sure to include the name of the organization and the purpose of the payment"
+msgstr "Обов’язково вказуйте назву організації та призначення платежу"
+
+msgid "Charitable donation"
+msgstr "Благодійний внесок"
+
+msgid "Сompany Name"
+msgstr "Назва підприємства"
+
+msgid "or"
+msgstr "або"
+
+msgid "СО «CF «LEGION»"
+msgstr "БО «БФ «Легіон»"
+
+msgid "ID Code"
+msgstr "ЄДРПОУ"
+
+msgid "Name of the bank"
+msgstr "Назва банку"
+
+msgid "FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine"
+msgstr "ПЕРШИЙ УКРАЇНСЬКИЙ МІЖНАРОДНИЙ БАНК (ПУМБ) ул. Андріївська 4, Киев, 04070, Украина"
+
+msgid "transfers"
+msgstr "перекази"
+
+msgid "Amount in U.S. dollars"
+msgstr "Сума в доларах США"
+
+msgid "E-Mail"
+msgstr "Електронна пошта"
+
+msgid "Charitable Foundation “Legion” was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
+msgstr "Благодійний фонд «Легіон» заснований на наприкінці квітня 2022 року у Києві. Діяльність фонду спрямована на матеріально-технічну підтримку ЗСУ та інших підрозділів, що беруть участь у бойових діях, захищаючи цивільне населення, мирні міста та суверенітет України. Фонд не постачає використовує!"
+
+msgid "We provide reporting in videos and photos, documents, and acts of transfer."
+msgstr "Ми надаємо звітність у вигляді відео та фотоматеріалів, документів та актів передачі."
+
+msgid "Since the invasion began on February 24th, the world was shocked by the Russian military's targeting of civilians and children. Russian artillery and rockets continue to destroy civilian infrastructure, homes, and communities. Inhabitants of captured territories suffer from the daily brutality of Russian military occupation."
+msgstr "З лютого 2022 року, коли російська армія розпочала повномасштабне вторгнення на територію України весь світ зрозумів, що Росія вбиває цивільних людей та дітей. Зупинити окупантів можуть лише українські захисники, які потребують підтримки. Українські воїни вже демонстрували свою мужність, стійкість та професіоналізм у бойових діях, чим завоювали авторитет в нашому світі."
+
+msgid "Despite ongoing international support from our European and American allies on the diplomatic, economic, and military fronts; the soldiers of Ukraine continue to struggle with material and logistics shortages. The Charitable Foundation Legion is in constant contact with the Ukrainian military, that we can quickly respond when need arises. With the help of your donations, the volunteers of the Charitable Foundation “Legion” can become a reliable logistic supplier for our defenders."
+msgstr "Західні партнери-допомоги допомагають нам перемагати на економічному, економічному та воєнному фронтах, проте наші захисники все ще мають потреби в матеріально-технічному забезпеченні. Ми тримаємо український постійний зв’язок із військовими, тому можемо швидко реагувати та задовольняти їхні потреби. Волонтери благодійного фонду «Легіон» за допомогою ваших донатів можуть бути надійним тилом для наших захисників."
+
+msgid "By helping us, you will be saving the lives of Ukrainian defenders. Their families are waiting for them to return home!"
+msgstr "Допомагаючи нам ви рятуєте життя українських військових. На них чекають вдома!"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "We are on social media"
+msgstr "Ми в соцмережах"
+
+msgid "Kyiv, 45 Peremohy Avenue"
+msgstr "Київ, Проспект Перемоги 45"
+
+msgid "Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."
+msgstr "Авіаракетні удари по Донеччині — окупанти вбили мирних жителів і зруйнували будинки."
+
+msgid "@T["During the day the Russians fired on 14 settlements."]"
+msgstr "За добу росіяни обстріляли 14 населених пунктів."
+
+msgid "They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."
+msgstr "Били авіацією, ракетами «Іскандер», РСЗВ «Ураган» і «Смерч», артилерією, танками. "
+
+msgid "There are civilians killed."
+msgstr "Є загиблі цивільні мешканці. "
+
+msgid "37 civilian facilities were destroyed, including 26 residential buildings, 2 schools, a farm, grain warehouses, a railway station, an administrative building, etc."
+msgstr "Руйнувань зазнали 37 цивільних об’єктів, з них - 26 житлових будинків, 2 школи, ферма, склади із зерном, залізнична станція, адмінбудівля тощо."
+
+msgid "Last updated"
+msgstr "Останнє оновлення"
+
+msgid "mins"
+msgstr "хвилин"
+
+msgid "ago"
+msgstr "тому"
+
+msgid "Eight houses, including apartment houses, were destroyed as a result of night shelling of Mykolaiv. There are dead and wounded people."
+msgstr "Вісім будинків, в тому числі  багатоквартирних, зруйновано внаслідок нічного обстрілу Миколаєва. Є загиблі і поранені люди."
+
+msgid "Ukrainian soldiers sleep in the trenches."
+msgstr "Українські воїни сплять в окопах."
+
+msgid "This is what the Svyatogorsk Lavra looks like now. The Russians shelled the Lavra."
+msgstr "Так зараз виглядає обстріляна ворогом Святогірська лавра."
+
+msgid "On June 5, the enemy fired on the Holy Dormition Svyatogorsk Lavra in the Donetsk region. As a result of this attack, the wooden All Saints Monastery of the Lavra caught fire."
+msgstr "5 червня ворог обстріляв Свято-Успенську Святогірську лавру, що на Донеччині. Внаслідок цієї атаки загорівся дерев‘яний Всіхсвятський скит лаври. "
+
+msgid "This is not only a sacred place, but also a shelter – at the time of the shelling in the temple were migrants, including children, the elderly, and people with disabilities."
+msgstr "Це не лише священне місце, але й прихисток — на момент обстрілу у храмі перебували переселенці, серед яких діти, літні люди та люди з інвалідністю."
+
+msgid "Constant needs of the armed forces of Ukraine"
+msgstr "Постійні потреби для ЗСУ"
+
+msgid "Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."
+msgstr "Ще один спосіб допомоги – самостійно придбати оснащення для армії та переслати його фонду. Технічне оснащення, засоби індивідуального захисту та медикаменти будуть відправлені до військових частин відповідно до заявок."
+
+msgid "The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"
+msgstr "Посилку можна відправити на наш склад. Перед відправкою зв’яжіться з нами за номером: +380960177075 або напишіть листа на "
+
+msgid "First aid kit IFAK II"
+msgstr "Аптечка IFAK II"
+
+msgid "Tactical medical bags (Fully Stocked)"
+msgstr "Медичні тактичні сумки (укомплектовані)"
+
+msgid "Tactical boots like Lowa (seasonal, medium height - 6 ()"
+msgstr "Тактичні ботинки типу Lowa (сезонні, середньої висоти - 6″)"
+
+msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
+msgstr "Комплекти тактичної форми (непромокаючі куртка + штани) ECWCS GEN III Level 6 PACLITE"
+
+msgid "Tactical gloves (5.11, Mechanix, Blackhawk, Helikon, Oakey)"
+msgstr "Рукавички тактичні( 5.11, Mechanix, Blackhawk, Helikon, Oakey)"
+
+msgid "Tactical belts"
+msgstr "Пояс тактичний"
+
+msgid "Tactical eyewear and ballistic glasses"
+msgstr "Окуляри тактичні"
+
+msgid "Encrypted Radios with headset"
+msgstr "Рації з гарнітурною"
+
+msgid "MOLLE belt & harness"
+msgstr "Ремінно-пояснична система з молями (розгрузка)"
+
+msgid "Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"
+msgstr "Бронежилет 4, 5 клас захисту на молях (NIJ III+)"
+
+msgid "Helmets (The required standard is NIJ level IIIA)"//
+msgstr "Шолом балістичний з ЧОХЛОМ (FAST)"
+
+msgid "Shooting Earmuffs (ear protection for shooting)"
+msgstr "Навушники активні"
+
+msgid "Rechargeable flashlights"
+msgstr "Ліхтарі (з підзарядкою)"
+
+msgid "Thermal imaging monoculars (ARCHER ТМА30М/55М) analog: (detection 1700m +, recognition 430m +, identification 215m +)"
+msgstr "Тепловізори типу (ARCHER ТМА30М/55М) або аналог: (виявлення 1700м+, розпізнавання 430м+, ідентифікація 215м+)"
+
+msgid "Tactical periscopes UZI 5x20 CR"
+msgstr "Перископи тактичні UZI 5x20 CR"
+
+msgid "Drones: AUTEL EVO II PRO; camera: Yunecc E30Z, CAR EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"
+msgstr "Дрони: AUTEL EVO II PRO; камера Yunecc E30Z; AUTEL EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"
+
+msgid "Phone Power Banks"
+msgstr "Повербанк для телефона"
+
+msgid "Computer Power Banks"
+msgstr "Повербанк для ноутбука"
+
+msgid "Tactical Backpacks"
+msgstr "Рюкзак"
+
+msgid "Army Ration Packs (dehydrated)"
+msgstr "Сухпайки армійські сублімовані"
+
+msgid "Tactical knee pads"
+msgstr "Наколінники"
+
+msgid "Tactical elbow pads"
+msgstr "Налокітники"
+
+msgid "Founders"
+msgstr "Засновники фонду"
+
+msgid "Project Manager - Mykola Stepenko"
+msgstr "Керівник проекту - Микола Степенко"
+
+msgid "Director of the Foundation Alexander Nikiforov"
+msgstr "Директор Фонду - Олександр Нікіфоров"
+
+msgid "Participants"
+msgstr "Учасники"
+
+msgid "Volunteer consultant - Yuriy Kondratiev"
+msgstr "Волонтер-консультант - Юрій Кондратьєв"
+
+msgid "Media Communications Manager - Anna Melnychenko"
+msgstr "Менеджер з медіакомунікацій - Анна Мельниченко"
+
+msgid "Manager in English-speaking countries - Adelina Saharova"
+msgstr "Менеджер по англомовних країнах - Аделіна Сахарова"
+
+msgid "Manager in French-speaking countries - Victoria Azarova"
+msgstr "Менеджер по франкомовних країнах - Вікторія Азарова"
+
+msgid "Vehicles for the Armed Forces of Ukraine"
+msgstr "Автомобілі для армії"
+
+msgid "Currently, the demand for military transport far exceeds the capability of state support."
+msgstr "Наразі запит на транспорт для військових потреб значно перевищує можливості державного забезпечення."
+
+msgid "The army needs vehicles to:"
+msgstr "Автомобілі:"
+
+msgid "increase the mobility of troops"
+msgstr "підвищують мобільність військ"
+
+msgid "improve the material and technical capabilities of units"
+msgstr "покращують логістичні можливості підрозділів"
+
+msgid "save the lives of soldiers"
+msgstr "рятують життя воїнів"
+
+msgid "The army needs diesel pickups, SUVs, minibuses, and other all-terrain vehicles. This fund will use your donations on the necessary transport for the Armed Forces of Ukraine."
+msgstr "Армії потрібні дизельні пікапи, позашляховики, мікроавтобуси та інші види автомобілів. За ваші внески Благодійний фонд «Легіон» придбає необхідний транспорт для Збройних Сил України."
+
+msgid "Every dollar will help save lives!"
+msgstr "Навіть невеликі внески можуть врятувати життя"
+
+msgid "home"
+msgstr "home"
+
+msgid "home"
+msgstr "home"
+

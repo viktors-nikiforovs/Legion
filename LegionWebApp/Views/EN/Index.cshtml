@@ -1,86 +1,73 @@
-﻿@{
-	ViewData["Title"] = "Homepage";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer T
+@{
+	ViewData["Title"] = @T["Home"];
 }
 
-<div class="card" onload="getPics()">
-	<div class="card-header">Special title treatment</div>
+<div class="card shadow-lg" onload="getPics()">
+	<div class="card-header">@T["Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."]</div>
 	<div class="card-body">
 		<div class="card-text">
-			In Mariupol, the Russians finally refused to search for the bodies of those killed under the rubble. They began to demolish buildings
-			This was announced by Petro Andryushchenko, adviser to the mayor of Mariupol.
-			🔻 According to the adviser, the Left Bank district suffered the most from the shelling of the enemy "Grad" from late February – to early March.
-			💬 “We will never know how many Mariupol residents died and remain under these blockages. They will be buried at the Left Bank landfill along with garbage. No words. Only anger, "Andryushchenko added
+			<ul>
+				<li>@T["During the day the Russians fired on 14 settlements."]</li>
+				<li>@T["They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."]</li>
+				<li>@T["There are civilians killed."]</li>
+				<li>@T["37 civilian facilities were destroyed, including 26 residential buildings, 2 schools, a farm, grain warehouses, a railway station, an administrative building, etc."]</li>
+			</ul>
 		</div>
-		<div>
-			<div class="feed-image-container">
-				<img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287057443_125729096803075_4310234095164717315_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=VrtamXeM2JcAX8Nm048&_nc_ht=scontent.fman4-2.fna&oh=00_AT8dczKlVxiNbUCLKVRDUDlE1hbcHjqY0PQjvrDj3HAS_g&oe=62B103C4" class="w-100" alt="...">
-			</div>
-			<div>
-				<div class="feed-thumbnail"><img class="myImg" src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT9T2LRRSGfDAN9AnlXgGeCxcYiV6Io7aN80VSbOxAS84Q&oe=62AF95DC" alt="..."></div>
-				<div class="feed-thumbnail"><img class="myImg" src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=VsFfe6eg-JQAX__wCwu&_nc_ht=scontent.fman4-2.fna&oh=00_AT8Qga9OkHzLLmMe0HIf4R4PMPPai7e0RbQ1Gs2-0APyHw&oe=62B156DF" alt="..."></div>
-				<div class="feed-thumbnail"><img class="myImg" src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287147949_125929316783053_5582929333444152524_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=eBL31YNEyhgAX9wIdPH&_nc_ht=scontent.fman4-1.fna&oh=00_AT_Q7P4c9N9Ci2lkTUuEug5R-b-ke0gLxKT-IG5Y9W2EMw&oe=62B01B8A" alt="..."></div>
-			</div>
-		</div>
-		<div class="card-footer w-100 float-start">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
+		<div class="feed-image-container img-mag"><img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT-KYzGYoPG4-L3XxkyURTxwnrl-r2ctbVSc1ilEea00qA&oe=62B23B21" class="w-100" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT9T2LRRSGfDAN9AnlXgGeCxcYiV6Io7aN80VSbOxAS84Q&oe=62AF95DC" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=VsFfe6eg-JQAX__wCwu&_nc_ht=scontent.fman4-2.fna&oh=00_AT8Qga9OkHzLLmMe0HIf4R4PMPPai7e0RbQ1Gs2-0APyHw&oe=62B156DF" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287147949_125929316783053_5582929333444152524_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=eBL31YNEyhgAX9wIdPH&_nc_ht=scontent.fman4-1.fna&oh=00_AT_Q7P4c9N9Ci2lkTUuEug5R-b-ke0gLxKT-IG5Y9W2EMw&oe=62B01B8A" alt="..."></div>
+		<div class="card-footer text-muted">@T["Last updated"] 3 @T["mins"] @T["ago"]</div>
 	</div>
 </div>
-<div class="card">
-	<div class="card-header">Special title treatment</div>
+<div class="card shadow-lg">
+	<div class="card-header">@T["This is what the Svyatogorsk Lavra looks like now. The Russians shelled the Lavra."]</div>
 	<div class="card-body">
 		<div class="card-text">
-			In Mariupol, the Russians finally refused to search for the bodies of those killed under the rubble. They began to demolish buildings
-			This was announced by Petro Andryushchenko, adviser to the mayor of Mariupol.
-			🔻 According to the adviser, the Left Bank district suffered the most from the shelling of the enemy "Grad" from late February – to early March.
-			💬 “We will never know how many Mariupol residents died and remain under these blockages. They will be buried at the Left Bank landfill along with garbage. No words. Only anger, "Andryushchenko added
+			<p>@T["On June 5, the enemy fired on the Holy Dormition Svyatogorsk Lavra in the Donetsk region. As a result of this attack, the wooden All Saints Monastery of the Lavra caught fire."]</p>
+			<p>@T["This is not only a sacred place, but also a shelter – at the time of the shelling in the temple were migrants, including children, the elderly, and people with disabilities."]</p>
 		</div>
-		<div>
-			<div class="feed-image-container">
-				<img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT8GBRMNz0JtAx-yqcRcBM6lLqN5v1TLUc8krTOFezZtFg&oe=62B040E1" class="w-100" alt="...">
-			</div>
-			<div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT9T2LRRSGfDAN9AnlXgGeCxcYiV6Io7aN80VSbOxAS84Q&oe=62AF95DC" alt="..."></div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=VsFfe6eg-JQAX__wCwu&_nc_ht=scontent.fman4-2.fna&oh=00_AT8Qga9OkHzLLmMe0HIf4R4PMPPai7e0RbQ1Gs2-0APyHw&oe=62B156DF" alt="..."></div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287147949_125929316783053_5582929333444152524_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=eBL31YNEyhgAX9wIdPH&_nc_ht=scontent.fman4-1.fna&oh=00_AT_Q7P4c9N9Ci2lkTUuEug5R-b-ke0gLxKT-IG5Y9W2EMw&oe=62B01B8A" alt="..."></div>
-			</div>
-		</div>
-		<div class="card-footer w-100 float-start">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
+		<div class="feed-image-container img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287057443_125729096803075_4310234095164717315_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=VrtamXeM2JcAX8Nm048&_nc_ht=scontent.fman4-2.fna&oh=00_AT8dczKlVxiNbUCLKVRDUDlE1hbcHjqY0PQjvrDj3HAS_g&oe=62B103C4" class="w-100" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/286640595_125729383469713_1511759960370523929_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=6CeIir8UkZMAX_Fa-fG&_nc_ht=scontent.fman4-1.fna&oh=00_AT-uJq6J2h6jhy_0EVyYG2qcTB1rs2Q_UA5sb8d94t2jsw&oe=62B1239D" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286609107_125729390136379_3398376844807960439_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=jREoaqed72oAX_92FLy&_nc_ht=scontent.fman4-2.fna&oh=00_AT9Yj6nGK9V0TfNChBqhm7eo6ngtU7tDEaSGpF9xbhU-kA&oe=62B219B3" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286575093_125729370136381_5104849041083471742_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=H38TR8D2EPsAX_bWAwk&_nc_ht=scontent.fman4-2.fna&oh=00_AT9oM83cUqUQNUDNlu0AKeWb6x5VB-yKQLRbg-fRCC8Wgg&oe=62B11A5D" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286576187_125729106803074_6806028061027945970_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=n8JPbvcVBwEAX9D-l5q&_nc_ht=scontent.fman4-2.fna&oh=00_AT8vpJQlh7EIpyn2cdMegl2JC8edWNwzydwcJTys0yQLSA&oe=62B19694" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286500073_125729373469714_1165209283738694902_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=3JJJQUGgB6MAX8GbpvO&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT8ObMbb0IELj8zRYRKTqLoB6rtZx7SVBO8p9U9jaQujfw&oe=62B1FB40" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286616741_125729410136377_5102791473047975867_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=iFkdMud8_7IAX_vsyo5&_nc_ht=scontent.fman4-2.fna&oh=00_AT8T-FjeW0KKn6R99Yo0kV8sIygLGVMsM6bSL4Ab00sqVQ&oe=62B1E20A" alt="..."></div>
 	</div>
+	<div class="card-footer text-muted">@T["Last updated"] 3 @T["mins"] @T["ago"]</div>
 </div>
-<div class="card">
-	<div class="card-header">Special title treatment</div>
+
+<div class="card shadow-lg">
+	<div class="card-header">@T["Eight houses, including apartment houses, were destroyed as a result of night shelling of Mykolaiv. There are dead and wounded people."]</div>
 	<div class="card-body">
 		<div class="card-text">
-			In Mariupol, the Russians finally refused to search for the bodies of those killed under the rubble. They began to demolish buildings
-			This was announced by Petro Andryushchenko, adviser to the mayor of Mariupol.
-			🔻 According to the adviser, the Left Bank district suffered the most from the shelling of the enemy "Grad" from late February – to early March.
-			💬 “We will never know how many Mariupol residents died and remain under these blockages. They will be buried at the Left Bank landfill along with garbage. No words. Only anger, "Andryushchenko added
 		</div>
-		<div>
-			<div class="feed-image-container">
-				<img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287058627_125929193449732_854106266848488374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=HAg1NGmg89UAX-Ch3BH&_nc_ht=scontent.fman4-1.fna&oh=00_AT8GBRMNz0JtAx-yqcRcBM6lLqN5v1TLUc8krTOFezZtFg&oe=62B040E1" class="w-100" alt="...">
-			</div>
-			<div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/287096976_125929230116395_6089542917522893059_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=LaZmoXrEILQAX8ZE3sT&tn=fgL6Lf3dUNelMLsC&_nc_ht=scontent.fman4-2.fna&oh=00_AT9T2LRRSGfDAN9AnlXgGeCxcYiV6Io7aN80VSbOxAS84Q&oe=62AF95DC" alt="..."></div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286940304_125929233449728_5766477109203602652_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=VsFfe6eg-JQAX__wCwu&_nc_ht=scontent.fman4-2.fna&oh=00_AT8Qga9OkHzLLmMe0HIf4R4PMPPai7e0RbQ1Gs2-0APyHw&oe=62B156DF" alt="..."></div>
-				<div class="feed-thumbnail"><img src="https://scontent.fman4-1.fna.fbcdn.net/v/t39.30808-6/287147949_125929316783053_5582929333444152524_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=eBL31YNEyhgAX9wIdPH&_nc_ht=scontent.fman4-1.fna&oh=00_AT_Q7P4c9N9Ci2lkTUuEug5R-b-ke0gLxKT-IG5Y9W2EMw&oe=62B01B8A" alt="..."></div>
-			</div>
-		</div>
-		<div class="card-footer w-100 float-start">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
+		<div class="feed-image-container img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286465078_125579373484714_8975844857932155693_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1yldbKv1xDsAX9RpczN&_nc_ht=scontent.fman4-2.fna&oh=00_AT_zWLhVQBi1gvv1pExtJvH4NDysLXfMNO4b85n07qHiJg&oe=62B0B99A" class="w-100" alt="..."></div>
+		<div class="feed-thumbnail img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/286445285_125579380151380_8991524292605363682_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=WYivYZ90yXYAX_jIZwo&_nc_ht=scontent.fman4-2.fna&oh=00_AT8ch3P0jlp8rPjWSeGbZXWZKqOY1pFAST6C1KdUMHJESw&oe=62B1B536" alt="..."></div>
 	</div>
+	<div class="card-footer text-muted">@T["Last updated"] 3 @T["mins"] @T["ago"]</div>
 </div>
+
+<div class="card shadow-lg">
+	<div class="card-header">@T["Ukrainian soldiers sleep in the trenches."]</div>
+	<div class="card-body">
+		<div class="card-text">
+		</div>
+		<div class="feed-image-container img-mag"><img src="https://scontent.fman4-2.fna.fbcdn.net/v/t39.30808-6/284270658_125553393487312_5869838943110578942_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=xlp6WudXOPwAX87MIBf&_nc_ht=scontent.fman4-2.fna&oh=00_AT8WNRc5rpTY0e3Jbup0BiaUgg8UBgOjUhwaQkISIrf4Fg&oe=62B11F2A" class="w-100" alt="..."></div>
+	</div>
+	<div class="card-footer text-muted">@T["Last updated"] 3 @T["mins"] @T["ago"]</div>
+</div>
+
+
+
 
 <div id="fullpage" onclick="this.style.display='none';"></div>
-
-
 <script>
 	function getPics() { } //just for this demo
-	const imgs = document.querySelectorAll('.card-body img');
+	const imgs = document.querySelectorAll('.img-mag img');
 	const fullPage = document.querySelector('#fullpage');
 
 	imgs.forEach(img => {

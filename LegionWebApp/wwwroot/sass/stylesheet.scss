@@ -18,8 +18,9 @@
     height: auto;
 }
 
-.feed-thumbnail:has(img:hover) {
+.img-mag:hover {
     cursor: zoom-in;
+    opacity: 0.7;
 }
 .feed-thumbnail img {
     width: 100%;
@@ -27,9 +28,7 @@
     object-fit: cover;
     aspect-ratio: 1/1;
 }
-.card {
-    margin-bottom: 1rem !important;
-}
+
 
 #fullpage {
     display: none;
@@ -43,7 +42,24 @@
     background-repeat: no-repeat no-repeat;
     background-position: center center;
     background-color: black;
+    cursor: zoom-out;
 }
-
+.langbar {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+}
+.card {
+    margin-bottom: 1.5rem;
+}
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.card-body {
+    margin-bottom: 2rem;
+    
+}
 
 @import "../lib/bootstrap/dist/scss/bootstrap";
