@@ -34,7 +34,7 @@ builder.Services.AddPortableObjectLocalization()
             new CultureInfo("fr-FR"),
             new CultureInfo("de-DE"),
         };
-        options.DefaultRequestCulture = new RequestCulture("en-Us");
+        options.DefaultRequestCulture = new RequestCulture("uk-UA");
         options.SupportedCultures = supportedCultures;
         options.SupportedUICultures = supportedCultures;
     });
