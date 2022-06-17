@@ -1,0 +1,272 @@
+﻿msgid "Login"
+msgstr "Anmeldung"
+
+msgid "Vehicles"
+msgstr "Autos"
+
+msgid "Constant Needs"
+msgstr "Hilfe bei Material und technischer Ausstattung"
+
+msgid "Finance Aid"
+msgstr "Hilfe mit Geld"
+
+msgid "About Us"
+msgstr "Über uns"
+
+msgid "Our Team"
+msgstr "Unser Team"
+
+msgid "Contact Us"
+msgstr "Kontakte"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Purpose of payment"
+msgstr "Der Zahlungszweck"
+
+msgid "CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
+msgstr "WOHLTÄTIGE ORGANISATION «CHARITY FOUNDATION «LEGION»"
+
+msgid "Postal address"
+msgstr "Postfach"
+
+msgid "03142 Kyiv -142, post office 28"
+msgstr "03142, Kiew-142, Postfach 28"
+
+msgid "Attention"
+msgstr "Achtung"
+
+msgid "Be sure to include the name of the organization and the purpose of the payment"
+msgstr "Achten Sie darauf, den Namen der Organisation und den Zweck der Zahlung anzugeben"
+
+msgid "Charitable donation"
+msgstr "Der Zahlungszweck"
+
+msgid "Сompany Name"
+msgstr "Der Name der Firma"
+
+msgid "or"
+msgstr "oder"
+
+msgid "СО «CF «LEGION»"
+msgstr "СО «CF «LEGION»"
+
+msgid "ID Code"
+msgstr "ID Code"
+
+msgid "Name of the bank"
+msgstr "Der Name der Bank"
+
+msgid "FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine"
+msgstr "ERSTE UKRAINISCHE INTERNATIONALE BANK St. Andriyivska 4, Kyjiw, 04070, Ukraine"
+
+msgid "transfers"
+msgstr "Überweisungen"
+
+msgid "Amount in U.S. dollars"
+msgstr "Betrag in US-Dollar"
+
+msgid "E-Mail"
+msgstr "Email"
+
+msgid "Charitable Foundation «Legion» was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
+msgstr "Die «Legion» Wohltätigkeitsstiftung wurde Ende April 2022 in Kiew gegründet. Die Tätigkeit der Stiftung zielt auf die materialle und technischer Unterstützung der Streitkräfte der Ukraine und anderer Unterabschnitt, die an Feindseligkeiten teilnehmen, zum Schutz der Zivilbevölkerung, friedlicher Städte und der Souveränität der Ukraine. Die Stiftung liefert keine Waffen!"
+
+msgid "We provide reporting in videos and photos, documents, and acts of transfer."
+msgstr "Wir liefern Berichterstattung in Form von Video- und Fotomaterial, Dokumenten und Übertragungsakten."
+
+msgid "Since the invasion began on February 24th, the world was shocked by the Russian military's targeting of civilians and children. Russian artillery and rockets continue to destroy civilian infrastructure, homes, and communities. Inhabitants of captured territories suffer from the daily brutality of Russian military occupation."
+msgstr "Seit Februar 2022, als die russische Armee eine umfassende Invasion der Ukraine startete, hat die ganze Welt verstanden, dass Russland Zivilisten und Kinder tötet. Nur ukrainische Verteidiger, die Unterstützung brauchen, können die Eindringlinge aufhalten. Ukrainische Soldaten haben bereits ihren Mut, ihre Widerstandsfähigkeit und ihre Professionalität in Kampfhandlungen unter Beweis gestellt, was weltweit Ansehen erlangt hat."
+
+msgid "Despite ongoing international support from our European and American allies on the diplomatic, economic, and military fronts; the soldiers of Ukraine continue to struggle with material and logistics shortages. The Charitable Foundation Legion is in constant contact with the Ukrainian military, that we can quickly respond when need arises. With the help of your donations, the volunteers of the Charitable Foundation “Legion” can become a reliable logistic supplier for our defenders."
+msgstr "Westliche Partner helfen uns, an der diplomatischen, wirtschaftlichen und militärischen Fronten zu gewinnen, aber unsere Verteidiger brauchen immer noch logistische Unterstützung. Wir stehen in ständiger Kommunikation mit dem ukrainischen Militär, damit wir schnell reagieren und ihre Bedürfnisse erfüllen können. Freiwillige der “Legion” Wohltätigkeitsstiftung können mit Hilfe Ihrer Spenden ein zuverlässiger Rückhalt für unsere Verteidiger sein."
+
+msgid "By helping us, you will be saving the lives of Ukrainian defenders. Their families are waiting for them to return home!"
+msgstr "Indem Sie uns helfen, retten Sie das Leben des ukrainischen Militärs. Sie werden zu Hause erwartet!"
+
+msgid "Phone"
+msgstr "Telefone"
+
+msgid "We are on social media"
+msgstr "Wir sind in den sozialen Medien"
+
+msgid "Kyiv, 45 Peremohy Avenue"
+msgstr "Kyjiw, Prospekt Peremohy 45"
+
+msgid "Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."
+msgstr "Raketenangriffe auf die Region Donezk - Besatzer töteten Zivilisten und zerstörten Häuser."
+
+msgid "During the day the Russians fired on 14 settlements."
+msgstr "Tagsüber beschossen die Russen 14 Siedlungen."
+
+msgid "They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."
+msgstr "Sie setzten Flugzeuge, Iskander-Raketen, Hurricane und Tornado MLRS, Artillerie und Panzer ein."
+
+msgid "There are civilians killed."
+msgstr "Es werden Zivilisten getötet."
+
+msgid "37 civilian facilities were destroyed, including 26 residential buildings, 2 schools, a farm, grain warehouses, a railway station, an administrative building, etc."
+msgstr "37 zivile Einrichtungen wurden zerstört, darunter 26 Wohngebäude, 2 Schulen, ein Bauernhof, Getreidelager, ein Bahnhof, ein Verwaltungsgebäude usw."
+
+msgid "Last updated"
+msgstr "Zuletzt vor"
+
+msgid "mins"
+msgstr "minuten"
+
+msgid "ago"
+msgstr "aktualisiert"
+
+msgid "Eight houses, including apartment houses, were destroyed as a result of night shelling of Mykolaiv. There are dead and wounded people."
+msgstr "Acht Häuser, darunter Wohnhäuser, wurden durch den nächtlichen Beschuss von Mykolajiw zerstört. Es gibt Tote und Verwundete."
+
+msgid "Ukrainian soldiers sleep in the trenches."
+msgstr "Ukrainische Soldaten schlafen in den Schützengräben."
+
+msgid "This is what the Svyatogorsk Lavra looks like now. The Russians shelled the Lavra."
+msgstr "So sieht das Svyatogorsk Lavra jetzt aus. Die Russen beschossen die Lawra."
+
+msgid "On June 5, the enemy fired on the Holy Dormition Svyatogorsk Lavra in the Donetsk region. As a result of this attack, the wooden All Saints Monastery of the Lavra caught fire."
+msgstr "Am 5. Juni feuerte der Feind auf die Swjatogorsker Lawra in der Region Donezk. Infolge dieses Angriffs geriet das hölzerne Allerheiligenkloster der Lawra in Brand."
+
+msgid "This is not only a sacred place, but also a shelter – at the time of the shelling in the temple were migrants, including children, the elderly, and people with disabilities."
+msgstr "Dies ist nicht nur ein heiliger Ort, sondern auch ein Zufluchtsort – zum Zeitpunkt des Beschusses des Tempels befanden sich Migranten, darunter Kinder, ältere Menschen und Menschen mit Behinderungen."
+
+msgid "Constant needs of the armed forces of Ukraine"
+msgstr "Hilfe bei Material und technischer Ausstattung"
+
+msgid "Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."
+msgstr "Eine andere Möglichkeit, zu helfen, besteht darin, selbst Ausrüstung für die Armee zu kaufen und an die Stiftung zu senden. Technische Ausrüstung, persönliche Schutzausrüstung und Medikamente werden auf Anfrage an Militäreinheiten versandt."
+
+msgid "The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"
+msgstr "Das Paket kann an unser Lager gesendet werden. Kontaktieren Sie uns vor dem Versenden unter: +380960177075 oder schreiben Sie einen Brief an "
+
+msgid "First aid kit IFAK II"
+msgstr "Verbandskasten IFAK II"
+
+msgid "Tactical medical bags (Fully Stocked)"
+msgstr "Medizinische taktische Taschen (komplett)"
+
+msgid "Tactical boots like Lowa (seasonal, medium height - 6 ()"
+msgstr "Taktische Stiefel wie Lowa (saisonal, mittlere Höhe - 6 ″)"
+
+msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
+msgstr "Taktische Uniform-Kits (wasserdichte Jacke + Hose) ECWCS GEN III Level 6 PACLITE"
+
+msgid "Tactical gloves (5.11, Mechanix, Blackhawk, Helikon, Oakey)"
+msgstr "Taktische Handschuhe (5.11, Mechanix, Blackhawk, Helikon, Oakey)"
+
+msgid "Tactical belts"
+msgstr "Der Gürtel ist taktisch"
+
+msgid "Tactical eyewear and ballistic glasses"
+msgstr "Taktische Brille"
+
+msgid "Encrypted Radios with headset"
+msgstr "Walkie-Talkie mit Headset (HARRIS Falcon III, BAOFENG UV-82)"
+
+msgid "MOLLE belt & harness"
+msgstr "MOLLE-Gürtel und Geschirr"
+
+msgid "Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"
+msgstr "Kugelsichere Westen (NIJ III+) US Standart schutzstufe 4-5 (Ukrainischer DSTU-Standard)"
+
+msgid "Helmets (The required standard is NIJ level IIIA)"//
+msgstr "Ballistischer Helm mit FUTTERAL (FAST)"
+
+msgid "Shooting Earmuffs (ear protection for shooting)"
+msgstr "aktive Kopfhörer"
+
+msgid "Rechargeable flashlights"
+msgstr "Laternen (mit Aufladung)"
+
+msgid "Thermal imaging monoculars (ARCHER ТМА30М/55М) analog: (detection 1700m +, recognition 430m +, identification 215m +)"
+msgstr "Wärmebildkameras Typ (ARCHER TMA30M / 55M) oder analog: (Erkennung 1700m +, Erkennung 430m +, Identifizierung 215m +)"
+
+msgid "Tactical periscopes UZI 5x20 CR"
+msgstr "Taktische Periskope UZI 5x20 CR"
+
+msgid "Drones: AUTEL EVO II PRO; camera: Yunecc E30Z, CAR EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"
+msgstr "Drohnen: AUTEL EVO II PRO; Yunecc E30Z-Kamera; CAR EVO II DUAL ROBUSTES BUNDLE (640T) V2; Walkera Voyager 5"
+
+msgid "Phone Power Banks"
+msgstr "Powerbank für Handy"
+
+msgid "Computer Power Banks"
+msgstr "Powerbank für Laptop"
+
+msgid "Tactical Backpacks"
+msgstr "Rucksack"
+
+msgid "Army Ration Packs (dehydrated)"
+msgstr "sublimierte Trockenration"
+
+msgid "Tactical knee pads"
+msgstr "Knieschützer"
+
+msgid "Tactical elbow pads"
+msgstr "Ellenbogenschützer"
+
+msgid "Founders"
+msgstr "Gründer des Fonds"
+
+msgid "Project Manager - Mykola Stepenko"
+msgstr "Projektmanager - Mykola Stepenko"
+
+msgid "Director of the Foundation - Alexander Nikiforov"
+msgstr "Direktor der Stiftung - Alexander Nikiforov"
+
+msgid "Participants"
+msgstr "Teilnehmer"
+
+msgid "Volunteer consultant - Yuriy Kondratiev"
+msgstr "Ehrenamtlicher Berater - Yuriy Kondratiev"
+
+msgid "Media Communications Manager - Anna Melnychenko"
+msgstr "Medienkommunikationsmanagerin Anna Melnychenko"
+
+msgid "Manager in English-speaking countries - Adelina Saharova"
+msgstr "Manager im englischsprachigen Raum - Adelina Saharova"
+
+msgid "Manager in French-speaking countries - Victoria Azarova"
+msgstr "Manager in den französischsprachigen Ländern - Victoria Azarova"
+
+msgid "Vehicles for the Armed Forces of Ukraine"
+msgstr "Autos für die Armee"
+
+msgid "Currently, the demand for military transport far exceeds the capability of state support."
+msgstr "Derzeit übersteigt die Nachfrage nach Militärtransporten bei weitem die Kapazität der staatlichen Unterstützung."
+
+msgid "The army needs vehicles to:"
+msgstr "Die Armee benötigt Fahrzeuge für:"
+
+msgid "increase the mobility of troops"
+msgstr "erhöhen die Mobilität der Truppen"
+
+msgid "improve the material and technical capabilities of units"
+msgstr "verbessern die logistischen Fähigkeiten von Einheiten"
+
+msgid "save the lives of soldiers"
+msgstr "retten das Leben von Soldaten"
+
+msgid "The army needs diesel pickups, SUVs, minibuses, and other all-terrain vehicles. This fund will use your donations on the necessary transport for the Armed Forces of Ukraine."
+msgstr "Die Armee braucht Diesel-Pickups, SUVs, Kleinbusse und andere Arten von Autos. Für Ihre Beiträge wird die “Legion” Stiftung die notwendigen Transportmittel für die Streitkräfte der Ukraine kaufen."
+
+msgid "Every dollar will help save lives!"
+msgstr "Auch kleine Beiträge können Leben retten!"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Hello"
+msgstr "Hallo"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "An error occurred while processing your request"
+msgstr "Während Ihrer Anfrage ist ein Fehler aufgetreten"
+
+msgid "Logout"
+msgstr "Ausloggen"

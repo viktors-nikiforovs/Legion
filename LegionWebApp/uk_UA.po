@@ -19,11 +19,11 @@ msgstr "Команда"
 msgid "Contact Us"
 msgstr "Контакти"
 
-msgid "Login"
-msgstr "Входу"
-
 msgid "Home"
 msgstr "Домашня сторінка"
+
+msgid "Purpose of payment"
+msgstr "Назва підприємства"
 
 msgid "CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
 msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ «БЛАГОДІЙНИЙ ФОНД «ЛЕГІОН»
@@ -33,7 +33,7 @@ msgid "Postal address"
 msgstr "Поштова адреса"
 
 msgid "03142 Kyiv -142, post office 28"
-msgstr "03142, Київ-142, а/с 28;"
+msgstr "03142, Київ-142, а/с 28"
 
 msgid "Attention"
 msgstr "Увага"
@@ -71,7 +71,7 @@ msgstr "Сума в доларах США"
 msgid "E-Mail"
 msgstr "Електронна пошта"
 
-msgid "Charitable Foundation “Legion” was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
+msgid "Charitable Foundation «Legion» was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
 msgstr "Благодійний фонд «Легіон» заснований на наприкінці квітня 2022 року у Києві. Діяльність фонду спрямована на матеріально-технічну підтримку ЗСУ та інших підрозділів, що беруть участь у бойових діях, захищаючи цивільне населення, мирні міста та суверенітет України. Фонд не постачає використовує!"
 
 msgid "We provide reporting in videos and photos, documents, and acts of transfer."
@@ -98,7 +98,7 @@ msgstr "Київ, Проспект Перемоги 45"
 msgid "Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."
 msgstr "Авіаракетні удари по Донеччині — окупанти вбили мирних жителів і зруйнували будинки."
 
-msgid "@T["During the day the Russians fired on 14 settlements."]"
+msgid "During the day the Russians fired on 14 settlements."
 msgstr "За добу росіяни обстріляли 14 населених пунктів."
 
 msgid "They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."
@@ -215,7 +215,7 @@ msgstr "Засновники фонду"
 msgid "Project Manager - Mykola Stepenko"
 msgstr "Керівник проекту - Микола Степенко"
 
-msgid "Director of the Foundation Alexander Nikiforov"
+msgid "Director of the Foundation - Alexander Nikiforov"
 msgstr "Директор Фонду - Олександр Нікіфоров"
 
 msgid "Participants"
@@ -257,9 +257,17 @@ msgstr "Армії потрібні дизельні пікапи, позашл�
 msgid "Every dollar will help save lives!"
 msgstr "Навіть невеликі внески можуть врятувати життя"
 
-msgid "home"
-msgstr "home"
+msgid "Register"
+msgstr "Реєстрація"
 
-msgid "home"
-msgstr "home"
+msgid "Hello"
+msgstr "Привіт"
 
+msgid "Error"
+msgstr "Помилка"
+
+msgid "An error occurred while processing your request"
+msgstr "Сталася помилка при обробці Вашого запиту"
+
+msgid "Logout"
+msgstr "Вийти"
