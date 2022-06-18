@@ -1,8 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer T
 @{
-	var tempController = this.ViewContext.RouteData.Values["controller"];
-	var tempAction = this.ViewContext.RouteData.Values["action"];
+	var tempController = this.ViewContext;
+	var tempAction = this.ViewContext.RouteData.Values["culture"];
+	
 	string lang = "EN";
 	string view = "Index";
 	if (tempController != null)
@@ -13,12 +14,6 @@
 	{
 		view = this.ViewContext.RouteData.Values["action"].ToString();
 	}
-	string Vehicles;
-	string needs;
-	string finance;
-	string about;
-	string team;
-	string contact;
 	string enActive = "";
 	string uaActive = "";
 	string frActive = "";
@@ -26,48 +21,24 @@
 	switch (lang)
 	{
 		case "EN":
-			Vehicles = "Vehicles";
-			needs = "Constant Needs";
-			finance = "Finance Aid";
-			about = "About Us";
-			team = "Our Team";
-			contact = "Contact Us";
 			enActive = "active";
 			uaActive = "";
 			frActive = "";
 			deActive = "";
 			break;
 		case "FR":
-			Vehicles = "Véhicules de l'armée";
-			needs = "Besoins permanents";
-			finance = "L'aide financière";
-			about = "À propos de nous";
-			team = "Notre équipe";
-			contact = "Contacts";
 			frActive = "active";
 			enActive = "";
 			uaActive = "";
 			deActive = "";
 			break;
 		case "DE":
-			Vehicles = "Autos für die Armee";
-			needs = "Hilfe bei Material und technischer Ausstattung";
-			finance = "Hilfe mit Geld";
-			about = "Über uns";
-			team = "Unser Team";
-			contact = "Kontakte";
 			deActive = "active";
 			enActive = "";
 			uaActive = "";
 			frActive = "";
 			break;
 		default:
-			Vehicles = "Авто";
-			needs = "Потреби";
-			finance = "Фінансова";
-			about = "Про нас";
-			team = "Команда";
-			contact = "Контакти";
 			uaActive = "active";
 			enActive = "";
 			frActive = "";
