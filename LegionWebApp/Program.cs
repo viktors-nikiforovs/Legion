@@ -10,7 +10,8 @@ using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
-builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+//builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+builder.Services.AddPortableObjectLocalization();
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new List<CultureInfo>
