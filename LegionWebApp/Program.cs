@@ -20,7 +20,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
         new CultureInfo("fr"),
         new CultureInfo("de")
     };
-    options.DefaultRequestCulture = new RequestCulture("en");
+    options.DefaultRequestCulture = new RequestCulture("uk");
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });

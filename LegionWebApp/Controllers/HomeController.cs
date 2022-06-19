@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace LegionWebApp.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,8 +20,10 @@ namespace LegionWebApp.Controllers
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(culture);
             return LocalRedirect(returnUrl);
         }
+
         public IActionResult Vehicles()
         {
             return View();
