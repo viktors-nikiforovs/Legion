@@ -270,3 +270,6 @@ msgstr "Une erreur s'est produite lors du traitement de votre demande"
 
 msgid "Logout"
 msgstr "Se déconnecter"
+
+msgid "Legion"
+msgstr "Legion"

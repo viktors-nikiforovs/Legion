@@ -270,3 +270,6 @@ msgstr "Während Ihrer Anfrage ist ein Fehler aufgetreten"
 
 msgid "Logout"
 msgstr "Ausloggen"
+
+msgid "Legion"
+msgstr "Legion"

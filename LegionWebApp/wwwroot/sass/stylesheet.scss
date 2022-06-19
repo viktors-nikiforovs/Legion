@@ -58,8 +58,23 @@
     left: 0;
 }
 .card-body {
-    margin-bottom: 2rem;
-    
+    margin-bottom: 2rem;    
+}
+
+#scrollTop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    font-size: 3rem;
+    border:none;
+    background: none;
+}
+
+#scrollTop:hover {
+    opacity: 0.7;
 }
 
 @import "../lib/bootstrap/dist/scss/bootstrap";
