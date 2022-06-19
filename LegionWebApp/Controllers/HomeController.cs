@@ -15,7 +15,7 @@ namespace LegionWebApp.Controllers
         {
             _logger = logger;
         }
-        [HttpPost]
+      /*  [HttpPost]
         public IActionResult CultureManagement(string culture, string returnUrl)
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
@@ -23,7 +23,7 @@ namespace LegionWebApp.Controllers
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
             return LocalRedirect(returnUrl);
-        }        
+        }        */
 
         public IActionResult Vehicles()
         {
