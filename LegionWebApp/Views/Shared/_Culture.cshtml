@@ -3,7 +3,8 @@
 
 @{
 	var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
-	var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = char.ToUpper(x.NativeName[0]) + x.NativeName.Substring(1) }).ToList();
+	var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name });
+	//var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = char.ToUpper(x.NativeName[0]) + x.NativeName.Substring(1) }).ToList();
 	var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
 
