@@ -9,9 +9,10 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddPortableObjectLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 //builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
-builder.Services.AddPortableObjectLocalization();
+
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new List<CultureInfo>
@@ -22,7 +23,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
         new CultureInfo("uk"),
         new CultureInfo("fr-FR"),
         new CultureInfo("fr"),
-        new CultureInfo("de-DE")
+        new CultureInfo("de-DE"),
         new CultureInfo("de")
     };
     options.DefaultRequestCulture = new RequestCulture("en-US");
