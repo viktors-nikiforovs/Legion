@@ -9,8 +9,6 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// test passe
-
 builder.Services.AddPortableObjectLocalization();
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
