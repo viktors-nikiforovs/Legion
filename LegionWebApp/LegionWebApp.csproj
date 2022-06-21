@@ -19,13 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="de.po">
+    <EmbeddedResource Include="Localization\de.po">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="fr.po">
+    <EmbeddedResource Include="Localization\fr.po">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="uk.po">
+    <EmbeddedResource Include="Localization\uk.po">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -45,8 +45,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Localization\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
 
   <ItemGroup>
