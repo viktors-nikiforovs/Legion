@@ -148,8 +148,8 @@ msgstr "Trousse de secours IFAK II"
 msgid "Tactical medical bags (Fully Stocked)"
 msgstr "Sacs tactiques médicaux (complets)"
 
-msgid "Tactical boots like Lowa (seasonal, medium height - 6 ()"
-msgstr "Bottes tactiques comme Lowa (saisonnières, taille moyenne - 6″)"
+msgid "Tactical boots like Lowa (seasonal, medium height - 6)"
+msgstr "Bottes tactiques comme Lowa (saisonnières, taille moyenne - 6)"
 
 msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
 msgstr "Uniformes tactiques 5. 11 (plus IMPERMÉABLE)"
@@ -273,3 +273,9 @@ msgstr "Se déconnecter"
 
 msgid "Legion"
 msgstr "Legion"
+
+msgid "High demand"
+msgstr "Forte demande"
+
+msgid "Add to cart"
+msgstr "Ajouter au panier"

@@ -5,11 +5,8 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddPortableObjectLocalization();
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");

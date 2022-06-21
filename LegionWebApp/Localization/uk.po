@@ -149,8 +149,8 @@ msgstr "Аптечка IFAK II"
 msgid "Tactical medical bags (Fully Stocked)"
 msgstr "Медичні тактичні сумки (укомплектовані)"
 
-msgid "Tactical boots like Lowa (seasonal, medium height - 6 ()"
-msgstr "Тактичні ботинки типу Lowa (сезонні, середньої висоти - 6″)"
+msgid "Tactical boots like Lowa (seasonal, medium height - 6)"
+msgstr "Тактичні ботинки типу Lowa (сезонні, середньої висоти - 6)"
 
 msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
 msgstr "Комплекти тактичної форми (непромокаючі куртка + штани) ECWCS GEN III Level 6 PACLITE"
@@ -173,7 +173,7 @@ msgstr "Ремінно-пояснична система з молями (роз
 msgid "Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"
 msgstr "Бронежилет 4, 5 клас захисту на молях (NIJ III+)"
 
-msgid "Helmets (The required standard is NIJ level IIIA)"//
+msgid "Helmets (The required standard is NIJ level IIIA)"
 msgstr "Шолом балістичний з ЧОХЛОМ (FAST)"
 
 msgid "Shooting Earmuffs (ear protection for shooting)"
@@ -274,3 +274,9 @@ msgstr "Вийти"
 
 msgid "Legion"
 msgstr "Легіон"
+
+msgid "High demand"
+msgstr "Високий попит"
+
+msgid "Add to cart"
+msgstr "Додати в кошик"

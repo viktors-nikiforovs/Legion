@@ -148,8 +148,8 @@ msgstr "Verbandskasten IFAK II"
 msgid "Tactical medical bags (Fully Stocked)"
 msgstr "Medizinische taktische Taschen (komplett)"
 
-msgid "Tactical boots like Lowa (seasonal, medium height - 6 ()"
-msgstr "Taktische Stiefel wie Lowa (saisonal, mittlere Höhe - 6 ″)"
+msgid "Tactical boots like Lowa (seasonal, medium height - 6)"
+msgstr "Taktische Stiefel wie Lowa (saisonal, mittlere Höhe - 6)"
 
 msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
 msgstr "Taktische Uniform-Kits (wasserdichte Jacke + Hose) ECWCS GEN III Level 6 PACLITE"
@@ -172,7 +172,7 @@ msgstr "MOLLE-Gürtel und Geschirr"
 msgid "Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"
 msgstr "Kugelsichere Westen (NIJ III+) US Standart schutzstufe 4-5 (Ukrainischer DSTU-Standard)"
 
-msgid "Helmets (The required standard is NIJ level IIIA)"//
+msgid "Helmets (The required standard is NIJ level IIIA)"
 msgstr "Ballistischer Helm mit FUTTERAL (FAST)"
 
 msgid "Shooting Earmuffs (ear protection for shooting)"
@@ -273,3 +273,9 @@ msgstr "Ausloggen"
 
 msgid "Legion"
 msgstr "Legion"
+
+msgid "High demand"
+msgstr "Hohe Nachfrage"
+
+msgid "Add to cart"
+msgstr "In den Warenkorb legen"
