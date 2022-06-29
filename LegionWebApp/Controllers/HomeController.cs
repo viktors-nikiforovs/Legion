@@ -21,7 +21,7 @@ namespace LegionWebApp.Controllers
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
             return LocalRedirect(returnUrl);
-        }        
+        }
 
         public IActionResult Vehicles()
         {
@@ -40,8 +40,6 @@ namespace LegionWebApp.Controllers
 
         public async Task<IActionResult> About()
         {
-            DiscordBot discordBot = new DiscordBot();
-            discordBot.RunAsync().GetAwaiter().GetResult();
             return View();
         }
         public IActionResult Team()
@@ -55,8 +53,8 @@ namespace LegionWebApp.Controllers
         public IActionResult Index()
         {
             return View();
-        }       
-        
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
