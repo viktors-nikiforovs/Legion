@@ -31,6 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DSharpPlus" Version="4.2.0" />
+    <PackageReference Include="DSharpPlus.Interactivity" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
@@ -132,10 +134,6 @@
     <None Include="wwwroot\lib\bootstrap\dist\scss\_type.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_utilities.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_variables.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\DiscordBotEntity\DiscordBot\Discord.csproj" />
   </ItemGroup>
 
 </Project>
