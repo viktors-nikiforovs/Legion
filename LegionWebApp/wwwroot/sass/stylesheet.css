@@ -1,4 +1,57 @@
 ﻿@charset "UTF-8";
+#wardays {
+  font-weight: 600;
+  font-size: 2rem;
+  background-color: red;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  width: 13rem;
+  margin: auto;
+}
+
+.transparent {
+  backdrop-filter: blur(20px);
+  width: 30%;
+}
+
+.navbar {
+  height: 4rem;
+  background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
+  backdrop-filter: blur(40px);
+}
+
+body div {
+  color: white;
+}
+
+body h5, body .h5 {
+  color: black;
+}
+
+body {
+  height: 100vh;
+  background: url("/images/wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+
+.container {
+  color: white;
+}
+
+.footer {
+  content: "";
+  background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
+  backdrop-filter: blur(40px);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+
 .feed-image-container {
   float: left;
   padding: 0.1rem;
@@ -50,18 +103,10 @@
   right: 0;
 }
 
-.card {
-  margin-bottom: 1.5rem;
-}
-
 .card-footer {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-.card-body {
-  margin-bottom: 2rem;
 }
 
 #scrollTop {
@@ -4298,7 +4343,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1rem;
@@ -4329,6 +4374,7 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+  color: black;
 }
 
 .card-title {
@@ -4354,6 +4400,7 @@ textarea.form-control-lg {
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
+  color: black;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4363,6 +4410,7 @@ textarea.form-control-lg {
 
 .card-footer {
   padding: 0.5rem 1rem;
+  color: black;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4375,6 +4423,10 @@ textarea.form-control-lg {
   margin-bottom: -0.5rem;
   margin-left: -0.5rem;
   border-bottom: 0;
+}
+.card-header-tabs .nav-link.active {
+  background-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
+  border-bottom-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
 }
 
 .card-header-pills {

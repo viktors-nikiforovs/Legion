@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegionWebApp", "LegionWebApp\LegionWebApp.csproj", "{B8D57F18-EC81-4BDA-878E-5411DB3A35D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegionWebApp", "LegionWebApp\LegionWebApp.csproj", "{B8D57F18-EC81-4BDA-878E-5411DB3A35D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord", "..\DiscordBotEntity\DiscordBot\Discord.csproj", "{60E704D7-1A1F-46C0-8EE8-0567F13B1F32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B8D57F18-EC81-4BDA-878E-5411DB3A35D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D57F18-EC81-4BDA-878E-5411DB3A35D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D57F18-EC81-4BDA-878E-5411DB3A35D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E704D7-1A1F-46C0-8EE8-0567F13B1F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E704D7-1A1F-46C0-8EE8-0567F13B1F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E704D7-1A1F-46C0-8EE8-0567F13B1F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E704D7-1A1F-46C0-8EE8-0567F13B1F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

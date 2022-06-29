@@ -1,7 +1,52 @@
 ﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer T
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
 
+@{
+	var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+	//var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name });
+	var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = char.ToUpper(x.NativeName[0]) + x.NativeName.Substring(1) }).ToList();
+	var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+	<div class="container-fluid">
+		<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+			<img src="https://legion-foundation.org/img/logo.png" height=60rem; />
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+			<ul class="navbar-nav flex-grow-1">
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">@T["Home"]</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Needs">@T["Constant Needs"]</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Finance">@T["Finance Aid"]</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">@T["About Us"]</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Team">@T["Our Team"]</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contact">@T["Contact Us"]</a>
+				</li>
+			</ul>
+			<span class="d-flex">
+				<form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
+					<select name="culture" class="btn-secondary" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>
+				</form>
+			</span>
+		</div>
+		
+	</div>
+</nav>
 
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+@*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
 	<div class="container-fluid">
 		<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://legion-foundation.org/img/logo.png" width=100px; height=100px; /></a>
@@ -34,9 +79,6 @@
 				</li>
 			</ul>
 			<partial name="_Culture" />
-			@*<partial name="_LoginPartial" />*@
-			
-
 		</div>
 	</div>
-</nav>
+</nav>*@

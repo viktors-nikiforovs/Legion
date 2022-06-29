@@ -1,4 +1,5 @@
-﻿using LegionWebApp.Models;
+﻿using Discord;
+using LegionWebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -38,8 +39,10 @@ namespace LegionWebApp.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
+            DiscordBot discordBot = new DiscordBot();
+            discordBot.RunAsync().GetAwaiter().GetResult();
             return View();
         }
         public IActionResult Team()
@@ -53,8 +56,8 @@ namespace LegionWebApp.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
+        }       
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

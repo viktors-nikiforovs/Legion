@@ -40,15 +40,15 @@
 	<header>
 		<partial name="_Navbar" />
 	</header>
-	<div class="container">
-		<main role="main" class="pb-3">
+	<div class="w-100 d-block">
+		<main role="main" class="pb-3" style="max-width: 1200px; margin: auto">
 			@RenderBody()
 		</main>
 	</div>
-	
-	<footer class="border-top footer text-muted">
+
+	<footer class="footer text-muted">
 		<div class="container">
-	<button onclick="topFunction()" id="scrollTop" title="Go to top"><i class="bi-arrow-up-circle-fill"></i></button>		
+			<button onclick="topFunction()" id="scrollTop" title="Go to top"><i class="bi-arrow-up-circle-fill"></i></button>
 			<script>
 				mybutton = document.getElementById("scrollTop");
 
@@ -70,14 +70,28 @@
 				}
 			</script>
 			&copy; 2022 - Legion-Foundation.org
-
-
-
 		</div>
 	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/anime.min.js" asp-append-version="true"></script>
+	<script>
+		window.onload = function updateTimer() {
+			date1 = new Date("2022-02-24");
+			date2 = new Date();
+			oneDay = 1000 * 60 * 60 * 24;
+			diffInTime = date2.getTime() - date1.getTime();
+			diffInDays = Math.round(diffInTime / oneDay);
+			anime({
+				targets: '#counter',
+				value: [0, diffInDays],
+				duration: 2000,
+				round: 1,
+				easing: 'linear'
+			});
+		}
+	</script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

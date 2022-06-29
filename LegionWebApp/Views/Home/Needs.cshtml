@@ -1,463 +1,53 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer T
 @{
-	ViewData["Title"] = @T["Constant Needs"];
+	ViewData["Title"] = @T["Vehicles"];
 }
 
-@*<div>
-    <h4>@T["Constant needs of the armed forces of Ukraine"]</h4>
-    <p>@T["Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."]</p>
-    <p>@T["The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"] @T["E-mail"]: legion.charity@gmail.com</p>
-    <ul>
-        <li>@T["First aid kit IFAK II"]</li>
-        <li>@T["Tactical medical bags (Fully Stocked)"]</li>
-        <li>@T["Tactical boots like Lowa (seasonal, medium height - 6)"]</li>
-        <li>@T["Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"]</li>
-        <li>@T["Tactical gloves (5.11, Mechanix, Blackhawk, Helikon, Oakey)"]</li>
-        <li>@T["Tactical belts"]</li>
-        <li>@T["Tactical eyewear and ballistic glasses"]</li>
-        <li>@T["Encrypted Radios with headset"]</li>
-        <li>@T["MOLLE belt & harness"]</li>
-        <li>@T["Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"]</li>
-        <li>@T["Helmets (The required standard is NIJ level IIIA)"]</li>
-        <li>@T["Shooting Earmuffs (ear protection for shooting)"]</li>
-        <li>@T["Rechargeable flashlights"]</li>
-        <li>@T["Thermal imaging monoculars (ARCHER ТМА30М/55М) analog: (detection 1700m +, recognition 430m +, identification 215m +)"]</li>
-        <li>@T["Tactical periscopes UZI 5x20 CR"]</li>
-        <li>@T["Drones: AUTEL EVO II PRO; camera: Yunecc E30Z, CAR EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"]</li>
-        <li>@T["Phone Power Banks"]</li>
-        <li>@T["Computer Power Banks"]</li>
-        <li>@T["Tactical Backpacks"]</li>
-        <li>@T["Army Ration Packs (dehydrated)"]</li>
-        <li>@T["Tactical knee pads"]</li>
-        <li>@T["Tactical elbow pads"]</li>
-    </ul>
-    <img src="https://legion-foundation.org/img/supply.jpeg" class="img-fluid" />
-</div>*@
-<h4>@T["Constant needs of the armed forces of Ukraine"]</h4>
-<p>@T["Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."]</p>
-<p>@T["The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"] @T["E-mail"]: legion.charity@gmail.com</p>
-<section class="py-5">
-	<div class="container px-4 px-lg-5 mt-5">
-		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-			<div class="col mb-5">
-				<div class="card h-100">
-					<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@T["High demand"]</div>
-					<!-- Product image-->
-					<img class="card-img-top" src="https://orbitaltactical.com/wp-content/uploads/2020/10/adfvadfv.jpeg" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["First aid kit IFAK II"]</h5>
-							<!-- Product price-->
-							$40 - $150
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@T["High demand"]</div>
-					<!-- Product image-->
-					<img class="card-img-top" src="https://evaq8.co.uk/var/images/product/300.300/T165-E370-500-open.jpg" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical medical bags (Fully Stocked)"]</h5>
-							<!-- Product price-->
-							<span class="text-muted text-decoration-line-through">$20.00</span>
-							$150 - $450
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSfKr4luW8Z8B5T6czx4jiai8g7tF7gjyG5s5ACmn7OGQEH0LdvJgeHkQzuYkg0TWT1ARmC4rktIFJN8Wn3kZfivhhpZG8SuaNuLp4fjLSBk73wTEZGL1wV&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical boots like Lowa (seasonal, medium height - 6)"]</h5>
-							<!-- Product price-->
-							<span class="text-muted text-decoration-line-through">$50.00</span>
-							$25.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTURYJQLmkYtA9N3ewuKqjWvB-7aRGWz-qL_aHyeOtNlF8Aj0u_yPtitsoLJA1MVtSwDs3kJQWG-YJ9vHW40YXhBiNv6N-NK5X9RFVkgIXqFjPYvsAb1JN2EA&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical gloves (5.11, Mechanix, Blackhawk, Helikon, Oakey)"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSwQFsbFRrDHVuYENEU9vKN5RB7XiCIS-KQw_fJbcRnRmuKijD0Vf6Brk_MEU2y5ss6E8oyM1e4lkzt1Oe6IAuUPDsywvMt_-5g3VuU1L3t_sLZhYrWqHX6&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical belts"]</h5>
-							<!-- Product price-->
-							<span class="text-muted text-decoration-line-through">$50.00</span>
-							$25.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@T["High demand"]</div>
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSzQmNWDgIcmZKbRKNWhXlPR4b-19koy5kcmlSrnfsGDKm46_heTNrf52RHyy9gX_WnfODr2XkjLfPxxbV5pyk1C5aBy7U3hIu6zBhnXb8&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical eyewear and ballistic glasses"]</h5>
-							<!-- Product price-->
-							$60
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRaNZPluQw7gb0NXCojd96uoJm9Ry7xkSQLjrrRFkNKOaXPL9eC6khcPNoabRDYSIEsQ13ngWfGQ9D2qOiusywzYygJtXcA3wySz3pTTHI&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Encrypted Radios with headset"]</h5>
-							<!-- Product price-->
-							<span class="text-muted text-decoration-line-through">$20.00</span>
-							$210
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTlY_MowSh33GUU1zIDzktDCxGFDPSjyp1oEvmN5AMyTqJkXF-RHlRfVWHsNrmzefw8QwvcnCtGJ-gwLLQg6JAgJy9drd4ZqB2ckFoDYiNOMVQ4rANxS9Ldew&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["MOLLE belt & harness"]</h5>
-							<!-- Product price-->
-							<span class="text-muted text-decoration-line-through">$20.00</span>
-							$18.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@T["High demand"]</div>
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRsSiXfSAssN0D4MD1XEs0O7B6z6ZnI6o7uLxaAP6krAkr5wHIRMcBODRHJfFUOOAneG1tB-GgR01ft2rPG7q5TFhtyr_jB2x0u82LUHBc&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@T["High demand"]</div>
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQPcjK4tfneShKLJHzjX4M0B6Z0wRgXtsvodss6HiGHVrdsMaCO67H5UFh6LD0Wt3-OW9kk5fyCf765cQH1Jof54pV7vb8WLjk4DAQzQu4ebUOHQDcmzzev&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Helmets (The required standard is NIJ level IIIA)"]</h5>
-							<!-- Product price-->
-							$300.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ2-a4TAzQC8ySzkL6mhAypm0ZhyhEMr3Pw1HYbJ2k8AMTtzx2OfAsamNN9PaWSGtsr_xa8-VKskHrTCYKrD47_vNJftQN63GLXzO-iK8DxKOF1HKobnuw0&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Shooting Earmuffs (ear protection for shooting)"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSDczfVYXLWuYe5AIEJIkkXSYWKjOtIkTkTHSt8kSIvddtstG6zpfdyVKA2J9Iqg0lqXzh6-8QFIydLXG6meT-YmoTW6I3DKAUwZW-pUCZQfh0Gik3Jpo5O&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Rechargeable flashlights"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQbWbC2ZqTzK7xaeMclDU9J5OHUAu9C9z6gyU_g57Y1FAWJKRzukNoo-9Bsl2M709o-f3sV3a5lRy2rZ92q3E2RzmzMfVOL9bQDI7D8pCeYRfziglRON16i2g&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Thermal imaging monoculars (ARCHER ТМА30М/55М) analog: (detection 1700m +, recognition 430m +, identification 215m +)"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://shop.militaryrange.eu/Content/custom/img_products/uzi-periscope.jpg" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical periscopes UZI 5x20 CR"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRkJRbbiDKFDoyXHV-T9QKT8Z5BhMJRtSsA0QY8JWmcDbLBtp8pnyM_x5Y6Ve4Qy24JpzorSWy2bhH69LvFBaEsBzZbt6Hv-zvsujSRX2KO51qx-9rfEdRk&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Drones: AUTEL EVO II PRO; camera: Yunecc E30Z, CAR EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"]</h5>
-							<!-- Product price-->
-							$150
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://m.media-amazon.com/images/I/31+M57c2aXL._SL500_.jpg" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Phone Power Banks"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTiRCY5pN1N7LJ1syuQtQQtrCf0oSGKM9wSKnV5hM8c0O0bguyRLIF23iUbPa-slPzA76mCXsJG-RtR57b-AYcQF8kHuJrCiMqaP0EZNg07JgWnw2-y9Xek&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Computer Power Banks"]</h5>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfYtJBO4jW2ujSUrCWjkkApDAROgdJaG_rdcswsxpKfmw6YIkTjFBApWXT8an657FfgFL2zmkIiu2iWF_F1K1Hm5-xjyBMcJnkDL5YGY6eoIUryBNHGBx-&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical Backpacks"]</h5>
-							<!-- Product price-->
-							$20.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRnIi2Qr9ZQO6TlF_cLYIO6dqKaRmvR926ouWMYvWLWQDLvNThT6Sj4M8W3VDn-LGJd456k4Z9fwxKIOly_zKt5mMmUTuTlSbD962VdxL0&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Army Ration Packs (dehydrated)"]</h5>
-							<!-- Product price-->
-							$20.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQU_jTHI3X9VQ5ic2l1yjI9_tXlxty7eUkkHT-Zy4bGOb94MULwEo8AaJLY1CDUXpLs47rLzSUUMv_oyumO1D31zW0XrjuRSguyui-Rtpt2&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical knee pads"]</h5>
-							<!-- Product reviews-->
-							<div class="d-flex justify-content-center small text-warning mb-2">
-								<div class="bi-star-fill"></div>
-								<div class="bi-star-fill"></div>
-								<div class="bi-star-fill"></div>
-								<div class="bi-star-fill"></div>
-								<div class="bi-star-fill"></div>
-							</div>
-							<!-- Product price-->
-							$40.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col mb-5">
-				<div class="card h-100">
-					<!-- Product image-->
-					<img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS511PoZd1ieWlTq_OcXC507OWrtqKiquqGc3qlrIrTE9rWP_8ipFfeiwpeCVdcfZQ1cKu32koTd8_AN8bN9jiIRDaklezFzIAO1JG5UxmqkxTFeyDOI5Ixjw&usqp=CAE" alt="..." />
-					<!-- Product details-->
-					<div class="card-body p-4">
-						<div class="text-center">
-							<!-- Product name-->
-							<h5 class="fw-bolder">@T["Tactical elbow pads"]</h5>
-							<!-- Product price-->
-							$20.00
-						</div>
-					</div>
-					<!-- Product actions-->
-					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">@T["Add to cart"]</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<img src="https://legion-foundation.org/img/supply.jpeg" class="img-fluid" />
+
+<div class="card border-dark mb-3">
+	<div class="card-header">@T["Vehicles for the Armed Forces of Ukraine"]</div>
+	<ul class="card-text">
+		@T["Currently, the demand for military transport far exceeds the capability of state support."]
+		@T["The army needs vehicles to:"]
+		<li>@T["increase the mobility of troops"]</li>
+		<li>@T["improve the material and technical capabilities of units"]</li>
+		<li>@T["save the lives of soldiers"]</li>
+	</ul>
+	<p>@T["The army needs diesel pickups, SUVs, minibuses, and other all-terrain vehicles. This fund will use your donations on the necessary transport for the Armed Forces of Ukraine."]</p>
+	<img src="https://legion-foundation.org/img/auto.jpeg" class="img-fluid" />
+	<h5><b><u>@T["Every dollar will help save lives!"]</u></b></h5>
+</div>
+
+
+
+<div>
+	<h4>@T["Constant needs of the armed forces of Ukraine"]</h4>
+	<p>@T["Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."]</p>
+	<p>@T["The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"] @T["E-mail"]: legion.charity@gmail.com</p>
+	<ul>
+		<li>@T["First aid kit IFAK II"]</li>
+		<li>@T["Tactical medical bags (Fully Stocked)"]</li>
+		<li>@T["Tactical boots like Lowa (seasonal, medium height - 6)"]</li>
+		<li>@T["Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"]</li>
+		<li>@T["Tactical gloves (5.11, Mechanix, Blackhawk, Helikon, Oakey)"]</li>
+		<li>@T["Tactical belts"]</li>
+		<li>@T["Tactical eyewear and ballistic glasses"]</li>
+		<li>@T["Encrypted Radios with headset"]</li>
+		<li>@T["MOLLE belt & harness"]</li>
+		<li>@T["Bulletproof vests (NIJ III+) US Standart protection level 4-5 (Ukrainian DSTU standard)"]</li>
+		<li>@T["Helmets (The required standard is NIJ level IIIA)"]</li>
+		<li>@T["Shooting Earmuffs (ear protection for shooting)"]</li>
+		<li>@T["Rechargeable flashlights"]</li>
+		<li>@T["Thermal imaging monoculars (ARCHER ТМА30М/55М) analog: (detection 1700m +, recognition 430m +, identification 215m +)"]</li>
+		<li>@T["Tactical periscopes UZI 5x20 CR"]</li>
+		<li>@T["Drones: AUTEL EVO II PRO; camera: Yunecc E30Z, CAR EVO II DUAL RUGGED BUNDLE (640T) V2; Walkera Voyager 5"]</li>
+		<li>@T["Phone Power Banks"]</li>
+		<li>@T["Computer Power Banks"]</li>
+		<li>@T["Tactical Backpacks"]</li>
+		<li>@T["Army Ration Packs (dehydrated)"]</li>
+		<li>@T["Tactical knee pads"]</li>
+		<li>@T["Tactical elbow pads"]</li>
+	</ul>
+	<img src="https://legion-foundation.org/img/supply.jpeg" class="img-fluid" />
+</div>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -132,6 +132,10 @@
     <None Include="wwwroot\lib\bootstrap\dist\scss\_type.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_utilities.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DiscordBotEntity\DiscordBot\Discord.csproj" />
   </ItemGroup>
 
 </Project>
