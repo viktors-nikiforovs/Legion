@@ -1,7 +1,7 @@
 ﻿$card-border-radius: 1rem;
 $card-cap-color: black;
 $card-color: black;
-$card-bg: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
+//$card-bg: 
 
 #wardays {
     font-weight: 600;
@@ -10,22 +10,23 @@ $card-bg: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,25
     text-align: center;
     border: none;
     border-radius: 2rem;
-    width: 13rem;
+    width: 16rem;
     margin: auto;
 }
 
-
-
 .transparent {
-    backdrop-filter: blur(20px);
     width: 30%;
+    background-color: none;
+    background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
+    max-width: 24rem;
+    
 }
-
 
 .navbar {
     height: 4rem;
     background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
     backdrop-filter: blur(40px);
+    z-index: 10;
 }
 
 body div {
@@ -36,13 +37,8 @@ body h5 {
     color: black;
 }
 
-body {
-    height: 100vh;
-    background: url("/images/wallpaper.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat-y;
+.wallpaper {
+
 }
 
 .container {

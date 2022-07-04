@@ -3,23 +3,40 @@
 @{
 	ViewData["Title"] = @T["Home"];
 }
+<style>
+	body {
+		height: 100vh;
+		background: url("/images/wallpaper.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		/*background-attachment: fixed;*/
+	}
+</style>
 
 <div id="wardays" class="wardays">
-	<h4>Days at war: <input style="background: transparent; border: none; width: 3rem; color: white;" id="counter" value="0"></h4>
+	<h4>Война идёт <input style="background: transparent; border: none; width: 2.7rem; color: white;" id="counter" value="0"> дней</h4>
 </div>
 
-<div class="card border-light mb-3 transparent" style="max-width: 18rem; margin: 5% 0 0 60%;">
-	<div class="card-header"><i>Charitable Foundation Legion</i></div>
+<div class="transparent card" style="margin: 5% 0 0 60%;">
+	<div class="card-header">Как нам можно помочь</div>
 	<div class="card-body">
-		<h4 class="card-title">Our main goal</h4>
-		<p class="card-text">Inhabitants of captured territories suffer from the daily brutality of Russian military occupation.</p>
+		<ul>
+			<li class="card-text">Финансовые пожертвование</li>
+			<li class="card-text">Материальные пожертвование</li>
+		</ul>
+	</div>
+
+</div>
+<div class="transparent card" style="margin-right: 60%;">
+	<div class="card-header">What w help</div>
+	<div class="card-body">
+		<ul>
+			<li class="card-text">Financial donations</li>
+			<li class="card-text">Product donations</li>
+			<li class="card-text">Helping us reaching more people</li>
+		</ul>
 	</div>
 </div>
 
-<div class="card border-light mb-3 transparent" style="max-width: 18rem; margin: 0 0 60% 0;">
-	<div class="card-header"><i>Charitable Foundation Legion</i></div>
-	<div class="card-body">
-		<h4 class="card-title">Who we help</h4>
-		<p class="card-text">With the help of your donations, the volunteers of the Charitable Foundation “Legion” can become a reliable logistic supplier for our defenders.</p>
-	</div>
-</div>
+

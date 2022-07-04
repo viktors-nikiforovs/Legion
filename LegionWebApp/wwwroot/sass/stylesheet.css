@@ -6,19 +6,22 @@
   text-align: center;
   border: none;
   border-radius: 2rem;
-  width: 13rem;
+  width: 16rem;
   margin: auto;
 }
 
 .transparent {
-  backdrop-filter: blur(20px);
   width: 30%;
+  background-color: none;
+  background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
+  max-width: 24rem;
 }
 
 .navbar {
   height: 4rem;
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   backdrop-filter: blur(40px);
+  z-index: 10;
 }
 
 body div {
@@ -27,15 +30,6 @@ body div {
 
 body h5, body .h5 {
   color: black;
-}
-
-body {
-  height: 100vh;
-  background: url("/images/wallpaper.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-repeat: repeat-y;
 }
 
 .container {
@@ -4343,7 +4337,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
+  background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1rem;
@@ -4423,10 +4417,6 @@ textarea.form-control-lg {
   margin-bottom: -0.5rem;
   margin-left: -0.5rem;
   border-bottom: 0;
-}
-.card-header-tabs .nav-link.active {
-  background-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
-  border-bottom-color: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
 }
 
 .card-header-pills {
