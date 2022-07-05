@@ -8,13 +8,12 @@
   border-radius: 2rem;
   width: 16rem;
   margin: auto;
+  color: white;
 }
 
 .transparent {
-  width: 30%;
   background-color: none;
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
-  max-width: 24rem;
 }
 
 .navbar {
@@ -22,18 +21,6 @@
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   backdrop-filter: blur(40px);
   z-index: 10;
-}
-
-body div {
-  color: white;
-}
-
-body h5, body .h5 {
-  color: black;
-}
-
-.container {
-  color: white;
 }
 
 .footer {
