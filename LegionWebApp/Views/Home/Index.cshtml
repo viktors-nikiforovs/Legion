@@ -4,57 +4,60 @@
 	ViewData["Title"] = @T["Home"];
 }
 <style>
-	body{
-		height: 100vh;
-		background: url("/images/wallpaper.jpg");
+	body {
+		background: url("/images/soldier-holding-flag.jpg");
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;		
+		background-size: cover;
 	}
-
 </style>
 
 <div class="container">
-	<div id="wardays" class="wardays">
-		<h4>Война идёт <input style="background: transparent; border: none; width: 2.7rem; color: white;" id="counter" value="0"> дней</h4>
-	</div>
-	<div class="card float-start" style="width:30%; margin: 0 0 0 70%">
-		<div class="card-body">
-			<div class="card-text">
-				24<sup>th</sup> February 2022 the whole world was shocked of treacherous attack from Russia on Ukraine.
+	<div id="wardays" class="wardays"><h4>Война идёт <input style="background: transparent; border: none; width: 2.7rem; color: white;" id="counter" value="0"> дней</h4></div>
+
+	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="card d-block w-100">
+					<img src="/images/ukrainian-soldier-rescues-a-child.jpeg" class="d-block w-100" alt="...">
+					<div class="card-body">
+						<p class="card-text">On the 24th of February 2022 the whole world was shocked by the unlawful attack of the Russian army on Ukraine. Every day Russian forces subject the civilian population to looting, and horrific war crimes that have been publicised in the media.</p>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="card d-block w-100">
+					<img src="/images/1238943461.jpeg" class="d-block w-100" alt="...">
+					<div class="card-body">
+						<p class="card-text">
+							To date, tens of thousands of civilians including the elderly and children have sadly lost their lives.
+							Hospitals are totally overwhelmed with the number of daily casualties from this unlawful invasion by Russian troops into our beautiful country. Today, more than 800,000 people have been left completely homeless and desolate by the senseless bombing of the Russian army. The only defense for the population of our beautiful country is to rely on our Armed Forces.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="card d-block w-100">
+					<img src="/images/girlshome.jpg" class="d-block w-100" alt="...">
+					<div class="card-body">
+						<p class="card-text">
+							To date, tens of thousands of civilians including the elderly and children have sadly lost their lives.
+							Hospitals are totally overwhelmed with the number of daily casualties from this unlawful invasion by Russian troops into our beautiful country. Today, more than 800,000 people have been left completely homeless and desolate by the senseless bombing of the Russian army. The only defense for the population of our beautiful country is to rely on our Armed Forces.
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
 	</div>
-	<div class="card float-start" style="width:30%; margin: 2rem 0 0 0">
-		<div class="card-body">
-			<div class="card-text">
-				Every day Russian forces subject the civilian population to looting, physical abuse, torture, deliberate killings, mass rape, including children!
-			</div>
-		</div>
-	</div>
-	<div class="card float-start" style="width:30%; margin: 2rem 0 0 70%">
-		<div class="card-body">
-			<div class="card-text">
-				Every day Russian forces subject the civilian population to looting, physical abuse, torture, deliberate killings, mass rape, including children!
-			</div>
-		</div>
-	</div>
-	<div class="card float-start" style="width:30%; margin: 2rem 70% 0 0">
-		<div class="card-body">
-			<div class="card-text">
-				Every day Russian forces subject the civilian population to looting, physical abuse, torture, deliberate killings, mass rape, including children!
-			</div>
-		</div>
-	</div>
-	<div class="card float-start" style="width:30%; margin: 4rem 0 0 70%">
-		<div class="card-body">
-			<div class="card-text">
-				Every day Russian forces subject the civilian population to looting, physical abuse, torture, deliberate killings, mass rape, including children!
-			</div>
-		</div>
-	</div>
+
+
 
 </div>
-
-
-
