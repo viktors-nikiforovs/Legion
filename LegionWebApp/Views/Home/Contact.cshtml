@@ -1,14 +1,19 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer T
 @{
-    ViewData["Title"] = @T["Contact Us"];
+	ViewData["Title"] = @T["Contact Us"];
 }
 
-<div>
-    <h4>@T["Contact Us"]</h4>
-    <p><b>@T["Phone"]:</b> +380960177075</p>
-    <p><b>@T["E-mail"]:</b> legion.charity@gmail.com</p>
-    <p><b>@T["Address"]:</b> @T["Kyiv, 45 Peremohy Avenue"] @T["Postal address"]: @T["03142 Kyiv -142, post office 28"]</p>
-    <p><b>@T["We are on social media"]:</b></p>
-    <p><a href="https://www.facebook.com/charitable.fund.legion">Facebook</a> <a href="https://www.instagram.com/cf_legion/">Instagram</a>  <a href="#">Twitter</a></p>
+<div id="Contact" class="card">
+	<div class="card-body">
+		<h4 class="card-title">@T["Contact Us"]</h4>
+		<div class="card-text">
+			<p><b>@T["Phone"]:</b><a href="phone:+380960177075">+380960177075</a></p>
+			<p><b>@T["E-mail"]:</b><a href="mailto:legion.charity@gmail.com">legion.charity@gmail.com</a></p>
+			<p><b>@T["Address"]:</b> @T["Kyiv, 45 Peremohy Avenue"] @T["Postal address"]: @T["03142 Kyiv -142, post office 28"]</p>
+			<p><b>@T["We are on social media"]:</b></p>
+			<p><a href="https://www.facebook.com/charitable.fund.legion">Facebook</a> <a href="https://www.instagram.com/cf_legion/">Instagram</a>  <a href="https://t.me/cf_legion">Telegram</a></p>
+		</div>
+	</div>
 </div>
+

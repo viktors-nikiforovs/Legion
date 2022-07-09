@@ -1,7 +1,6 @@
 ﻿$card-border-radius: 1rem;
-$card-cap-color: black;
-$card-color: black;
-//$card-bg: 
+$card-bg: rgb(255, 255, 255, 0.9);
+$navbar-padding-x: 10rem;
 
 #wardays {
     font-weight: 600;
@@ -15,16 +14,24 @@ $card-color: black;
     color: white;
 }
 
-.transparent {
+/*.transparent {
     background-color: none;
     background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
-}
+}*/
 
 .navbar {
-    height: 4rem;
     background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
     backdrop-filter: blur(40px);
-    z-index: 10;
+    min-height: 4rem;
+}
+
+
+.logo {
+    position: absolute;
+    top: 0;
+    margin: 1vw 0 0 1vw;
+    height: 10vw;
+    z-index: 1;
 }
 
 .footer {
@@ -84,11 +91,16 @@ $card-color: black;
     cursor: zoom-out;
 }
 
-.langbar {
+/*.langbar {
     position: absolute !important;
     top: 0;
     right: 0;
+}*/
+
+.card {
+    margin: 1.5rem 0 1.5rem 0;
 }
+
 
 .card-footer {
     position: absolute;

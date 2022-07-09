@@ -3,40 +3,41 @@
 
 @{
 	var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
-	//var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name });
 	var cultureList = locOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = char.ToUpper(x.NativeName[0]) + x.NativeName.Substring(1) }).ToList();
 	var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
 }
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm">
-	<div class="container-fluid">
-		<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-			<img src="https://legion-foundation.org/img/logo.png" height=60rem; />
+<div class="logo">
+		<a asp-area="" asp-controller="Home" asp-action="Index">
+			<img src="https://legion-foundation.org/img/logo.png" style="height: 100%"/>
 		</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	</div>
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3" style="padding: 0 0 0 11vw;">
+	
+	<div class="container">
+
+		<button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 			<ul class="navbar-nav flex-grow-1">
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">@T["Home"]</a>
+					<a class="nav-link" href="#Index">@T["Home"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Needs">@T["Constant Needs"]</a>
+					<a class="nav-link" href="#Needs">@T["Constant Needs"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Finance">@T["Finance Aid"]</a>
+					<a class="nav-link" href="#About">@T["About Us"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">@T["About Us"]</a>
+					<a class="nav-link" href="#Team">@T["Our Team"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Team">@T["Our Team"]</a>
+					<a class="nav-link" href="#Contact">@T["Contact Us"]</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contact">@T["Contact Us"]</a>
-				</li>
-				<li class="nav-item">
-					<a class="btn btn-danger" asp-controller="Home" asp-action="Finance" >Donate now</a>
+					<a class="btn btn-danger" href="#Finance">Donate now</a>
 				</li>
 			</ul>
 			<span class="d-flex">
@@ -45,9 +46,10 @@
 				</form>
 			</span>
 		</div>
-		
+
 	</div>
 </nav>
+
 
 @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 

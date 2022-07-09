@@ -11,16 +11,22 @@
   color: white;
 }
 
-.transparent {
-  background-color: none;
-  background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
-}
-
+/*.transparent {
+    background-color: none;
+    background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
+}*/
 .navbar {
-  height: 4rem;
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   backdrop-filter: blur(40px);
-  z-index: 10;
+  min-height: 4rem;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  margin: 1vw 0 0 1vw;
+  height: 10vw;
+  z-index: 1;
 }
 
 .footer {
@@ -78,10 +84,13 @@
   cursor: zoom-out;
 }
 
-.langbar {
-  position: absolute !important;
-  top: 0;
-  right: 0;
+/*.langbar {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+}*/
+.card {
+  margin: 1.5rem 0 1.5rem 0;
 }
 
 .card-footer {
@@ -4007,7 +4016,9 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: space-between;
   padding-top: 0.5rem;
+  padding-right: 10rem;
   padding-bottom: 0.5rem;
+  padding-left: 10rem;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -4324,7 +4335,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1rem;
@@ -4355,7 +4366,6 @@ textarea.form-control-lg {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
-  color: black;
 }
 
 .card-title {
@@ -4381,7 +4391,6 @@ textarea.form-control-lg {
 .card-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
-  color: black;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4391,7 +4400,6 @@ textarea.form-control-lg {
 
 .card-footer {
   padding: 0.5rem 1rem;
-  color: black;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4404,6 +4412,10 @@ textarea.form-control-lg {
   margin-bottom: -0.5rem;
   margin-left: -0.5rem;
   border-bottom: 0;
+}
+.card-header-tabs .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(255, 255, 255, 0.9);
 }
 
 .card-header-pills {
