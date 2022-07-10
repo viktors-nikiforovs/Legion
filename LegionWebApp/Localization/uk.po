@@ -282,7 +282,16 @@ msgid "Add to cart"
 msgstr "Додати в кошик"
 
 msgid "DONATE"
-msgstr "ПОЖЕРТВУЙТЕ"
+msgstr "ПОЖЕРТВУВАТИ"
 
 msgid "With your support, we are supplying people with life-essential things"
 msgstr "З вашою підтримкою ми постачаємо людям життєво необхідні речі"
+
+msgid "Mykola Stepenko"
+msgstr "Олександр Нікіфоров"
+
+msgid "Alexander Nikiforov"
+msgstr "Микола Степенко"
+
+msgid "War day"
+msgstr "День війни"

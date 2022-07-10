@@ -211,11 +211,11 @@ msgstr "Ellenbogenschützer"
 msgid "Founders"
 msgstr "Gründer des Fonds"
 
-msgid "Project Manager - Mykola Stepenko"
-msgstr "Projektmanager - Mykola Stepenko"
+msgid "Project Manager"
+msgstr "Projektmanager"
 
-msgid "Director of the Foundation - Alexander Nikiforov"
-msgstr "Direktor der Stiftung - Alexander Nikiforov"
+msgid "Director of the Foundation"
+msgstr "Direktor der Stiftung"
 
 msgid "Participants"
 msgstr "Teilnehmer"
