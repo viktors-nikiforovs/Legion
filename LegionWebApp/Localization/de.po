@@ -279,3 +279,9 @@ msgstr "Hohe Nachfrage"
 
 msgid "Add to cart"
 msgstr "In den Warenkorb legen"
+
+msgid "DONATE"
+msgstr "SPENDEN"
+
+msgid "With your support, we are supplying people with life-essential things"
+msgstr "Mit Ihrer Unterstützung versorgen wir Menschen mit lebensnotwendigen Dingen"

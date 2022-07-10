@@ -280,3 +280,9 @@ msgstr "Високий попит"
 
 msgid "Add to cart"
 msgstr "Додати в кошик"
+
+msgid "DONATE"
+msgstr "ПОЖЕРТВУЙТЕ"
+
+msgid "With your support, we are supplying people with life-essential things"
+msgstr "З вашою підтримкою ми постачаємо людям життєво необхідні речі"

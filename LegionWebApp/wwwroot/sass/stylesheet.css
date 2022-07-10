@@ -1,4 +1,8 @@
 ﻿@charset "UTF-8";
+.nav-link {
+  color: white;
+}
+
 #wardays {
   font-weight: 600;
   font-size: 2rem;
@@ -11,10 +15,13 @@
   color: white;
 }
 
-/*.transparent {
-    background-color: none;
-    background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
-}*/
+.carousel-item {
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .navbar {
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   backdrop-filter: blur(40px);
@@ -27,6 +34,11 @@
   margin: 1vw 0 0 1vw;
   height: 10vw;
   z-index: 1;
+}
+
+.icon {
+  color: #3B529B;
+  font-size: 3rem;
 }
 
 .footer {
@@ -84,19 +96,8 @@
   cursor: zoom-out;
 }
 
-/*.langbar {
-    position: absolute !important;
-    top: 0;
-    right: 0;
-}*/
 .card {
   margin: 1.5rem 0 1.5rem 0;
-}
-
-.card-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 #scrollTop {
@@ -10873,4 +10874,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+body {
+  background: #4f97f9;
+  background: -moz-radial-gradient(circle, #4f97f9 0%, #426c50 59%);
+  background: -webkit-radial-gradient(circle, #4f97f9 0%, #426c50 59%);
+  background: radial-gradient(circle, #4f97f9 0%, #426c50 59%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f97f9",endColorstr="#426c50",GradientType=1);
 }

@@ -3,18 +3,68 @@
 @{
 	ViewData["Title"] = @T["Home"];
 }
-<style>
-/*	body {
-		background: url("/images/soldier-holding-flag.jpg");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-	}*/
-</style>
-<div id="wardays" class="wardays"><h4>Война идёт <input style="background: transparent; border: none; width: 2.7rem; color: white;" id="counter" value="0"> дней</h4></div>
+
+<div id="wardays" class="wardays"><h4>День войны <input style="background: transparent; border: none; width: 2.7rem; color: white;" id="counter" value="0"></h4></div>
+
+<div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>
+	</div>
+	<div class="carousel-inner">		
+		<div class="carousel-item w-100" style="background-image: url(https://pic.sport.ua/images/media/orig/b7/31758.jpg);">
+			<div class="card" style="width: 18rem; margin: 10% 0 0 10%">
+				<div class="card-body">
+					<p class="card-text">@T["Since the invasion began on February 24th, the world was shocked by the Russian military's targeting of civilians and children. Russian artillery and rockets continue to destroy civilian infrastructure, homes, and communities. Inhabitants of captured territories suffer from the daily brutality of Russian military occupation."]</p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item active w-100" style="background-image: url(/images/queue.jpeg);">
+			<div class="card" style="width: 18rem; margin: 10% 0 0 10%">
+				<div class="card-body">
+					<p class="card-text">@T["We provide reporting in videos and photos, documents, and acts of transfer."]</p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item w-100" style="background-image: url(/images/washingpowder.jpeg);">
+			<div class="card" style="width: 18rem; margin: 10% 0 0 10%">
+				<div class="card-body">
+					<p class="card-text">@T["With your support, we are supplying people with life-essential things"]</p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item w-100" style="background-image: url(https://legion-foundation.org/img/auto.jpeg);">
+			<div class="card float-end" style="width: 24rem; margin: 5% 0 0 0;">
+				<div class="card-body">
+					<h4 class="card-title">@T["Vehicles for the Armed Forces of Ukraine"]</h4>
+					<div class="card-text">
+						<p>@T["Currently, the demand for military transport far exceeds the capability of state support."]</p>
+						<p>@T["The army needs vehicles to:"]</p>
+						<ul>
+							<li>@T["increase the mobility of troops"]</li>
+							<li>@T["improve the material and technical capabilities of units"]</li>
+							<li>@T["save the lives of soldiers"]</li>
+						</ul>
+						<p>@T["The army needs diesel pickups, SUVs, minibuses, and other all-terrain vehicles. This fund will use your donations on the necessary transport for the Armed Forces of Ukraine."]</p>
+						<h5><b><u>@T["Every dollar will help save lives!"]</u></b></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+</div>
 
 <partial name="About" />
-<partial name="Vehicles" />
 <partial name="Needs" />
 <partial name="Finance" />
 <partial name="Team" />

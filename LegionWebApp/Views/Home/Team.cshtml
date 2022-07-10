@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer T
 @{
-    ViewData["Title"] = @T["Our Team"];
+	ViewData["Title"] = @T["Our Team"];
 }
 
 <div id="Team" class="card">
@@ -9,27 +9,39 @@
 		<h4 class="card-title">@T["Our Team"]</h4>
 		<div class="card-text">
 			<h5>@T["Founders"]</h5>
-			<p>@T["Project Manager - Mykola Stepenko"]</p>
-			<p>@T["Director of the Foundation - Alexander Nikiforov"]</p>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>@T["Project Manager"]</td>
+						<td style="width: 75%;">@T["Mykola Stepenko"]</td>
+					</tr>
+					<tr>
+						<td>@T["Director of the Foundation"]</td>
+						<td>@T["Alexander Nikiforov"]</td>
+					</tr>
+				</tbody>
+			</table>
 			<h5>@T["Participants"]</h5>
-			<ul>
-				<li>@T["Volunteer consultant - Yuriy Kondratiev"]</li>
-				<li>@T["Media Communications Manager - Anna Melnychenko"]</li>
-				<li>@T["Manager in English-speaking countries - Adelina Saharova"]</li>
-				<li>@T["Manager in French-speaking countries - Victoria Azarova"]</li>
-			</ul>
+			<table class="table table-hover table-sm">
+				<tbody>
+					<tr>
+						<td>@T["Volunteer consultant"]</td>
+						<td style="width: 75%;">@T["Yuriy Kondratiev"]</td>
+					</tr>
+					<tr>
+						<td>@T["Media Communications Manager"]</td>
+						<td>@T["Anna Melnychenko"]</td>
+					</tr>
+					<tr>
+						<td>@T["Manager in English-speaking countries"]</td>
+						<td>@T["Adelina Saharova"]</td>
+					</tr>
+					<tr>
+						<td>@T["Manager in French-speaking countries"]</td>
+						<td>@T["Victoria Azarova"]</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

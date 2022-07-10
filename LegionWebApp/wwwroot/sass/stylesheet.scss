@@ -2,6 +2,10 @@
 $card-bg: rgb(255, 255, 255, 0.9);
 $navbar-padding-x: 10rem;
 
+.nav-link{
+    color: white;
+}
+
 #wardays {
     font-weight: 600;
     font-size: 2rem;
@@ -14,10 +18,12 @@ $navbar-padding-x: 10rem;
     color: white;
 }
 
-/*.transparent {
-    background-color: none;
-    background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
-}*/
+.carousel-item {
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .navbar {
     background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
@@ -25,13 +31,16 @@ $navbar-padding-x: 10rem;
     min-height: 4rem;
 }
 
-
 .logo {
     position: absolute;
     top: 0;
     margin: 1vw 0 0 1vw;
     height: 10vw;
     z-index: 1;
+}
+.icon {
+    color: #3B529B;
+    font-size: 3rem;
 }
 
 .footer {
@@ -91,24 +100,10 @@ $navbar-padding-x: 10rem;
     cursor: zoom-out;
 }
 
-/*.langbar {
-    position: absolute !important;
-    top: 0;
-    right: 0;
-}*/
 
 .card {
     margin: 1.5rem 0 1.5rem 0;
 }
-
-
-.card-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-
 
 #scrollTop {
     display: none; /* Hidden by default */
@@ -127,3 +122,11 @@ $navbar-padding-x: 10rem;
 }
 
 @import "../lib/bootstrap/dist/scss/bootstrap";
+
+body {
+    background: rgb(79,151,249);
+    background: -moz-radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
+    background: -webkit-radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
+    background: radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f97f9",endColorstr="#426c50",GradientType=1);
+}
