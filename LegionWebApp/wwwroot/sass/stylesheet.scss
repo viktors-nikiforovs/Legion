@@ -45,10 +45,11 @@ $navbar-padding-x: 10rem;
 
 .footer {
     content: '';
+    color: white;
     background: linear-gradient(269.68deg, rgba(255,255,255,0.02) -41.81%, rgba(255,255,255,0.02) 96.72%);
     backdrop-filter: blur(40px);
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     //height: 4rem;
     z-index: 1;
