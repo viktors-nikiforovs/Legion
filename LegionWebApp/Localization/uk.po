@@ -28,6 +28,9 @@ msgstr "Назва підприємства"
 msgid "CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
 msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ «БЛАГОДІЙНИЙ ФОНД «ЛЕГІОН»
 
+msgid "CHARITY FOUNDATION «LEGION»"
+msgstr "БЛАГОДІЙНИЙ ФОНД «ЛЕГІОН»
+
 msgid "Postal address"
 msgstr "Поштова адреса"
 
