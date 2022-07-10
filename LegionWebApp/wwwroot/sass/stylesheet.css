@@ -47,7 +47,7 @@
   background: linear-gradient(269.68deg, rgba(255, 255, 255, 0.02) -41.81%, rgba(255, 255, 255, 0.02) 96.72%);
   backdrop-filter: blur(40px);
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 1;
 }
