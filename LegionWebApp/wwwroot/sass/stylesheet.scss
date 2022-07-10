@@ -125,8 +125,5 @@ $navbar-padding-x: 10rem;
 
 body {
     background: rgb(79,151,249);
-    background: -moz-radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
-    background: -webkit-radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
-    background: radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(66,108,80,1) 59%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4f97f9",endColorstr="#426c50",GradientType=1);
+    background: radial-gradient(circle, rgba(79,151,249,1) 0%, rgba(3,109,95,1) 50%);
 }
