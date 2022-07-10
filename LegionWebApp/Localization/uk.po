@@ -149,8 +149,8 @@ msgstr "Аптечка IFAK II"
 msgid "Tactical medical bags (Fully Stocked)"
 msgstr "Медичні тактичні сумки (укомплектовані)"
 
-msgid "Tactical boots like Lowa (seasonal, medium height - 6)"
-msgstr "Тактичні ботинки типу Lowa (сезонні, середньої висоти - 6)"
+msgid "Tactical boots (seasonal, medium height - 6)"
+msgstr "Тактичні ботинки (сезонні, середньої висоти - 6)"
 
 msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
 msgstr "Комплекти тактичної форми (непромокаючі куртка + штани) ECWCS GEN III Level 6 PACLITE"
@@ -212,11 +212,11 @@ msgstr "Налокітники"
 msgid "Founders"
 msgstr "Засновники фонду"
 
-msgid "Project Manager - Mykola Stepenko"
-msgstr "Керівник проекту - Микола Степенко"
+msgid "Project Manager"
+msgstr "Керівник проекту"
 
-msgid "Director of the Foundation - Alexander Nikiforov"
-msgstr "Директор Фонду - Олександр Нікіфоров"
+msgid "Director of the Foundation"
+msgstr "Директор Фонду"
 
 msgid "Participants"
 msgstr "Учасники"

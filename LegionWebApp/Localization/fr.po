@@ -148,8 +148,8 @@ msgstr "Trousse de secours IFAK II"
 msgid "Tactical medical bags (Fully Stocked)"
 msgstr "Sacs tactiques médicaux (complets)"
 
-msgid "Tactical boots like Lowa (seasonal, medium height - 6)"
-msgstr "Bottes tactiques comme Lowa (saisonnières, taille moyenne - 6)"
+msgid "Tactical boots (seasonal, medium height - 6)"
+msgstr "Bottes tactiques (saisonnières, taille moyenne - 6)"
 
 msgid "Military uniform kits with waterproof jacket and pants ECWCS GEN III Level 6 PACLITE"
 msgstr "Uniformes tactiques 5. 11 (plus IMPERMÉABLE)"
@@ -211,11 +211,11 @@ msgstr "Épaulettes"
 msgid "Founders"
 msgstr "Fondateurs de fonds"
 
-msgid "Project Manager - Mykola Stepenko"
-msgstr "Chef de projet - Nikolay Stepenko"
+msgid "Project Manager"
+msgstr "Chef de projet"
 
-msgid "Director of the Foundation Alexander Nikiforov"
-msgstr "Directeur du Fonds - Alexander Nikiforov"
+msgid "Director of the Foundation"
+msgstr "Directeur du Fonds"
 
 msgid "Participants"
 msgstr "Учасники"
