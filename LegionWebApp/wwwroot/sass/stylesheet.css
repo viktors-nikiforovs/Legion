@@ -3,6 +3,14 @@
   color: white;
 }
 
+#wardays input {
+  background: transparent;
+  border: none;
+  width: 3.5rem;
+  color: white;
+  font-weight: 600;
+}
+
 #wardays {
   font-weight: 600;
   font-size: 2rem;
@@ -10,7 +18,7 @@
   text-align: center;
   border: none;
   border-radius: 2rem;
-  width: 17rem;
+  width: 14rem;
   float: right;
   color: white;
 }
@@ -29,9 +37,7 @@
 }
 
 .logo {
-  position: absolute;
-  top: 0;
-  margin: 1vw 0 0 1vw;
+  display: inline-block;
   height: 10vw;
   z-index: 1;
 }

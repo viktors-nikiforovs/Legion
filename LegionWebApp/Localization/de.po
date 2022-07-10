@@ -25,8 +25,11 @@ msgstr "Startseite"
 msgid "Purpose of payment"
 msgstr "Der Zahlungszweck"
 
-msgid "CHARITABLE ORGANIZATION «CHARITY FOUNDATION «LEGION»"
-msgstr "WOHLTÄTIGE ORGANISATION «CHARITY FOUNDATION «LEGION»"
+msgid "CHARITABLE ORGANIZATION «"
+msgstr "WOHLTÄTIGE ORGANISATION «"
+
+msgid "CHARITY FOUNDATION «LEGION»"
+msgstr "CHARITY FOUNDATION «LEGION»"
 
 msgid "Postal address"
 msgstr "Postfach"

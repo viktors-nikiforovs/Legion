@@ -2,8 +2,16 @@
 $card-bg: rgb(255, 255, 255, 0.9);
 $navbar-padding-x: 10rem;
 
-.nav-link{
+.nav-link {
     color: white;
+}
+
+#wardays input {
+    background: transparent;
+    border: none;
+    width: 3.5rem;
+    color: white;
+    font-weight: 600;
 }
 
 #wardays {
@@ -13,7 +21,7 @@ $navbar-padding-x: 10rem;
     text-align: center;
     border: none;
     border-radius: 2rem;
-    width: 17rem;
+    width: 14rem;
     float: right;
     color: white;
 }
@@ -32,12 +40,11 @@ $navbar-padding-x: 10rem;
 }
 
 .logo {
-    position: absolute;
-    top: 0;
-    margin: 1vw 0 0 1vw;
+    display: inline-block;
     height: 10vw;
     z-index: 1;
 }
+
 .icon {
     color: #3B529B;
     font-size: 3rem;
