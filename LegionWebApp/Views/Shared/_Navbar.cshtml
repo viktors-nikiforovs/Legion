@@ -36,18 +36,17 @@
 				<li class="nav-item">
 					<a class="nav-link text-light" href="#Contact">@T["Contact Us"]</a>
 				</li>
-				@*<li class="nav-item">
+				<li class="nav-item">
 				<a href="#Finance"><button type="button" class="btn btn-danger btn-lg">@T["DONATE"]</button></a>
-				</li>*@
+				</li>
 			</ul>
-			
-		</div>
-		<span><a href="#Finance"><button type="button" class="btn btn-danger btn-lg">@T["DONATE"]</button></a></span>
-		<span class="d-flex collapse">
+			<span class="d-flex">
 				<form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
 					<select name="culture" class="btn-secondary" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>
 				</form>
 			</span>
+		</div>
+
 	</div>
 </nav>
 
