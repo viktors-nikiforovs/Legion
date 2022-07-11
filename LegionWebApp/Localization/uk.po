@@ -220,21 +220,6 @@ msgstr "Керівник проекту"
 msgid "Director of the Foundation"
 msgstr "Директор Фонду"
 
-msgid "Participants"
-msgstr "Учасники"
-
-msgid "Volunteer consultant - Yuriy Kondratiev"
-msgstr "Волонтер-консультант - Юрій Кондратьєв"
-
-msgid "Media Communications Manager - Anna Melnychenko"
-msgstr "Менеджер з медіакомунікацій - Анна Мельниченко"
-
-msgid "Manager in English-speaking countries - Adelina Saharova"
-msgstr "Менеджер по англомовних країнах - Аделіна Сахарова"
-
-msgid "Manager in French-speaking countries - Victoria Azarova"
-msgstr "Менеджер по франкомовних країнах - Вікторія Азарова"
-
 msgid "Vehicles for the Armed Forces of Ukraine"
 msgstr "Автомобілі для армії"
 
@@ -289,10 +274,11 @@ msgstr "ПОЖЕРТВУВАТИ"
 msgid "With your support, we are supplying people with life-essential things"
 msgstr "З вашою підтримкою ми постачаємо людям життєво необхідні речі"
 
-msgid "Mykola Stepenko"
-msgstr "Олександр Нікіфоров"
 
 msgid "Alexander Nikiforov"
+msgstr "Олександр Нікіфоров"
+
+msgid "Mykola Stepenko"
 msgstr "Микола Степенко"
 
 msgid "War day"
