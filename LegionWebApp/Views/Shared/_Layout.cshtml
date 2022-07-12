@@ -95,6 +95,7 @@
 	<script>
 		window.onload = function updateTimer() {
 			date1 = new Date("2022-02-24");
+            date1.setTime("1645675200000");
 			date2 = new Date();
 			oneDay = 1000 * 60 * 60 * 24;
 			diffInTime = date2.getTime() - date1.getTime();
@@ -106,6 +107,15 @@
 				round: 1,
 				easing: 'linear'
 			});
+		}
+	</script>
+	<script>
+		function SetTitle(page) {
+
+			let title_el = document.querySelector("title");
+
+			if (title_el)
+				title_el.innerHTML = page;
 		}
 	</script>
 	@await RenderSectionAsync("Scripts", required: false)
