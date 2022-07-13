@@ -16,6 +16,9 @@ msgstr "Unser Team"
 msgid "Contact Us"
 msgstr "Kontakte"
 
+msgid "Gallery"
+msgstr "Galerie"
+
 msgid "Home"
 msgstr "Startseite"
 

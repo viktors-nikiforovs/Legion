@@ -16,6 +16,9 @@ msgstr "Команда"
 msgid "Contact Us"
 msgstr "Контакти"
 
+msgid "Gallery"
+msgstr "Галерея"
+
 msgid "Home"
 msgstr "Домашня сторінка"
 
