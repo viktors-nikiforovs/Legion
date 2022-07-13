@@ -88,7 +88,7 @@
 			&copy; 2022 - Legion-Foundation.org
 		</div>
 	</footer>
-	  <div id="fullpage" onclick="this.style.display='none';"></div>
+	<div id="fullpage" onclick="this.style.display='none';"></div>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
@@ -108,13 +108,10 @@
 				round: 1,
 				easing: 'linear'
 			});
-		}
-	</script>
-	<script>
-		function getPics() { } //just for this demo
+		};
+		function getPics() { }
 		const imgs = document.querySelectorAll('.gallery img');
 		const fullPage = document.querySelector('#fullpage');
-
 		imgs.forEach(img => {
 			img.addEventListener('click', function() {
 				fullPage.style.backgroundImage = 'url(' + img.src + ')';
