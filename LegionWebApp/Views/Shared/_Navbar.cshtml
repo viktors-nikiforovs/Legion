@@ -21,23 +21,23 @@
 	<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 		<ul class="navbar-nav flex-grow-1">
 			<li class="nav-item">
-				<a class="nav-link text-light" href="#Index">@T["Home"]</a>
+				<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">@T["Home"]</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-light" href="#Needs">@T["Constant Needs"]</a>
+				<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Needs">@T["Constant Needs"]</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-light" href="#About">@T["About Us"]</a>
+				<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="About">@T["About Us"]</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link text-light" href="#Contact">@T["Contact Us"]</a>
+				<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Contact">@T["Contact Us"]</a>
+			</li>			
+			<li class="nav-item">
+				<a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Gallery">@T["Gallery"]</a> 
 			</li>
 			<li class="nav-item">
 				<a href="#Finance"><button type="button" class="btn btn-danger btn-lg">@T["DONATE"]</button></a>
 			</li>
-@*			<li class="nav-item">
-				<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Gallery">@T["Gallery"]</a> 
-			</li>*@
 		</ul>
 	</div>
 	<span class="d-flex">

@@ -1,7 +1,4 @@
-﻿msgid "Login"
-msgstr "Входу"
-
-msgid "Vehicles"
+﻿msgid "Vehicles"
 msgstr "Авто"
 
 msgid "Constant Needs"
@@ -25,11 +22,14 @@ msgstr "Домашня сторінка"
 msgid "Purpose of payment"
 msgstr "Назва підприємства"
 
-msgid "CHARITABLE ORGANIZATION «"
-msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ «"
+msgid "CHARITABLE ORGANIZATION"
+msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ"
 
-msgid "CHARITY FOUNDATION «LEGION»"
-msgstr "БЛАГОДІЙНИЙ ФОНД «ЛЕГІОН»"
+msgid "CHARITY FOUNDATION"
+msgstr "БЛАГОДІЙНИЙ ФОНД"
+
+msgid "LEGION"
+msgstr "ЛЕГІОН"
 
 msgid "Postal address"
 msgstr "Поштова адреса"
@@ -52,8 +52,8 @@ msgstr "Назва підприємства"
 msgid "or"
 msgstr "або"
 
-msgid "СО «CF «LEGION»"
-msgstr "БО «БФ «Легіон»"
+msgid "СО «CF"
+msgstr "БО «БФ"
 
 msgid "ID Code"
 msgstr "ЄДРПОУ"
@@ -70,7 +70,10 @@ msgstr "перекази"
 msgid "Amount in U.S. dollars"
 msgstr "Сума в доларах США"
 
-msgid "E-Mail"
+msgid "e-mail"
+msgstr "електронна пошта"
+
+msgid "E-mail"
 msgstr "Електронна пошта"
 
 msgid "Charitable Foundation «Legion» was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
@@ -97,53 +100,17 @@ msgstr "Ми в соцмережах"
 msgid "Kyiv, 45 Peremohy Avenue"
 msgstr "Київ, Проспект Перемоги 45"
 
-msgid "Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."
-msgstr "Авіаракетні удари по Донеччині — окупанти вбили мирних жителів і зруйнували будинки."
-
-msgid "During the day the Russians fired on 14 settlements."
-msgstr "За добу росіяни обстріляли 14 населених пунктів."
-
-msgid "They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."
-msgstr "Били авіацією, ракетами «Іскандер», РСЗВ «Ураган» і «Смерч», артилерією, танками. "
-
-msgid "There are civilians killed."
-msgstr "Є загиблі цивільні мешканці. "
-
-msgid "37 civilian facilities were destroyed, including 26 residential buildings, 2 schools, a farm, grain warehouses, a railway station, an administrative building, etc."
-msgstr "Руйнувань зазнали 37 цивільних об’єктів, з них - 26 житлових будинків, 2 школи, ферма, склади із зерном, залізнична станція, адмінбудівля тощо."
-
-msgid "Last updated"
-msgstr "Останнє оновлення"
-
-msgid "mins"
-msgstr "хвилин"
-
-msgid "ago"
-msgstr "тому"
-
-msgid "Eight houses, including apartment houses, were destroyed as a result of night shelling of Mykolaiv. There are dead and wounded people."
-msgstr "Вісім будинків, в тому числі  багатоквартирних, зруйновано внаслідок нічного обстрілу Миколаєва. Є загиблі і поранені люди."
-
-msgid "Ukrainian soldiers sleep in the trenches."
-msgstr "Українські воїни сплять в окопах."
-
-msgid "This is what the Svyatogorsk Lavra looks like now. The Russians shelled the Lavra."
-msgstr "Так зараз виглядає обстріляна ворогом Святогірська лавра."
-
-msgid "On June 5, the enemy fired on the Holy Dormition Svyatogorsk Lavra in the Donetsk region. As a result of this attack, the wooden All Saints Monastery of the Lavra caught fire."
-msgstr "5 червня ворог обстріляв Свято-Успенську Святогірську лавру, що на Донеччині. Внаслідок цієї атаки загорівся дерев‘яний Всіхсвятський скит лаври. "
-
-msgid "This is not only a sacred place, but also a shelter – at the time of the shelling in the temple were migrants, including children, the elderly, and people with disabilities."
-msgstr "Це не лише священне місце, але й прихисток — на момент обстрілу у храмі перебували переселенці, серед яких діти, літні люди та люди з інвалідністю."
-
 msgid "Constant needs of the armed forces of Ukraine"
 msgstr "Постійні потреби для ЗСУ"
 
 msgid "Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."
 msgstr "Ще один спосіб допомоги – самостійно придбати оснащення для армії та переслати його фонду. Технічне оснащення, засоби індивідуального захисту та медикаменти будуть відправлені до військових частин відповідно до заявок."
 
-msgid "The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"
-msgstr "Посилку можна відправити на наш склад. Перед відправкою зв’яжіться з нами за номером: +380960177075 або напишіть листа на "
+msgid "The parcel can be sent to our warehouse. Before sending, contact us at:"
+msgstr "Посилку можна відправити на наш склад. Перед відправкою зв’яжіться з нами за номером:"
+
+msgid "or write a letter to"
+msgstr "або напишіть листа на"
 
 msgid "First aid kit IFAK II"
 msgstr "Аптечка IFAK II"
@@ -244,21 +211,6 @@ msgstr "Армії потрібні дизельні пікапи, позашл�
 msgid "Every dollar will help save lives!"
 msgstr "Навіть невеликі внески можуть врятувати життя"
 
-msgid "Register"
-msgstr "Реєстрація"
-
-msgid "Hello"
-msgstr "Привіт"
-
-msgid "Error"
-msgstr "Помилка"
-
-msgid "An error occurred while processing your request"
-msgstr "Сталася помилка при обробці Вашого запиту"
-
-msgid "Logout"
-msgstr "Вийти"
-
 msgid "Legion"
 msgstr "Легіон"
 
@@ -273,7 +225,6 @@ msgstr "ПОЖЕРТВУВАТИ"
 
 msgid "With your support, we are supplying people with life-essential things"
 msgstr "З вашою підтримкою ми постачаємо людям життєво необхідні речі"
-
 
 msgid "Alexander Nikiforov"
 msgstr "Олександр Нікіфоров"

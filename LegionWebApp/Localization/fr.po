@@ -1,7 +1,4 @@
-﻿msgid "Login"
-msgstr "Connexion"
-
-msgid "Vehicles"
+﻿msgid "Vehicles"
 msgstr "Véhicules"
 
 msgid "Constant Needs"
@@ -25,11 +22,14 @@ msgstr "Page d'accueil"
 msgid "Purpose of payment"
 msgstr "Objet du paiement"
 
-msgid "CHARITABLE ORGANIZATION «"
-msgstr "L’ORGANISATION CARITATIVE «"
+msgid "CHARITABLE ORGANIZATION"
+msgstr "L’ORGANISATION CARITATIVE"
 
-msgid "CHARITY FOUNDATION «LEGION»"
-msgstr "FONDATION BIENFAISANCE «LEGION»"
+msgid "CHARITY FOUNDATION"
+msgstr "FONDATION BIENFAISANCE"
+
+msgid "LEGION"
+msgstr "LEGION"
 
 msgid "Postal address"
 msgstr "Adresse postale"
@@ -52,8 +52,8 @@ msgstr "Nom de l'entreprise"
 msgid "or"
 msgstr "ou"
 
-msgid "СО «CF «LEGION»"
-msgstr "СО «CF «LEGION»"
+msgid "СО «CF"
+msgstr "СО «CF"
 
 msgid "ID Code"
 msgstr "ID Code"
@@ -70,8 +70,11 @@ msgstr "virements"
 msgid "Amount in U.S. dollars"
 msgstr "Montant en dollars américains"
 
-msgid "E-Mail"
-msgstr "E-Mail"
+msgid "e-mail"
+msgstr "e-mail"
+
+msgid "E-mail"
+msgstr "E-mail"
 
 msgid "Charitable Foundation «Legion» was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
 msgstr "La Fondation bienfaisance «Legion» a été fondée fin avril 2022 à Kyiv. L'activité du fonds vise le soutien logistique des forces armées ukrainiennes et d'autres unités participant aux hostilités, la protection de la population civile, des villes paisibles et de la souveraineté de l'Ukraine. La Fondation ne fournit pas d'armes!"
@@ -97,53 +100,17 @@ msgstr "Nous sur les réseaux sociaux"
 msgid "Kyiv, 45 Peremohy Avenue"
 msgstr "Kyiv, Prospekt Peremohy 45"
 
-msgid "Missile strikes on Donetsk region - occupiers killed civilians and destroyed houses."
-msgstr "Frappes de missiles sur la région de Donetsk - les occupants ont tué des civils et détruit des maisons."
-
-msgid "During the day the Russians fired on 14 settlements."
-msgstr "Pendant la journée, les Russes ont tiré sur 14 colonies."
-
-msgid "They used aircraft, Iskander missiles, Hurricane and Tornado MLRS, artillery, and tanks."
-msgstr "Ils ont utilisé des avions, des missiles Iskander, des MLRS Hurricane et Tornado, de l'artillerie et des chars."
-
-msgid "There are civilians killed."
-msgstr "Il y a des civils tués."
-
-msgid "37 civilian facilities were destroyed, including 26 residential buildings, 2 schools, a farm, grain warehouses, a railway station, an administrative building, etc."
-msgstr "37 installations civiles ont été détruites, dont 26 bâtiments résidentiels, 2 écoles, une ferme, des entrepôts de céréales, une gare ferroviaire, un bâtiment administratif, etc."
-
-msgid "Last updated"
-msgstr "Dernière mise à jour il y a"
-
-msgid "mins"
-msgstr "minutes"
-
-msgid "ago"
-msgstr ""
-
-msgid "Eight houses, including apartment houses, were destroyed as a result of night shelling of Mykolaiv. There are dead and wounded people."
-msgstr "Huit maisons, dont des immeubles d'habitation, ont été détruites à la suite du bombardement nocturne de Mykolaïv. Il y a des morts et des blessés."
-
-msgid "Ukrainian soldiers sleep in the trenches."
-msgstr "Des soldats ukrainiens dorment dans les tranchées."
-
-msgid "This is what the Svyatogorsk Lavra looks like now. The Russians shelled the Lavra."
-msgstr "Voici à quoi ressemble la laure de Sviatogorsk aujourd'hui. Les Russes ont bombardé la Laure."
-
-msgid "On June 5, the enemy fired on the Holy Dormition Svyatogorsk Lavra in the Donetsk region. As a result of this attack, the wooden All Saints Monastery of the Lavra caught fire."
-msgstr "Le 5 juin, l'ennemi a tiré sur la laure de la Sainte Dormition de Svyatogorsk dans la région de Donetsk. À la suite de cette attaque, le monastère en bois de Tous les Saints de la Laure a pris feu."
-
-msgid "This is not only a sacred place, but also a shelter – at the time of the shelling in the temple were migrants, including children, the elderly, and people with disabilities."
-msgstr "Ce n'est pas seulement un lieu sacré, mais aussi un abri - au moment du bombardement du temple, il y avait des migrants, y compris des enfants, des personnes âgées et des personnes handicapées."
-
 msgid "Constant needs of the armed forces of Ukraine"
 msgstr "BESOINS PERMANENTS des Forces armées ukrainiennes"
 
 msgid "Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."
 msgstr "Une autre façon d'aider est d'acheter du matériel pour l'armée et de l'envoyer au fonds. Nous enverrons du matériel technique, des équipements de protection individuelle et des médicaments aux unités militaires."
 
-msgid "The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"
-msgstr "Le colis peut être envoyé à notre entrepôt. Avant d'envoyer, contactez-nous au : +380960177075 ou écrivez une lettre à "
+msgid "The parcel can be sent to our warehouse. Before sending, contact us at:"
+msgstr "Le colis peut être envoyé à notre entrepôt. Avant d'envoyer, contactez-nous au:"
+
+msgid "or write a letter to"
+msgstr "ou écrivez une lettre à"
 
 msgid "First aid kit IFAK II"
 msgstr "Trousse de secours IFAK II"
@@ -220,21 +187,6 @@ msgstr "Chef de projet"
 msgid "Director of the Foundation"
 msgstr "Directeur du Fonds"
 
-msgid "Participants"
-msgstr "Учасники"
-
-msgid "Volunteer consultant - Yuriy Kondratiev"
-msgstr "Consultant bénévole - Yurii Kondratiev"
-
-msgid "Media Communications Manager - Anna Melnychenko"
-msgstr "Responsable des communications médias - Anna Melnichenko"
-
-msgid "Manager in English-speaking countries - Adelina Saharova"
-msgstr "Responsable anglophone - Adelina Sakharova"
-
-msgid "Manager in French-speaking countries - Victoria Azarova"
-msgstr "Responsable francophone - Victoriia Azarova"
-
 msgid "Vehicles for the Armed Forces of Ukraine"
 msgstr "Véhicules de l'armée"
 
@@ -259,21 +211,6 @@ msgstr "L'armée a besoin de camionnettes diesel, de VUS, de minibus et d'autres
 msgid "Every dollar will help save lives!"
 msgstr "Chaque dollar aidera à sauver des vies!"
 
-msgid "Register"
-msgstr "S'inscrire"
-
-msgid "Hello"
-msgstr "Bonjour"
-
-msgid "Error"
-msgstr "Erreur"
-
-msgid "An error occurred while processing your request"
-msgstr "Une erreur s'est produite lors du traitement de votre demande"
-
-msgid "Logout"
-msgstr "Se déconnecter"
-
 msgid "Legion"
 msgstr "Legion"
 
@@ -288,3 +225,12 @@ msgstr "FAIRE UN DON"
 
 msgid "With your support, we are supplying people with life-essential things"
 msgstr "Avec votre soutien, nous fournissons aux gens des choses essentielles à la vie"
+
+msgid "Alexander Nikiforov"
+msgstr "Alexander Nikiforov"
+
+msgid "Mykola Stepenko"
+msgstr "Mykola Stepenko"
+
+msgid "War day"
+msgstr "Jour de guerre"
