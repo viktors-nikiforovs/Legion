@@ -85,7 +85,7 @@
 					document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 				}
 			</script>
-			&copy; 2022 - Legion-Foundation.org
+			&copy; 2022 - Legion-Foundation.org <div id="test">123</div>
 		</div>
 	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -94,12 +94,12 @@
 	<script src="~/js/anime.min.js" asp-append-version="true"></script>
 	<script>
 		window.onload = function updateTimer() {
-			date1 = new Date("2022-02-24");
-            date1.setTime("1645675200000");
+			date1 = new Date();
+            date1.setTime("1645671600000");
 			date2 = new Date();
 			oneDay = 1000 * 60 * 60 * 24;
 			diffInTime = date2.getTime() - date1.getTime();
-			diffInDays = Math.round(diffInTime / oneDay);
+			diffInDays = Math.ceil(diffInTime / oneDay);
 			anime({
 				targets: '#counter',
 				value: [0, diffInDays],
@@ -107,15 +107,6 @@
 				round: 1,
 				easing: 'linear'
 			});
-		}
-	</script>
-	<script>
-		function SetTitle(page) {
-
-			let title_el = document.querySelector("title");
-
-			if (title_el)
-				title_el.innerHTML = page;
 		}
 	</script>
 	@await RenderSectionAsync("Scripts", required: false)
