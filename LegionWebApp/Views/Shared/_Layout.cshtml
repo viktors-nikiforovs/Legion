@@ -88,6 +88,7 @@
 			&copy; 2022 - Legion-Foundation.org
 		</div>
 	</footer>
+	  <div id="fullpage" onclick="this.style.display='none';"></div>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
@@ -95,7 +96,7 @@
 	<script>
 		window.onload = function updateTimer() {
 			date1 = new Date();
-            date1.setTime("1645671600000");
+			date1.setTime("1645671600000");
 			date2 = new Date();
 			oneDay = 1000 * 60 * 60 * 24;
 			diffInTime = date2.getTime() - date1.getTime();
@@ -108,6 +109,18 @@
 				easing: 'linear'
 			});
 		}
+	</script>
+	<script>
+		function getPics() { } //just for this demo
+		const imgs = document.querySelectorAll('.gallery img');
+		const fullPage = document.querySelector('#fullpage');
+
+		imgs.forEach(img => {
+			img.addEventListener('click', function() {
+				fullPage.style.backgroundImage = 'url(' + img.src + ')';
+				fullPage.style.display = 'block';
+			});
+		});
 	</script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
