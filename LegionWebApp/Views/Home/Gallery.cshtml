@@ -3,193 +3,302 @@
 @{
 	ViewData["Title"] = @T["Our Team"];
 }
+
+
+<style>
+	.fullpage {
+		overflow: auto;
+		display: none;
+		position: fixed;
+		z-index: 9999;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: contain;
+		background-repeat: no-repeat no-repeat;
+		background-position: center center;
+		background-color: black;
+		cursor: zoom-out;
+		
+	}
+
+	.prev,
+	.next {
+		cursor: pointer;
+		position: fixed;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+		font-size: 20px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+		z-index: 9999;
+		
+	}
+
+	.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+		.prev:hover,
+		.next:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+</style>
+
+<script>
+	function CreateModal() {
+		const imgs = document.querySelectorAll('.gallery img');
+		var modalContent = document.getElementById("ModalContent");
+		var oldHtml = modalContent.innerHTML;
+		modalContent.innerHTML = "";
+		imgs.forEach(img => {
+			modalContent.innerHTML += '<div class="mySlides fullpage"style="background-image: url(' + img.src + ');" onclick="closeModal()"></div>';
+		});
+		modalContent.innerHTML += oldHtml;
+	}
+
+	function openModal() {
+		CreateModal();
+		document.getElementById("ModalContent").style.display = "block";
+		var x = document.getElementsByTagName("BODY")[0];
+        x.style.overflow = "hidden";
+	}
+
+	function closeModal() {
+		document.getElementById("ModalContent").style.display = "none";
+		var x = document.getElementsByTagName("BODY")[0];
+		x.style.overflow = "auto";
+	}
+
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		if (n > slides.length) { slideIndex = 1 }
+		if (n < 1) { slideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		slides[slideIndex - 1].style.display = "block";
+	}
+
+
+</script>
+
+<div id="ModalContent" class="modal">
+	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
 <div class="row row-cols-1 row-cols-md-4 g-4" onload="getPics()">
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/1.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/2.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/3.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/4.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/5.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/6.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/7.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload">
+			<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
 				<source src="~/images/Gallery/8.mp4" type="video/mp4">
 			</video>
 		</div>
 	</div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-5 g-4" onload="getPics()">
+<div class="row row-cols-1 row-cols-md-5 g-4">
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/1.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/1.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(1)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/2.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/2.jpeg" class="card-img-top card-img-bottom" onclick="openModal(); currentSlide(2)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/3.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/3.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(3)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/4.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/4.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(4)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/5.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/5.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(5)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/6.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/6.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(6)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/7.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/7.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(7)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/8.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/8.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(8)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/9.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/9.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(9)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/10.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/10.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(10)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/11.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/11.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(11)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/12.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/12.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(12)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/13.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/13.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(13)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/14.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/14.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(14)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/15.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/15.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(15)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/16.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/16.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(16)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/17.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/17.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(17)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/18.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/18.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(18)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/19.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/19.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(19)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/21.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/21.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(20)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/22.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(21)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/40.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/40.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(22)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/41.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/41.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(23)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/42.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/42.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(24)" alt="...">
 		</div>
 	</div>
 	<div class="col">
 		<div class="card gallery">
-			<img src="~/images/Gallery/29.jpeg" class="card-img-top" alt="...">
-		</div>
-	</div>	
-	<div class="col">
-		<div class="card gallery">
-			<img src="~/images/Gallery/23.jpeg" class="card-img-top" alt="...">
+			<img src="~/images/Gallery/29.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(25)" alt="...">
 		</div>
 	</div>
+	<div class="col">
+		<div class="card gallery">
+			<img src="~/images/Gallery/23.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(26)" alt="...">
+		</div>
+	</div>
+</div>
+
+

@@ -48,6 +48,7 @@ $navbar-padding-x: 10rem;
 .icon {
     color: #3B529B;
     font-size: 3rem;
+    
 }
 
 .footer {
@@ -77,22 +78,6 @@ $navbar-padding-x: 10rem;
 .gallery video:hover {
     cursor: pointer;
 }
-
-#fullpage {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: contain;
-    background-repeat: no-repeat no-repeat;
-    background-position: center center;
-    background-color: black;
-    cursor: zoom-out;
-}
-
 
 .card {
     margin: 1.5rem 0 1.5rem 0;

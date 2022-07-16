@@ -89,6 +89,7 @@
 		</div>
 	</footer>
 	<div id="fullpage" onclick="this.style.display='none';"></div>
+
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
@@ -109,15 +110,6 @@
 				easing: 'linear'
 			});
 		};
-		function getPics() { }
-		const imgs = document.querySelectorAll('.gallery img');
-		const fullPage = document.querySelector('#fullpage');
-		imgs.forEach(img => {
-			img.addEventListener('click', function() {
-				fullPage.style.backgroundImage = 'url(' + img.src + ')';
-				fullPage.style.display = 'block';
-			});
-		});
 	</script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
