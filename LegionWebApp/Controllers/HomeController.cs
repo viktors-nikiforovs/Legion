@@ -38,7 +38,7 @@ namespace LegionWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> About()
+        public IActionResult About()
         {
             return View();
         }
