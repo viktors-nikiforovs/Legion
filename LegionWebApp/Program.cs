@@ -41,9 +41,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpsRedirection(opts => {
-    opts.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-});
 
 var app = builder.Build();
 
