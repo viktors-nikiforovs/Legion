@@ -43,7 +43,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpsRedirection(opts => {
     opts.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
-    opts.HttpsPort = 44300;
 });
 
 var app = builder.Build();
