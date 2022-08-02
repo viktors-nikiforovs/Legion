@@ -240,3 +240,6 @@ msgstr "Am 29. Juli wurden Windeln und Servietten für die Versorgung der Verwun
 
 msgid "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded."
 msgstr "Am 28. Juli 2022 halfen sie dem Krankenhaus. Windeln und Servietten wurden weggenommen - für die Versorgung der Verwundeten."
+
+msgid "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district."
+msgstr "Am 26. Juni haben wir zusammen mit unserem Partner, der Wohltätigkeitsstiftung «Rear Line», humanitäre Hilfe in die von der russischen Armee zerstörte Gemeinde Borodyanka und in das Dorf Andriyivka im Distrikt Bucha gebracht."

@@ -243,3 +243,6 @@ msgstr "Le 29 juillet, des couches et des serviettes pour le soin des blessés o
 
 msgid "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded."
 msgstr "Le 28 juillet 2022, ils ont aidé l'hôpital. Des couches et des serviettes ont été emportées - pour les soins des blessés."
+
+msgid "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district."
+msgstr "Le 26 juin, avec notre partenaire, la fondation caritative «Rear Line», nous avons apporté une aide humanitaire à la communauté de Borodyanka, qui a été détruite par l'armée russe, et au village d'Andriyivka, district de Bucha."
