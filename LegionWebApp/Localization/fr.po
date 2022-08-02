@@ -237,3 +237,9 @@ msgstr "Mykola Stepenko"
 
 msgid "War day"
 msgstr "Jour de guerre"
+
+msgid "On July 29, diapers and napkins for the care of the wounded were taken to the second hospital."
+msgstr "Le 29 juillet, des couches et des serviettes pour le soin des blessés ont été transportées au deuxième hôpital."
+
+msgid "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded."
+msgstr "Le 28 juillet 2022, ils ont aidé l'hôpital. Des couches et des serviettes ont été emportées - pour les soins des blessés."
