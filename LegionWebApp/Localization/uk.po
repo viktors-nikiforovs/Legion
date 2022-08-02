@@ -23,7 +23,7 @@ msgid "Home"
 msgstr "Домашня сторінка"
 
 msgid "Purpose of payment"
-msgstr "Назва підприємства"
+msgstr "Призначення платежу"
 
 msgid "CHARITABLE ORGANIZATION"
 msgstr "БЛАГОДІЙНА ОРГАНІЗАЦІЯ"
