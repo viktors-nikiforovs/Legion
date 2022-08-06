@@ -40,9 +40,9 @@
 			</li>
 		</ul>
 	</div>
-	<span class="d-flex">
+	<span class="d-flex" style="margin-right: 25%;">
 		<form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-			<select name="culture" class="btn-secondary" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>
+			<select name="culture" class="btn-secondary"  asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>
 		</form>
 	</span>
 </nav>

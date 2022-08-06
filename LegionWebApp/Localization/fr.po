@@ -246,3 +246,9 @@ msgstr "Le 28 juillet 2022, ils ont aidé l'hôpital. Des couches et des serviet
 
 msgid "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district."
 msgstr "Le 26 juin, avec notre partenaire, la fondation caritative «Rear Line», nous avons apporté une aide humanitaire à la communauté de Borodyanka, qui a été détruite par l'armée russe, et au village d'Andriyivka, district de Bucha."
+
+msgid "Thank you letter from Hospital for humanitarian aid.<br />"
+msgstr "Lettre de remerciement de l'hôpital pour l'aide humanitaire."
+
+msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
+msgstr "L'identité et l'emplacement sont cachés en raison du ciblage et du bombardement des hôpitaux par la Russie."
