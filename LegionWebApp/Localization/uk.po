@@ -252,3 +252,6 @@ msgstr " "
 
 msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
 msgstr " "
+
+msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
+msgstr "10 серпня, Подячний лист від Головного військово-медичного клінічного центру."

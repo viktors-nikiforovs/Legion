@@ -252,3 +252,18 @@ msgstr "Lettre de remerciement de l'hôpital pour l'aide humanitaire."
 
 msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
 msgstr "L'identité et l'emplacement sont cachés en raison du ciblage et du bombardement des hôpitaux par la Russie."
+
+msgid "State Border Guard Service of Ukraine Main Military Medical Clinical Center"
+msgstr "Service national des gardes-frontières du principal centre clinique médical militaire d'Ukraine"
+
+msgid "To the director of the Charitable Foundation LEGION Alexander Nikiforov"
+msgstr "Au directeur de la Charitable Foundation LEGION Alexander Nikiforov"
+
+msgid "On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."
+msgstr "En notre nom et au nom de notre équipe, nous vous exprimons notre sincère gratitude pour cette aide désintéressée à notre centre principal. Votre aide sous forme de produits médicaux et de produits d'hygiène est une contribution inestimable non seulement à la cause des soins médicaux, mais aussi à la souveraineté de notre pays, à la fourniture de soins médicaux à notre personnel militaire et au sentiment de soutien de la personnel de notre centre principal. Les bonnes actions ne passent pas inaperçues - elles brillent comme des phares pour ceux qui attendent de l'aide. Je suis sûr que votre exemple est indicatif pour d'autres bienfaiteurs. En apportant votre aide en cette période difficile pour nous tous, vous ne donnez pas seulement des médicaments, mais donnez l'espoir qu'ensemble nous surmonterons toute adversité. Que votre gentillesse et votre générosité vous reviennent au centuple. Je vous souhaite tout le meilleur, santé et prospérité. Je me réjouis de poursuivre une coopération fructueuse dans le cadre du soutien de notre centre principal."
+
+msgid "Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"
+msgstr "Chef du centre principal Colonel du service médical - Volodymyr Lopaychuk 10 août 2022"
+
+msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
+msgstr "10 août, Lettre de remerciement du Centre clinique médical militaire principal."

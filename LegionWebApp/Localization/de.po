@@ -249,3 +249,18 @@ msgstr "Dankesschreiben des Krankenhauses für humanitäre Hilfe."
 
 msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
 msgstr "Identität und Standort sind verborgen, da Russland Krankenhäuser anvisiert und bombardiert."
+
+msgid "State Border Guard Service of Ukraine Main Military Medical Clinical Center"
+msgstr "Staatlicher Grenzschutzdienst des Hauptmilitärmedizinischen Klinikzentrums der Ukraine"
+
+msgid "To the director of the Charitable Foundation LEGION Alexander Nikiforov"
+msgstr "An den Direktor der Wohltätigkeitsstiftung LEGION Alexander Nikiforov"
+
+msgid "On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."
+msgstr "Im eigenen Namen und im Namen unseres Teams möchten wir Ihnen unseren aufrichtigen Dank für diese selbstlose Hilfe für unser Hauptzentrum aussprechen. Ihre Hilfe in Form von medizinischen Produkten und Hygieneprodukten ist ein unschätzbarer Beitrag nicht nur für die Sache der medizinischen Versorgung, sondern auch für die Souveränität unseres Landes, die medizinische Versorgung unserer Militärangehörigen und das Gefühl der Unterstützung durch die Mitarbeiter unseres Hauptzentrums. Gute Taten bleiben nicht unbemerkt – sie leuchten wie Leuchtfeuer für diejenigen, die auf Hilfe warten. Ich bin sicher, dass Ihr Beispiel für andere Wohltäter bezeichnend ist. Indem Sie in dieser für uns alle schwierigen Zeit Hilfe leisten, geben Sie nicht nur Medikamente, sondern auch Hoffnung, dass wir gemeinsam alle Widrigkeiten überwinden werden. Möge Ihre Freundlichkeit und Großzügigkeit hundertfach zu Ihnen zurückkehren. Ich wünsche Ihnen alles Gute, Gesundheit und Wohlstand. Ich freue mich auf eine weitere fruchtbare Zusammenarbeit im Rahmen der Unterstützung unseres Hauptzentrums."
+
+msgid "Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"
+msgstr "Leiter des Hauptzentrums Oberst des Sanitätsdienstes - Volodymyr Lopaychuk 10. August 2022"
+
+msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
+msgstr "10 August, Dankesschreiben des Main Military Medical Clinical Center."
