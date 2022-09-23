@@ -264,3 +264,9 @@ msgstr "Leiter des Hauptzentrums Oberst des Sanitätsdienstes - Volodymyr Lopayc
 
 msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
 msgstr "10 August, Dankesschreiben des Main Military Medical Clinical Center."
+
+msgid "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region."
+msgstr "Am 11. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Andriivka in der Region Kiew entsandt."
+
+msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
+msgstr "Am 19. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Lypivka in der Region Kiew entsandt."

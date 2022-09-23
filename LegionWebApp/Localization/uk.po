@@ -255,3 +255,9 @@ msgstr " "
 
 msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
 msgstr "10 серпня, Подячний лист від Головного військово-медичного клінічного центру."
+
+msgid "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region."
+msgstr "11 вересня відправили гуманітарну допомогу в село Андріївка Київщини."
+
+msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
+msgstr "19 вересня відправили гуманітарну допомогу в село Липівка Київщини."

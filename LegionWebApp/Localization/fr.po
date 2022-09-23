@@ -267,3 +267,9 @@ msgstr "Chef du centre principal Colonel du service médical - Volodymyr Lopaych
 
 msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
 msgstr "10 août, Lettre de remerciement du Centre clinique médical militaire principal."
+
+msgid "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region."
+msgstr "Le 11 septembre, une aide humanitaire a été envoyée des habitants de Kyiv à Andriivka, dans la région de Kyiv"
+
+msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
+msgstr "Le 19 septembre, une aide humanitaire a été envoyée des habitants de Kyiv à Lypivka, dans la région de Kyiv."
