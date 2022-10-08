@@ -250,9 +250,6 @@ msgstr "Le 26 juin, avec notre partenaire, la fondation caritative «Rear Line»
 msgid "Thank you letter from Hospital for humanitarian aid.<br />"
 msgstr "Lettre de remerciement de l'hôpital pour l'aide humanitaire."
 
-msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
-msgstr "L'identité et l'emplacement sont cachés en raison du ciblage et du bombardement des hôpitaux par la Russie."
-
 msgid "State Border Guard Service of Ukraine Main Military Medical Clinical Center"
 msgstr "Service national des gardes-frontières du principal centre clinique médical militaire d'Ukraine"
 
@@ -273,3 +270,6 @@ msgstr "Le 11 septembre, une aide humanitaire a été envoyée des habitants de 
 
 msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
 msgstr "Le 19 septembre, une aide humanitaire a été envoyée des habitants de Kyiv à Lypivka, dans la région de Kyiv."
+
+msgid "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."
+msgstr "Le 1er octobre, IZUM de la région de Kharkiv - (avec nos partenaires - le Fonds caritatif "Front Line") a fourni une aide humanitaire aux habitants de la ville d'IZUM, où 80% des maisons ont été détruites. De la nourriture, des médicaments, des vêtements, des produits chimiques ménagers et des produits d'hygiène ont été remis aux habitants."

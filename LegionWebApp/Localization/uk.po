@@ -250,9 +250,6 @@ msgstr "26 червня ми разом з нашими надійними па�
 msgid "Thank you letter from Hospital for humanitarian aid.<br />"
 msgstr " "
 
-msgid "Identity and location are hidden due to Russia targeting and bombing hospitals."
-msgstr " "
-
 msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
 msgstr "10 серпня, Подячний лист від Головного військово-медичного клінічного центру."
 
@@ -261,3 +258,6 @@ msgstr "11 вересня відправили гуманітарну допом
 
 msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
 msgstr "19 вересня відправили гуманітарну допомогу в село Липівка Київщини."
+
+msgid "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."
+msgstr "1 жовтня, ІЗЮМ Харківської області -  (разом з нашими партнерами - Благодійним Фондом «Лінія Тилу») доставили гуманітарну допомогу мешканцям міста ІЗЮМ, де знищено 80% будинків. Передали мешканцям продукти харчування, ліки, одежу, побутову хімію і засоби гігієни."
