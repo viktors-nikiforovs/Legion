@@ -1,8 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+
 @inject IViewLocalizer T
 @{
 	ViewData["Title"] = @T["Home"];
 }
+<script>
+	//facebook Route Script for Query string
+   function faceBookQuery() {
+       addEventListener('fetch', event => {
+           let url = new URL(event.request.url)
+
+           if (url.searchParams.has('fbclid'))
+               url.searchParams.delete('fbclid')
+
+           event.respondWith(
+               fetch(url, event.request)
+           );
+       });
+    }
+</script>
 <div class="container" style="margin: 4rem 0 0 0;">
 	<h2 class="float-start" style="color: white;">@T["CHARITY FOUNDATION"] «@T["LEGION"]»</h2>
 	<div id="wardays" class="wardays float-end"><h5>@T["War day"] <input id="counter" value="0"></h5></div>
