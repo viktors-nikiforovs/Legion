@@ -61,8 +61,6 @@
 
            if (url.searchParams.has('fbclid'))
                url.searchParams.delete('fbclid')
-			   window.history.replaceState("Legion-Foundation.org")
-
            event.respondWith(
                fetch(url, event.request)
            );
