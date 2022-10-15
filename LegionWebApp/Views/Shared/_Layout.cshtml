@@ -53,6 +53,22 @@
 
 		gtag('config', 'UA-233967981-1');
 	</script>
+	<script>
+	//facebook Route Script for Query string
+   function faceBookQuery() {
+       addEventListener('fetch', event => {
+           let url = new URL(event.request.url)
+
+           if (url.searchParams.has('fbclid'))
+               url.searchParams.delete('fbclid')
+			   window.history.replaceState(url)
+
+           event.respondWith(
+               fetch(url, event.request)
+           );
+       });
+    }
+</script>
 </head>
 <body>
 	<header>
