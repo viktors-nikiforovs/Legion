@@ -1,10 +1,118 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
+
+
 @{
 	ViewData["Title"] = @T["Our Team"];
+	int i = 1;
+	GalleryItem _01_10_22 = new GalleryItem();
+	GalleryItem _19_09_22 = new GalleryItem();
+	GalleryItem _11_09_22 = new GalleryItem();
+	GalleryItem _10_08_22 = new GalleryItem();
+	GalleryItem _29_07_22 = new GalleryItem();
+	GalleryItem _28_07_22 = new GalleryItem();
+	GalleryItem _26_06_22 = new GalleryItem();
+	_01_10_22.Title = "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents.";
+	_01_10_22.Column = 4;
+	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/1.mp4"));
+	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/2.mp4", "/images/Gallery/01.10.22/thumbnail.PNG"));
+	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/3.mp4"));
+	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/4.mp4"));
+	_01_10_22.Image = new string[]
+	{
+		"/images/Gallery/01.10.22/01.jpeg",
+		"/images/Gallery/01.10.22/02.jpeg",
+		"/images/Gallery/01.10.22/03.jpeg",
+		"/images/Gallery/01.10.22/04.jpeg",
+		"/images/Gallery/01.10.22/05.jpeg",
+		"/images/Gallery/01.10.22/06.jpeg",
+		"/images/Gallery/01.10.22/07.jpeg",
+		"/images/Gallery/01.10.22/08.jpeg",
+		"/images/Gallery/01.10.22/09.jpeg",
+		"/images/Gallery/01.10.22/10.jpeg",
+		"/images/Gallery/01.10.22/11.jpeg",
+		"/images/Gallery/01.10.22/12.jpeg",
+		"/images/Gallery/01.10.22/13.jpeg",
+		"/images/Gallery/01.10.22/14.jpeg",
+		"/images/Gallery/01.10.22/15.jpeg",
+		"/images/Gallery/01.10.22/16.jpeg"
+	};
+	_19_09_22.Title = "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region.";
+	_19_09_22.Image = new string[]
+	{
+		"/images/Gallery/19.09.22/1.jpg",
+		"/images/Gallery/19.09.22/2.jpg",
+		"/images/Gallery/19.09.22/3.jpg"
+	};
+	_11_09_22.Title = "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region.";
+	_11_09_22.Image = new string[]
+	{
+		"/images/Gallery/11.09.22/1.jpg",
+		"/images/Gallery/11.09.22/2.jpg"
+	};
+	_10_08_22.Title = "10 August, Thank you letter from Main Military Medical Clinical Center.";
+	_10_08_22.Image = new string[]
+	{
+		"/images/Gallery/10.08.22/1.jpg"
+	};
+	_29_07_22.Title = "On July 29, diapers and napkins for the care of the wounded were taken to the second hospital.";
+	_29_07_22.Image = new string[]
+	{
+		"/images/Gallery/29.07.22/3.PNG",
+		"/images/Gallery/29.07.22/1.PNG",
+		"/images/Gallery/29.07.22/2.PNG"
+	};
+	_28_07_22.Title = "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded.";
+	_28_07_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/28.07.22/1.mp4"));
+	_28_07_22.Image = new string[]
+	{
+		"/images/Gallery/28.07.22/1.PNG",
+		"/images/Gallery/28.07.22/2.PNG",
+		"/images/Gallery/28.07.22/3.PNG",
+		"/images/Gallery/28.07.22/4.PNG",
+		"/images/Gallery/28.07.22/5.PNG"
+	};
+	_26_06_22.Title = "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district.";
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/1.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/2.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/3.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/4.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/5.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/6.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/7.mp4"));
+	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/8.mp4"));
+	_26_06_22.Image = new string[]
+	{
+		"/images/Gallery/26.06.22/1.jpeg",
+		"/images/Gallery/26.06.22/2.jpeg",
+		"/images/Gallery/26.06.22/3.jpeg",
+		"/images/Gallery/26.06.22/4.jpeg",
+		"/images/Gallery/26.06.22/5.jpeg",
+		"/images/Gallery/26.06.22/6.jpeg",
+		"/images/Gallery/26.06.22/7.jpeg",
+		"/images/Gallery/26.06.22/8.jpeg",
+		"/images/Gallery/26.06.22/9.jpeg",
+		"/images/Gallery/26.06.22/10.jpeg",
+		"/images/Gallery/26.06.22/11.jpeg",
+		"/images/Gallery/26.06.22/12.jpeg",
+		"/images/Gallery/26.06.22/13.jpeg",
+		"/images/Gallery/26.06.22/14.jpeg",
+		"/images/Gallery/26.06.22/15.jpeg",
+		"/images/Gallery/26.06.22/16.jpeg",
+		"/images/Gallery/26.06.22/17.jpeg",
+		"/images/Gallery/26.06.22/18.jpeg",
+		"/images/Gallery/26.06.22/19.jpeg",
+		"/images/Gallery/26.06.22/20.jpeg",
+		"/images/Gallery/26.06.22/21.jpeg",
+		"/images/Gallery/26.06.22/22.jpeg",
+		"/images/Gallery/26.06.22/23.jpeg",
+		"/images/Gallery/26.06.22/24.jpeg",
+		"/images/Gallery/26.06.22/25.jpeg",
+		"/images/Gallery/26.06.22/26.jpeg"
+	};
 }
-
+<!-- Modal -->
 <style>
 	.fullpage {
 		overflow: auto;
@@ -52,7 +160,6 @@
 		}
 
 </style>
-
 <script>
 	function CreateModal() {
 		const imgs = document.querySelectorAll('.gallery img');
@@ -64,31 +171,25 @@
 		});
 		modalContent.innerHTML += oldHtml;
 	}
-
 	function openModal() {
 		CreateModal();
 		document.getElementById("ModalContent").style.display = "block";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "hidden";
 	}
-
 	function closeModal() {
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "auto";
 	}
-
 	var slideIndex = 1;
 	showSlides(slideIndex);
-
 	function plusSlides(n) {
 		showSlides(slideIndex += n);
 	}
-
 	function currentSlide(n) {
 		showSlides(slideIndex = n);
 	}
-
 	function showSlides(n) {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
@@ -99,180 +200,86 @@
 		}
 		slides[slideIndex - 1].style.display = "block";
 	}
-
-
 </script>
-
 <div id="ModalContent" class="modal">
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
-
-
-
-
+<!-- _01_10_22 -->
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."]
+		@T[_01_10_22.Title]
 	</div>
 	<div class="card-body">
-		<div class="row row-cols-2 row-cols-md-4 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/1.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" poster="~/images/Gallery/01.10.22/thumbnail.PNG" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/2.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/3.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/4.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			</div>
-			<div class="row row-cols-4 row-cols-md-6 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/01.10.22/01 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(1)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/02 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(2)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/03 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(3)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/04 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(4)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/05 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(5)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/06 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(6)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/07 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(7)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/08 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(8)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/09 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(9)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/10 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(10)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/11 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(11)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/12 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(12)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/13 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(13)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/14 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(14)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/15 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(15)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images//Gallery/01.10.22/16 - 01.10.22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(16)" alt="...">
-				</div>
-			</div>
+		<div class="row row-cols-4 row-cols-md-4 g-4">
+			@{
+				foreach (var video in _01_10_22.Video)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+								<source src=@video.Link type="video/mp4">
+							</video>
+						</div>
+					</div>
+				}
+			}
+		</div>
+		<div class="row row-cols-4 row-cols-md-6 g-4">
+			@{
+				foreach (var image in _01_10_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 		</div>
 	</div>
 </div>
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."]
+		@T[_19_09_22.Title]
 	</div>
 	<div class="card-body">
-		<div class="row row-cols-2 row-cols-md-4 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/19.09.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(17)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/19.09.22/2.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(18)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/19.09.22/3.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(19)" alt="...">
-				</div>
-			</div>
+		<div class="row row-cols-4 row-cols-md-4 g-4">
+			@{
+				foreach (var image in _19_09_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 		</div>
 	</div>
 </div>
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region."]
+		@T[_11_09_22.Title]
 	</div>
 	<div class="card-body">
 		<div class="row row-cols-2 row-cols-md-4 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/11.09.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(20)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/11.09.22/2.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(21)" alt="...">
-				</div>
-			</div>
+			@{
+				foreach (var image in _11_09_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 		</div>
 	</div>
 </div>
@@ -280,7 +287,7 @@
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["10 August, Thank you letter from Main Military Medical Clinical Center."]
+		@T[_10_08_22.Title]
 	</div>
 	<div class="card-body">
 		@{
@@ -290,7 +297,7 @@
 				<div class="row row-cols-1 row-cols-md-4 g-4">
 					<div class="col">
 						<div class="card gallery">
-							<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(22)" alt="...">
+							<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
 						</div>
 
 					</div>
@@ -303,7 +310,7 @@
 						<div class="card gallery ">
 							<div class="row">
 								<div class="col-md-4">
-									<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(22)" alt="...">
+									<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
 								</div>
 								<div class="col-md-8">
 									<h4 class="card-title">@T["State Border Guard Service of Ukraine Main Military Medical Clinical Center"]</h4>
@@ -316,290 +323,109 @@
 					</div>
 				</div>
 			}
+			i++;
 		}
 	</div>
 </div>
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On July 29, diapers and napkins for the care of the wounded were taken to the second hospital."]
+		@T[_29_07_22.Title]
 	</div>
 	<div class="card-body">
 		<div class="row row-cols-3 row-cols-md-4 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/29.07.22/3.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(23)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/29.07.22/1.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(24)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/29.07.22/2.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(25)" alt="...">
-				</div>
-			</div>
+			@{
+				foreach (var image in _29_07_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 		</div>
 	</div>
 </div>
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded."]
+		@T[_28_07_22.Title]
 	</div>
 	<div class="card-body">
 		<div class="row row-cols-3 row-cols-md-4 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/28.07.22/1.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(26)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/28.07.22/2.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(27)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/28.07.22/3.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(28)" alt="...">
-				</div>
-			</div>
-
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/28.07.22/4.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(29)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/28.07.22/5.PNG" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(30)" alt="...">
-				</div>
-			</div>
+			@{
+				foreach (var image in _28_07_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 			<div class="col">
 				<div class="card gallery">
 					<div class="row g-0">
-						<img src="~/images/Gallery/28.07.22/7.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(31)" alt="...">
+						<img src="~/images/Gallery/28.07.22/6.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						@{
+							i++;
+						}
 					</div>
 					<div class="col-md-12">
 						<b>@T["Thank you letter from Hospital for humanitarian aid.<br />"]</b>
 					</div>
 				</div>
 			</div>
-
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/28.07.22/1.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
+			@{
+				foreach (var video in _28_07_22.Video)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+								<source src=@video.Link type="video/mp4">
+							</video>
+						</div>
+					</div>
+				}
+			}
 		</div>
 	</div>
 </div>
 
 <div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 	<div class="card-header text-light">
-		@T["On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district."]
+		@T[_26_06_22.Title]
 	</div>
 	<div class="card-body">
 		<div class="row row-cols-3 row-cols-md-4 g-4" onload="getPics()">
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/1.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/2.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/3.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/4.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/5.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/6.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/7.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-						<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/8.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
+			@{
+				foreach (var video in _26_06_22.Video)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+								<source src=@video.Link type="video/mp4">
+							</video>
+						</div>
+					</div>
+				}
+			}
 		</div>
-
-
-		<div class="row row-cols-4 row-cols-md-5 g-4">
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/1.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(32)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/1.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(33)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/2.jpeg" class="card-img-top card-img-bottom" onclick="openModal(); currentSlide(34)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/3.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(35)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/4.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(36)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/5.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(37)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/6.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(38)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/7.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(39)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/8.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(40)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/9.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(41)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/10.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(42)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/11.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(43)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/12.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(44)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/13.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(45)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/14.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(46)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/15.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(47)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/16.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(48)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/17.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(49)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/18.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(50)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/19.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(51)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/21.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(52)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/22.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(53)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/40.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(54)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/41.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(55)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/42.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(56)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/29.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(57)" alt="...">
-				</div>
-			</div>
-			<div class="col">
-				<div class="card gallery">
-					<img src="~/images/Gallery/26.06.22/23.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(58)" alt="...">
-				</div>
-			</div>
+		<div class="row row-cols-4 row-cols-md-6 g-4">
+			@{
+				foreach (var image in _26_06_22.Image)
+				{
+					<div class="col">
+						<div class="card gallery">
+							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+						</div>
+					</div>
+					i++;
+				}
+			}
 		</div>
 	</div>
 </div>
