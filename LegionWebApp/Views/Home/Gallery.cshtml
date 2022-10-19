@@ -1,20 +1,18 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
-
-
 @{
 	ViewData["Title"] = @T["Our Team"];
 	int i = 1;
-	GalleryItem _01_10_22 = new GalleryItem();
-	GalleryItem _19_09_22 = new GalleryItem();
-	GalleryItem _11_09_22 = new GalleryItem();
-	GalleryItem _10_08_22 = new GalleryItem();
-	GalleryItem _29_07_22 = new GalleryItem();
-	GalleryItem _28_07_22 = new GalleryItem();
-	GalleryItem _26_06_22 = new GalleryItem();
+	GalleryItem _01_10_22 = new GalleryItem("01/10/22");
+	GalleryItem _19_09_22 = new GalleryItem("19/09/22");
+	GalleryItem _11_09_22 = new GalleryItem("11/09/22");
+	GalleryItem _10_08_22 = new GalleryItem("10/08/22");
+	GalleryItem _29_07_22 = new GalleryItem("29/07/22");
+	GalleryItem _28_07_22 = new GalleryItem("28/07/22");
+	GalleryItem _26_06_22 = new GalleryItem("26/06/22");
 	_01_10_22.Title = "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents.";
-	_01_10_22.Column = 4;
+	_01_10_22.Column = 6;
 	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/1.mp4"));
 	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/2.mp4", "/images/Gallery/01.10.22/thumbnail.PNG"));
 	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/3.mp4"));
@@ -39,6 +37,7 @@
 		"/images/Gallery/01.10.22/16.jpeg"
 	};
 	_19_09_22.Title = "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region.";
+	_19_09_22.Column = 4;
 	_19_09_22.Image = new string[]
 	{
 		"/images/Gallery/19.09.22/1.jpg",
@@ -46,17 +45,21 @@
 		"/images/Gallery/19.09.22/3.jpg"
 	};
 	_11_09_22.Title = "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region.";
+	_11_09_22.Column = 4;
 	_11_09_22.Image = new string[]
 	{
 		"/images/Gallery/11.09.22/1.jpg",
 		"/images/Gallery/11.09.22/2.jpg"
 	};
 	_10_08_22.Title = "10 August, Thank you letter from Main Military Medical Clinical Center.";
+	_10_08_22.Column = 4;
+	_10_08_22.HasText = true;
 	_10_08_22.Image = new string[]
 	{
 		"/images/Gallery/10.08.22/1.jpg"
 	};
 	_29_07_22.Title = "On July 29, diapers and napkins for the care of the wounded were taken to the second hospital.";
+	_29_07_22.Column = 4;
 	_29_07_22.Image = new string[]
 	{
 		"/images/Gallery/29.07.22/3.PNG",
@@ -64,6 +67,7 @@
 		"/images/Gallery/29.07.22/2.PNG"
 	};
 	_28_07_22.Title = "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded.";
+	_28_07_22.Column = 4;
 	_28_07_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/28.07.22/1.mp4"));
 	_28_07_22.Image = new string[]
 	{
@@ -74,6 +78,7 @@
 		"/images/Gallery/28.07.22/5.PNG"
 	};
 	_26_06_22.Title = "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district.";
+	_26_06_22.Column = 6;
 	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/1.mp4"));
 	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/2.mp4"));
 	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/3.mp4"));
@@ -111,6 +116,15 @@
 		"/images/Gallery/26.06.22/25.jpeg",
 		"/images/Gallery/26.06.22/26.jpeg"
 	};
+	List<GalleryItem> allItems = new List<GalleryItem>();
+	allItems.Add(_01_10_22);
+	allItems.Add(_01_10_22);
+	allItems.Add(_19_09_22);
+	allItems.Add(_11_09_22);
+	allItems.Add(_10_08_22);
+	allItems.Add(_29_07_22);
+	allItems.Add(_28_07_22);
+	allItems.Add(_26_06_22);
 }
 <!-- Modal -->
 <style>
@@ -205,227 +219,116 @@
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-
-<!-- _01_10_22 -->
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_01_10_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-4 row-cols-md-4 g-4">
-			@{
-				foreach (var video in _01_10_22.Video)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-								<source src=@video.Link type="video/mp4">
-							</video>
-						</div>
-					</div>
-				}
-			}
-		</div>
-		<div class="row row-cols-4 row-cols-md-6 g-4">
-			@{
-				foreach (var image in _01_10_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-		</div>
-	</div>
-</div>
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_19_09_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-4 row-cols-md-4 g-4">
-			@{
-				foreach (var image in _19_09_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-		</div>
-	</div>
-</div>
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_11_09_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-2 row-cols-md-4 g-4">
-			@{
-				foreach (var image in _11_09_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-		</div>
-	</div>
-</div>
-
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_10_08_22.Title]
-	</div>
-	<div class="card-body">
-		@{
-			var cultureCookieValue = CultureInfo.CurrentCulture.Name;
-			if (cultureCookieValue == "uk")
-			{
-				<div class="row row-cols-1 row-cols-md-4 g-4">
-					<div class="col">
-						<div class="card gallery">
-							<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-
-					</div>
-				</div>
-			}
-			else
-			{
-				<div class="row row-cols-1 row-cols-md-1 g-4">
-					<div class="col">
-						<div class="card gallery ">
-							<div class="row">
-								<div class="col-md-4">
-									<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-								</div>
-								<div class="col-md-8">
-									<h4 class="card-title">@T["State Border Guard Service of Ukraine Main Military Medical Clinical Center"]</h4>
-									<h5 class="card-title">@T["To the director of the Charitable Foundation LEGION Alexander Nikiforov"]</h5>
-									<p class="card-text"><i>@T["On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."]</i></p>
-									<p class="card-text"><i><b>@T["Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"]</b></i></p>
-								</div>
+<!-- Modal End -->
+@{
+	var cultureCookieValue = CultureInfo.CurrentCulture.Name;
+	foreach (var item in allItems)
+	{
+		if (item.Name == "10/08/22" && cultureCookieValue != "uk")
+		{
+			<div class="row row-cols-1 row-cols-md-1 g-4">
+				<div class="col">
+					<div class="card gallery">
+						<div class="row">
+							<div class="col-md-4">
+								<img src="~/images/Gallery/10.08.22/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+							</div>
+							<div class="col-md-8">
+								<h4 class="card-title">@T["State Border Guard Service of Ukraine Main Military Medical Clinical Center"]</h4>
+								<h5 class="card-title">@T["To the director of the Charitable Foundation LEGION Alexander Nikiforov"]</h5>
+								<p class="card-text"><i>@T["On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."]</i></p>
+								<p class="card-text"><i><b>@T["Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"]</b></i></p>
 							</div>
 						</div>
 					</div>
 				</div>
-			}
+			</div>
 			i++;
 		}
-	</div>
-</div>
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_29_07_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-3 row-cols-md-4 g-4">
-			@{
-				foreach (var image in _29_07_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-		</div>
-	</div>
-</div>
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_28_07_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-3 row-cols-md-4 g-4">
-			@{
-				foreach (var image in _28_07_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-			<div class="col">
-				<div class="card gallery">
-					<div class="row g-0">
-						<img src="~/images/Gallery/28.07.22/6.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+		else if (item.Name == "28/07/22")
+		{
+			<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+				<div class="card-header text-light">
+					@T[item.Title]
+				</div>
+				<div class="card-body">
+					<div class="row row-cols-3 row-cols-md-4 g-4">
 						@{
-							i++;
+							foreach (var image in item.Image)
+							{
+								<div class="col">
+									<div class="card gallery">
+										<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+									</div>
+								</div>
+								i++;
+							}
 						}
-					</div>
-					<div class="col-md-12">
-						<b>@T["Thank you letter from Hospital for humanitarian aid.<br />"]</b>
+						<div class="col">
+							<div class="card gallery">
+								<div class="row g-0">
+									<img src="~/images/Gallery/28.07.22/6.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+									@{
+										i++;
+									}
+								</div>
+								<div class="col-md-12">
+									<b>@T["Thank you letter from Hospital for humanitarian aid.<br />"]</b>
+								</div>
+							</div>
+						</div>
+						@{
+							foreach (var video in item.Video)
+							{
+								<div class="col">
+									<div class="card gallery">
+										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+											<source src=@video.Link type="video/mp4">
+										</video>
+									</div>
+								</div>
+							}
+						}
 					</div>
 				</div>
 			</div>
-			@{
-				foreach (var video in _28_07_22.Video)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-								<source src=@video.Link type="video/mp4">
-							</video>
-						</div>
+		}
+		else
+		{
+			<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+				<div class="card-header text-light">
+					@T[item.Title]
+				</div>
+				<div class="card-body">
+					<div class="row row-cols-4 row-cols-md-4 g-4">
+						@{
+							foreach (var video in item.Video)
+							{
+								<div class="col">
+									<div class="card gallery">
+										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+											<source src=@video.Link type="video/mp4">
+										</video>
+									</div>
+								</div>
+							}
+						}
 					</div>
-				}
-			}
-		</div>
-	</div>
-</div>
-
-<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-	<div class="card-header text-light">
-		@T[_26_06_22.Title]
-	</div>
-	<div class="card-body">
-		<div class="row row-cols-3 row-cols-md-4 g-4" onload="getPics()">
-			@{
-				foreach (var video in _26_06_22.Video)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-								<source src=@video.Link type="video/mp4">
-							</video>
-						</div>
+					<div class="row row-cols-3 row-cols-md-@item.Column g-4">
+						@{
+							foreach (var image in item.Image)
+							{
+								<div class="col">
+									<div class="card gallery">
+										<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+									</div>
+								</div>
+								i++;
+							}
+						}
 					</div>
-				}
-			}
-		</div>
-		<div class="row row-cols-4 row-cols-md-6 g-4">
-			@{
-				foreach (var image in _26_06_22.Image)
-				{
-					<div class="col">
-						<div class="card gallery">
-							<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-						</div>
-					</div>
-					i++;
-				}
-			}
-		</div>
-	</div>
-</div>
+				</div>
+			</div>
+		}
+	}
+}
