@@ -14,6 +14,7 @@
         public List<Video> Video { get; set; }        
         public string Poster { get; set; }
         public bool HasText { get; set; }
+        public bool SeperateVideo { get; set; }
     }
     public class Video
     {
@@ -24,5 +25,6 @@
         }
         public string Link { get; set; }
         public string Poster { get; set; }
+        public int SeperateId { get; set; }
     }
 }

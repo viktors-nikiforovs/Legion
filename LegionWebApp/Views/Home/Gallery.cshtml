@@ -5,8 +5,8 @@
 	ViewData["Title"] = @T["Our Team"];
 	int i = 1;
 	GalleryItem _16_10_22 = new GalleryItem("16/10/22");
-	GalleryItem _15_10_22_1 = new GalleryItem("15/10/22");
-	GalleryItem _15_10_22_0 = new GalleryItem("15/10/22");
+	GalleryItem _15_10_22_2 = new GalleryItem("15/10/22");
+	GalleryItem _15_10_22_1 = new GalleryItem("15/10/22-1");
 	GalleryItem _01_10_22 = new GalleryItem("01/10/22");
 	GalleryItem _19_09_22 = new GalleryItem("19/09/22");
 	GalleryItem _11_09_22 = new GalleryItem("11/09/22");
@@ -28,13 +28,20 @@
 	//{
 
 	//};
-	_15_10_22_0.Title = "15-10 - 0";
-	_15_10_22_0.Column = 6;
-	//_15_10_22_0.Video.Add("");
-	//_15_10_22_0.Image = new string[]
-	//{
-
-	//};
+	_15_10_22_1.Title = "15/10/22-1 Щасливе, Ізюмський район";
+	_15_10_22_1.Column = 6;
+	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/1.mp4"));
+	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/2.mp4"));
+	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/3.mp4"));
+	_15_10_22_1.Image = new string[]
+	{
+		"/images/Gallery/15.10.22-1/1.jpg",
+		"/images/Gallery/15.10.22-1/2.jpg",
+		"/images/Gallery/15.10.22-1/3.jpg",
+		"/images/Gallery/15.10.22-1/4.jpg",
+		"/images/Gallery/15.10.22-1/5.jpg",
+		"/images/Gallery/15.10.22-1/6.jpg"
+	};
 
 	_01_10_22.Title = "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents.";
 	_01_10_22.Column = 6;
@@ -142,6 +149,7 @@
 		"/images/Gallery/26.06.22/26.jpeg"
 	};
 	List<GalleryItem> allItems = new List<GalleryItem>();
+	allItems.Add(_15_10_22_1);
 	allItems.Add(_01_10_22);
 	allItems.Add(_19_09_22);
 	allItems.Add(_11_09_22);
@@ -313,6 +321,113 @@
 								</div>
 							}
 						}
+					</div>
+				</div>
+			</div>
+		}
+		else if (item.Name == "15/10/22-1")
+		{
+			<div class="row row-cols-2 row-cols-md-2">
+				<div class="col">
+					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+						<div class="card-header text-light">
+							@T["15.10.22 - Щасливе, Ізюмський район"]
+						</div>
+						<div class="card-body">
+							<div class="row row-cols-1 row-cols-md-1 g-2">
+								<div class="col">
+									<div class="card gallery">
+										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+											<source src=@item.Video[2].Link type="video/mp4">
+										</video>
+									</div>
+								</div>
+								<div class="col">
+									<div class="row row-cols-2 row-cols-md-2 g-2">
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+													<source src=@item.Video[0].Link type="video/mp4">
+												</video>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+													<source src=@item.Video[1].Link type="video/mp4">
+												</video>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row row-cols-3 row-cols-md-3">
+								@{
+									foreach (var image in item.Image)
+									{
+										<div class="col">
+											<div class="card gallery">
+												<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+											</div>
+										</div>
+										i++;
+									}
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+						<div class="card-header text-light">
+							@T["15.10.22 - Щасливе, Лисогірка район"]
+						</div>
+						<div class="card-body">
+							<div class="row row-cols-1 row-cols-md-1 g-2">
+								<div class="col">
+									<div class="card gallery">
+										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+											<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/4.mp4 type="video/mp4">
+										</video>
+									</div>
+								</div>
+								<div class="col">
+									<div class="row row-cols-2 row-cols-md-2 g-2">
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/1.mp4" type="video/mp4">
+												</video>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/2.mp4" type="video/mp4">
+												</video>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/3.mp4" type="video/mp4">
+												</video>
+											</div>
+										</div>
+										<div class="col">
+											@{
+												<div class="col">
+													<div class="card gallery">
+														<img src="~/images/Gallery/15.10.22-2/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+													</div>
+												</div>
+												i++;
+											}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
