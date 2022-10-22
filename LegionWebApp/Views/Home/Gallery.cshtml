@@ -14,20 +14,35 @@
 	GalleryItem _29_07_22 = new GalleryItem("29/07/22");
 	GalleryItem _28_07_22 = new GalleryItem("28/07/22");
 	GalleryItem _26_06_22 = new GalleryItem("26/06/22");
-	_16_10_22.Title = "16-10-22";
-	_16_10_22.Column = 6;
-	//_16_10_22.Video.Add("");
-	//_16_10_22.Image = new string[]
-	//{
-
-	//};
-	_15_10_22_1.Title = "15-10 - 1";
-	_15_10_22_1.Column = 6;
-	//_15_10_22_1.Video.Add("");
-	//_15_10_22_1.Image = new string[]
-	//{
-
-	//};
+	_16_10_22.Title = "16/10/22 - багатодітна сім’я військовослужбовця - Іскра, Ізюмский район» многодетная семья военнослужащего";
+	_16_10_22.Column = 2;
+	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/1.mp4"));
+	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/2.mp4"));
+	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/3.mp4"));
+	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/4.mp4"));
+	_16_10_22.Image = new string[]
+	{
+		"/images/Gallery/16.10.22/1.jpg",
+		"/images/Gallery/16.10.22/2.jpg"
+	};
+	_15_10_22_2.Title = "15.10.22 3 - місто Ізюм";
+	_15_10_22_2.Column = 4;
+	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/1.mp4"));
+	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/2.mp4"));
+	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/3.mp4"));
+	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/4.mp4"));
+	_15_10_22_2.Image = new string[]
+	{
+		"/images/Gallery/15.10.22-3/1.jpg",
+		"/images/Gallery/15.10.22-3/2.jpg",
+		"/images/Gallery/15.10.22-3/3.jpg",
+		"/images/Gallery/15.10.22-3/4.jpg",
+		"/images/Gallery/15.10.22-3/5.jpg",
+		"/images/Gallery/15.10.22-3/6.jpg",
+		"/images/Gallery/15.10.22-3/7.jpg",
+		"/images/Gallery/15.10.22-3/8.jpg",
+		"/images/Gallery/15.10.22-3/9.jpg"
+	};
 	_15_10_22_1.Title = "15/10/22-1 Щасливе, Ізюмський район";
 	_15_10_22_1.Column = 6;
 	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/1.mp4"));
@@ -149,6 +164,8 @@
 		"/images/Gallery/26.06.22/26.jpeg"
 	};
 	List<GalleryItem> allItems = new List<GalleryItem>();
+	allItems.Add(_16_10_22);
+	allItems.Add(_15_10_22_2);
 	allItems.Add(_15_10_22_1);
 	allItems.Add(_01_10_22);
 	allItems.Add(_19_09_22);
@@ -380,7 +397,7 @@
 				<div class="col">
 					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
 						<div class="card-header text-light">
-							@T["15.10.22 - Щасливе, Лисогірка район"]
+							@T["15.10.22 - Лисогірка, Ізюмський район"]
 						</div>
 						<div class="card-body">
 							<div class="row row-cols-1 row-cols-md-1 g-2">

@@ -11,10 +11,11 @@
         public string Title { get; set; }
         public int Column { get; set; }
         public string[] Image { get; set; }
-        public List<Video> Video { get; set; }        
+        public List<Video> Video { get; set; }
         public string Poster { get; set; }
         public bool HasText { get; set; }
         public bool SeperateVideo { get; set; }
+
     }
     public class Video
     {
