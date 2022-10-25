@@ -273,3 +273,9 @@ msgstr "Le 19 septembre, une aide humanitaire a été envoyée des habitants de 
 
 msgid "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."
 msgstr "Le 1er octobre, IZUM de la région de Kharkiv - (avec nos partenaires - le Fonds caritatif "Front Line") a fourni une aide humanitaire aux habitants de la ville d'IZUM, où 80% des maisons ont été détruites. De la nourriture, des médicaments, des vêtements, des produits chimiques ménagers et des produits d'hygiène ont été remis aux habitants."
+
+msgid "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy."
+msgstr "Du 14 au 16 octobre, un voyage d'aide humanitaire dans les territoires libérés de la région de Kharkiv a été organisé avec des partenaires - la Front Line Charitable Foundation. De la nourriture, des vêtements, des produits chimiques ménagers et d'hygiène, des médicaments et des jouets pour enfants ont été livrés aux nécessiteux."
+
+msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
+msgstr "16/10/22 - une famille nombreuse d'un militaire - Iskra, district d'Izyum. La famille d'un militaire avec de nombreux enfants"
