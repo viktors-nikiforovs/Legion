@@ -261,3 +261,18 @@ msgstr "19 вересня відправили гуманітарну допом
 
 msgid "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."
 msgstr "1 жовтня, ІЗЮМ Харківської області -  (разом з нашими партнерами - Благодійним Фондом «Лінія Тилу») доставили гуманітарну допомогу мешканцям міста ІЗЮМ, де знищено 80% будинків. Передали мешканцям продукти харчування, ліки, одежу, побутову хімію і засоби гігієни."
+
+msgid "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy."
+msgstr "З 14 по 16 жовтня, спільно з партнерами - Благодійним Фондом «Лінія тилу», була організована поїздка з гуманітарною допомогою на визволені території в Харківській області. Відвезли  для нужденних продукти харчування, одяг, побутову хімію та засоби гігієни, медикаменти і для малечі іграшки."
+
+msgid "Shchaslyve"
+msgstr "Щасливе"
+
+msgid "Izum Region"
+msgstr "Ізюмський район"
+
+msgid "Lysohirka"
+msgstr "Лисогірка"
+
+msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
+msgstr "16/10/22 - багатодітна сім’я військовослужбовця - Іскра, Ізюмский район. Многодетная семья военнослужащего"
