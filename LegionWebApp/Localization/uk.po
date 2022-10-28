@@ -276,3 +276,15 @@ msgstr "Лисогірка"
 
 msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
 msgstr "16/10/22 - багатодітна сім’я військовослужбовця - Іскра, Ізюмский район. Многодетная семья военнослужащего"
+
+msgid "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded"
+msgstr "3 жовтня 2022 року закупили і передали медикаменти, перевязочні матеріали та засоби гігієни в Державний Головний Військово-Медичний клінічний Центр для поранених"
+
+msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgstr "5 жовтня  2022 року передали благодійну допомогу в «Київську Міську Клінічну Лікарню 6»"
+
+msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgstr "21 жовтня 2022року передали благодійну допомогу в «Київську Міську Клінічну Лікарню 6»"
+
+msgid "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces."
+msgstr "23 жовтня разом з нашим партнером компанією «КОНРОЛ» готовим передачу в ЗСУ взуттєвих устілок для військовослужбовців ЗСУ."
