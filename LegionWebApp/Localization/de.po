@@ -276,3 +276,15 @@ msgstr "Vom 14. bis 16. Oktober wurde zusammen mit Partnern - der Front Line Cha
 
 msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
 msgstr "16/10/22 - eine große Familie eines Militärangehörigen - Iskra, Bezirk Izyum. Eine kinderreiche Soldatenfamilie"
+
+msgid "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded"
+msgstr "Am 3. Oktober 2022 wurden Medikamente, Verbandsmaterial und Hygieneartikel gekauft und an das Staatliche Hauptmilitärmedizinische Klinikzentrum für Verwundete geliefert"
+
+msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgstr "Am 5. Oktober 2022 wurde die Wohltätigkeitshilfe an das Kyiv City Clinical Hospital 6 übertragen."
+
+msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgstr "Am 21. Oktober 2022 wurde die Wohltätigkeitshilfe an das Kyiv City Clinical Hospital 6 übertragen"
+
+msgid "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces."
+msgstr "Am 23. Oktober bereiten wir gemeinsam mit unserem Partnerunternehmen KONROL die Übergabe von Schuheinlagen für Soldatinnen und Soldaten der Bundeswehr an die Bundeswehr vor."
