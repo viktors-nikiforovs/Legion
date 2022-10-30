@@ -4,201 +4,238 @@
 @{
 	ViewData["Title"] = @T["Our Team"];
 	int i = 1;
-	GalleryItem _23_10_22 = new GalleryItem("23/10/22");
-	GalleryItem _21_10_22 = new GalleryItem("21/10/22");
-	GalleryItem _16_10_22 = new GalleryItem("16/10/22");
-	GalleryItem _15_10_22_2 = new GalleryItem("15/10/22");
-	GalleryItem _15_10_22_1 = new GalleryItem("15/10/22-1");
-	GalleryItem _05_10_22 = new GalleryItem("05/10/22");
-	GalleryItem _03_10_22 = new GalleryItem("03/10/22");
-	GalleryItem _01_10_22 = new GalleryItem("01/10/22");
-	GalleryItem _19_09_22 = new GalleryItem("19/09/22");
-	GalleryItem _11_09_22 = new GalleryItem("11/09/22");
-	GalleryItem _10_08_22 = new GalleryItem("10/08/22");
-	GalleryItem _29_07_22 = new GalleryItem("29/07/22");
-	GalleryItem _28_07_22 = new GalleryItem("28/07/22");
-	GalleryItem _26_06_22 = new GalleryItem("26/06/22");
+	GalleryItem _23_10_22 = new GalleryItem();
+	GalleryItem _21_10_22 = new GalleryItem();
+	GalleryItem _16_10_22 = new GalleryItem();
+	GalleryItem _15_10_22_2 = new GalleryItem();
+	GalleryItem _15_10_22_1 = new GalleryItem();
+	GalleryItem _05_10_22 = new GalleryItem();
+	GalleryItem _03_10_22 = new GalleryItem();
+	GalleryItem _01_10_22 = new GalleryItem();
+	GalleryItem _19_09_22 = new GalleryItem();
+	GalleryItem _11_09_22 = new GalleryItem();
+	GalleryItem _10_08_22 = new GalleryItem();
+	GalleryItem _29_07_22 = new GalleryItem();
+	GalleryItem _28_07_22 = new GalleryItem();
+	GalleryItem _26_06_22 = new GalleryItem();
+
 	_23_10_22.Title = "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces.";
-	_23_10_22.Column = 4;
-	_23_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4"));
-	_23_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4"));
-	_23_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4"));
-	_23_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4"));
-	_23_10_22.Image = new string[]
+	_23_10_22.Video = new Video[]
 	{
-		"/images/Gallery/23.10.22/1.jpeg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4")
 	};
+	_23_10_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/23.10.22/1.jpeg")
+	};
+
 	_21_10_22.Title = "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6";
-	_21_10_22.Column = 4;
-	_21_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/3.mp4"));
-	_21_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/1.mp4"));
-	_21_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/2.mp4"));
-	_21_10_22.Image = new string[]
+	_21_10_22.Video = new Video[]
 	{
-		"/images/Gallery/21.10.22/1.jpeg",
-		"/images/Gallery/21.10.22/2.jpeg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/21.10.22/2.mp4")
 	};
+	_21_10_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/21.10.22/1.jpeg"),
+		new Image("/images/Gallery/21.10.22/2.jpeg")
+	};
+
 	_16_10_22.Title = "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children";
-	_16_10_22.Column = 2;
-	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/1.mp4"));
-	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/2.mp4"));
-	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/3.mp4"));
-	_16_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/4.mp4"));
-	_16_10_22.Image = new string[]
-	{
-		"/images/Gallery/16.10.22/1.jpg",
-		"/images/Gallery/16.10.22/2.jpg"
+	_16_10_22.Video = new Video[]{
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/2.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/16.10.22/4.mp4")
 	};
+	_16_10_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/16.10.22/1.jpg"),
+		new Image("/images/Gallery/16.10.22/2.jpg")
+	};
+
 	_15_10_22_2.Title = "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy.";
-	_15_10_22_2.Column = 4;
-	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/1.mp4"));
-	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/2.mp4"));
-	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/3.mp4"));
-	_15_10_22_2.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/4.mp4"));
-	_15_10_22_2.Image = new string[]
+	_15_10_22_2.Video = new Video[]
 	{
-		"/images/Gallery/15.10.22-3/1.jpg",
-		"/images/Gallery/15.10.22-3/2.jpg",
-		"/images/Gallery/15.10.22-3/3.jpg",
-		"/images/Gallery/15.10.22-3/4.jpg",
-		"/images/Gallery/15.10.22-3/5.jpg",
-		"/images/Gallery/15.10.22-3/6.jpg",
-		"/images/Gallery/15.10.22-3/7.jpg",
-		"/images/Gallery/15.10.22-3/8.jpg",
-		"/images/Gallery/15.10.22-3/9.jpg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/2.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+3/4.mp4")
 	};
+	_15_10_22_2.Image = new Image[]
+	{
+		new Image("/images/Gallery/15.10.22-3/1.jpg"),
+		new Image("/images/Gallery/15.10.22-3/2.jpg"),
+		new Image("/images/Gallery/15.10.22-3/3.jpg"),
+		new Image("/images/Gallery/15.10.22-3/4.jpg"),
+		new Image("/images/Gallery/15.10.22-3/5.jpg"),
+		new Image("/images/Gallery/15.10.22-3/6.jpg"),
+		new Image("/images/Gallery/15.10.22-3/7.jpg"),
+		new Image("/images/Gallery/15.10.22-3/8.jpg"),
+		new Image("/images/Gallery/15.10.22-3/9.jpg")
+	};
+
 	_15_10_22_1.Title = "15/10/22-1 Щасливе, Ізюмський район";
-	_15_10_22_1.Column = 6;
-	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/1.mp4"));
-	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/2.mp4"));
-	_15_10_22_1.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/3.mp4"));
-	_15_10_22_1.Image = new string[]
+	_15_10_22_1.Video = new Video[]
 	{
-		"/images/Gallery/15.10.22-1/1.jpg",
-		"/images/Gallery/15.10.22-1/2.jpg",
-		"/images/Gallery/15.10.22-1/3.jpg",
-		"/images/Gallery/15.10.22-1/4.jpg",
-		"/images/Gallery/15.10.22-1/5.jpg",
-		"/images/Gallery/15.10.22-1/6.jpg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/2.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+1/3.mp4")
 	};
+	_15_10_22_1.Image = new Image[]
+	{
+		new Image("/images/Gallery/15.10.22-1/1.jpg"),
+		new Image("/images/Gallery/15.10.22-1/2.jpg"),
+		new Image("/images/Gallery/15.10.22-1/3.jpg"),
+		new Image("/images/Gallery/15.10.22-1/4.jpg"),
+		new Image("/images/Gallery/15.10.22-1/5.jpg"),
+		new Image("/images/Gallery/15.10.22-1/6.jpg")
+	};
+
 	_05_10_22.Title = "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6";
-	_05_10_22.Column = 4;
-	_05_10_22.Image = new string[]{
-		"/images/Gallery/05.10.22/1.jpeg",
-		"/images/Gallery/05.10.22/2.jpeg"
+	_05_10_22.ImgSize = 2;
+	_05_10_22.Image = new Image[]{
+		new Image("/images/Gallery/05.10.22/1.jpeg"),
+		new Image("/images/Gallery/05.10.22/2.jpeg")
 	};
+
 	_03_10_22.Title = "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded";
-	_03_10_22.Column = 4;
-	_03_10_22.Image = new string[]{
-		"/images/Gallery/03.10.22/1.jpeg",
-		"/images/Gallery/03.10.22/2.jpeg"
+	_03_10_22.ImgSize = 2;
+	_03_10_22.Image = new Image[]{
+		new Image("/images/Gallery/03.10.22/1.jpeg"),
+		new Image("/images/Gallery/03.10.22/2.jpeg")
 	};
+
 	_01_10_22.Title = "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents.";
-	_01_10_22.Column = 6;
-	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/1.mp4"));
-	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/2.mp4", "/images/Gallery/01.10.22/thumbnail.PNG"));
-	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/3.mp4"));
-	_01_10_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/4.mp4"));
-	_01_10_22.Image = new string[]
+	_01_10_22.ImgSize = 6;
+	_01_10_22.Video = new Video[]
 	{
-		"/images/Gallery/01.10.22/01.jpeg",
-		"/images/Gallery/01.10.22/02.jpeg",
-		"/images/Gallery/01.10.22/03.jpeg",
-		"/images/Gallery/01.10.22/04.jpeg",
-		"/images/Gallery/01.10.22/05.jpeg",
-		"/images/Gallery/01.10.22/06.jpeg",
-		"/images/Gallery/01.10.22/07.jpeg",
-		"/images/Gallery/01.10.22/08.jpeg",
-		"/images/Gallery/01.10.22/09.jpeg",
-		"/images/Gallery/01.10.22/10.jpeg",
-		"/images/Gallery/01.10.22/11.jpeg",
-		"/images/Gallery/01.10.22/12.jpeg",
-		"/images/Gallery/01.10.22/13.jpeg",
-		"/images/Gallery/01.10.22/14.jpeg",
-		"/images/Gallery/01.10.22/15.jpeg",
-		"/images/Gallery/01.10.22/16.jpeg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/2.mp4", 4, "/images/Gallery/01.10.22/thumbnail.PNG"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/01.10.22/4.mp4"),
+	};
+	_01_10_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/01.10.22/01.jpeg"),
+		new Image("/images/Gallery/01.10.22/02.jpeg"),
+		new Image("/images/Gallery/01.10.22/03.jpeg"),
+		new Image("/images/Gallery/01.10.22/04.jpeg"),
+		new Image("/images/Gallery/01.10.22/05.jpeg"),
+		new Image("/images/Gallery/01.10.22/06.jpeg"),
+		new Image("/images/Gallery/01.10.22/07.jpeg"),
+		new Image("/images/Gallery/01.10.22/08.jpeg"),
+		new Image("/images/Gallery/01.10.22/09.jpeg"),
+		new Image("/images/Gallery/01.10.22/10.jpeg"),
+		new Image("/images/Gallery/01.10.22/11.jpeg"),
+		new Image("/images/Gallery/01.10.22/12.jpeg"),
+		new Image("/images/Gallery/01.10.22/13.jpeg"),
+		new Image("/images/Gallery/01.10.22/14.jpeg"),
+		new Image("/images/Gallery/01.10.22/15.jpeg"),
+		new Image("/images/Gallery/01.10.22/16.jpeg")
 	};
 	_19_09_22.Title = "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region.";
-	_19_09_22.Column = 4;
-	_19_09_22.Image = new string[]
+	_19_09_22.Image = new Image[]
 	{
-		"/images/Gallery/19.09.22/01.jpg",
-		"/images/Gallery/19.09.22/02.jpg",
-		"/images/Gallery/19.09.22/03.jpg"
+		new Image("/images/Gallery/19.09.22/01.jpg"),
+		new Image("/images/Gallery/19.09.22/02.jpg"),
+		new Image("/images/Gallery/19.09.22/03.jpg")
 	};
 	_11_09_22.Title = "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region.";
-	_11_09_22.Column = 4;
-	_11_09_22.Image = new string[]
+	_11_09_22.Image = new Image[]
 	{
-		"/images/Gallery/11.09.22/01.jpg",
-		"/images/Gallery/11.09.22/02.jpg"
+		new Image("/images/Gallery/11.09.22/01.jpg"),
+		new Image("/images/Gallery/11.09.22/02.jpg")
 	};
 	_10_08_22.Title = "10 August, Thank you letter from Main Military Medical Clinical Center.";
-	_10_08_22.Column = 4;
-	_10_08_22.HasText = true;
-	_10_08_22.Image = new string[]
+	_10_08_22.Image = new Image[]
 	{
-		"/images/Gallery/10.08.22/01.jpg"
+		new Image("/images/Gallery/10.08.22/01.jpg")
 	};
 	_29_07_22.Title = "On July 29, diapers and napkins for the care of the wounded were taken to the second hospital.";
-	_29_07_22.Column = 4;
-	_29_07_22.Image = new string[]
+	_29_07_22.Image = new Image[]
 	{
-		"/images/Gallery/29.07.22/01.PNG",
-		"/images/Gallery/29.07.22/02.PNG",
-		"/images/Gallery/29.07.22/03.PNG"
+		new Image("/images/Gallery/29.07.22/01.PNG"),
+		new Image("/images/Gallery/29.07.22/02.PNG"),
+		new Image("/images/Gallery/29.07.22/03.PNG")
 	};
 	_28_07_22.Title = "On July 28, 2022, they helped the hospital. Diapers and napkins were taken away - for the care of the wounded.";
-	_28_07_22.Column = 4;
-	_28_07_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/28.07.22/1.mp4"));
-	_28_07_22.Image = new string[]
+	_28_07_22.Video = new Video[]
 	{
-		"/images/Gallery/28.07.22/01.PNG",
-		"/images/Gallery/28.07.22/02.PNG",
-		"/images/Gallery/28.07.22/03.PNG",
-		"/images/Gallery/28.07.22/04.PNG",
-		"/images/Gallery/28.07.22/05.PNG"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/28.07.22/1.mp4")
+	};
+	_28_07_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/28.07.22/01.PNG"),
+		new Image("/images/Gallery/28.07.22/02.PNG"),
+		new Image("/images/Gallery/28.07.22/03.PNG"),
+		new Image("/images/Gallery/28.07.22/04.PNG"),
+		new Image("/images/Gallery/28.07.22/05.PNG")
 	};
 	_26_06_22.Title = "On June 26, together with our partner, the Charitable Foundation «Rear Line» we took humanitarian aid to the Borodyanka community, which was destroyed by the Russian army, and to the village of Andriyivka, Bucha district.";
-	_26_06_22.Column = 6;
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/1.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/2.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/3.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/4.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/5.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/6.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/7.mp4"));
-	_26_06_22.Video.Add(new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/8.mp4"));
-	_26_06_22.Image = new string[]
+	_26_06_22.ImgSize = 6;
+	_26_06_22.Video = new Video[]
 	{
-		"/images/Gallery/26.06.22/01.jpeg",
-		"/images/Gallery/26.06.22/02.jpeg",
-		"/images/Gallery/26.06.22/03.jpeg",
-		"/images/Gallery/26.06.22/04.jpeg",
-		"/images/Gallery/26.06.22/05.jpeg",
-		"/images/Gallery/26.06.22/06.jpeg",
-		"/images/Gallery/26.06.22/07.jpeg",
-		"/images/Gallery/26.06.22/08.jpeg",
-		"/images/Gallery/26.06.22/09.jpeg",
-		"/images/Gallery/26.06.22/10.jpeg",
-		"/images/Gallery/26.06.22/11.jpeg",
-		"/images/Gallery/26.06.22/12.jpeg",
-		"/images/Gallery/26.06.22/13.jpeg",
-		"/images/Gallery/26.06.22/14.jpeg",
-		"/images/Gallery/26.06.22/15.jpeg",
-		"/images/Gallery/26.06.22/16.jpeg",
-		"/images/Gallery/26.06.22/17.jpeg",
-		"/images/Gallery/26.06.22/18.jpeg",
-		"/images/Gallery/26.06.22/19.jpeg",
-		"/images/Gallery/26.06.22/20.jpeg",
-		"/images/Gallery/26.06.22/21.jpeg",
-		"/images/Gallery/26.06.22/22.jpeg",
-		"/images/Gallery/26.06.22/23.jpeg",
-		"/images/Gallery/26.06.22/24.jpeg",
-		"/images/Gallery/26.06.22/25.jpeg",
-		"/images/Gallery/26.06.22/26.jpeg"
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/1.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/2.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/3.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/4.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/5.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/6.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/7.mp4"),
+		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/26.06.22/8.mp4")
 	};
+	_26_06_22.Image = new Image[]
+	{
+		new Image("/images/Gallery/26.06.22/01.jpeg"),
+		new Image("/images/Gallery/26.06.22/02.jpeg"),
+		new Image("/images/Gallery/26.06.22/03.jpeg"),
+		new Image("/images/Gallery/26.06.22/04.jpeg"),
+		new Image("/images/Gallery/26.06.22/05.jpeg"),
+		new Image("/images/Gallery/26.06.22/06.jpeg"),
+		new Image("/images/Gallery/26.06.22/07.jpeg"),
+		new Image("/images/Gallery/26.06.22/08.jpeg"),
+		new Image("/images/Gallery/26.06.22/09.jpeg"),
+		new Image("/images/Gallery/26.06.22/10.jpeg"),
+		new Image("/images/Gallery/26.06.22/11.jpeg"),
+		new Image("/images/Gallery/26.06.22/12.jpeg"),
+		new Image("/images/Gallery/26.06.22/13.jpeg"),
+		new Image("/images/Gallery/26.06.22/14.jpeg"),
+		new Image("/images/Gallery/26.06.22/15.jpeg"),
+		new Image("/images/Gallery/26.06.22/16.jpeg"),
+		new Image("/images/Gallery/26.06.22/17.jpeg"),
+		new Image("/images/Gallery/26.06.22/18.jpeg"),
+		new Image("/images/Gallery/26.06.22/19.jpeg"),
+		new Image("/images/Gallery/26.06.22/20.jpeg"),
+		new Image("/images/Gallery/26.06.22/21.jpeg"),
+		new Image("/images/Gallery/26.06.22/22.jpeg"),
+		new Image("/images/Gallery/26.06.22/23.jpeg"),
+		new Image("/images/Gallery/26.06.22/24.jpeg"),
+		new Image("/images/Gallery/26.06.22/25.jpeg"),
+		new Image("/images/Gallery/26.06.22/26.jpeg")
+	};
+
 	List<GalleryItem> allItems = new List<GalleryItem>();
+
+	RenderItems(new GalleryItem[] { _23_10_22 });
+	RenderItems(new GalleryItem[] { _21_10_22 });
+	RenderItems(new GalleryItem[] { _16_10_22 });
+	RenderItems(new GalleryItem[] { _15_10_22_2, _15_10_22_1 });
+	RenderItems(new GalleryItem[] { _05_10_22, _03_10_22 });
+	RenderItems(new GalleryItem[] { _01_10_22 });
+	RenderItems(new GalleryItem[] { _19_09_22 });
+	RenderItems(new GalleryItem[] { _11_09_22 });
+	RenderItems(new GalleryItem[] { _10_08_22 });
+	RenderItems(new GalleryItem[] { _29_07_22 });
+	RenderItems(new GalleryItem[] { _28_07_22 });
+	RenderItems(new GalleryItem[] { _26_06_22 });
+
+
+
 	allItems.Add(_23_10_22);
 	allItems.Add(_21_10_22);
 	allItems.Add(_16_10_22);
@@ -214,6 +251,7 @@
 	allItems.Add(_28_07_22);
 	allItems.Add(_26_06_22);
 }
+
 <!-- Modal -->
 <style>
 	.fullpage {
@@ -309,279 +347,337 @@
 </div>
 <!-- Modal End -->
 @{
-	var cultureCookieValue = CultureInfo.CurrentCulture.Name;
-	foreach (var item in allItems)
+	void RenderItems(GalleryItem[] items)
 	{
-		if (item.Name == "10/08/22" && cultureCookieValue != "uk")
-		{
-			<div class="row row-cols-1 row-cols-md-1 g-4">
-				<div class="col">
-					<div class="card gallery">
-						<div class="row">
-							<div class="col-md-4">
-								<img src="~/images/Gallery/10.08.22/01.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+		int cols = items.Count();
+		int colWidth = 12 / cols;
+
+		<div class="row row-cols-@cols row-cols-md-@cols">
+			@{
+				foreach (var item in items)
+				{
+					<div class="col">
+						<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+							<div class="card-header text-light">
+								@T[item.Title]
 							</div>
-							<div class="col-md-8">
-								<h4 class="card-title">@T["State Border Guard Service of Ukraine Main Military Medical Clinical Center"]</h4>
-								<h5 class="card-title">@T["To the director of the Charitable Foundation LEGION Alexander Nikiforov"]</h5>
-								<p class="card-text"><i>@T["On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."]</i></p>
-								<p class="card-text"><i><b>@T["Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"]</b></i></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			i++;
-		}
-		else if (item.Name == "28/07/22")
-		{
-			<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-				<div class="card-header text-light">
-					@T[item.Title]
-				</div>
-				<div class="card-body">
-					<div class="row row-cols-3 row-cols-md-4 g-4">
-						@{
-							foreach (var image in item.Image)
-							{
-								<div class="col">
-									<div class="card gallery">
-										<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-									</div>
-								</div>
-								i++;
-							}
-						}
-						<div class="col">
-							<div class="card gallery">
-								<div class="row g-0">
-									<img src="~/images/Gallery/28.07.22/06.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+							<div class="card-body">
+								<div class="row row-cols-4 row-cols-md-4 g-4">
 									@{
-										i++;
-									}
-								</div>
-								<div class="col-md-12">
-									<b>@T["Thank you letter from Hospital for humanitarian aid.<br />"]</b>
-								</div>
-							</div>
-						</div>
-						@{
-							foreach (var video in item.Video)
-							{
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-											<source src=@video.Link type="video/mp4">
-										</video>
-									</div>
-								</div>
-							}
-						}
-					</div>
-				</div>
-			</div>
-		}
-		else if (item.Name == "23/10/22")
-		{
-			<div class="row row-cols-1 row-cols-md-1">
-				<div class="col">
-			<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-				<div class="card-header text-light">
-					@T[item.Title]
-				</div>
-				<div class="card-body">
-					<div class="row row-cols-2 row-cols-md-2 g-2">
-						<div class="col">
-							<div class="card gallery">
-								<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-									<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4 type="video/mp4">
-								</video>
-							</div>
-						</div>
-						<div class="col">
-							<div class="row row-cols-2 row-cols-md-2 g-2">
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-											<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4 type="video/mp4">
-										</video>
-									</div>
-								</div>
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-											<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4 type="video/mp4">
-										</video>
-									</div>
-								</div>
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-											<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4 type="video/mp4">
-										</video>
-									</div>
-								</div>
-								<div class="col">
-									@{
-										<div class="col">
-											<div class="card gallery">
-												<img src="~/images/Gallery/23.10.22/1.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-											</div>
-										</div>
-										i++;
-									}
-								</div>
-							</div>
-						</div>
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		}
-		else if (item.Name == "15/10/22-1")
-		{
-			<div class="row row-cols-2 row-cols-md-2">
-				<div class="col">
-					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-						<div class="card-header text-light">
-							15.10.22 - @T["Shchaslyve"], @T["Izum Region"]
-						</div>
-						<div class="card-body">
-							<div class="row row-cols-1 row-cols-md-1 g-2">
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-											<source src=@item.Video[2].Link type="video/mp4">
-										</video>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row row-cols-2 row-cols-md-2 g-2">
-										<div class="col">
-											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-													<source src=@item.Video[0].Link type="video/mp4">
-												</video>
-											</div>
-										</div>
-										<div class="col">
-											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-													<source src=@item.Video[1].Link type="video/mp4">
-												</video>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row row-cols-3 row-cols-md-3">
-								@{
-									foreach (var image in item.Image)
-									{
-										<div class="col">
-											<div class="card gallery">
-												<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-											</div>
-										</div>
-										i++;
-									}
-								}
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-						<div class="card-header text-light">
-							15.10.22 - @T["Lysohirka"], @T["Izum Region"]
-						</div>
-						<div class="card-body">
-							<div class="row row-cols-1 row-cols-md-1 g-2">
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-											<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/4.mp4 type="video/mp4">
-										</video>
-									</div>
-								</div>
-								<div class="col">
-									<div class="row row-cols-2 row-cols-md-2 g-2">
-										<div class="col">
-											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/1.mp4" type="video/mp4">
-												</video>
-											</div>
-										</div>
-										<div class="col">
-											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/2.mp4" type="video/mp4">
-												</video>
-											</div>
-										</div>
-										<div class="col">
-											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
-													<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/3.mp4" type="video/mp4">
-												</video>
-											</div>
-										</div>
-										<div class="col">
-											@{
+										if (item.Video != null)
+										{
+											foreach (var video in item.Video)
+											{
 												<div class="col">
 													<div class="card gallery">
-														<img src="~/images/Gallery/15.10.22-2/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+														<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+															<source src=@video.Link type="video/mp4">
+														</video>
+													</div>
+												</div>
+											}
+										}
+									}
+								</div>
+								<div class="row row-cols-@item.ImgSize row-cols-md-@item.ImgSize g-4">
+									@{
+										if (item.Image  != null)
+										{
+											foreach (var image in item.Image)
+											{
+												<div class="col">
+													<div class="card gallery">
+														<img src=@image.Link class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
 													</div>
 												</div>
 												i++;
 											}
-										</div>
-									</div>
+										}
+									}
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		}
-		else
-		{
-			<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-				<div class="card-header text-light">
-					@T[item.Title]
-				</div>
-				<div class="card-body">
-					<div class="row row-cols-4 row-cols-md-4 g-4">
-						@{
-							foreach (var video in item.Video)
-							{
-								<div class="col">
-									<div class="card gallery">
-										<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-											<source src=@video.Link type="video/mp4">
-										</video>
-									</div>
-								</div>
-							}
-						}
-					</div>
-					<div class="row row-cols-3 row-cols-md-@item.Column g-4">
-						@{
-							foreach (var image in item.Image)
-							{
-								<div class="col">
-									<div class="card gallery">
-										<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-									</div>
-								</div>
-								i++;
-							}
-						}
-					</div>
-				</div>
-			</div>
-		}
+				}
+			}
+		</div>
 	}
+}
+@{
+	//	var cultureCookieValue = CultureInfo.CurrentCulture.Name;
+
+	//	foreach (var item in allItems)
+	//	{
+	//		if (item.Name == "10/08/22" && cultureCookieValue != "uk")
+	//		{
+	//		<div class="row row-cols-1 row-cols-md-1 g-4">
+	//			<div class="col">
+	//				<div class="card gallery">
+	//					<div class="row">
+	//						<div class="col-md-4">
+	//							<img src="~/images/Gallery/10.08.22/01.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//						</div>
+	//						<div class="col-md-8">
+	//							<h4 class="card-title">@T["State Border Guard Service of Ukraine Main Military Medical Clinical Center"]</h4>
+	//							<h5 class="card-title">@T["To the director of the Charitable Foundation LEGION Alexander Nikiforov"]</h5>
+	//							<p class="card-text"><i>@T["On behalf of ourselves and on behalf of our team, we express our sincere gratitude to you for this selfless help to our Main Center. Your help in the form of medical products and hygiene products is an invaluable contribution not only to the cause of medical care, but also to the Sovereignty of our Country, the provision of medical care to our military personnel, and the feeling of support from the staff of our Main Center. Good deeds do not go unmarked - they shine like beacons to those who are waiting for help. I am sure that your example is indicative for other benefactors. By giving help at this difficult time for all of us, you give not just medicines, but give hope that together we will overcome any adversity. May your kindness and generosity return to you a hundredfold. I wish you all the best, health and prosperity. I look forward to further fruitful cooperation within the support of our Main Center."]</i></p>
+	//							<p class="card-text"><i><b>@T["Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"]</b></i></p>
+	//						</div>
+	//					</div>
+	//				</div>
+	//			</div>
+	//		</div>
+	//			i++;
+	//		}
+	//		else if (item.Name == "28/07/22")
+	//		{
+	//		<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+	//			<div class="card-header text-light">
+	//					@T[item.Title]
+	//			</div>
+	//			<div class="card-body">
+	//				<div class="row row-cols-3 row-cols-md-4 g-4">
+	//						@{
+	//							foreach (var image in item.Image)
+	//							{
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//								</div>
+	//							</div>
+	//								i++;
+	//							}
+	//						}
+	//					<div class="col">
+	//						<div class="card gallery">
+	//							<div class="row g-0">
+	//								<img src="~/images/Gallery/28.07.22/06.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//									@{
+	//										i++;
+	//									}
+	//							</div>
+	//							<div class="col-md-12">
+	//								<b>@T["Thank you letter from Hospital for humanitarian aid.<br />"]</b>
+	//							</div>
+	//						</div>
+	//					</div>
+	//						@{
+	//							foreach (var video in item.Video)
+	//							{
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+	//										<source src=@video.Link type="video/mp4">
+	//									</video>
+	//								</div>
+	//							</div>
+	//							}
+	//						}
+	//				</div>
+	//			</div>
+	//		</div>
+	//		}
+	//		else if (item.Name == "23/10/22")
+	//		{
+	//		<div class="row row-cols-1 row-cols-md-1">
+	//			<div class="col">
+	//				<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+	//					<div class="card-header text-light">
+	//							@T[item.Title]
+	//					</div>
+	//					<div class="card-body">
+	//						<div class="row row-cols-2 row-cols-md-2 g-2">
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//										<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4 type="video/mp4">
+	//									</video>
+	//								</div>
+	//							</div>
+	//							<div class="col">
+	//								<div class="row row-cols-2 row-cols-md-2 g-2">
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4 type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4 type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4 type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//											@{
+	//											<div class="col">
+	//												<div class="card gallery">
+	//													<img src="~/images/Gallery/23.10.22/1.jpeg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//												</div>
+	//											</div>
+	//												i++;
+	//											}
+	//									</div>
+	//								</div>
+	//							</div>
+	//						</div>
+	//					</div>
+	//				</div>
+	//			</div>
+	//		</div>
+	//		}
+	//		else if (item.Name == "15/10/22-1")
+	//		{
+	//		<div class="row row-cols-2 row-cols-md-2">
+	//			<div class="col">
+	//				<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+	//					<div class="card-header text-light">
+	//						15.10.22 - @T["Shchaslyve"], @T["Izum Region"]
+	//					</div>
+	//					<div class="card-body">
+	//						<div class="row row-cols-1 row-cols-md-1 g-2">
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//										<source src=@item.Video[2].Link type="video/mp4">
+	//									</video>
+	//								</div>
+	//							</div>
+	//							<div class="col">
+	//								<div class="row row-cols-2 row-cols-md-2 g-2">
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src=@item.Video[0].Link type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src=@item.Video[1].Link type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//								</div>
+	//							</div>
+	//						</div>
+	//						<div class="row row-cols-3 row-cols-md-3">
+	//								@{
+	//									foreach (var image in item.Image)
+	//									{
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//										</div>
+	//									</div>
+	//										i++;
+	//									}
+	//								}
+	//						</div>
+	//					</div>
+	//				</div>
+	//			</div>
+	//			<div class="col">
+	//				<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+	//					<div class="card-header text-light">
+	//						15.10.22 - @T["Lysohirka"], @T["Izum Region"]
+	//					</div>
+	//					<div class="card-body">
+	//						<div class="row row-cols-1 row-cols-md-1 g-2">
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//										<source src=https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/4.mp4 type="video/mp4">
+	//									</video>
+	//								</div>
+	//							</div>
+	//							<div class="col">
+	//								<div class="row row-cols-2 row-cols-md-2 g-2">
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/1.mp4" type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/2.mp4" type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//										<div class="card gallery">
+	//											<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom">
+	//												<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/15.10.22+2/3.mp4" type="video/mp4">
+	//											</video>
+	//										</div>
+	//									</div>
+	//									<div class="col">
+	//											@{
+	//											<div class="col">
+	//												<div class="card gallery">
+	//													<img src="~/images/Gallery/15.10.22-2/1.jpg" class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//												</div>
+	//											</div>
+	//												i++;
+	//											}
+	//									</div>
+	//								</div>
+	//							</div>
+	//						</div>
+	//					</div>
+	//				</div>
+	//			</div>
+	//		</div>
+	//		}
+	//		else
+	//		{
+	//		<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+	//			<div class="card-header text-light">
+	//					@T[item.Title]
+	//			</div>
+	//			<div class="card-body">
+	//				<div class="row row-cols-4 row-cols-md-4 g-4">
+	//						@{
+	//							foreach (var video in item.Video)
+	//							{
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+	//										<source src=@video.Link type="video/mp4">
+	//									</video>
+	//								</div>
+	//							</div>
+	//							}
+	//						}
+	//				</div>
+	//				<div class="row row-cols-3 row-cols-md-@item.Column g-4">
+	//						@{
+	//							foreach (var image in item.Image)
+	//							{
+	//							<div class="col">
+	//								<div class="card gallery">
+	//									<img src=@image class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+	//								</div>
+	//							</div>
+	//								i++;
+	//							}
+	//						}
+	//				</div>
+	//			</div>
+	//		</div>
+	//		}
+	//	}
 }
