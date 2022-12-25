@@ -23,6 +23,7 @@ namespace LegionWebApp.Models
         public int ImgSize { get; set; }
         public Image[] Image { get; set; }
         public Video[] Video { get; set; }
+        public VideoCol[] VideoCol { get; set; }
 
     }
     public class Image
@@ -36,13 +37,31 @@ namespace LegionWebApp.Models
     public class Video
     {
         public Video(string link, int size = 4, string poster = null)
-		{
-			this.Link = link;
-			this.Poster = poster;
+        {
+            this.Link = link;
+            this.Poster = poster;
             this.Size = size;
-		}
-		public string Link { get; set; }
+        }
+        public string Link { get; set; }
         public string Poster { get; set; }
         public int Size { get; set; }
+    }
+    public class VideoCol
+    {
+        public Video[] Video { get; set; }
+    }
+
+    public class VideoItem
+    {
+        public VideoItem(string link, int size = 4, string poster = null)
+        {
+            this.Link = link;
+            this.Poster = poster;
+            this.Size = size;
+        }
+        public string Link { get; set; }
+        public string Poster { get; set; }
+        public int Size { get; set; }
+
     }
 }

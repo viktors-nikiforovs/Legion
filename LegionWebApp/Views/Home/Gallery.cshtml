@@ -21,13 +21,29 @@
 	GalleryItem _26_06_22 = new GalleryItem();
 
 	_23_10_22.Title = "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces.";
-	_23_10_22.Video = new Video[]
+	//VideoCol[] test = new VideoCol[] { new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4"), new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4") };
+
+
+
+	_23_10_22.VideoCol = new VideoCol[]
+		{
+	new VideoCol
 	{
-		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4"),
-		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4"),
-		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4"),
-		new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4")
-	};
+		Video = new Video[]
+		{
+			new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/1.mp4"),
+			new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/2.mp4")
+		}
+	},
+	new VideoCol
+	{
+		Video = new Video[]
+		{
+			new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/3.mp4"),
+			new Video("https://legion-foundation.s3.eu-central-1.amazonaws.com/23.10.22/4.mp4")
+		}
+	}
+		};
 	_23_10_22.Image = new Image[]
 	{
 		new Image("/images/Gallery/23.10.22/1.jpeg")
@@ -80,7 +96,7 @@
 		new Image("/images/Gallery/15.10.22-3/8.jpg"),
 		new Image("/images/Gallery/15.10.22-3/9.jpg")
 	};
-	
+
 	_15_10_22_2.Title = "15/10/22-2 Lysohirka, Izum Region";
 	_15_10_22_2.ImgSize = 2;
 	_15_10_22_2.Video = new Video[]
@@ -255,16 +271,16 @@
 
 
 	/*
-	 * TODO
-	 * 28_07_22 missing letter 
-	 * img or vid first?
-	 * 
-	 * 10_08_22 missing letter
-	 * 15/10/22-2 1st vid large rest 2 col
-	 * 15/10/22-1 1st vid large rest 2 col
-	 * 
-	 * 23 octob - wide vid
-	 */
+	* TODO
+	* 28_07_22 missing letter
+	* img or vid first?
+	*
+	* 10_08_22 missing letter
+	* 15/10/22-2 1st vid large rest 2 col
+	* 15/10/22-1 1st vid large rest 2 col
+	*
+	* 23 octob - wide vid
+	*/
 }
 
 @{
@@ -274,45 +290,45 @@
 		<div class="row row-cols-@postCount row-cols-md-@postCount">
 			@foreach (var item in post.Items)
 			{
-			<div class="col">
-				<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-					<div class="card-header text-light">
-						@T[item.Title]
-					</div>
-					<div class="card-body">
-						<div class="row row-cols-4 row-cols-md-4 g-4">
-							@{
-								if (item.Video != null)
-								{
-									foreach (var video in item.Video)
+				<div class="col">
+					<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+						<div class="card-header text-light">
+							@T[item.Title]
+						</div>
+						<div class="card-body">
+							<div class="row row-cols-4 row-cols-md-4 g-4">
+								@{
+									if (item.Video != null)
+									{
+										foreach (var video in item.Video)
+										{
+											<div class="col">
+												<div class="card gallery">
+													<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+														<source src=@video.Link type="video/mp4">
+													</video>
+												</div>
+											</div>
+										}
+									}
+								}
+							</div>
+							<div class="row row-cols-@item.ImgSize row-cols-md-@item.ImgSize g-4">
+								@{
+									foreach (var image in item.Image)
 									{
 										<div class="col">
 											<div class="card gallery">
-												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-													<source src=@video.Link type="video/mp4">
-												</video>
+												<img src=@image.Link class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
 											</div>
 										</div>
+										i++;
 									}
 								}
-							}
-						</div>
-						<div class="row row-cols-@item.ImgSize row-cols-md-@item.ImgSize g-4">
-							@{
-								foreach (var image in item.Image)
-								{
-									<div class="col">
-										<div class="card gallery">
-											<img src=@image.Link class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-										</div>
-									</div>
-									i++;
-								}
-							}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 			}
 		</div>
 	}
@@ -412,63 +428,6 @@
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <!-- Modal End -->
-@*@{
-	void RenderItems(GalleryItem[] items)
-	{
-		int cols = items.Count();
-		int colWidth = 12 / cols;
-
-		<div class="row row-cols-@cols row-cols-md-@cols">
-			@{
-				foreach (var item in items)
-				{
-					<div class="col">
-						<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
-							<div class="card-header text-light">
-								@T[item.Title]
-							</div>
-							<div class="card-body">
-								<div class="row row-cols-4 row-cols-md-4 g-4">
-									@{
-										if (item.Video != null)
-										{
-											foreach (var video in item.Video)
-											{
-												<div class="col">
-													<div class="card gallery">
-														<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
-															<source src=@video.Link type="video/mp4">
-														</video>
-													</div>
-												</div>
-											}
-										}
-									}
-								</div>
-								<div class="row row-cols-@item.ImgSize row-cols-md-@item.ImgSize g-4">
-									@{
-										if (item.Image  != null)
-										{
-											foreach (var image in item.Image)
-											{
-												<div class="col">
-													<div class="card gallery">
-														<img src=@image.Link class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
-													</div>
-												</div>
-												i++;
-											}
-										}
-									}
-								</div>
-							</div>
-						</div>
-					</div>
-				}
-			}
-		</div>
-	}
-}*@
 @{
 	//	var cultureCookieValue = CultureInfo.CurrentCulture.Name;
 
