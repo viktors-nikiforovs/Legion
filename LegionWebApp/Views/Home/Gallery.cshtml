@@ -236,37 +236,37 @@
 
 
 
-	allItems.Add(_23_10_22);
-	allItems.Add(_21_10_22);
-	allItems.Add(_16_10_22);
-	allItems.Add(_15_10_22_2);
-	allItems.Add(_15_10_22_1);
-	allItems.Add(_05_10_22);
-	allItems.Add(_03_10_22);
-	allItems.Add(_01_10_22);
-	allItems.Add(_19_09_22);
-	allItems.Add(_11_09_22);
-	allItems.Add(_10_08_22);
-	allItems.Add(_29_07_22);
-	allItems.Add(_28_07_22);
-	allItems.Add(_26_06_22);
+	//allItems.Add(_23_10_22);
+	//allItems.Add(_21_10_22);
+	//allItems.Add(_16_10_22);
+	//allItems.Add(_15_10_22_2);
+	//allItems.Add(_15_10_22_1);
+	//allItems.Add(_05_10_22);
+	//allItems.Add(_03_10_22);
+	//allItems.Add(_01_10_22);
+	//allItems.Add(_19_09_22);
+	//allItems.Add(_11_09_22);
+	//allItems.Add(_10_08_22);
+	//allItems.Add(_29_07_22);
+	//allItems.Add(_28_07_22);
+	//allItems.Add(_26_06_22);
 
 
 
 	List<Post> Gallery = new List<Post>();
 
 
-	Gallery.Add(new Post(new GalleryItem[] { _23_10_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _21_10_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _16_10_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _15_10_22_2, _15_10_22_1 }));
-	Gallery.Add(new Post(new GalleryItem[] { _05_10_22, _03_10_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _01_10_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _19_09_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _11_09_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _10_08_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _29_07_22 }));
-	Gallery.Add(new Post(new GalleryItem[] { _28_07_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _23_10_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _21_10_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _16_10_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _15_10_22_2, _15_10_22_1 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _05_10_22, _03_10_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _01_10_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _19_09_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _11_09_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _10_08_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _29_07_22 }));
+	//Gallery.Add(new Post(new GalleryItem[] { _28_07_22 }));
 	Gallery.Add(new Post(new GalleryItem[] { _26_06_22 }));
 }
 
@@ -303,7 +303,7 @@
 								}
 							}
 						</div>
-						<div class="row row-cols-3 row-cols-md-3 g-4">
+						<div class="row row-cols-@item.ImgSize row-cols-md-@item.ImgSize g-4">
 							@{
 								foreach (var image in item.Image)
 								{
