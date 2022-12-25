@@ -2,6 +2,22 @@
 
 namespace LegionWebApp.Models
 {
+    /* 
+     * List as Gallery contains Posts
+     * Each post is array of items
+    */
+
+    public class Post
+    {
+        public GalleryItem[] Items { get; set; }
+        public Post(GalleryItem[] items)
+        {
+            Items = items;
+        }   
+    }
+
+
+
     public class GalleryItem
     {
         public GalleryItem()

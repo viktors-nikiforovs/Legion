@@ -221,18 +221,18 @@
 
 	List<GalleryItem> allItems = new List<GalleryItem>();
 
-	RenderItems(new GalleryItem[] { _23_10_22 });
-	RenderItems(new GalleryItem[] { _21_10_22 });
-	RenderItems(new GalleryItem[] { _16_10_22 });
-	RenderItems(new GalleryItem[] { _15_10_22_2, _15_10_22_1 });
-	RenderItems(new GalleryItem[] { _05_10_22, _03_10_22 });
-	RenderItems(new GalleryItem[] { _01_10_22 });
-	RenderItems(new GalleryItem[] { _19_09_22 });
-	RenderItems(new GalleryItem[] { _11_09_22 });
-	RenderItems(new GalleryItem[] { _10_08_22 });
-	RenderItems(new GalleryItem[] { _29_07_22 });
-	RenderItems(new GalleryItem[] { _28_07_22 });
-	RenderItems(new GalleryItem[] { _26_06_22 });
+	//RenderItems(new GalleryItem[] { _23_10_22 });
+	//RenderItems(new GalleryItem[] { _21_10_22 });
+	//RenderItems(new GalleryItem[] { _16_10_22 });
+	//RenderItems(new GalleryItem[] { _15_10_22_2, _15_10_22_1 });
+	//RenderItems(new GalleryItem[] { _05_10_22, _03_10_22 });
+	//RenderItems(new GalleryItem[] { _01_10_22 });
+	//RenderItems(new GalleryItem[] { _19_09_22 });
+	//RenderItems(new GalleryItem[] { _11_09_22 });
+	//RenderItems(new GalleryItem[] { _10_08_22 });
+	//RenderItems(new GalleryItem[] { _29_07_22 });
+	//RenderItems(new GalleryItem[] { _28_07_22 });
+	//RenderItems(new GalleryItem[] { _26_06_22 });
 
 
 
@@ -250,6 +250,78 @@
 	allItems.Add(_29_07_22);
 	allItems.Add(_28_07_22);
 	allItems.Add(_26_06_22);
+
+
+
+	List<Post> Gallery = new List<Post>();
+
+
+	Gallery.Add(new Post(new GalleryItem[] { _23_10_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _21_10_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _16_10_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _15_10_22_2, _15_10_22_1 }));
+	Gallery.Add(new Post(new GalleryItem[] { _05_10_22, _03_10_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _01_10_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _19_09_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _11_09_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _10_08_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _29_07_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _28_07_22 }));
+	Gallery.Add(new Post(new GalleryItem[] { _26_06_22 }));
+}
+
+
+
+
+@{
+	foreach (var post in Gallery)
+	{
+		int postCount = post.Items.Count();
+		<div class="row row-cols-@postCount row-cols-md-@postCount">
+			@foreach (var item in post.Items)
+			{
+			<div class="col">
+				<div class="card" style="background-color:rgba(255, 255, 255, 0.1);">
+					<div class="card-header text-light">
+						@T[item.Title]
+					</div>
+					<div class="card-body">
+						<div class="row row-cols-4 row-cols-md-4 g-4">
+							@{
+								if (item.Video != null)
+								{
+									foreach (var video in item.Video)
+									{
+										<div class="col">
+											<div class="card gallery">
+												<video controls disablePictureInPicture controlsList="noplaybackrate nodownload" class="card-img-top card-img-bottom" poster=@video.Poster>
+													<source src=@video.Link type="video/mp4">
+												</video>
+											</div>
+										</div>
+									}
+								}
+							}
+						</div>
+						<div class="row row-cols-3 row-cols-md-3 g-4">
+							@{
+								foreach (var image in item.Image)
+								{
+									<div class="col">
+										<div class="card gallery">
+											<img src=@image.Link class="card-img-top card-img-bottom" onclick="openModal();currentSlide(@i)" alt="...">
+										</div>
+									</div>
+									i++;
+								}
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+			}
+		</div>
+	}
 }
 
 <!-- Modal -->
@@ -346,7 +418,7 @@
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <!-- Modal End -->
-@{
+@*@{
 	void RenderItems(GalleryItem[] items)
 	{
 		int cols = items.Count();
@@ -402,7 +474,7 @@
 			}
 		</div>
 	}
-}
+}*@
 @{
 	//	var cultureCookieValue = CultureInfo.CurrentCulture.Name;
 
