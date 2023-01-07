@@ -1,13 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
-@*
-	TODO
-	video sizes on mobile
-	letter translation
-	lazyload
-	infinetescroll
-*@
 @{
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new Gallery();
@@ -208,7 +201,6 @@
 		}
 
 </style>
-
 <script>
 	function CreateModal() {
 		const imgs = document.querySelectorAll('.gallery img');
@@ -342,6 +334,5 @@
 		xDown = null;
 		yDown = null;
 	}
-
 </script>
 <!-- Modal End -->
