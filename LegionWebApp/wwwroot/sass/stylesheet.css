@@ -58,6 +58,10 @@
   z-index: 1;
 }
 
+.grid-item {
+  padding: 0.3rem;
+}
+
 .gallery img:hover {
   cursor: zoom-in;
   opacity: 0.7;
@@ -72,10 +76,6 @@
 
 .gallery video:hover {
   cursor: pointer;
-}
-
-.card {
-  margin: 1.5rem 0 1.5rem 0;
 }
 
 #scrollTop {
@@ -4316,7 +4316,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: rgba(255, 255, 255, 0.9);
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 1rem;
 }
 .card > hr {
@@ -4329,13 +4329,13 @@ textarea.form-control-lg {
 }
 .card > .list-group:first-child {
   border-top-width: 0;
-  border-top-left-radius: calc(1rem - 1px);
-  border-top-right-radius: calc(1rem - 1px);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 .card > .list-group:last-child {
   border-bottom-width: 0;
-  border-bottom-right-radius: calc(1rem - 1px);
-  border-bottom-left-radius: calc(1rem - 1px);
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
@@ -4371,19 +4371,19 @@ textarea.form-control-lg {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 0 solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {
-  border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .card-footer {
   padding: 0.5rem 1rem;
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 0 solid rgba(0, 0, 0, 0.125);
 }
 .card-footer:last-child {
-  border-radius: 0 0 calc(1rem - 1px) calc(1rem - 1px);
+  border-radius: 0 0 1rem 1rem;
 }
 
 .card-header-tabs {
@@ -4409,7 +4409,7 @@ textarea.form-control-lg {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  border-radius: calc(1rem - 1px);
+  border-radius: 1rem;
 }
 
 .card-img,
@@ -4420,14 +4420,14 @@ textarea.form-control-lg {
 
 .card-img,
 .card-img-top {
-  border-top-left-radius: calc(1rem - 1px);
-  border-top-right-radius: calc(1rem - 1px);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .card-img,
 .card-img-bottom {
-  border-bottom-right-radius: calc(1rem - 1px);
-  border-bottom-left-radius: calc(1rem - 1px);
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .card-group > .card {

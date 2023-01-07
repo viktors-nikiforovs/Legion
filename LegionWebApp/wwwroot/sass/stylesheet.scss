@@ -1,6 +1,7 @@
 ﻿$card-border-radius: 1rem;
 $card-bg: rgb(255, 255, 255, 0.9);
 $navbar-padding-x: 10rem;
+$card-border-width: 0;
 
 .nav-link {
     color: white;
@@ -63,7 +64,9 @@ $navbar-padding-x: 10rem;
     z-index: 1;
 }
 
-
+.grid-item {
+    padding: 0.3rem;
+}
 .gallery img:hover {
     cursor: zoom-in;
     opacity: 0.7;
@@ -80,7 +83,7 @@ $navbar-padding-x: 10rem;
 }
 
 .card {
-    margin: 1.5rem 0 1.5rem 0;
+    //margin: 1.5rem 0 1.5rem 0;
 }
 
 #scrollTop {
