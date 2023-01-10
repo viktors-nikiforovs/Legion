@@ -6,7 +6,7 @@
 	var Gallery = new Gallery();
 	int i = 1;
 	<div class="container">
-		@foreach (var item in Gallery.ItemList)
+			@foreach (var item in Gallery.ItemList)
 		{
 			int pageSize;
 			List<dynamic> mediaList = new List<dynamic>();
@@ -30,40 +30,40 @@
 				}
 			}
 
-			<div class="row-cols-@pageSize">
-				<div class="col-@pageSize" style="float: left; padding: 1rem;">
-					<div class='card' style='background-color:rgba(255, 255, 255, 0.1);'>
-						<div class='card-header text-light'>
-							@item.Title
-						</div>
-						<div class='card-body'>
-							<div class="grid-sizer"></div>
-							<div class='row grid'>
-								@foreach (var media in mediaList)
+				<div class="row-cols-@pageSize">
+					<div class="col-@pageSize" style="float: left; padding: 1rem;">
+						<div class='card' style='background-color:rgba(255, 255, 255, 0.1);'>
+							<div class='card-header text-light'>
+								@item.Title
+							</div>
+							<div class='card-body'>
+								<div class="grid-sizer"></div>
+								<div class='row grid'>
+									@foreach (var media in mediaList)
 								{
-									<div class='grid-item col-@media.Size'>
-										<div class='card gallery'>
-											@if (media.GetType() == typeof(Image))
+										<div class='grid-item col-@media.Size'>
+											<div class='card gallery'>
+												@if (media.GetType() == typeof(Image))
 											{
-												<img data-src=@media.Link class="card-img-top card-img-bottom lazy" onclick="openModal();currentSlide(@i)" />
+													<img data-src=@media.Link class="card-img-top card-img-bottom lazy" onclick="openModal();currentSlide(@i)" />
 												i++;
 											}
 											else
 											{
-												<video controls preload="metadata" disablePictureInPicture controlsList="noplaybackrate nodownload lazy" class="card-img-top card-img-bottom lazyload" poster=@media.Poster>
-													<source src=@media.Link type="video/mp4">
-												</video>
+													<video controls preload="metadata" disablePictureInPicture controlsList="noplaybackrate nodownload lazy" class="card-img-top card-img-bottom lazyload" poster=@media.Poster>
+														<source src=@media.Link type="video/mp4">
+													</video>
 											}
+											</div>
 										</div>
-									</div>
 
 								}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-			</div>
+				</div>
 		}
 	</div>
 }
@@ -208,7 +208,7 @@
 		var oldHtml = modalContent.innerHTML;
 		modalContent.innerHTML = "";
 		imgs.forEach(img => {
-			modalContent.innerHTML += '<div class="mySlides fullpage"style="background-image: url(' + img.src + ');" onclick="closeModal()"></div>';
+			modalContent.innerHTML += '<div class="mySlides fullpage" style="background-image: url(' + img.src + ');" onclick="closeModal()"></div>';
 		});
 		modalContent.innerHTML += oldHtml;
 	}
@@ -256,7 +256,7 @@
 	}
 </script>
 
-<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+<div id="ModalContent" class="modal lazy" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
