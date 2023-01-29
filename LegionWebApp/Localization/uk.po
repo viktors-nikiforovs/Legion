@@ -265,26 +265,29 @@ msgstr "1 жовтня, ІЗЮМ Харківської області -  (ра�
 msgid "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy."
 msgstr "З 14 по 16 жовтня, спільно з партнерами - Благодійним Фондом «Лінія тилу», була організована поїздка з гуманітарною допомогою на визволені території в Харківській області. Відвезли  для нужденних продукти харчування, одяг, побутову хімію та засоби гігієни, медикаменти і для малечі іграшки."
 
-msgid "Shchaslyve"
-msgstr "Щасливе"
+msgid "On October 15, Shchaslyve, Izum Region."
+msgstr "15 жовтня, Щасливе, Ізюм"
 
-msgid "Izum Region"
-msgstr "Ізюмський район"
+msgid "On October 15, Lysohirka, Izum Region."
+msgstr "15 жовтня, Лисогірка, Ізюм"
 
-msgid "Lysohirka"
-msgstr "Лисогірка"
-
-msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
-msgstr "16/10/22 - багатодітна сім’я військовослужбовця - Іскра, Ізюмский район. Многодетная семья военнослужащего"
+msgid "On October 16, a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children."
+msgstr "16 жовтня 2022, багатодітна сім’я військовослужбовця - Іскра, Ізюмский район. Многодетная семья военнослужащего"
 
 msgid "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded"
 msgstr "3 жовтня 2022 року закупили і передали медикаменти, перевязочні матеріали та засоби гігієни в Державний Головний Військово-Медичний клінічний Центр для поранених"
 
-msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6."
 msgstr "5 жовтня  2022 року передали благодійну допомогу в «Київську Міську Клінічну Лікарню 6»"
 
-msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6."
 msgstr "21 жовтня 2022року передали благодійну допомогу в «Київську Міську Клінічну Лікарню 6»"
 
 msgid "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces."
 msgstr "23 жовтня разом з нашим партнером компанією «КОНРОЛ» готовим передачу в ЗСУ взуттєвих устілок для військовослужбовців ЗСУ."
+
+msgid "On January 5, 2023, in connection with the withdrawal, the \"Front Line\" charitable foundation sent 5 pallets of humanitarian aid: products, shoes, clothes and hygiene products to the Berislav village of the Kherson region, which was under occupation."
+msgstr "5 січня 2023 року, разом з партнерами - благодійним фондом «Лінія тилу» відправили 5 паллєт гуманітарної допомоги: продукти, взуття, одежа та засоби гігієни в місто Берислав Херсонської області що був під окупацією."
+
+msgid "Pay with Card / GPay"
+msgstr "Оплатіть карткою / GPay"

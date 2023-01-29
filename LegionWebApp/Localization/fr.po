@@ -277,8 +277,14 @@ msgstr "Le 1er octobre, IZUM de la région de Kharkiv - (avec nos partenaires - 
 msgid "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy."
 msgstr "Du 14 au 16 octobre, un voyage d'aide humanitaire dans les territoires libérés de la région de Kharkiv a été organisé avec des partenaires - la Front Line Charitable Foundation. De la nourriture, des vêtements, des produits chimiques ménagers et d'hygiène, des médicaments et des jouets pour enfants ont été livrés aux nécessiteux."
 
-msgid "16/10/22 - a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children"
-msgstr "16/10/22 - une famille nombreuse d'un militaire - Iskra, district d'Izyum. La famille d'un militaire avec de nombreux enfants"
+msgid "On October 15, Shchaslyve, Izum Region."
+msgstr "Am 15. Oktober, Shchaslyve, Izum Region"
+
+msgid "Le 15 octobre, Lysohirka, Izum Region."
+msgstr "Le 15 octobre, Lysohirka, Ізюм"
+
+msgid "On October 16, a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children."
+msgstr "Le 16 octobre 2022, une famille nombreuse d'un militaire - Iskra, district d'Izyum. La famille d'un militaire avec de nombreux enfants"
 
 msgid "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded"
 msgstr "Le 3 octobre 2022, des médicaments, du matériel de pansement et des produits d'hygiène ont été achetés et livrés au Centre clinique médical militaire principal de l'État pour les blessés."
@@ -291,3 +297,9 @@ msgstr "Le 21 octobre 2022, l'aide caritative a été transférée à l'hôpital
 
 msgid "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces."
 msgstr "Le 23 octobre, en collaboration avec notre société partenaire KONROL, nous nous préparons à remettre des semelles de chaussures pour les militaires des forces armées aux forces armées."
+
+msgid "On January 5, 2023, in connection with the withdrawal, the \"Front Line\" charitable foundation sent 5 pallets of humanitarian aid: products, shoes, clothes and hygiene products to the Berislav village of the Kherson region, which was under occupation."
+msgstr "Le 5 janvier 2023, en collaboration avec des partenaires - la fondation caritative "Front Line", nous avons envoyé 5 palettes d'aide humanitaire : produits, chaussures, vêtements et produits d'hygiène à la ville de Berislav, région de Kherson, qui était sous occupation."
+
+msgid "Pay with Card / GPay"
+msgstr "Payer par carte / GPay"
