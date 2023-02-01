@@ -6,224 +6,205 @@
 	var Gallery = new Gallery();
 	int i = 1;
 	<style>
-				.feed-container {
-					width: 80%;
-					margin: 0 auto;
-					color: white;
+			.feed-container {
+				width: 80%;
+				margin: 0 auto;
+				color: white;
+			}
+
+			.feed-post {
+				border: 2px solid rgba(255, 255, 255, 0.1);
+				border-radius: 1rem;
+				margin-bottom: 20px;
+				background-color: rgba(255, 255, 255, 0.07);
+			}
+
+			.post-header {
+				border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+				display: flex;
+				padding: 10px;
+				align-items: center;
+				border-top-left-radius: 1rem;
+				border-top-right-radius: 1rem;
+				background-color: rgba(0,0,0, 0.1);
+			}
+
+			.profile-picture {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+
+			.post-info {
+				margin-left: 20px;
+			}
+
+			.username {
+				font-weight: bold;
+			}
+
+			.post-time {
+				color: white;
+			}
+
+			.post-content {
+				margin: 20px;
+			}
+
+			.post-media {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				margin-top: 20px;
+				position: relative;
+			}
+
+			.media-item {
+				width: 30%;
+				margin-right: 10px;
+				border-radius: 1rem;
+			}
+
+				.media-item img, video {
+					width: 100%;
 				}
 
-				.feed-post {
-					border: 2px solid rgba(255, 255, 255, 0.1);
-					border-radius: 1rem;
-					margin-bottom: 20px;
-					background-color: rgba(255, 255, 255, 0.07);
-				}
+			.post-options {
+				margin-top: 20px;
+				display: flex;
+			}
 
-				.post-header {
-					border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-					display: flex;
-					padding: 10px;
-					align-items: center;
-					border-top-left-radius: 1rem;
-					border-top-right-radius: 1rem;
-					background-color: rgba(0,0,0, 0.1);
-				}
+			.count-overlay img, video {
+				width: 100%;
+				opacity: 0.5;
+				z-index: -1;
+				border-radius: 1rem;
+			}
 
-				.profile-picture {
-					width: 50px;
-					height: 50px;
-					border-radius: 50%;
-				}
 
-				.post-info {
-					margin-left: 20px;
-				}
+			.count-overlay-text {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				font-size: 2rem;
+				text-align: center;
+			}
 
-				.username {
-					font-weight: bold;
-				}
+			.count-overlay {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				font-size: 2rem;
+				width: 30%;
+				margin-right: 10px;
+				border-radius: 1rem;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: white;
+			}
 
-				.post-time {
-					color: white;
-				}
-
-				.post-content {
-					margin: 20px;
-				}
-
-				.post-images {
-					display: flex;
-					justify-content: center;
-					flex-wrap: wrap;
-					margin-top: 20px;
-				}
-
-				.post-image {
-					width: 30%;
-					margin-right: 10px;
-					border-radius: 1rem;
-				}
-
-				.post-options {
-					margin-top: 20px;
-					display: flex;
-				}
-
-				.like-button,
-				.comment-button,
-				.share-button {
-					margin-right: 10px;
-				}
+			.like-button,
+			.comment-button,
+			.share-button {
+				margin-right: 10px;
+			}
 	</style>
-	// TODO
-	// Videos breaks layouts
 	<div class="feed-container">
-				<div class="feed-post">
-					<div class="post-header">
-						<img src="/images/logo.png" class="profile-picture">
-						<div class="post-info">
-							<div class="username">Legion Foundation</div>
-							<div class="post-time">2 hours ago</div>
-						</div>
+			<div class="feed-post">
+				<div class="post-header">
+					<img src="/images/logo.png" class="profile-picture">
+					<div class="post-info">
+						<div class="username">Legion Foundation</div>
+						<div class="post-time">2 hours ago</div>
 					</div>
-					<div class="post-content">
-						On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6.
-					</div>
-					<div class="post-images">
-						<video preload="metadata" class="post-image">
+				</div>
+				<div class="post-content">
+					On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6.
+				</div>
+				<div class="post-media">
+
+					<div class="media-item"><img src="/images/Gallery/26.06.22/01.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/02.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/03.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/04.jpeg"></div>
+
+					<div class="media-item"><img src="/images/Gallery/26.06.22/05.jpeg"></div>
+					<div class="media-item">
+						<video controls="" preload="metadata" disablepictureinpicture="" controlslist="noplaybackrate nodownload">
 							<source src="https://legion-foundation.s3.eu-central-1.amazonaws.com/05.01.23/1.mp4" type="video/mp4">
 						</video>
-						<img src="/images/Gallery/26.06.22/01.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/02.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/03.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/04.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/05.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/06.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/07.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/08.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/09.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/10.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/11.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/12.jpeg" class="post-image">
-
 					</div>
-					<div class="post-options">
-						<a href="#" class="like-button">Like</a>
-						<a href="#" class="comment-button">Comment</a>
-						<a href="#" class="share-button">Share</a>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/06.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/07.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/08.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/09.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/10.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/11.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/12.jpeg"></div>
+				</div>
+				<div class="post-options">
+					<a href="#" class="like-button">Like</a>
+					<a href="#" class="comment-button">Comment</a>
+					<a href="#" class="share-button">Share</a>
+				</div>
+			</div>
+			<div class="feed-post">
+				<div class="post-header">
+					<img src="/images/logo.png" class="profile-picture">
+					<div class="post-info">
+						<p class="username">John Doe</p>
+						<p class="post-time">2 hours ago</p>
 					</div>
 				</div>
-
-
-
-
-				<div class="feed-post">
-					<div class="post-header">
-						<img src="/images/logo.png" class="profile-picture">
-						<div class="post-info">
-							<p class="username">John Doe</p>
-							<p class="post-time">2 hours ago</p>
-						</div>
-					</div>
-					<div class="post-content">
-						<p>On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6.</p>
-					</div>
-					<div class="post-images">
-						<img src="/images/Gallery/26.06.22/13.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/14.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/15.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/16.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/17.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/18.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/19.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/20.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/21.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/22.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/23.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/24.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/25.jpeg" class="post-image">
-						<img src="/images/Gallery/26.06.22/26.jpeg" class="post-image">
-						<div class="post-images-container"></div>
-					</div>
-					<div class="post-options">
-						<a href="#" class="like-button">Like</a>
-						<a href="#" class="comment-button">Comment</a>
-						<a href="#" class="share-button">Share</a>
-					</div>
+				<div class="post-content">
+					<p>On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6.</p>
 				</div>
+				<div class="post-media">
+					<div class="media-item"><img src="/images/Gallery/26.06.22/13.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/14.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/15.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/16.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/17.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/18.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/19.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/20.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/21.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/22.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/23.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/24.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/25.jpeg"></div>
+					<div class="media-item"><img src="/images/Gallery/26.06.22/26.jpeg"></div>
+				</div>
+				<div class="post-options">
+					<a href="#" class="like-button">Like</a>
+					<a href="#" class="comment-button">Comment</a>
+					<a href="#" class="share-button">Share</a>
+				</div>
+			</div>
 	</div>
 }
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
 <script>
 	$(document).ready(function() {
-		const posts = document.getElementsByClassName("post-images");
-		for (let i = 0; i < posts.length; i++) {
-			const postImages = posts[i].getElementsByClassName("post-image");
-            console.log(postImages);
-			if (postImages.length > 6) {
-				for (let j = 6; j < postImages.length; j++) {
-					postImages[j].style.display = "none";
-				}
-				const count = document.createElement("div");
-				count.classList.add("count");
-				count.innerText = `+${postImages.length - 6}`;
-				const fifthImgPos = $(postImages[5]).offset();
-				count.style.position = "absolute";
-				count.style.top = fifthImgPos.top + "px";
-				count.style.left = fifthImgPos.left + "px";
-				count.style.height = postImages[5].height + "px";
-				count.style.width = postImages[5].width + "px";
-				count.style.background = "rgba(0, 0, 0, 0.5)";
-				count.style.color = "white";
-				count.style.textAlign = "center";
-				count.style.lineHeight = postImages[5].height + "px";
-				count.style.fontSize = "2rem";
-				count.style.borderRadius = "1rem";
-				posts[i].appendChild(count);
-				count.addEventListener("click", function() {
-					for (let j = 5; j < postImages.length; j++) {
-						postImages[j].style.display = "block";
-					}
-					count.style.display = "none";
-					$('.post-images').each(function() {
-						const postImages = $(this).find('img, video');
-						const fifthImgPos = $(postImages[5]).offset();
-						const count = $(this).find('.count');
-						count.css({
-							top: fifthImgPos.top + "px",
-							left: fifthImgPos.left + "px",
-							height: postImages[5].height + "px",
-							width: postImages[5].width + "px",
-							textAlign: "center",
-							lineHeight: postImages[5].height + "px",
-							fontSize: "2rem",
-							borderRadius: "1rem"
-						});
-					});
-				});
-				$(window).on("resize", function() {
-					$('.post-images').each(function() {
-						const postImages = $(this).find('img, video');
-						const fifthImgPos = $(postImages[5]).offset();
-						const count = $(this).find('.count');
-						count.css({
-							top: fifthImgPos.top + "px",
-							left: fifthImgPos.left + "px",
-							height: postImages[5].height + "px",
-							width: postImages[5].width + "px",
-							textAlign: "center",
-							lineHeight: postImages[5].height + "px",
-							fontSize: "2rem",
-							borderRadius: "1rem"
-						});
-					});
-				});
+		$('.feed-post').each(function() {
+			var mediaItemCount = $(this).find('.media-item').length;
+			if (mediaItemCount > 6) {
+				$(this).find('.media-item:gt(5)').hide();
+				var hiddenCount = mediaItemCount - 6;
+				$(this).find('.media-item:nth-of-type(6)').attr("class", "media-item count-overlay");
+				$(this).find('.media-item:nth-of-type(6)').attr("onclick", "fullscreen();");
+				$(this).find('.media-item:nth-of-type(6)').append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
 			}
-		}
+		});
 	});
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
 <script>
 	(function() {
 		function logElementEvent(eventName, element) {
