@@ -4,6 +4,7 @@
     public class Gallery
     {
         public List<GalleryItem> ItemList { get; set; }
+        public int i = 0;
         public Gallery()
         {
             ItemList = new List<GalleryItem>();
@@ -35,8 +36,11 @@
             GalleryItem item = new()
             {
                 Title = Title,
-                FullPage = FullPage
+                FullPage = FullPage,
+                Id = i
+
             };
+            i++;
             if (ImageFiles != null)
             {
                 item.Image = CreateImage(ImageFiles, ImgSize, Date, multiDay);
@@ -79,6 +83,7 @@
 
     public class GalleryItem
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public bool FullPage { get; set; }
         public Image[] Image { get; set; }

@@ -1,10 +1,25 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
+
 @{
+	/*
+	* Modal per post
+	* Modal Video
+	* Images gallery
+	* FB Login
+	* Fund raising
+	* admin cp
+	* telegram bot
+	* facebook bot
+	* Contact email @domain
+	* subdomains
+	* card paytments
+	* parthners
+	*/
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new Gallery();
-	int i = 1;
+
 	<style>
 		.feed-container {
 			width: 80%;
@@ -114,6 +129,7 @@
 	<div class="feed-container">
 		@foreach (var item in Gallery.ItemList)
 		{
+			int i = 1;
 			<div class="feed-post">
 				<div class="post-header">
 					<img src="/images/logo.png" class="profile-picture">
@@ -142,7 +158,9 @@
 					{
 						@foreach (var image in item.Image)
 						{
-							<div class="media-item" onclick="openModal();currentSlide(@i)"><img src=@image.Link></div>
+							<div class="media-item" data-post-id="@item.Id">
+								<img onclick="openModal(@item.Id, @i+1);currentSlide(@i);" src="@image.Link" />
+							</div>
 							i++;
 						}
 					}
@@ -272,6 +290,12 @@
 
 <!-- Modal -->
 <style>
+	.fullpage img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
 	.fullpage {
 		overflow: auto;
 		display: none;
@@ -319,32 +343,40 @@
 
 </style>
 <script>
-	function CreateModal() {
-		const imgs = document.querySelectorAll('.media-item img');
+	function CreateModal(imgs) {
 		var modalContent = document.getElementById("ModalContent");
 		var oldHtml = modalContent.innerHTML;
 		modalContent.innerHTML = "";
-		imgs.forEach(img => {
-			modalContent.innerHTML += '<div class="mySlides fullpage" style="background-image: url(' + img.src + ');" onclick="closeModal()"></div>';
+		imgs.forEach((img, index) => {
+			modalContent.innerHTML += '<div class="mySlides fullpage"  onclick="closeModal()"><img src="' + img.src + '"></div>';
 		});
 		modalContent.innerHTML += oldHtml;
 	}
 
-	function openModal() {
-		CreateModal();
+	function openModal(postId, slideIndex) {
+		var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
+		var imgs = [];
+		posts.forEach(post => {
+			var postImgs = post.querySelectorAll('.media-item img');
+			postImgs.forEach(img => {
+				imgs.push(img);
+			});
+		});
+		CreateModal(imgs);
 		document.getElementById("ModalContent").style.display = "block";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "hidden";
+		showSlides(slideIndex);
 	}
+
 
 	function closeModal() {
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "auto";
+		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
 	}
 
-	var slideIndex = 1;
-	showSlides(slideIndex);
 
 	function plusSlides(n) {
 		var numSlides = document.getElementsByClassName("mySlides").length;
@@ -371,9 +403,31 @@
 		}
 		slides[slideIndex - 1].style.display = "block";
 	}
+
+	openModal();
+
+	document.addEventListener('keydown', (event) => {
+		switch (event.keyCode) {
+			case 37:
+				plusSlides(-1);
+				break;
+			case 39:
+				plusSlides(1);
+				break;
+			case 38:
+				// Up arrow key
+				closeModal();
+				break;
+			case 40:
+				// Down arrow key
+				closeModal();
+				break;
+		}
+	});
+
 </script>
 
-<div id="ModalContent" class="modal lazy" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
