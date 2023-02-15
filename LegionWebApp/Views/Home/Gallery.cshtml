@@ -4,8 +4,11 @@
 
 @{
 	/*
-	* Modal per post
+		* On modal play video
+		* scroll one post at time
+		* autoplay videos
 	* Modal Video
+
 	* Images gallery
 	* FB Login
 	* Fund raising
@@ -142,16 +145,14 @@
 					@item.Title
 				</div>
 				<div class="post-media">
-
 					@if (item.Video != null)
 					{
 						@foreach (var video in item.Video)
 						{
-							<div class="media-item">
-								<video controls preload="metadata" controlslist="noplaybackrate nodownload">
-									<source src=@video.Link type="video/mp4">
-								</video>
+							<div class="media-item" data-post-id="@item.Id">
+								<video playsinline disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4" onclick="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);" ontouchstart="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);"></video>
 							</div>
+							i++;
 						}
 					}
 					@if (item.Image != null)
@@ -159,7 +160,7 @@
 						@foreach (var image in item.Image)
 						{
 							<div class="media-item" data-post-id="@item.Id">
-								<img onclick="openModal(@item.Id, @i+1);currentSlide(@i);" src="@image.Link" />
+								<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
 							</div>
 							i++;
 						}
@@ -173,6 +174,7 @@
 			</div>
 		}
 	</div>
+
 }
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
@@ -188,7 +190,6 @@
 		});
 	});
 </script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
@@ -290,10 +291,18 @@
 
 <!-- Modal -->
 <style>
-	.fullpage img {
+	.fullpage img, .fullpage video {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+	}
+
+	.fullpage video {
+		cursor: pointer;
+	}
+
+	.fullpage img {
+		cursor: zoom-out;
 	}
 
 	.fullpage {
@@ -309,7 +318,6 @@
 		background-repeat: no-repeat no-repeat;
 		background-position: center center;
 		background-color: black;
-		cursor: zoom-out;
 	}
 
 	.prev,
@@ -341,6 +349,55 @@
 			background-color: rgba(0, 0, 0, 0.8);
 		}
 
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+		transition: 0.6s ease;
+		vertical-align: middle;
+		border: none;
+		border-radius: 50%;
+		background: transparent;
+		width: 80px;
+		height: 80px;
+		opacity: 0.8;
+		user-select: none;
+		-webkit-user-select: none;
+		z-index: 9999;
+	}
+
+		.close:focus,
+		.close:hover {
+			opacity: 1;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		.close:active {
+			background: rgba(128, 128, 128, 0.9);
+		}
+		/* tines of the X */
+		.close::before,
+		.close::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 40px;
+			width: 8px;
+			background-color: currentColor;
+		}
+
+		.close::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		.close::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
 </style>
 <script>
 	function CreateModal(imgs) {
@@ -348,7 +405,11 @@
 		var oldHtml = modalContent.innerHTML;
 		modalContent.innerHTML = "";
 		imgs.forEach((img, index) => {
-			modalContent.innerHTML += '<div class="mySlides fullpage"  onclick="closeModal()"><img src="' + img.src + '"></div>';
+			if (img.tagName == 'VIDEO') {
+				modalContent.innerHTML += '<div class="mySlides fullpage"><video playsinline disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen"  onclick="this.paused?this.play():this.pause();" ontouchstart="this.paused?this.play():this.pause();" src="' + img.src + '" type="video/mp4"></video></div>';
+			} else {
+				modalContent.innerHTML += '<div class="mySlides fullpage" onclick="closeModal();"><img src="' + img.src + '"></div>';
+			}
 		});
 		modalContent.innerHTML += oldHtml;
 	}
@@ -357,7 +418,7 @@
 		var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
 		var imgs = [];
 		posts.forEach(post => {
-			var postImgs = post.querySelectorAll('.media-item img');
+			var postImgs = post.querySelectorAll('.media-item video, .media-item img');
 			postImgs.forEach(img => {
 				imgs.push(img);
 			});
@@ -374,7 +435,7 @@
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "auto";
-		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>';
+		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><a class="close" onclick="closeModal()"></a>';
 	}
 
 
@@ -396,13 +457,24 @@
 	function showSlides(n) {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
-		if (n > slides.length) { slideIndex = 1 }
-		if (n < 1) { slideIndex = slides.length }
+		if (n > slides.length) {
+			n = 1;
+		}
+		if (n < 1) {
+			n = slides.length;
+		}
 		for (i = 0; i < slides.length; i++) {
 			slides[i].style.display = "none";
+			if (slides[i].firstElementChild.tagName === "VIDEO") {
+				slides[i].firstElementChild.pause();
+			}
 		}
-		slides[slideIndex - 1].style.display = "block";
+		slides[n - 1].style.display = "block";
+		if (slides[n - 1].firstElementChild.tagName === "VIDEO") {
+			slides[n - 1].firstElementChild.play();
+		}
 	}
+
 
 	openModal();
 
@@ -424,12 +496,12 @@
 				break;
 		}
 	});
-
 </script>
 
 <div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	<a class="close" onclick="closeModal()"></a>
 </div>
 
 <script>
@@ -447,6 +519,10 @@
 				break;
 			case 40:
 				// Down arrow key
+				closeModal();
+				break;
+			case 27:
+				// Escape key
 				closeModal();
 				break;
 		}
