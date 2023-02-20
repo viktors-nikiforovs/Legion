@@ -304,5 +304,5 @@ msgstr "Bezahlen Sie mit Karte / GPay"
 msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk"
 msgstr "Am 15. Februar wurden Medikamente für Kriegsgefangene nach Kramatorsk geschickt"
 
-msgid "Legion Foundation"
-msgstr "Фонд «Легіон»"
+msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital"
+msgstr "Am 7. Februar 2023 Lieferung von Medikamenten an das Krankenhaus Winnyzja"

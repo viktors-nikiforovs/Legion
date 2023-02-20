@@ -294,3 +294,9 @@ msgstr "Оплатіть карткою / GPay"
 
 msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk"
 msgstr "15 лютого відправили ліки для військовопоранених в Краматорськ"
+
+msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital"
+msgstr "7 лютого, 2023, передача ліків в вінницький шпиталь"
+
+msgid "Legion Foundation"
+msgstr "Фонд «Легіон»"
