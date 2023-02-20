@@ -300,3 +300,9 @@ msgstr "Am 5. Januar 2023 haben wir zusammen mit Partnern - der gemeinnützigen 
 
 msgid "Pay with Card / GPay"
 msgstr "Bezahlen Sie mit Karte / GPay"
+
+msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk"
+msgstr "Am 15. Februar wurden Medikamente für Kriegsgefangene nach Kramatorsk geschickt"
+
+msgid "Legion Foundation"
+msgstr "Фонд «Легіон»"

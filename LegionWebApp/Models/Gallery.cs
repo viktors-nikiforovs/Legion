@@ -13,7 +13,8 @@
 
         private void CreateList()
         {
-            CreateItem("On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital", true, new string[] { "1.jpeg, 2.jpeg, 3.jpeg, 4.jpeg, 5.jpeg, 6.jpeg, 7.jpeg, 8.jpeg" }, new int[] { 4, 4,4,4,4,4,4,4 }, null, null, null, new DateOnly(2023, 02, 07));
+            CreateItem("On February 15, medicine for prisoners of war was sent to Kramatorsk", true, new string[] { "1.jpeg", "2.jpeg", "4.jpeg", "3.jpeg" }, new int[] { 4, 4, 4, 4 }, null, null, null, new DateOnly(2023, 02, 15));
+            CreateItem("On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital", true, new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg" }, new int[] { 4, 4, 4, 4, 4, 4, 4, 4 }, null, null, null, new DateOnly(2023, 02, 07));
             CreateItem("On January 5, 2023, in connection with the withdrawal, the \"Front Line\" charitable foundation sent 5 pallets of humanitarian aid: products, shoes, clothes and hygiene products to the Berislav village of the Kherson region, which was under occupation.", true, null, null, new string[] { "1.mp4" }, new int[] { 4 }, null, new DateOnly(2023, 01, 05));
             CreateItem("On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces.", true, new string[] { "1.jpeg" }, new int[] { 4 }, new string[] { "1.mp4", "4.mp4", "3.mp4", "2.mp4" }, new int[] { 6, 6, 6, 2 }, null, new DateOnly(2022, 10, 23));
             CreateItem("On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6.", true, new string[] { "2.jpeg", "1.jpeg" }, new int[] { 5, 5 }, new string[] { "3.mp4", "1.mp4", "2.mp4" }, new int[] { 4, 4, 4 }, null, new DateOnly(2022, 10, 21));
