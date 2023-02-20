@@ -5,8 +5,7 @@
 @{
 	/*
 		* scroll one post at time
-		show rest of images in post 7+
-		thumbnail in modal
+		thumbnails in modal
 	* Images gallery
 	* FB Login
 	* Fund raising
@@ -22,154 +21,149 @@
 	var Gallery = new Gallery();
 
 	<style>
-		.feed-container {
-			width: 80%;
-			margin: 0 auto;
-			color: white;
-		}
+						.feed-container {
+							width: 80%;
+							margin: 0 auto;
+							color: white;
+						}
 
-		.feed-post {
-			border: 2px solid rgba(255, 255, 255, 0.1);
-			border-radius: 1rem;
-			margin-bottom: 20px;
-			background-color: rgba(255, 255, 255, 0.07);
-		}
+						.feed-post {
+							border: 2px solid rgba(255, 255, 255, 0.1);
+							border-radius: 1rem;
+							margin-bottom: 20px;
+							background-color: rgba(255, 255, 255, 0.07);
+						}
 
-		.post-header {
-			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-			display: flex;
-			padding: 10px;
-			align-items: center;
-			border-top-left-radius: 1rem;
-			border-top-right-radius: 1rem;
-			background-color: rgba(0,0,0, 0.1);
-		}
+						.post-header {
+							border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+							display: flex;
+							padding: 10px;
+							align-items: center;
+							border-top-left-radius: 1rem;
+							border-top-right-radius: 1rem;
+							background-color: rgba(0,0,0, 0.1);
+						}
 
-		.profile-picture {
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-		}
+						.profile-picture {
+							width: 50px;
+							height: 50px;
+							border-radius: 50%;
+						}
 
-		.post-info {
-			margin-left: 20px;
-		}
+						.post-info {
+							margin-left: 20px;
+						}
 
-		.username {
-			font-weight: bold;
-		}
+						.username {
+							font-weight: bold;
+						}
 
-		.post-time {
-			color: white;
-		}
+						.post-time {
+							color: white;
+						}
 
-		.post-content {
-			margin: 20px;
-		}
+						.post-content {
+							margin: 20px;
+						}
 
-		.post-media {
-			display: flex;
-			justify-content: left;
-			flex-wrap: wrap;
-			margin-top: 20px;
-			position: relative;
-		}
+						.post-media {
+							display: flex;
+							justify-content: left;
+							flex-wrap: wrap;
+							margin-top: 20px;
+							position: relative;
+						}
 
-		.media-item {
-			width: 30%;
-			margin-right: 10px;
-			border-radius: 1rem;
-		}
+						.media-item {
+							width: 30%;
+							margin-right: 10px;
+							border-radius: 1rem;
+						}
 
-			.media-item img, .media-item video {
-				width: 100%;
-				border-radius: 1rem;
-			}
+							.media-item img, .media-item video {
+								width: 100%;
+								border-radius: 1rem;
+							}
 
-		.post-options {
-			margin-top: 20px;
-			display: flex;
-		}
+						.post-options {
+							margin-top: 20px;
+							display: flex;
+						}
 
-		.count-overlay img, .count-overlay video {
-			width: 100%;
-			opacity: 0.5;
-			z-index: -1;
-			border-radius: 1rem;
-		}
+						.count-overlay img, .count-overlay video {
+							width: 100%;
+							opacity: 0.5;
+							z-index: -1;
+							border-radius: 1rem;
+						}
 
 
-		.count-overlay-text {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			color: white;
-			font-size: 2rem;
-			text-align: center;
-		}
+						.count-overlay-text {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							color: white;
+							font-size: 2rem;
+							text-align: center;
+						}
 
-		.count-overlay {
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			font-size: 2rem;
-			width: 30%;
-			margin-right: 10px;
-			border-radius: 1rem;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-		}
+						.count-overlay {
+							position: relative;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							text-align: center;
+							font-size: 2rem;
+							width: 30%;
+							margin-right: 10px;
+							border-radius: 1rem;
+							background-color: rgba(0, 0, 0, 0.5);
+							color: white;
+						}
 
-		.like-button, .comment-button, .share-button {
-			margin-right: 10px;
-		}
+						.like-button, .comment-button, .share-button {
+							margin-right: 10px;
+						}
 	</style>
 	<div class="feed-container">
-		@foreach (var item in Gallery.ItemList)
+						@foreach (var item in Gallery.ItemList)
 		{
 			int i = 1;
-			<div class="feed-post">
-				<div class="post-header">
-					<img src="/images/logo.png" class="profile-picture">
-					<div class="post-info">
-						<div class="username">Legion Foundation</div>
-						<div class="post-time">@item.Date.ToString()</div>
-					</div>
-				</div>
-				<div class="post-content">
-					@item.Title
-				</div>
-				<div class="post-media">
-					@if (item.Video != null)
+							<div class="feed-post">
+								<div class="post-header">
+									<img src="/images/logo.png" class="profile-picture">
+									<div class="post-info">
+										<div class="username">Legion Foundation</div>
+										<div class="post-time">@item.Date.ToString()</div>
+									</div>
+								</div>
+								<div class="post-content">
+									@item.Title
+								</div>
+								<div class="post-media">
+									@if (item.Video != null)
 					{
-						@foreach (var video in item.Video)
+										@foreach (var video in item.Video)
 						{
-							<div class="media-item" data-post-id="@item.Id">
-								<video playsinline disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4" onclick="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);" ontouchstart="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);"></video>
-							</div>
+											<div class="media-item" data-post-id="@item.Id">
+												<video playsinline disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4" onclick="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);" ontouchstart="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);"></video>
+											</div>
 							i++;
 						}
 					}
-					@if (item.Image != null)
+									@if (item.Image != null)
 					{
-						@foreach (var image in item.Image)
+										@foreach (var image in item.Image)
 						{
-							<div class="media-item" data-post-id="@item.Id">
-								<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
-							</div>
+											<div class="media-item" data-post-id="@item.Id">
+												<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+											</div>
 							i++;
 						}
 					}
-				</div>
-				<div class="post-options">
-					<a href="#" class="like-button">Like</a>
-					<a href="#" class="comment-button">Comment</a>
-					<a href="#" class="share-button">Share</a>
-				</div>
-			</div>
+								</div>
+							</div>
 		}
 	</div>
 
@@ -183,6 +177,9 @@
 				$(this).find('.media-item:gt(5)').hide();
 				var hiddenCount = mediaItemCount - 6;
 				$(this).find('.media-item:nth-of-type(6)').attr('class', 'media-item count-overlay');
+                var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
+                console.log(postId);
+				$(this).find('.media-item:nth-of-type(6)').attr('onclick', 'openModal('+ postId + ', 6);currentSlide(6);');
 				$(this).find('.media-item:nth-of-type(6)').append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
 			}
 		});
