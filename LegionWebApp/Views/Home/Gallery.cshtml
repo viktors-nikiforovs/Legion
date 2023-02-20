@@ -184,7 +184,7 @@
 				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
 				console.log(postId);
 				$(this).find('.media-item:nth-of-type(6)').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);');
-				$(this).find('.media-item:nth-of-type(6)').append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
+				$(this).find('.media-item:nth-of-type(6)').append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
 			}
 		});
 	});
