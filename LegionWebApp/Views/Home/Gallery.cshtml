@@ -1,117 +1,248 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
+
 @{
+	/*
+		* scroll one post at time
+		thumbnails in modal
+	* FB Login
+	* Fund raising
+	* admin cp
+	* telegram bot
+	* facebook bot
+	* Contact email @domain
+	* subdomains
+	* card paytments
+	* parthners
+	*/
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new Gallery();
-	int i = 1;
-	<div class="container">
-			@foreach (var item in Gallery.ItemList)
+
+	<style>
+		.feed-container {
+			width: 80%;
+			margin: 0 auto;
+			color: white;
+		}
+
+		.feed-post {
+			border: 2px solid rgba(255, 255, 255, 0.1);
+			border-radius: 1rem;
+			margin-bottom: 20px;
+			background-color: rgba(255, 255, 255, 0.07);
+		}
+
+		.post-header {
+			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+			display: flex;
+			padding: 10px;
+			align-items: center;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			background-color: rgba(0,0,0, 0.1);
+		}
+
+		.profile-picture {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+
+		.post-info {
+			margin-left: 20px;
+		}
+
+		.username {
+			font-weight: bold;
+		}
+
+		.post-time {
+			color: white;
+		}
+
+		.post-content {
+			margin: 20px;
+		}
+
+		.post-media {
+			display: flex;
+			justify-content: left;
+			flex-wrap: wrap;
+			margin-top: 20px;
+			position: relative;
+		}
+
+		.media-item {
+			width: 100%;
+			border-radius: 1rem;
+		}
+
+			.media-item img, .media-item video {
+				width: 100%;
+				border-radius: 1rem;
+			}
+
+		.post-options {
+			margin-top: 20px;
+			display: flex;
+		}
+
+		.count-overlay img, .count-overlay video {
+			width: 100%;
+			opacity: 0.5;
+			z-index: -1;
+			border-radius: 1rem;
+		}
+
+
+		.count-overlay-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 2rem;
+			text-align: center;
+		}
+
+		.count-overlay {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			font-size: 2rem;
+			width: 100%;
+			margin-right: 10px;
+			border-radius: 1rem;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+		}
+
+
+		video::-webkit-media-controls-play-button,
+		video::-webkit-media-controls-volume-slider,
+		video::-webkit-media-controls-timeline {
+			pointer-events: none;
+		}
+
+		.mySlides video::-webkit-media-controls-play-button,
+		.mySlides video::-webkit-media-controls-volume-slider,
+		.mySlides video::-webkit-media-controls-timeline {
+			pointer-events: auto;
+		}
+
+	</style>
+	<div class="feed-container">
+		@foreach (var item in Gallery.ItemList)
 		{
-			int pageSize;
-			List<dynamic> mediaList = new List<dynamic>();
-
-			pageSize = item.FullPage ? 12 : 6;
-
-			if (item.Video != null)
-			{
-				foreach (var video in item.Video)
-				{
-					mediaList.Add(video);
-
-				}
-			}
-			if (item.Image != null)
-			{
-				foreach (var image in item.Image)
-				{
-					mediaList.Add(image);
-
-				}
-			}
-
-				<div class="row-cols-@pageSize">
-					<div class="col-@pageSize" style="float: left; padding: 1rem;">
-						<div class='card' style='background-color:rgba(255, 255, 255, 0.1);'>
-							<div class='card-header text-light'>
-								@T[item.Title]
-							</div>
-							<div class='card-body'>
-								<div class="grid-sizer"></div>
-								<div class='row grid'>
-									@foreach (var media in mediaList)
-								{
-										<div class='grid-item col-@media.Size'>
-											<div class='card gallery'>
-												@if (media.GetType() == typeof(Image))
-											{
-													<img data-src=@media.Link class="card-img-top card-img-bottom lazy" onclick="openModal();currentSlide(@i)" />
-												i++;
-											}
-											else
-											{
-													<video controls preload="metadata" disablePictureInPicture controlsList="noplaybackrate nodownload lazy" class="card-img-top card-img-bottom lazyload" poster=@media.Poster>
-														<source src=@media.Link type="video/mp4">
-													</video>
-											}
-											</div>
-										</div>
-
-								}
-								</div>
-							</div>
-						</div>
+			int i = 1;
+			<div class="feed-post">
+				<div class="post-header">
+					<img src="/images/logo.png" class="profile-picture">
+					<div class="post-info">
+						<div class="username">@T["Legion Foundation"]</div>
+						<div class="post-time">@item.Date.ToString()</div>
 					</div>
-
 				</div>
+				<div class="post-content">
+					@T[@item.Title]
+				</div>
+				<div class="container post-media">
+					<div class="row row-cols-2 row-cols-sm-4">
+						@if (item.Video != null)
+						{
+							@foreach (var video in item.Video)
+							{
+								<div class="col">
+									<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
+										<video disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
+									</div>
+								</div>
+								i++;
+							}
+						}
+						@if (item.Image != null)
+						{
+							@foreach (var image in item.Image)
+							{
+								<div class="col">
+									<div class="media-item" data-post-id="@item.Id">
+										<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+									</div>
+								</div>
+								i++;
+							}
+						}
+					</div>
+				</div>
+			</div>
 		}
 	</div>
+
 }
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
 <script>
-	(function() {
-		function logElementEvent(eventName, element) {
-			console.log(Date.now(), eventName, element.getAttribute("data-src"));
-		}
+	$(document).ready(function() {
+		$('.feed-post').each(function() {
+			var mediaItemCount = $(this).find('.media-item').length;
+			if (mediaItemCount > 6) {
+				$(this).find('.media-item:gt(5)').hide();
+				var hiddenCount = mediaItemCount - 6;
+				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
 
-		var callback_enter = function(element) {
-			logElementEvent("🔑 ENTERED", element);
-		};
-		var callback_exit = function(element) {
-			logElementEvent("🚪 EXITED", element);
-		};
-		var callback_loading = function(element) {
-			logElementEvent("⌚ LOADING", element);
-		};
-		var callback_loaded = function(element) {
-			logElementEvent("👍 LOADED", element);
-		};
-		var callback_error = function(element) {
-			logElementEvent("💀 ERROR", element);
-			element.src = "https://via.placeholder.com/440x560/?text=Error+Placeholder";
-		};
-		var callback_finish = function() {
-			logElementEvent("✔️ FINISHED", document.documentElement);
-		};
-		var callback_cancel = function(element) {
-			logElementEvent("🔥 CANCEL", element);
-		};
-
-		ll = new LazyLoad({
-			// Assign the callbacks defined above
-			callback_enter: callback_enter,
-			callback_exit: callback_exit,
-			callback_cancel: callback_cancel,
-			callback_loading: callback_loading,
-			callback_loaded: callback_loaded,
-			callback_error: callback_error,
-			callback_finish: callback_finish,
-			// For debugging purposes
-			threshold: 0
+				$(this).find('.media-item').eq(5).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);')
+					.append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
+			}
 		});
-	})();
+	});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>*@
+<script>
+	//(function() {
+	//	function logElementEvent(eventName, element) {
+	//		console.log(Date.now(), eventName, element.getAttribute("data-src"));
+	//	}
+
+	//	var callback_enter = function(element) {
+	//		logElementEvent("🔑 ENTERED", element);
+	//	};
+	//	var callback_exit = function(element) {
+	//		logElementEvent("🚪 EXITED", element);
+	//	};
+	//	var callback_loading = function(element) {
+	//		logElementEvent("⌚ LOADING", element);
+	//	};
+	//	var callback_loaded = function(element) {
+	//		logElementEvent("👍 LOADED", element);
+	//	};
+	//	var callback_error = function(element) {
+	//		logElementEvent("💀 ERROR", element);
+	//		element.src = "https://via.placeholder.com/440x560/?text=Error+Placeholder";
+	//	};
+	//	var callback_finish = function() {
+	//		logElementEvent("✔️ FINISHED", document.documentElement);
+	//	};
+	//	var callback_cancel = function(element) {
+	//		logElementEvent("🔥 CANCEL", element);
+	//	};
+
+	//	ll = new LazyLoad({
+	//		// Assign the callbacks defined above
+	//		callback_enter: callback_enter,
+	//		callback_exit: callback_exit,
+	//		callback_cancel: callback_cancel,
+	//		callback_loading: callback_loading,
+	//		callback_loaded: callback_loaded,
+	//		callback_error: callback_error,
+	//		callback_finish: callback_finish,
+	//		// For debugging purposes
+	//		threshold: 0
+	//	});
+	//})();
 </script>
 <script>
 	$.fn.videoLoaded = function() {
@@ -136,25 +267,53 @@
 	};
 </script>
 <script>
-	var $grid = $('.grid').masonry({
-		columnWidth: $grid.find('.grid-sizer')[0],
-		//fitWidth: true,
-		itemSelector: '.grid-item',
-		gutter: 0,
-		//horizontalOrder: true
-		percentPosition: true
-	});
-
-	$.when(
-		//$grid.imagesLoaded(),
-		$grid.videoLoaded()
-	).then(function() {
-		$grid.masonry('layout');
+	$(document).ready(function() {
+		$(".media-item").each(function() {
+			var mediaItem = $(this);
+			var media = mediaItem.find("img, video");
+			if (media.prop('tagName') == 'IMG') {
+				var img = new Image();
+				img.onload = function() {
+					var aspectRatio = img.width / img.height;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+				};
+				img.src = media.attr('src');
+			} else if (media.prop('tagName') == 'VIDEO') {
+				if (media[0].readyState > 0) {
+					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+				} else {
+					media.on('loadedmetadata', function() {
+						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+						if (aspectRatio >= 1) {
+							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+						}
+					});
+				}
+			}
+		});
 	});
 </script>
-
 <!-- Modal -->
 <style>
+	.fullpage img, .fullpage video {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.fullpage video {
+		cursor: pointer;
+	}
+
+	.fullpage img {
+		cursor: zoom-out;
+	}
+
 	.fullpage {
 		overflow: auto;
 		display: none;
@@ -168,7 +327,6 @@
 		background-repeat: no-repeat no-repeat;
 		background-position: center center;
 		background-color: black;
-		cursor: zoom-out;
 	}
 
 	.prev,
@@ -200,34 +358,107 @@
 			background-color: rgba(0, 0, 0, 0.8);
 		}
 
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+		transition: 0.6s ease;
+		vertical-align: middle;
+		border: none;
+		border-radius: 50%;
+		background: transparent;
+		width: 80px;
+		height: 80px;
+		opacity: 0.8;
+		user-select: none;
+		-webkit-user-select: none;
+		z-index: 9999;
+	}
+
+		.close:focus,
+		.close:hover {
+			opacity: 1;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+
+		.close:active {
+			background: rgba(128, 128, 128, 0.9);
+		}
+		/* tines of the X */
+		.close::before,
+		.close::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 40px;
+			width: 8px;
+			background-color: currentColor;
+		}
+
+		.close::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		.close::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
 </style>
 <script>
-	function CreateModal() {
-		const imgs = document.querySelectorAll('.gallery img');
+	function togglePlayPause(element, itemId, itemNumber) {
+		openModal(itemId, itemNumber); currentSlide(itemNumber);
+		if (element.paused) {
+			element.play();
+			element.style.display = "block";
+		} else {
+			element.pause();
+			element.style.display = "none";
+		}
+	}
+</script>
+<script>
+	function CreateModal(imgs) {
 		var modalContent = document.getElementById("ModalContent");
 		var oldHtml = modalContent.innerHTML;
 		modalContent.innerHTML = "";
-		imgs.forEach(img => {
-			modalContent.innerHTML += '<div class="mySlides fullpage" style="background-image: url(' + img.src + ');" onclick="closeModal()"></div>';
+		imgs.forEach((img, index) => {
+			if (img.tagName == 'VIDEO') {
+				modalContent.innerHTML += '<div class="mySlides fullpage"><video disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen"  onclick="this.paused?this.play():this.pause();" ontouchstart="this.paused?this.play():this.pause();" src="' + img.src + '" type="video/mp4"></video></div>';
+			} else {
+				modalContent.innerHTML += '<div class="mySlides fullpage" onclick="closeModal();"><img src="' + img.src + '"></div>';
+			}
 		});
 		modalContent.innerHTML += oldHtml;
 	}
 
-	function openModal() {
-		CreateModal();
+	function openModal(postId, slideIndex) {
+		var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
+		var imgs = [];
+		posts.forEach(post => {
+			var postImgs = post.querySelectorAll('.media-item video, .media-item img');
+			postImgs.forEach(img => {
+				imgs.push(img);
+			});
+		});
+		CreateModal(imgs);
 		document.getElementById("ModalContent").style.display = "block";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "hidden";
+		showSlides(slideIndex);
 	}
+
 
 	function closeModal() {
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "auto";
+		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><a class="close" onclick="closeModal()"></a>';
 	}
 
-	var slideIndex = 1;
-	showSlides(slideIndex);
 
 	function plusSlides(n) {
 		var numSlides = document.getElementsByClassName("mySlides").length;
@@ -247,18 +478,47 @@
 	function showSlides(n) {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
-		if (n > slides.length) { slideIndex = 1 }
-		if (n < 1) { slideIndex = slides.length }
+		if (n > slides.length) {
+			n = 1;
+		}
+		if (n < 1) {
+			n = slides.length;
+		}
 		for (i = 0; i < slides.length; i++) {
 			slides[i].style.display = "none";
+			if (slides[i].firstElementChild.tagName === "VIDEO") {
+				slides[i].firstElementChild.pause();
+			}
 		}
-		slides[slideIndex - 1].style.display = "block";
+		slides[n - 1].style.display = "block";
+		if (slides[n - 1].firstElementChild.tagName === "VIDEO") {
+			slides[n - 1].firstElementChild.play();
+		}
 	}
+	document.addEventListener('keydown', (event) => {
+		switch (event.keyCode) {
+			case 37:
+				plusSlides(-1);
+				break;
+			case 39:
+				plusSlides(1);
+				break;
+			case 38:
+				// Up arrow key
+				closeModal();
+				break;
+			case 40:
+				// Down arrow key
+				closeModal();
+				break;
+		}
+	});
 </script>
 
-<div id="ModalContent" class="modal lazy" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	<a class="close" onclick="closeModal()"></a>
 </div>
 
 <script>
@@ -276,6 +536,10 @@
 				break;
 			case 40:
 				// Down arrow key
+				closeModal();
+				break;
+			case 27:
+				// Escape key
 				closeModal();
 				break;
 		}

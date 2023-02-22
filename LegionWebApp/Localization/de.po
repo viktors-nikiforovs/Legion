@@ -300,3 +300,12 @@ msgstr "Am 5. Januar 2023 haben wir zusammen mit Partnern - der gemeinnützigen 
 
 msgid "Pay with Card / GPay"
 msgstr "Bezahlen Sie mit Karte / GPay"
+
+msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk."
+msgstr "Am 15. Februar wurden Medikamente für Kriegsgefangene nach Kramatorsk geschickt"
+
+msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital."
+msgstr "Am 7. Februar 2023 Lieferung von Medikamenten an das Krankenhaus Winnyzja"
+
+msgid "On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region."
+msgstr "Am 13. Februar wurden Medikamente in das Krankenhaus der Stadt Kostjantyniwka im Gebiet Donezk geschickt."
