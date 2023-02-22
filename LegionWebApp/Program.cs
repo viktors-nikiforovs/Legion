@@ -15,12 +15,12 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new List<CultureInfo>
     {
-        new CultureInfo("en"),
+        new CultureInfo("en-GB"),
         new CultureInfo("uk"),
         new CultureInfo("fr"),
         new CultureInfo("de")
     };
-    options.DefaultRequestCulture = new RequestCulture("en");
+    options.DefaultRequestCulture = new RequestCulture("en-GB");
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });

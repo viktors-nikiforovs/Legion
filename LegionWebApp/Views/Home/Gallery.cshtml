@@ -21,156 +21,164 @@
 	var Gallery = new Gallery();
 
 	<style>
-			.feed-container {
-				width: 80%;
-				margin: 0 auto;
-				color: white;
-			}
+		.feed-container {
+			width: 80%;
+			margin: 0 auto;
+			color: white;
+		}
 
-			.feed-post {
-				border: 2px solid rgba(255, 255, 255, 0.1);
-				border-radius: 1rem;
-				margin-bottom: 20px;
-				background-color: rgba(255, 255, 255, 0.07);
-			}
+		.feed-post {
+			border: 2px solid rgba(255, 255, 255, 0.1);
+			border-radius: 1rem;
+			margin-bottom: 20px;
+			background-color: rgba(255, 255, 255, 0.07);
+		}
 
-			.post-header {
-				border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-				display: flex;
-				padding: 10px;
-				align-items: center;
-				border-top-left-radius: 1rem;
-				border-top-right-radius: 1rem;
-				background-color: rgba(0,0,0, 0.1);
-			}
+		.post-header {
+			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+			display: flex;
+			padding: 10px;
+			align-items: center;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+			background-color: rgba(0,0,0, 0.1);
+		}
 
-			.profile-picture {
-				width: 50px;
-				height: 50px;
-				border-radius: 50%;
-			}
+		.profile-picture {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
 
-			.post-info {
-				margin-left: 20px;
-			}
+		.post-info {
+			margin-left: 20px;
+		}
 
-			.username {
-				font-weight: bold;
-			}
+		.username {
+			font-weight: bold;
+		}
 
-			.post-time {
-				color: white;
-			}
+		.post-time {
+			color: white;
+		}
 
-			.post-content {
-				margin: 20px;
-			}
+		.post-content {
+			margin: 20px;
+		}
 
-			.post-media {
-				display: flex;
-				justify-content: left;
-				flex-wrap: wrap;
-				margin-top: 20px;
-				position: relative;
-			}
+		.post-media {
+			display: flex;
+			justify-content: left;
+			flex-wrap: wrap;
+			margin-top: 20px;
+			position: relative;
+		}
 
-			.media-item {
-				border-radius: 1rem;
-			}
+		.media-item {
+			width: 100%;
+			border-radius: 1rem;
+		}
 
-				.media-item img, .media-item video {
-					width: 100%;
-					border-radius: 1rem;
-				}
-
-			.post-options {
-				margin-top: 20px;
-				display: flex;
-			}
-
-			.count-overlay img, .count-overlay video {
+			.media-item img, .media-item video {
 				width: 100%;
-				opacity: 0.5;
-				z-index: -1;
 				border-radius: 1rem;
 			}
 
+		.post-options {
+			margin-top: 20px;
+			display: flex;
+		}
 
-			.count-overlay-text {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				color: white;
-				font-size: 2rem;
-				text-align: center;
-			}
+		.count-overlay img, .count-overlay video {
+			width: 100%;
+			opacity: 0.5;
+			z-index: -1;
+			border-radius: 1rem;
+		}
 
-			.count-overlay {
-				position: relative;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				font-size: 2rem;
-				width: 30%;
-				margin-right: 10px;
-				border-radius: 1rem;
-				background-color: rgba(0, 0, 0, 0.5);
-				color: white;
-			}
 
-			video::-webkit-media-controls-play-button,
-			video::-webkit-media-controls-volume-slider,
-			video::-webkit-media-controls-timeline {
-				pointer-events: none;
-			}
+		.count-overlay-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 2rem;
+			text-align: center;
+		}
+
+		.count-overlay {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			font-size: 2rem;
+			width: 100%;
+			margin-right: 10px;
+			border-radius: 1rem;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+		}
+
+
+		video::-webkit-media-controls-play-button,
+		video::-webkit-media-controls-volume-slider,
+		video::-webkit-media-controls-timeline {
+			pointer-events: none;
+		}
+
+		.mySlides video::-webkit-media-controls-play-button,
+		.mySlides video::-webkit-media-controls-volume-slider,
+		.mySlides video::-webkit-media-controls-timeline {
+			pointer-events: auto;
+		}
 
 	</style>
 	<div class="feed-container">
-			@foreach (var item in Gallery.ItemList)
+		@foreach (var item in Gallery.ItemList)
 		{
 			int i = 1;
-				<div class="feed-post">
-					<div class="post-header">
-						<img src="/images/logo.png" class="profile-picture">
-						<div class="post-info">
-							<div class="username">@T["Legion Foundation"]</div>
-							<div class="post-time">@item.Date.ToString()</div>
-						</div>
-					</div>
-					<div class="post-content">
-						@T[@item.Title];
-					</div>
-					<div class="container post-media">
-						<div class="row">
-							@if (item.Video != null)
-						{
-								@foreach (var video in item.Video)
-							{
-									<div class="col-md-4">
-										<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-											<video disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
-										</div>
-									</div>
-								i++;
-							}
-						}
-							@if (item.Image != null)
-						{
-								@foreach (var image in item.Image)
-							{
-									<div class="col-md-4">
-										<div class="media-item" data-post-id="@item.Id">
-											<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
-										</div>
-									</div>
-								i++;
-							}
-						}
-						</div>
+			<div class="feed-post">
+				<div class="post-header">
+					<img src="/images/logo.png" class="profile-picture">
+					<div class="post-info">
+						<div class="username">@T["Legion Foundation"]</div>
+						<div class="post-time">@item.Date.ToString()</div>
 					</div>
 				</div>
+				<div class="post-content">
+					@T[@item.Title]
+				</div>
+				<div class="container post-media">
+					<div class="row row-cols-2 row-cols-sm-4">
+						@if (item.Video != null)
+						{
+							@foreach (var video in item.Video)
+							{
+								<div class="col">
+									<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
+										<video disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
+									</div>
+								</div>
+								i++;
+							}
+						}
+						@if (item.Image != null)
+						{
+							@foreach (var image in item.Image)
+							{
+								<div class="col">
+									<div class="media-item" data-post-id="@item.Id">
+										<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+									</div>
+								</div>
+								i++;
+							}
+						}
+					</div>
+				</div>
+			</div>
 		}
 	</div>
 
@@ -183,12 +191,10 @@
 			if (mediaItemCount > 6) {
 				$(this).find('.media-item:gt(5)').hide();
 				var hiddenCount = mediaItemCount - 6;
-                console.log("count " + hiddenCount);
-				$(this).find('.media-item:nth-of-type(6)').attr('class', 'media-item count-overlay');
-				var postId = $(this).find('.media-item:gt(5)').attr('data-post-id');
-				$(this).find('.media-item:nth-of-type(6)').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);');
-				$(this).find('.media-item:nth-of-type(6)').html('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
 
+				$(this).find('.media-item').eq(5).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);')
+					.append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
 			}
 		});
 	});
@@ -238,21 +244,6 @@
 	//		threshold: 0
 	//	});
 	//})();
-	$(document).ready(function() {
-		$(".media-item").each(function() {
-			var media = $(this).find("img, video");
-			var aspectRatio = media.width() / media.height();
-
-			if (aspectRatio >= 1) {
-				$(this).addClass("col-12");
-				//$(this).addClass("landscape");
-			} else {
-				$(this).addClass("col-12");
-				//$(this).addClass("portrait");
-			}
-		});
-	});
-
 </script>
 <script>
 	$.fn.videoLoaded = function() {
@@ -277,23 +268,37 @@
 	};
 </script>
 <script>
-	var $grid = $('.grid').masonry({
-		columnWidth: $grid.find('.grid-sizer')[0],
-		//fitWidth: true,
-		itemSelector: '.grid-item',
-		gutter: 0,
-		//horizontalOrder: true
-		percentPosition: true
-	});
-
-	$.when(
-		//$grid.imagesLoaded(),
-		$grid.videoLoaded()
-	).then(function() {
-		$grid.masonry('layout');
+	$(document).ready(function() {
+		$(".media-item").each(function() {
+			var mediaItem = $(this);
+			var media = mediaItem.find("img, video");
+			if (media.prop('tagName') == 'IMG') {
+				var img = new Image();
+				img.onload = function() {
+					var aspectRatio = img.width / img.height;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+				};
+				img.src = media.attr('src');
+			} else if (media.prop('tagName') == 'VIDEO') {
+				if (media[0].readyState > 0) {
+					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+				} else {
+					media.on('loadedmetadata', function() {
+						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+						if (aspectRatio >= 1) {
+							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+						}
+					});
+				}
+			}
+		});
 	});
 </script>
-
 <!-- Modal -->
 <style>
 	.fullpage img, .fullpage video {
@@ -417,9 +422,6 @@
 	}
 </script>
 <script>
-
-
-
 	function CreateModal(imgs) {
 		var modalContent = document.getElementById("ModalContent");
 		var oldHtml = modalContent.innerHTML;
@@ -494,8 +496,6 @@
 			slides[n - 1].firstElementChild.play();
 		}
 	}
-	openModal();
-
 	document.addEventListener('keydown', (event) => {
 		switch (event.keyCode) {
 			case 37:

@@ -292,11 +292,14 @@ msgstr "5 січня 2023 року, разом з партнерами - бла�
 msgid "Pay with Card / GPay"
 msgstr "Оплатіть карткою / GPay"
 
-msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk"
+msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk."
 msgstr "15 лютого відправили ліки для військовопоранених в Краматорськ"
 
-msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital"
+msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital."
 msgstr "7 лютого, 2023, передача ліків в вінницький шпиталь"
+
+msgid "On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region."
+msgstr "13 лютого відправили ліки для шпиталю в місто Костянтинівку Донецьку область."
 
 msgid "Legion Foundation"
 msgstr "Фонд «Легіон»"
