@@ -21,153 +21,156 @@
 	var Gallery = new Gallery();
 
 	<style>
-		.feed-container {
-			width: 80%;
-			margin: 0 auto;
-			color: white;
-		}
+			.feed-container {
+				width: 80%;
+				margin: 0 auto;
+				color: white;
+			}
 
-		.feed-post {
-			border: 2px solid rgba(255, 255, 255, 0.1);
-			border-radius: 1rem;
-			margin-bottom: 20px;
-			background-color: rgba(255, 255, 255, 0.07);
-		}
+			.feed-post {
+				border: 2px solid rgba(255, 255, 255, 0.1);
+				border-radius: 1rem;
+				margin-bottom: 20px;
+				background-color: rgba(255, 255, 255, 0.07);
+			}
 
-		.post-header {
-			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-			display: flex;
-			padding: 10px;
-			align-items: center;
-			border-top-left-radius: 1rem;
-			border-top-right-radius: 1rem;
-			background-color: rgba(0,0,0, 0.1);
-		}
+			.post-header {
+				border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+				display: flex;
+				padding: 10px;
+				align-items: center;
+				border-top-left-radius: 1rem;
+				border-top-right-radius: 1rem;
+				background-color: rgba(0,0,0, 0.1);
+			}
 
-		.profile-picture {
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-		}
+			.profile-picture {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
 
-		.post-info {
-			margin-left: 20px;
-		}
+			.post-info {
+				margin-left: 20px;
+			}
 
-		.username {
-			font-weight: bold;
-		}
+			.username {
+				font-weight: bold;
+			}
 
-		.post-time {
-			color: white;
-		}
+			.post-time {
+				color: white;
+			}
 
-		.post-content {
-			margin: 20px;
-		}
+			.post-content {
+				margin: 20px;
+			}
 
-		.post-media {
-			display: flex;
-			justify-content: left;
-			flex-wrap: wrap;
-			margin-top: 20px;
-			position: relative;
-		}
+			.post-media {
+				display: flex;
+				justify-content: left;
+				flex-wrap: wrap;
+				margin-top: 20px;
+				position: relative;
+			}
 
-		.media-item {
-			border-radius: 1rem;
-		}
-
-			.media-item img, .media-item video {
-				width: 100%;
+			.media-item {
 				border-radius: 1rem;
 			}
 
-		.post-options {
-			margin-top: 20px;
-			display: flex;
-		}
+				.media-item img, .media-item video {
+					width: 100%;
+					border-radius: 1rem;
+				}
 
-		.count-overlay img, .count-overlay video {
-			width: 100%;
-			opacity: 0.5;
-			z-index: -1;
-			border-radius: 1rem;
-		}
+			.post-options {
+				margin-top: 20px;
+				display: flex;
+			}
+
+			.count-overlay img, .count-overlay video {
+				width: 100%;
+				opacity: 0.5;
+				z-index: -1;
+				border-radius: 1rem;
+			}
 
 
-		.count-overlay-text {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			color: white;
-			font-size: 2rem;
-			text-align: center;
-		}
+			.count-overlay-text {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				font-size: 2rem;
+				text-align: center;
+			}
 
-		.count-overlay {
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			font-size: 2rem;
-			width: 30%;
-			margin-right: 10px;
-			border-radius: 1rem;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-		}
+			.count-overlay {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				font-size: 2rem;
+				width: 30%;
+				margin-right: 10px;
+				border-radius: 1rem;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: white;
+			}
 
-		.like-button, .comment-button, .share-button {
-			margin-right: 10px;
-		}
+			video::-webkit-media-controls-play-button,
+			video::-webkit-media-controls-volume-slider,
+			video::-webkit-media-controls-timeline {
+				pointer-events: none;
+			}
+
 	</style>
 	<div class="feed-container">
-		@foreach (var item in Gallery.ItemList)
+			@foreach (var item in Gallery.ItemList)
 		{
 			int i = 1;
-			<div class="feed-post">
-				<div class="post-header">
-					<img src="/images/logo.png" class="profile-picture">
-					<div class="post-info">
-						<div class="username">@T["Legion Foundation"]</div>
-						<div class="post-time">@item.Date.ToString()</div>
+				<div class="feed-post">
+					<div class="post-header">
+						<img src="/images/logo.png" class="profile-picture">
+						<div class="post-info">
+							<div class="username">@T["Legion Foundation"]</div>
+							<div class="post-time">@item.Date.ToString()</div>
+						</div>
 					</div>
-				</div>
-				<div class="post-content">
-					@T[@item.Title];
-				</div>
-				<div class="container post-media">
-					<div class="row">
-						@if (item.Video != null)
+					<div class="post-content">
+						@T[@item.Title];
+					</div>
+					<div class="container post-media">
+						<div class="row">
+							@if (item.Video != null)
 						{
-							@foreach (var video in item.Video)
+								@foreach (var video in item.Video)
 							{
-								<div class="col-6 col-md-4">
-									<div class="media-item" data-post-id="@item.Id">
-										<video disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4" onclick="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);" ontouchstart="event.preventDefault();openModal(@item.Id, @i);currentSlide(@i);"></video>
+									<div class="col-md-4">
+										<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
+											<video disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
+										</div>
 									</div>
-								</div>
 								i++;
 							}
 						}
-						@if (item.Image != null)
+							@if (item.Image != null)
 						{
-							@foreach (var image in item.Image)
+								@foreach (var image in item.Image)
 							{
-								<div class="col-6 col-md-4">
-									<div class="media-item" data-post-id="@item.Id">
-										<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+									<div class="col-md-4">
+										<div class="media-item" data-post-id="@item.Id">
+											<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+										</div>
 									</div>
-								</div>
 								i++;
 							}
 						}
+						</div>
 					</div>
 				</div>
-			</div>
 		}
 	</div>
 
@@ -180,11 +183,12 @@
 			if (mediaItemCount > 6) {
 				$(this).find('.media-item:gt(5)').hide();
 				var hiddenCount = mediaItemCount - 6;
+                console.log("count " + hiddenCount);
 				$(this).find('.media-item:nth-of-type(6)').attr('class', 'media-item count-overlay');
-				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
-				console.log(postId);
+				var postId = $(this).find('.media-item:gt(5)').attr('data-post-id');
 				$(this).find('.media-item:nth-of-type(6)').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);');
-				$(this).find('.media-item:nth-of-type(6)').append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+				$(this).find('.media-item:nth-of-type(6)').html('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+
 			}
 		});
 	});
@@ -240,9 +244,11 @@
 			var aspectRatio = media.width() / media.height();
 
 			if (aspectRatio >= 1) {
-				$(this).addClass("landscape");
+				$(this).addClass("col-12");
+				//$(this).addClass("landscape");
 			} else {
-				$(this).addClass("portrait");
+				$(this).addClass("col-12");
+				//$(this).addClass("portrait");
 			}
 		});
 	});
@@ -399,13 +405,28 @@
 		}
 </style>
 <script>
+	function togglePlayPause(element, itemId, itemNumber) {
+		openModal(itemId, itemNumber); currentSlide(itemNumber);
+		if (element.paused) {
+			element.play();
+			element.style.display = "block";
+		} else {
+			element.pause();
+			element.style.display = "none";
+		}
+	}
+</script>
+<script>
+
+
+
 	function CreateModal(imgs) {
 		var modalContent = document.getElementById("ModalContent");
 		var oldHtml = modalContent.innerHTML;
 		modalContent.innerHTML = "";
 		imgs.forEach((img, index) => {
 			if (img.tagName == 'VIDEO') {
-				modalContent.innerHTML += '<div class="mySlides fullpage"><video playsinline disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen"  onclick="this.paused?this.play():this.pause();" ontouchstart="this.paused?this.play():this.pause();" src="' + img.src + '" type="video/mp4"></video></div>';
+				modalContent.innerHTML += '<div class="mySlides fullpage"><video disablePictureInPicture controls preload="metadata" controlslist="noplaybackrate nodownload nofullscreen"  onclick="this.paused?this.play():this.pause();" ontouchstart="this.paused?this.play():this.pause();" src="' + img.src + '" type="video/mp4"></video></div>';
 			} else {
 				modalContent.innerHTML += '<div class="mySlides fullpage" onclick="closeModal();"><img src="' + img.src + '"></div>';
 			}
@@ -473,8 +494,6 @@
 			slides[n - 1].firstElementChild.play();
 		}
 	}
-
-
 	openModal();
 
 	document.addEventListener('keydown', (event) => {
