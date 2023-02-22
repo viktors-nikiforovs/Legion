@@ -4,6 +4,7 @@
 
 @{
 	/*
+	 * animate modal
 		* scroll one post at time
 		thumbnails in modal
 	* FB Login
@@ -76,11 +77,16 @@
 		.media-item {
 			width: 100%;
 			border-radius: 1rem;
+			transition: transform 0.2s ease-in-out;
 		}
 
 			.media-item img, .media-item video {
 				width: 100%;
 				border-radius: 1rem;
+			}
+
+			.media-item:hover {
+				transform: scale(1.2);
 			}
 
 		.post-options {
@@ -193,7 +199,7 @@
 				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
 
 				$(this).find('.media-item').eq(5).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);')
-					.append('<div class="count-overlay-text">+' + hiddenCount + ' more</div>');
+					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
 			}
 		});
 	});
@@ -471,9 +477,9 @@
 		showSlides(slideIndex);
 	}
 
-function currentSlide(n) {
-	showSlides(slideIndex = n);
-}
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
 
 	function showSlides(n) {
 		var i;

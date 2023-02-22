@@ -3,10 +3,32 @@
 @{
 	ViewData["Title"] = @T["Finance aid"];
 }
+<style>
+	.btn-3d {
+  /* Add box-shadow to give the button depth */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-3d:hover {
+  /* Add a hover effect to the button by scaling it slightly */
+  transform: scale(1.2);
+}
+
+</style>
 <div id="Finance" class="card">
 	<div class="card-body">
 		<h5 class="card-title">@T["CHARITABLE ORGANIZATION"] «@T["CHARITY FOUNDATION «LEGION»"]</h5>
-		<h6><a href="https://send.monobank.ua/jar/NMfc9M1k9"><button type="button" class="btn btn-danger btn-lg"><img src="~/images/bank.png" width="80px"/> @T["Pay with Card / GPay"]</button></a></h6>
+		<h6>
+  <a href="https://send.monobank.ua/jar/NMfc9M1k9">
+    <button type="button" class="btn btn-danger btn-lg shadow-lg btn-3d">
+      <img src="~/images/bank.png" width="80px" style="transform: translateZ(0)"/>
+      <span class="ms-3" style="transform: translateZ(25px)">@T["Pay with Card / GPay"]</span>
+    </button>
+  </a>
+</h6>
+
+
 		<address>
 			@T["E-mail"]: <a href="mailto:legion.charity@gmail.com">legion.charity@gmail.com</a><br>
 			@T["Postal address"]: @T["03142 Kyiv -142, box 28"]
