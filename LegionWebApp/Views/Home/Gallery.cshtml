@@ -5,7 +5,6 @@
 @{
 	/*
 		* animate modal
-		* gallery mouseover zoom / play video pointer
 		* on scrollup pause
 		* scroll one post at time
 		thumbnails in modal
@@ -253,28 +252,28 @@
 	//	});
 	//})();
 </script>
-@*<script>
-	$.fn.videoLoaded = function() {
-		var $videos = this.find('video');
-		var deferred = $.Deferred();
+<script>
+	//$.fn.videoLoaded = function() {
+	//	var $videos = this.find('video');
+	//	var deferred = $.Deferred();
 
-		function checkLoaded() {
-			var count = 0;
-			$videos.each(function() {
-				if (this.readyState === 4) {
-					count++;
-				}
-			});
-			if (count === $videos.length) {
-				deferred.resolve();
-			} else {
-				setTimeout(checkLoaded, 50);
-			}
-		}
-		checkLoaded();
-		return deferred;
-	};
-</script>*@
+	//	function checkLoaded() {
+	//		var count = 0;
+	//		$videos.each(function() {
+	//			if (this.readyState === 4) {
+	//				count++;
+	//			}
+	//		});
+	//		if (count === $videos.length) {
+	//			deferred.resolve();
+	//		} else {
+	//			setTimeout(checkLoaded, 50);
+	//		}
+	//	}
+	//	checkLoaded();
+	//	return deferred;
+	//};
+</script>
 <script>
 	$(document).ready(function() {
 		$(".media-item").each(function() {
