@@ -165,7 +165,7 @@
 							{
 								<div class="col">
 									<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-										<video disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
+										<video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link type="video/mp4"></video>
 									</div>
 								</div>
 								i++;
@@ -206,7 +206,6 @@
 		});
 	});
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
 @*<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>*@
 <script>
