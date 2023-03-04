@@ -76,7 +76,7 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 var botClient = app.Services.GetRequiredService<ITelegramBotClient>();
-var webhookUrl = "https://beta.legion-foundation.org";
+var webhookUrl = "https://beta.legion-foundation.org/api/telegram";
 
 var webhookInfo = await botClient.GetWebhookInfoAsync();
 if (!string.IsNullOrEmpty(webhookInfo.Url))
