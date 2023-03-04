@@ -4,12 +4,16 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+using Telegram.Bot;
+using Telegram.Bot.Types.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+
+builder.Services.AddSingleton<ITelegramBotClient>(new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN")));
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -48,7 +52,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-     app.UseMigrationsEndPoint();
+    app.UseMigrationsEndPoint();
 }
 else
 {
@@ -70,5 +74,16 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+var botClient = app.Services.GetRequiredService<ITelegramBotClient>();
+var webhookUrl = "https://your-webhook-url.com";
+
+var webhookInfo = await botClient.GetWebhookInfoAsync();
+if (!string.IsNullOrEmpty(webhookInfo.Url))
+{
+    await botClient.DeleteWebhookAsync();
+}
+
+await botClient.SetWebhookAsync(webhookUrl, allowedUpdates: new UpdateType[] { UpdateType.Message });
 
 app.Run();
