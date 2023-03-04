@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "TELEGRAM_BOT_TOKEN": "5479970688:AAEOU7Mf4k66rRI62b0ckeqK7785jpTn_us",
+        "TELEGRAM_BOT_TOKEN": "5479970688:AAEE8VjjxnZtX54Ai4nExxzA6Jiqf7vbX5w",
         "TELEGRAM_ADMIN_CHANNEL": "-1001868111517"
       },
       "applicationUrl": "https://localhost:7249;http://localhost:5249",

@@ -46,6 +46,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+
+// Add console logging
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -76,13 +81,20 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 var botClient = app.Services.GetRequiredService<ITelegramBotClient>();
-var webhookUrl = "https://beta.legion-foundation.org/api/telegram";
+//var webhookUrl = "https://beta.legion-foundation.org/api/telegram";
+var webhookUrl = "https://60e8-195-213-4-249.eu.ngrok.io/api/telegram";
 
 var webhookInfo = await botClient.GetWebhookInfoAsync();
 if (!string.IsNullOrEmpty(webhookInfo.Url))
 {
     await botClient.DeleteWebhookAsync();
 }
+
+// Add route prefix to TelegramController
+app.MapControllerRoute(
+    name: "telegram",
+    pattern: "api/telegram/{action=Index}/{id?}",
+    defaults: new { controller = "Telegram" });
 
 await botClient.SetWebhookAsync(webhookUrl, allowedUpdates: new UpdateType[] { UpdateType.Message });
 
