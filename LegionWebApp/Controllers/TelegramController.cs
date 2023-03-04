@@ -1,14 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace LegionWebApp.Controllers
+namespace MyWebApp.Controllers
 {
+    [ApiController]
     [Route("api/telegram")]
-    public class TelegramController : Controller
+    public class TelegramController : ControllerBase
     {
         private readonly ILogger<TelegramController> _logger;
         private readonly ITelegramBotClient _telegramBotClient;
@@ -20,24 +23,32 @@ namespace LegionWebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Update update)
+        [Route("api/telegram")]
+        public IActionResult Post([FromBody] JObject requestData)
         {
-            if (update == null)
+            if (requestData == null)
             {
-                _logger.LogWarning("Received null update");
-                return Ok();
+                _logger.LogWarning("Received null request data");
+                return BadRequest();
             }
 
-            if (update.Type == UpdateType.Message)
+            if (requestData["message"] != null)
             {
-                var message = update.Message;
-                _logger.LogInformation($"Received message: {message.Text}");
-                await _telegramBotClient.SendTextMessageAsync(
-                    chatId: message.Chat.Id,
-                    text: $"You said: {message.Text}");
+                var messageText = requestData["message"]["text"].ToString();
+                _logger.LogInformation($"Received message: {messageText}");
+                _telegramBotClient.SendTextMessageAsync(
+                    chatId: requestData["message"]["chat"]["id"].ToString(),
+                    text: $"You said: {messageText}");
             }
+
             return Ok();
         }
 
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("Telegram webhook is working.");
+        }
     }
 }
