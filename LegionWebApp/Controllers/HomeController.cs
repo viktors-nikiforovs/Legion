@@ -54,10 +54,13 @@ namespace LegionWebApp.Controllers
         {
             return View();
         }
-        public IActionResult Gallery()
+        public async Task<IActionResult> Gallery()
         {
+            TelegramBot bot = new TelegramBot();
+            await bot.SendMessageAsync("Hello World!");
             return View();
-        }        
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
