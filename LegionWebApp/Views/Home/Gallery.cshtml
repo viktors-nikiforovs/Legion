@@ -4,10 +4,10 @@
 
 @{
 	/*
-		* animate modal
-		* on scrollup pause
-		* scroll one post at time
-		thumbnails in modal
+	* animate modal
+	* on scrollup pause
+	* thumbnails in modal
+	* scroll one post at time
 	* FB Login
 	* Fund raising
 	* admin cp
@@ -20,128 +20,6 @@
 	*/
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new Gallery();
-
-	<style>
-		.feed-container {
-			width: 80%;
-			margin: 0 auto;
-			color: white;
-		}
-
-		.feed-post {
-			border: 2px solid rgba(255, 255, 255, 0.1);
-			border-radius: 1rem;
-			margin-bottom: 20px;
-			background-color: rgba(255, 255, 255, 0.07);
-		}
-
-		.post-header {
-			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-			display: flex;
-			padding: 10px;
-			align-items: center;
-			border-top-left-radius: 1rem;
-			border-top-right-radius: 1rem;
-			background-color: rgba(0,0,0, 0.1);
-		}
-
-		.profile-picture {
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-		}
-
-		.post-info {
-			margin-left: 20px;
-		}
-
-		.username {
-			font-weight: bold;
-		}
-
-		.post-time {
-			color: white;
-		}
-
-		.post-content {
-			margin: 20px;
-		}
-
-		.post-media {
-			display: flex;
-			justify-content: left;
-			flex-wrap: wrap;
-			margin-top: 20px;
-			position: relative;
-		}
-
-		.media-item {
-			width: 100%;
-			border-radius: 1rem;
-			transition: transform 0.2s ease-in-out;
-		}
-
-			.media-item img, .media-item video {
-				width: 100%;
-				border-radius: 1rem;
-				cursor: pointer;
-			}
-
-			.media-item:hover {
-				transform: scale(1.2);
-			}
-
-		.post-options {
-			margin-top: 20px;
-			display: flex;
-		}
-
-		.count-overlay img, .count-overlay video {
-			width: 100%;
-			opacity: 0.5;
-			z-index: -1;
-			border-radius: 1rem;
-		}
-
-
-		.count-overlay-text {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			color: white;
-			font-size: 2rem;
-			text-align: center;
-		}
-
-		.count-overlay {
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			font-size: 2rem;
-			width: 100%;
-			margin-right: 10px;
-			border-radius: 1rem;
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-		}
-
-
-		video::-webkit-media-controls-play-button,
-		video::-webkit-media-controls-volume-slider,
-		video::-webkit-media-controls-timeline {
-			pointer-events: none;
-		}
-
-		.mySlides video::-webkit-media-controls-play-button,
-		.mySlides video::-webkit-media-controls-volume-slider,
-		.mySlides video::-webkit-media-controls-timeline {
-			pointer-events: auto;
-		}
-
-	</style>
 	<div class="feed-container">
 		@foreach (var item in Gallery.ItemList)
 		{
@@ -188,7 +66,11 @@
 			</div>
 		}
 	</div>
-
+	<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		<a class="close" onclick="closeModal()"></a>
+	</div>
 }
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
@@ -204,77 +86,6 @@
 					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
 			}
 		});
-	});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
-@*<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>*@
-<script>
-	//(function() {
-	//	function logElementEvent(eventName, element) {
-	//		console.log(Date.now(), eventName, element.getAttribute("data-src"));
-	//	}
-
-	//	var callback_enter = function(element) {
-	//		logElementEvent("🔑 ENTERED", element);
-	//	};
-	//	var callback_exit = function(element) {
-	//		logElementEvent("🚪 EXITED", element);
-	//	};
-	//	var callback_loading = function(element) {
-	//		logElementEvent("⌚ LOADING", element);
-	//	};
-	//	var callback_loaded = function(element) {
-	//		logElementEvent("👍 LOADED", element);
-	//	};
-	//	var callback_error = function(element) {
-	//		logElementEvent("💀 ERROR", element);
-	//		element.src = "https://via.placeholder.com/440x560/?text=Error+Placeholder";
-	//	};
-	//	var callback_finish = function() {
-	//		logElementEvent("✔️ FINISHED", document.documentElement);
-	//	};
-	//	var callback_cancel = function(element) {
-	//		logElementEvent("🔥 CANCEL", element);
-	//	};
-
-	//	ll = new LazyLoad({
-	//		// Assign the callbacks defined above
-	//		callback_enter: callback_enter,
-	//		callback_exit: callback_exit,
-	//		callback_cancel: callback_cancel,
-	//		callback_loading: callback_loading,
-	//		callback_loaded: callback_loaded,
-	//		callback_error: callback_error,
-	//		callback_finish: callback_finish,
-	//		// For debugging purposes
-	//		threshold: 0
-	//	});
-	//})();
-</script>
-<script>
-	//$.fn.videoLoaded = function() {
-	//	var $videos = this.find('video');
-	//	var deferred = $.Deferred();
-
-	//	function checkLoaded() {
-	//		var count = 0;
-	//		$videos.each(function() {
-	//			if (this.readyState === 4) {
-	//				count++;
-	//			}
-	//		});
-	//		if (count === $videos.length) {
-	//			deferred.resolve();
-	//		} else {
-	//			setTimeout(checkLoaded, 50);
-	//		}
-	//	}
-	//	checkLoaded();
-	//	return deferred;
-	//};
-</script>
-<script>
-	$(document).ready(function() {
 		$(".media-item").each(function() {
 			var mediaItem = $(this);
 			var media = mediaItem.find("img, video");
@@ -306,115 +117,6 @@
 	});
 </script>
 <!-- Modal -->
-<style>
-	.fullpage img, .fullpage video {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-	}
-
-	.fullpage video {
-		cursor: pointer;
-	}
-
-	.fullpage img {
-		cursor: zoom-out;
-	}
-
-	.fullpage {
-		overflow: auto;
-		display: none;
-		position: fixed;
-		z-index: 9999;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-size: contain;
-		background-repeat: no-repeat no-repeat;
-		background-position: center center;
-		background-color: black;
-	}
-
-	.prev,
-	.next {
-		cursor: pointer;
-		position: fixed;
-		top: 50%;
-		width: auto;
-		padding: 16px;
-		margin-top: -50px;
-		color: white;
-		font-weight: bold;
-		text-decoration: none;
-		font-size: 20px;
-		transition: 0.6s ease;
-		border-radius: 0 3px 3px 0;
-		user-select: none;
-		-webkit-user-select: none;
-		z-index: 9999;
-	}
-
-	.next {
-		right: 0;
-		border-radius: 3px 0 0 3px;
-	}
-
-		.prev:hover,
-		.next:hover {
-			background-color: rgba(0, 0, 0, 0.8);
-		}
-
-	.close {
-		cursor: pointer;
-		position: absolute;
-		top: 20px;
-		right: 30px;
-		color: white;
-		font-weight: bold;
-		text-decoration: none;
-		transition: 0.6s ease;
-		vertical-align: middle;
-		border: none;
-		border-radius: 50%;
-		background: transparent;
-		width: 80px;
-		height: 80px;
-		opacity: 0.8;
-		user-select: none;
-		-webkit-user-select: none;
-		z-index: 9999;
-	}
-
-		.close:focus,
-		.close:hover {
-			opacity: 1;
-			background-color: rgba(0, 0, 0, 0.8);
-		}
-
-		.close:active {
-			background: rgba(128, 128, 128, 0.9);
-		}
-		/* tines of the X */
-		.close::before,
-		.close::after {
-			content: " ";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			height: 40px;
-			width: 8px;
-			background-color: currentColor;
-		}
-
-		.close::before {
-			transform: translate(-50%, -50%) rotate(45deg);
-		}
-
-		.close::after {
-			transform: translate(-50%, -50%) rotate(-45deg);
-		}
-</style>
 <script>
 	function togglePlayPause(element, itemId, itemNumber) {
 		openModal(itemId, itemNumber); currentSlide(itemNumber);
@@ -426,8 +128,6 @@
 			element.style.display = "none";
 		}
 	}
-</script>
-<script>
 	function CreateModal(imgs) {
 		var modalContent = document.getElementById("ModalContent");
 		var oldHtml = modalContent.innerHTML;
@@ -441,7 +141,6 @@
 		});
 		modalContent.innerHTML += oldHtml;
 	}
-
 	function openModal(postId, slideIndex) {
 		var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
 		var imgs = [];
@@ -457,16 +156,12 @@
 		x.style.overflow = "hidden";
 		showSlides(slideIndex);
 	}
-
-
 	function closeModal() {
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];
 		x.style.overflow = "auto";
 		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><a class="close" onclick="closeModal()"></a>';
 	}
-
-
 	function plusSlides(n) {
 		var numSlides = document.getElementsByClassName("mySlides").length;
 		slideIndex += n;
@@ -478,11 +173,9 @@
 		}
 		showSlides(slideIndex);
 	}
-
 	function currentSlide(n) {
 		showSlides(slideIndex = n);
 	}
-
 	function showSlides(n) {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
@@ -503,7 +196,6 @@
 			slides[n - 1].firstElementChild.play();
 		}
 	}
-
 </script>
 <script>
 	$(document).on("keypress", function(e) {
@@ -525,15 +217,6 @@
 				break;
 		}
 	});
-</script>
-
-<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	<a class="close" onclick="closeModal()"></a>
-</div>
-
-<script>
 	document.addEventListener('keydown', (event) => {
 		switch (event.keyCode) {
 			case 37:
@@ -556,30 +239,22 @@
 				break;
 		}
 	});
-</script>
-<script>
 	let xDown = null;
 	let yDown = null;
-
 	function touchStart(event) {
 		xDown = event.touches[0].clientX;
 		yDown = event.touches[0].clientY;
 	}
-
 	function touchMove(event) {
 		if (!xDown || !yDown) {
 			return;
 		}
-
 		const xUp = event.touches[0].clientX;
 		const yUp = event.touches[0].clientY;
-
 		const xDiff = xDown - xUp;
 		const yDiff = yDown - yUp;
-
 		// Minimum distance to swipe before changing slides
 		const threshold = 5;
-
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (Math.abs(xDiff) > threshold) {
 				if (xDiff > 0) {
@@ -601,11 +276,9 @@
 				}
 			}
 		}
-
 		xDown = null;
 		yDown = null;
 	}
-
 	function touchEnd(event) {
 		xDown = null;
 		yDown = null;
