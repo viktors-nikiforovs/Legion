@@ -6,8 +6,8 @@ namespace LegionWebApp.Controllers
     {
         public async Task SendMessageAsync(string message)
         {
-            string adminChannel = "TELEGRAM_ADMIN_CHANNEL";
-            var bot = new TelegramBotClient("TELEGRAM_BOT_TOKEN");
+            string adminChannel = Environment.GetEnvironmentVariable("TELEGRAM_ADMIN_CHANNEL");
+            var bot = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
             await bot.SendTextMessageAsync(
             chatId: adminChannel,
             text: message
