@@ -26,7 +26,10 @@ namespace LegionWebApp.Controllers
 
             if (update.Type == UpdateType.Message)
             {
-                // Handle incoming message here
+                var message = update.Message;
+                await _telegramBotClient.SendTextMessageAsync(
+                    chatId: message.Chat.Id,
+                    text: $"You said: {message.Text}");
             }
 
             return Ok();
