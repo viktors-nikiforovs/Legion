@@ -39,7 +39,7 @@ public class UpdateHandlers
             // UpdateType.ShippingQuery:
             // UpdateType.PreCheckoutQuery:
             // UpdateType.Poll:
-            { Message: { Chat: { Type: ChatType.Group or ChatType.Supergroup } } } messageFromGroup => BotOnMessageReceivedFromGroup(messageFromGroup.Message, cancellationToken),
+            { ChannelPost.Chat.Type: ChatType.Group or ChatType.Supergroup } messageFromGroup => BotOnMessageReceivedFromGroup(messageFromGroup.Message, cancellationToken),
             { Message: { } message } => BotOnMessageReceived(message, cancellationToken),
             { EditedMessage: { } message } => BotOnMessageReceived(message, cancellationToken),
             { CallbackQuery: { } callbackQuery } => BotOnCallbackQueryReceived(callbackQuery, cancellationToken),
@@ -50,13 +50,13 @@ public class UpdateHandlers
 
         await handler;
     }
-    private async Task BotOnMessageReceivedFromGroup(Message message, CancellationToken cancellationToken)
+    private async Task<Message> BotOnMessageReceivedFromGroup(Message message, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Receive message type: {MessageType}", message.Type);
-        if (message.Text is not { } messageText)
-            return;
-
-        // your existing message handling code goes here
+        _logger.LogInformation("Receive message in {message.Chat.FirstName.FirstName}: {MessageType}", message.Type);
+        return await _botClient.SendTextMessageAsync(
+                chatId: message.Chat.Id,
+                text: "You've said: " + message.Text,
+                cancellationToken: cancellationToken);
     }
 
     private async Task BotOnMessageReceived(Message message, CancellationToken cancellationToken)
