@@ -1,11 +1,7 @@
 ﻿using LegionWebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.Globalization;
-using Telegram.Bot;
-using Telegram.Bot.Types;
 
 namespace LegionWebApp.Controllers
 {
