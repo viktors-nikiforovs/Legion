@@ -10,6 +10,5 @@ namespace LegionWebApp.Data
             : base(options)
         {
         }
-        public DbSet<LegionWebApp.Models.ContentModel>? ContentModel { get; set; }
     }
 }
