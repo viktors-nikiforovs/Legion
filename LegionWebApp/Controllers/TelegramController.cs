@@ -13,42 +13,22 @@ namespace MyWebApp.Controllers
     [Route("api/telegram")]
     public class TelegramController : ControllerBase
     {
-        private readonly ILogger<TelegramController> _logger;
-        private readonly ITelegramBotClient _telegramBotClient;
-
-        public TelegramController(ILogger<TelegramController> logger, ITelegramBotClient telegramBotClient)
-        {
-            _logger = logger;
-            _telegramBotClient = telegramBotClient;
-        }
-
+        private long lastProcessedUpdateId = 0;
         [HttpPost]
-        [Route("api/telegram")]
-        public IActionResult Post([FromBody] JObject requestData)
+        public async Task<IActionResult> Post([FromBody] Update update)
         {
-            if (requestData == null)
-            {
-                _logger.LogWarning("Received null request data");
-                return BadRequest();
-            }
+            TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
 
-            if (requestData["message"] != null)
+            if (update.Id > lastProcessedUpdateId)
             {
-                var messageText = requestData["message"]["text"].ToString();
-                _logger.LogInformation($"Received message: {messageText}");
-                _telegramBotClient.SendTextMessageAsync(
-                    chatId: requestData["message"]["chat"]["id"].ToString(),
-                    text: $"You said: {messageText}");
-            }
+                lastProcessedUpdateId = update.Id;
 
+                if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
+                {
+                    await client.SendTextMessageAsync(update.Message.From.Id, "answer");
+                }
+            }
             return Ok();
-        }
-
-
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("Telegram webhook is working.");
         }
     }
 }

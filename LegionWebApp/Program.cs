@@ -91,14 +91,10 @@ app.MapRazorPages();
 
 var botClient = app.Services.GetRequiredService<ITelegramBotClient>();
 var webhookUrl = "https://beta.legion-foundation.org/api/telegram";
-//var webhookUrl = "https://2ad1-195-213-4-249.eu.ngrok.io/api/telegram";
-
 var webhookInfo = await botClient.GetWebhookInfoAsync();
 if (!string.IsNullOrEmpty(webhookInfo.Url))
 {
     await botClient.DeleteWebhookAsync();
 }
-
-await botClient.SetWebhookAsync(webhookUrl, allowedUpdates: new UpdateType[] { UpdateType.Message });
-
+await botClient.SetWebhookAsync(webhookUrl);
 app.Run();
