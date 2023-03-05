@@ -63,22 +63,13 @@ namespace LegionWebApp.Controllers
             return View();
         }
 
-
-
-        private long lastProcessedUpdateId = 0;
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Update update)
         {
             TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
-
-            if (update.Id > lastProcessedUpdateId)
+            if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
-                lastProcessedUpdateId = update.Id;
-
-                if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
-                {
-                    await client.SendTextMessageAsync(update.Message.From.Id, "answer");
-                }
+                await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
             return Ok();
         }
