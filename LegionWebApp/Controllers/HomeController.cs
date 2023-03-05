@@ -55,6 +55,7 @@ namespace LegionWebApp.Controllers
         }
         public IActionResult Index()
         {
+            Console.WriteLine("Index page loaded");
             return View();
         }
         public async Task<IActionResult> Gallery()
