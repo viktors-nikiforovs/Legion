@@ -20,7 +20,7 @@ public class ValidateTelegramBotAttribute : TypeFilterAttribute
     {
         private readonly string _secretToken;
 
-        public ValidateTelegramBotFilter(IOptions<BotConfiguration> options)
+        public ValidateTelegramBotFilter(IOptions<TelegramBotConfiguration> options)
         {
             var botConfiguration = options.Value;
             _secretToken = botConfiguration.SecretToken;

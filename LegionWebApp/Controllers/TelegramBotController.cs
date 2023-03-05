@@ -5,7 +5,7 @@ using Telegram.Bot.Types;
 
 namespace LegionWebApp.Controllers;
 
-public class BotController : ControllerBase
+public class TelegramBotController : ControllerBase
 {
     [HttpPost]
     [ValidateTelegramBot]

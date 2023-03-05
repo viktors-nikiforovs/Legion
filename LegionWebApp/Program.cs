@@ -11,10 +11,10 @@ using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Setup Bot configuration
-var botConfigurationSection = builder.Configuration.GetSection(BotConfiguration.Configuration);
-builder.Services.Configure<BotConfiguration>(botConfigurationSection);
+var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);
+builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
 
-var botConfiguration = botConfigurationSection.Get<BotConfiguration>();
+var telegramBotConfiguration = telegramBotConfigurationSection.Get<TelegramBotConfiguration>();
 
 // Register named HttpClient to get benefits of IHttpClientFactory
 // and consume it with ITelegramBotClient typed client.
@@ -24,7 +24,7 @@ var botConfiguration = botConfigurationSection.Get<BotConfiguration>();
 builder.Services.AddHttpClient("telegram_bot_client")
                 .AddTypedClient<ITelegramBotClient>((httpClient, sp) =>
                 {
-                    BotConfiguration? botConfig = sp.GetConfiguration<BotConfiguration>();
+                    TelegramBotConfiguration? botConfig = sp.GetConfiguration<TelegramBotConfiguration>();
                     TelegramBotClientOptions options = new(botConfig.BotToken);
                     return new TelegramBotClient(options, httpClient);
                 });
@@ -45,9 +45,6 @@ builder.Services
     .AddControllers()
     .AddNewtonsoftJson();
 
-
-
-
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
@@ -65,26 +62,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });
-
-var connectionString = builder.Configuration.GetConnectionString("herokypostgresql");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-  options.UseNpgsql(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter(); // Use Migrations
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
-    options.SignIn.RequireConfirmedAccount = true;
-})
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -99,11 +77,9 @@ else
     app.UseHsts();
 }
 
-
-
 // Construct webhook route from the Route configuration parameter
 // It is expected that BotController has single method accepting Update
-app.MapBotWebhookRoute<BotController>(route: botConfiguration.Route);
+app.MapBotWebhookRoute<TelegramBotController>(route: telegramBotConfiguration.Route);
 app.MapControllers();
 
 app.UseHttpsRedirection();
@@ -112,7 +88,6 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseRequestLocalization();
 
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -120,13 +95,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
-
 app.Run();
 
-public class BotConfiguration
+public class TelegramBotConfiguration
 {
-    public static readonly string Configuration = "BotConfiguration";
+    public static readonly string Configuration = "TelegramBotConfiguration";
 
     public string BotToken { get; init; } = default!;
     public string HostAddress { get; init; } = default!;

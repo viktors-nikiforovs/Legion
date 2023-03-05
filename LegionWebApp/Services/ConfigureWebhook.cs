@@ -7,12 +7,12 @@ public class ConfigureWebhook : IHostedService
 {
     private readonly ILogger<ConfigureWebhook> _logger;
     private readonly IServiceProvider _serviceProvider;
-    private readonly BotConfiguration _botConfig;
+    private readonly TelegramBotConfiguration _botConfig;
 
     public ConfigureWebhook(
         ILogger<ConfigureWebhook> logger,
         IServiceProvider serviceProvider,
-        IOptions<BotConfiguration> botOptions)
+        IOptions<TelegramBotConfiguration> botOptions)
     {
         _logger = logger;
         _serviceProvider = serviceProvider;
