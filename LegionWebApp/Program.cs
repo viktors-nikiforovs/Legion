@@ -74,21 +74,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "telegram",
-        pattern: "{controller=Telegram}/{action=Index}/{id?}");
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Post}/{id?}");
-});
-
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
 
 var botClient = app.Services.GetRequiredService<ITelegramBotClient>();
-var webhookUrl = "https://beta.legion-foundation.org/api/telegram";
+var webhookUrl = "https://beta.legion-foundation.org/Home/Post";
 var webhookInfo = await botClient.GetWebhookInfoAsync();
 if (!string.IsNullOrEmpty(webhookInfo.Url))
 {

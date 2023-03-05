@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Globalization;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace LegionWebApp.Controllers
 {
@@ -60,6 +62,27 @@ namespace LegionWebApp.Controllers
             await bot.SendMessageAsync("Hello World!");
             return View();
         }
+
+
+
+        private long lastProcessedUpdateId = 0;
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Update update)
+        {
+            TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
+
+            if (update.Id > lastProcessedUpdateId)
+            {
+                lastProcessedUpdateId = update.Id;
+
+                if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
+                {
+                    await client.SendTextMessageAsync(update.Message.From.Id, "answer");
+                }
+            }
+            return Ok();
+        }
+
 
 
 
