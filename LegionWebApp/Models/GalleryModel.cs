@@ -1,11 +1,11 @@
 ﻿namespace LegionWebApp.Models
 {
 
-    public class Gallery
+    public class GalleryModel
     {
         public List<GalleryItem> ItemList { get; set; }
         public int i = 0;
-        public Gallery()
+        public GalleryModel()
         {
             ItemList = new List<GalleryItem>();
             CreateList();

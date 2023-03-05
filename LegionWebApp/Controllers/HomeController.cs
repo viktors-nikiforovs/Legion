@@ -55,31 +55,11 @@ namespace LegionWebApp.Controllers
         }
         public IActionResult Index()
         {
-            Console.WriteLine("Index page loaded");
             return View();
         }
         public async Task<IActionResult> Gallery()
         {
-            TelegramBot bot = new TelegramBot();
-            await bot.SendMessageAsync("Hello World!");
             return View();
-        }
-
-        [HttpPost]
-        public async Task Post([FromBody] Update update)
-        {
-            _logger.LogInformation("Post action executed");
-
-            TelegramBot bot = new TelegramBot();
-            await bot.SendMessageAsync("Hello World!");
-
-            TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
-            if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
-            {
-                _logger.LogInformation($"Sending message to {update.Message.From.Id}");
-                await client.SendTextMessageAsync(update.Message.From.Id, "answer");
-            }
-
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
