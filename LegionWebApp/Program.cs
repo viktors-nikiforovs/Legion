@@ -78,12 +78,10 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name: "telegram",
-        pattern: "telegram",
-        defaults: new { controller = "Telegram", action = "Index" });
-
+        pattern: "{controller=Telegram}/{action=Index}/{id?}");
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Home}/{action=Post}/{id?}");
 });
 
 
