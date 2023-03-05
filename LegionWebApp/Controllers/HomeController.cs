@@ -66,7 +66,7 @@ namespace LegionWebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Update update)
+        public async Task Post([FromBody] Update update)
         {
             _logger.LogInformation("Post action executed");
 
@@ -80,7 +80,6 @@ namespace LegionWebApp.Controllers
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
 
-            return Ok();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
