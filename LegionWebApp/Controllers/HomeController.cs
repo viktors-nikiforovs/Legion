@@ -73,7 +73,7 @@ namespace LegionWebApp.Controllers
                 _logger.LogInformation($"Sending message to {update.Message.From.Id}");
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
-            return Ok();
+           
 
             string adminChannel = Environment.GetEnvironmentVariable("TELEGRAM_ADMIN_CHANNEL");
             var bot = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
@@ -81,6 +81,7 @@ namespace LegionWebApp.Controllers
             chatId: adminChannel,
             text: "Hello User"
             );
+            return Ok();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
