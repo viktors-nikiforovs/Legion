@@ -68,8 +68,10 @@ namespace LegionWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Update update)
         {
-            Console.WriteLine("Webhook fired POST()");
             _logger.LogInformation("Post action executed");
+
+            TelegramBot bot = new TelegramBot();
+            await bot.SendMessageAsync("Hello World!");
 
             TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
@@ -77,14 +79,7 @@ namespace LegionWebApp.Controllers
                 _logger.LogInformation($"Sending message to {update.Message.From.Id}");
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
-           
 
-            string adminChannel = Environment.GetEnvironmentVariable("TELEGRAM_ADMIN_CHANNEL");
-            var bot = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
-            await bot.SendTextMessageAsync(
-            chatId: adminChannel,
-            text: "Hello User"
-            );
             return Ok();
         }
 
