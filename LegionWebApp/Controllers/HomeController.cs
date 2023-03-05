@@ -74,10 +74,14 @@ namespace LegionWebApp.Controllers
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
             return Ok();
+
+            string adminChannel = Environment.GetEnvironmentVariable("TELEGRAM_ADMIN_CHANNEL");
+            var bot = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
+            await bot.SendTextMessageAsync(
+            chatId: adminChannel,
+            text: "Hello User"
+            );
         }
-
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
