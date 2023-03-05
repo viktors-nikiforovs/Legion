@@ -69,6 +69,7 @@ namespace LegionWebApp.Controllers
             TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
+                _logger.Log($"Sending message to {update.Message.From.Id}");
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
             return Ok();
