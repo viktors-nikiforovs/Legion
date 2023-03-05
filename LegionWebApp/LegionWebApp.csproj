@@ -49,6 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Files\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
@@ -135,6 +136,7 @@
     <None Include="wwwroot\lib\bootstrap\dist\scss\_type.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_utilities.scss" />
     <None Include="wwwroot\lib\bootstrap\dist\scss\_variables.scss" />
+    <None Include="wwwroot\tux.png" />
   </ItemGroup>
 
   <ItemGroup>

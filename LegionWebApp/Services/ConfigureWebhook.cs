@@ -45,6 +45,6 @@ public class ConfigureWebhook : IHostedService
 
         // Remove webhook on app shutdown
         _logger.LogInformation("Removing webhook");
-        await botClient.DeleteWebhookAsync(cancellationToken: cancellationToken);
+       // await botClient.DeleteWebhookAsync(cancellationToken: cancellationToken);
     }
 }
