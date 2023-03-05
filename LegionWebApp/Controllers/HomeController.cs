@@ -1,6 +1,7 @@
 ﻿using LegionWebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Globalization;
 using Telegram.Bot;
@@ -69,7 +70,7 @@ namespace LegionWebApp.Controllers
             TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
-                _logger.Log($"Sending message to {update.Message.From.Id}");
+                _logger.LogInformation($"Sending message to {update.Message.From.Id}");
                 await client.SendTextMessageAsync(update.Message.From.Id, "answer");
             }
             return Ok();
