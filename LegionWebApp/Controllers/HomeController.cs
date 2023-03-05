@@ -67,6 +67,7 @@ namespace LegionWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Update update)
         {
+            Console.WriteLine("Webhook fired POST()");
             TelegramBotClient client = new TelegramBotClient(Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"));
             if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
