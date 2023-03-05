@@ -1,6 +1,12 @@
 using Telegram.Bot;
 using LegionWebApp.Controllers;
 using Telegram.Bot.Services;
+using LegionWebApp.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,18 +45,86 @@ builder.Services
     .AddControllers()
     .AddNewtonsoftJson();
 
+
+
+
+builder.Services.AddRazorPages().AddViewLocalization();
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new List<CultureInfo>
+    {
+        new CultureInfo("en-GB"),
+        new CultureInfo("uk"),
+        new CultureInfo("fr"),
+        new CultureInfo("de")
+    };
+    options.DefaultRequestCulture = new RequestCulture("en-GB");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+var connectionString = builder.Configuration.GetConnectionString("herokypostgresql");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+  options.UseNpgsql(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter(); // Use Migrations
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
+    options.SignIn.RequireConfirmedAccount = true;
+})
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddControllersWithViews();
+
+
+
 var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseMigrationsEndPoint();
+}
+else
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
+}
+
+
+
 // Construct webhook route from the Route configuration parameter
 // It is expected that BotController has single method accepting Update
 app.MapBotWebhookRoute<BotController>(route: botConfiguration.Route);
 app.MapControllers();
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseRequestLocalization();
+
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
+
+
 app.Run();
 
-#pragma warning disable CA1050 // Declare types in namespaces
-#pragma warning disable RCS1110 // Declare type inside namespace.
 public class BotConfiguration
-#pragma warning restore RCS1110 // Declare type inside namespace.
-#pragma warning restore CA1050 // Declare types in namespaces
 {
     public static readonly string Configuration = "BotConfiguration";
 
