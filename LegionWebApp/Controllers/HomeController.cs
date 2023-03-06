@@ -50,11 +50,11 @@ namespace LegionWebApp.Controllers
             return View();
         }
         public IActionResult Index()
-        {
+        {           
             return View();
         }
-        public async Task<IActionResult> Gallery()
-        {
+        public IActionResult Gallery()
+        {          
             return View();
         }
 
