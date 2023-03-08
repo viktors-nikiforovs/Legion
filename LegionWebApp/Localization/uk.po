@@ -292,7 +292,7 @@ msgstr "5 січня 2023 року, разом з партнерами - бла�
 msgid "Pay with Card / GPay"
 msgstr "Оплатіть карткою / GPay"
 
-msgid "On February 15, medicine for injured soldiers of war was sent to Kramatorsk."
+msgid "On February 15, medicine for the war wounded was sent to Kramatorsk."
 msgstr "15 лютого відправили ліки для військовопоранених в Краматорськ"
 
 msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital."

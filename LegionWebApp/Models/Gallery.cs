@@ -13,7 +13,7 @@
 
         private void CreateList()
         {
-            CreateItem("On February 15, medicine for injured soldiers of war was sent to Kramatorsk.", new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg" }, null, null, new DateOnly(2023, 02, 15));
+            CreateItem("On February 15, medicine for the war wounded was sent to Kramatorsk.", new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg" }, null, null, new DateOnly(2023, 02, 15));
             CreateItem("On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region.", new string[] { "4.jpeg", "3.jpeg", "2.jpeg", "1.jpeg",  "5.jpeg", "6.jpeg" }, null, null, new DateOnly(2023, 02, 13));
             CreateItem("On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital.", new string[] { "3.jpeg", "2.jpeg", "1.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg" }, null, null, new DateOnly(2023, 02, 07));
             CreateItem("On January 5, 2023, in connection with the withdrawal, the \"Front Line\" charitable foundation sent 5 pallets of humanitarian aid: products, shoes, clothes and hygiene products to the Berislav village of the Kherson region, which was under occupation.", null, new string[] { "1.mp4" }, null, new DateOnly(2023, 01, 05));
