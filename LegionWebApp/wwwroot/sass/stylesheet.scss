@@ -110,7 +110,22 @@ body {
     background: linear-gradient(to bottom, rgba(3, 109, 95, 1), rgba(4, 62, 55, 1), rgba(3, 109, 95, 1));
     transition: background 0.5s ease;
 }
+.feed-container a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}
 
+.feed-container a:visited {
+    color: white;
+    background-color: transparent;
+}
+
+.feed-container a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+}
 
 .feed-container {
     width: 80%;
@@ -361,6 +376,9 @@ video::-webkit-media-controls-timeline {
 
 .partner {
     display: inline-block;
+    min-width: 100px;
+    background-color: white;
+    padding-right: 100px;
     height: 100%;
     border-radius: 2rem;
     padding-right: 1rem;
@@ -382,6 +400,7 @@ video::-webkit-media-controls-timeline {
     font-size: 1.5rem;
     font: bold;
     pointer-events: none;
+    color: white;
 }
 @keyframes partner-running-line {
     0% {

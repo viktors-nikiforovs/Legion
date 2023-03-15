@@ -10900,6 +10900,23 @@ body {
   transition: background 0.5s ease;
 }
 
+.feed-container a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.feed-container a:visited {
+  color: white;
+  background-color: transparent;
+}
+
+.feed-container a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .feed-container {
   width: 80%;
   margin: 0 auto;
@@ -11150,6 +11167,9 @@ video::-webkit-media-controls-timeline {
 
 .partner {
   display: inline-block;
+  min-width: 100px;
+  background-color: white;
+  padding-right: 100px;
   height: 100%;
   border-radius: 2rem;
   padding-right: 1rem;
@@ -11171,6 +11191,7 @@ video::-webkit-media-controls-timeline {
   font-size: 1.5rem;
   font: bold;
   pointer-events: none;
+  color: white;
 }
 
 @keyframes partner-running-line {

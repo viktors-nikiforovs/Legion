@@ -313,8 +313,8 @@ msgstr "Le 7 février 2023, livraison de médicaments à l'hôpital de Vinnytsia
 msgid "On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region."
 msgstr "Le 13 février, des médicaments ont été envoyés à l'hôpital de la ville de Kostyantynivka, dans la région de Donetsk."
 
-msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
-msgstr "Le 15 mars, en collaboration avec la Fondation FRIDA, des médicaments ont été livrés à l'hôpital de campagne (unité médicale) de la 72e brigade."
+msgid "On March 15, together with the <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a> Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
+msgstr "Le 15 mars, en collaboration avec la Fondation <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a>, des médicaments ont été livrés à l'hôpital de campagne (unité médicale) de la 72e brigade."
 
 msgid "Our Partners"
 msgstr "Nos partenaires"
