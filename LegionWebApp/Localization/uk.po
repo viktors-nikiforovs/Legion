@@ -304,5 +304,5 @@ msgstr "13 лютого відправили ліки для шпиталю в �
 msgid "Legion Foundation"
 msgstr "Фонд «Легіон»"
 
-msgid "On March 15, medicine for field hospital (medical unit) of the 72nd brigade."
-msgstr "15 березня передали ліки медикам санітарної роти 72-ї бригади."
+msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
+msgstr "15 березня спільно з Фондом FRIDA передали ліки медикам санітарної роти 72-ї бригади."
