@@ -13,7 +13,7 @@
 
         private void CreateList()
         {
-            CreateItem("On March 15, medicine for field hospital (medical unit) of the 72nd brigade.", new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg" }, new string[] {"1.mp4"}, null, new DateOnly(2023, 03, 15));
+            CreateItem("On March 15, medicine for field hospital (medical unit) of the 72nd brigade.", new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg" }, new string[] {"1.mp4"}, new string[] { "poster.PNG" }, new DateOnly(2023, 03, 15));
             CreateItem("On February 15, medicine for the war wounded was sent to Kramatorsk.", new string[] { "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg" }, null, null, new DateOnly(2023, 02, 15));
             CreateItem("On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region.", new string[] { "4.jpeg", "3.jpeg", "2.jpeg", "1.jpeg",  "5.jpeg", "6.jpeg" }, null, null, new DateOnly(2023, 02, 13));
             CreateItem("On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital.", new string[] { "3.jpeg", "2.jpeg", "1.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg" }, null, null, new DateOnly(2023, 02, 07));
@@ -41,7 +41,6 @@
             {
                 Title = Title,
                 Id = i
-
             };
             i++;
             if (ImageFiles != null)
@@ -66,7 +65,7 @@
             int i = 0;
             foreach (var video in FileNames)
             {
-                result[i] = new Video($"https://legion-foundation.s3.eu-central-1.amazonaws.com/{Date:dd.MM.yy}{multiDay}/{video}", Poster?[i]);
+                result[i] = new Video($"https://legion-foundation.s3.eu-central-1.amazonaws.com/{Date:dd.MM.yy}{multiDay}/{video}", $"/images/Gallery/{Date:dd.MM.yy}{multiDay}/" + Poster?[i]);
                 i++;
             }
             return result;
