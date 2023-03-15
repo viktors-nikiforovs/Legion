@@ -312,3 +312,6 @@ msgstr "Am 13. Februar wurden Medikamente in das Krankenhaus der Stadt Kostjanty
 
 msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
 msgstr "Am 15. März zusammen mit der FRIDA-Stiftung Medizin für das Feldlazarett (medizinische Einheit) der 72. Brigade geliefert."
+
+msgid "Our Partners"
+msgstr "Unsere Partner"

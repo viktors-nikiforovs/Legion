@@ -315,3 +315,6 @@ msgstr "Le 13 février, des médicaments ont été envoyés à l'hôpital de la 
 
 msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
 msgstr "Le 15 mars, en collaboration avec la Fondation FRIDA, des médicaments ont été livrés à l'hôpital de campagne (unité médicale) de la 72e brigade."
+
+msgid "Our Partners"
+msgstr "Nos partenaires"

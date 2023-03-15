@@ -306,3 +306,6 @@ msgstr "Фонд «Легіон»"
 
 msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
 msgstr "15 березня спільно з Фондом FRIDA передали ліки медикам санітарної роти 72-ї бригади."
+
+msgid "Our Partners"
+msgstr "Наші партнери"
