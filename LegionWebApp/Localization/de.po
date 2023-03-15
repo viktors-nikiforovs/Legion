@@ -310,5 +310,5 @@ msgstr "Am 7. Februar 2023 Lieferung von Medikamenten an das Krankenhaus Winnyzj
 msgid "On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region."
 msgstr "Am 13. Februar wurden Medikamente in das Krankenhaus der Stadt Kostjantyniwka im Gebiet Donezk geschickt."
 
-msgid "On March 15, medicine for military medics of the 72nd brigade."
-msgstr "Am 15. März Medizin für Militärsanitäter der 72. Brigade."
+msgid "On March 15, medicine for field hospital (medical unit) of the 72nd brigade."
+msgstr "Am 15. März Medizin für das Feldlazarett (Medizinische Einheit) der 72. Brigade."
