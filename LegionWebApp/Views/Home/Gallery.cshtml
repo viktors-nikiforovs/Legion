@@ -1,9 +1,13 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
+﻿@using LegionWebApp.Models
+@using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
 
 @{
-	/*
+    ViewData["Title"] = @T["Gallery"];
+    var Gallery = new Gallery();
+    int i = 1;
+		/*
 	* animate modal
 	* on scrollup pause
 	* thumbnails in modal
@@ -18,54 +22,48 @@
 	* card paytments
 	* parthners
 	*/
-	ViewData["Title"] = @T["Gallery"];
-	var Gallery = new Gallery();
-	<div class="feed-container">
-		@foreach (var item in Gallery.ItemList)
-		{
-			int i = 1;
-			<div class="feed-post">
-				<div class="post-header">
-					<img src="/images/logo.png" class="profile-picture">
-					<div class="post-info">
-						<div class="username">@T["Legion Foundation"]</div>
-						<div class="post-time">@item.Date.ToString()</div>
-					</div>
-				</div>
-				<div class="post-content">
-					@T[@item.Title]
-				</div>
-				<div class="container post-media">
-					<div class="row row-cols-2 row-cols-sm-4">
-						@if (item.Video != null)
-						{
-							@foreach (var video in item.Video)
-							{
-								<div class="col">
-									<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-										<video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link poster="@video.Poster" type="video/mp4"></video>
-									</div>
-								</div>
-								i++;
-							}
-						}
-						@if (item.Image != null)
-						{
-							@foreach (var image in item.Image)
-							{
-								<div class="col">
-									<div class="media-item" data-post-id="@item.Id">
-										<img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
-									</div>
-								</div>
-								i++;
-							}
-						}
-					</div>
-				</div>
-			</div>
-		}
-	</div>
+}
+<div class="feed-container">
+    @foreach (var item in Gallery.ItemList)
+    {
+        <div class="feed-post">
+            <div class="post-header">
+                <img src="/images/logo.png" class="profile-picture">
+                <div class="post-info">
+                    <div class="username">@T["Legion Foundation"]</div>
+                    <div class="post-time">@item.Date.ToString()</div>
+                </div>
+            </div>
+            <div class="post-content">
+                @T[@item.Title]
+            </div>
+            <div class="container post-media">
+                <div class="row row-cols-2 row-cols-sm-4">
+                    @foreach (var media in item.Media)
+                    {
+                        if (media is Video video)
+                        {
+                            <div class="col">
+                                <div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
+                                    <video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link poster="@video.Poster" type="video/mp4"></video>
+                                </div>
+                            </div>
+                        }
+                        else if (media is Image image)
+                        {
+                            <div class="col">
+                                <div class="media-item" data-post-id="@item.Id">
+                                    <img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
+                                </div>
+                            </div>
+                        }
+                        i++;
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
 	<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
 		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 		<a class="next" onclick="plusSlides(1)">&#10095;</a>
