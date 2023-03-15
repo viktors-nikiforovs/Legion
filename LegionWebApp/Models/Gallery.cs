@@ -65,7 +65,14 @@
             int i = 0;
             foreach (var video in FileNames)
             {
-                result[i] = new Video($"https://legion-foundation.s3.eu-central-1.amazonaws.com/{Date:dd.MM.yy}{multiDay}/{video}", $"/images/Gallery/{Date:dd.MM.yy}{multiDay}/" + Poster?[i]);
+                if (Poster != null && Poster.Length > i && !string.IsNullOrEmpty(Poster[i]))
+                {
+                    result[i] = new Video($"https://legion-foundation.s3.eu-central-1.amazonaws.com/{Date:dd.MM.yy}{multiDay}/{video}#t=0.1", $"/images/Gallery/{Date:dd.MM.yy}{multiDay}/" + Poster[i]);
+                }
+                else
+                {
+                    result[i] = new Video($"https://legion-foundation.s3.eu-central-1.amazonaws.com/{Date:dd.MM.yy}{multiDay}/{video}#t=0.5", null);
+                }
                 i++;
             }
             return result;

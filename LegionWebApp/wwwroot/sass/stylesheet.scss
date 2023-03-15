@@ -360,6 +360,7 @@ video::-webkit-media-controls-timeline {
     height: 50px;
     overflow: hidden;
     background-color: transparent;
+    margin-bottom: 1.5rem;
 }
 
 .partner-running-line {
@@ -375,17 +376,22 @@ video::-webkit-media-controls-timeline {
 }
 
 .partner {
-    display: inline-block;
-    min-width: 100px;
+    display: block;
+    min-width: 150px;
+    align-items: center;
     background-color: white;
-    padding-right: 100px;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
     border-radius: 2rem;
-    padding-right: 1rem;
+    z-index:-2;
 }
 
 .partner img {
     height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .partner-text {
@@ -397,10 +403,12 @@ video::-webkit-media-controls-timeline {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-style: italic;
     font: bold;
     pointer-events: none;
     color: white;
+    z-index:-3;
 }
 @keyframes partner-running-line {
     0% {

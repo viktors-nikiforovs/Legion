@@ -104,6 +104,7 @@
 					if (aspectRatio >= 1) {
 						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
 					}
+
 				} else {
 					media.on('loadedmetadata', function() {
 						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
