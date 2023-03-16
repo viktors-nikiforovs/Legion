@@ -11,7 +11,7 @@ namespace LegionWebApp.Controllers
 
         public GitHubController()
         {
-            string accessToken = "44706a1f5b7a0cc2f11dda0368cfedd6ff50eb71";
+            string accessToken = "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";
             string owner = "viktors-nikiforovs";
             _gitHubService = new GitHubService(accessToken, owner);
         }
