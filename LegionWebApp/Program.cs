@@ -10,6 +10,13 @@ var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramB
 builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
 
 var telegramBotConfiguration = telegramBotConfigurationSection.Get<TelegramBotConfiguration>();
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddConsole(); // add Console logger
+    loggingBuilder.AddDebug(); // add Debug logger
+    loggingBuilder.AddEventLog(); // add EventLog logger
+});
+
 
 builder.Services.AddHttpClient("telegram_bot_client")
                 .AddTypedClient<ITelegramBotClient>((httpClient, sp) =>

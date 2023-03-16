@@ -32,6 +32,8 @@ public class UpdateHandlers
 
     public async Task HandleUpdateAsync(Update update, CancellationToken cancellationToken)
     {
+        _logger.LogInformation("Received update: {UpdateType}", update.Type);
+
         var handler = update switch
         {
             { Message: { Chat: { Type: ChatType.Group or ChatType.Supergroup } } message } => BotOnMessageReceivedFromGroup(message, cancellationToken),
