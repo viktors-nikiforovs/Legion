@@ -34,13 +34,7 @@ public class UpdateHandlers
     {
         var handler = update switch
         {
-            // UpdateType.Unknown:
-            // UpdateType.ChannelPost:
-            // UpdateType.EditedChannelPost:
-            // UpdateType.ShippingQuery:
-            // UpdateType.PreCheckoutQuery:
-            // UpdateType.Poll:
-            { ChannelPost.Chat.Type: ChatType.Group or ChatType.Supergroup } messageFromGroup => BotOnMessageReceivedFromGroup(messageFromGroup.Message, cancellationToken),
+            { Message: { Chat: { Type: ChatType.Group or ChatType.Supergroup } } message } => BotOnMessageReceivedFromGroup(message, cancellationToken),
             { Message: { } message } => BotOnMessageReceived(message, cancellationToken),
             { EditedMessage: { } message } => BotOnMessageReceived(message, cancellationToken),
             { CallbackQuery: { } callbackQuery } => BotOnCallbackQueryReceived(callbackQuery, cancellationToken),
@@ -48,9 +42,9 @@ public class UpdateHandlers
             { ChosenInlineResult: { } chosenInlineResult } => BotOnChosenInlineResultReceived(chosenInlineResult, cancellationToken),
             _ => UnknownUpdateHandlerAsync(update, cancellationToken)
         };
-
         await handler;
     }
+
     private async Task<Message> BotOnMessageReceivedFromGroup(Message message, CancellationToken cancellationToken)
     {
         _logger.LogInformation("Receive message in {message.Chat.FirstName.FirstName}: {MessageType}", message.Type);
