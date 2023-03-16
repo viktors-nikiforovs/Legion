@@ -1,13 +1,11 @@
 ﻿@using LegionWebApp.Models
 @using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
-@inject LegionWebApp.Data.ApplicationDbContext DbContext
 @inject IViewLocalizer T
 
 @{
     ViewData["Title"] = @T["Gallery"];
-    var Gallery = new GalleryModel(DbContext);
-
+    var Gallery = new GalleryModel();
     int i = 1;
 		/*
 	* animate modal
@@ -71,6 +69,7 @@
 		<a class="next" onclick="plusSlides(1)">&#10095;</a>
 		<a class="close" onclick="closeModal()"></a>
 	</div>
+}
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
 	$(document).ready(function() {

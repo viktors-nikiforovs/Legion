@@ -1,22 +1,14 @@
-﻿using LegionWebApp.Models;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using LegionWebApp.Models;
 
 namespace LegionWebApp.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-
-        public DbSet<GalleryItem> GalleryItems { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Image>().ToTable("Image");
-            modelBuilder.Entity<Video>().ToTable("Video");
-        }
-
     }
 }
