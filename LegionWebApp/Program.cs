@@ -10,14 +10,6 @@ var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramB
 builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
 
 var telegramBotConfiguration = telegramBotConfigurationSection.Get<TelegramBotConfiguration>();
-builder.Services.AddLogging(loggingBuilder =>
-{
-    loggingBuilder.AddConsole(); // add Console logger
-    loggingBuilder.AddDebug(); // add Debug logger
-    loggingBuilder.AddEventLog(); // add EventLog logger
-});
-
-
 builder.Services.AddHttpClient("telegram_bot_client")
                 .AddTypedClient<ITelegramBotClient>((httpClient, sp) =>
                 {
@@ -49,6 +41,14 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 builder.Services.AddControllersWithViews();
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.ClearProviders();
+    loggingBuilder.AddDebug();
+    loggingBuilder.AddConsole();
+    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
