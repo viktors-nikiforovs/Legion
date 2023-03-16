@@ -292,7 +292,7 @@ msgstr "5 січня 2023 року, разом з партнерами - бла�
 msgid "Pay with Card / GPay"
 msgstr "Оплатіть карткою / GPay"
 
-msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk."
+msgid "On February 15, medicine for the war wounded was sent to Kramatorsk."
 msgstr "15 лютого відправили ліки для військовопоранених в Краматорськ"
 
 msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital."
@@ -303,3 +303,10 @@ msgstr "13 лютого відправили ліки для шпиталю в �
 
 msgid "Legion Foundation"
 msgstr "Фонд «Легіон»"
+
+msgid "On March 15, together with the FRIDA Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
+msgid "On March 15, together with the <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a> Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
+msgstr "15 березня спільно з Фондом <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a> передали ліки медикам санітарної роти 72-ї бригади."
+
+msgid "Our Partners"
+msgstr "Наші партнери"

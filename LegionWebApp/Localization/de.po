@@ -1,11 +1,11 @@
 ﻿msgid "Vehicles"
-msgstr "Autos"
+msgstr "Fahrzeuge"
 
 msgid "Constant Needs"
-msgstr "Hilfe bei Material und technischer Ausstattung"
+msgstr "Ständige Bedürfnisse"
 
 msgid "Finance Aid"
-msgstr "Hilfe mit Geld"
+msgstr "Finanzhilfe"
 
 msgid "About Us"
 msgstr "Über uns"
@@ -14,7 +14,7 @@ msgid "Our Team"
 msgstr "Unser Team"
 
 msgid "Contact Us"
-msgstr "Kontakte"
+msgstr "Kontaktieren Sie uns"
 
 msgid "Gallery"
 msgstr "Galerie"
@@ -23,22 +23,22 @@ msgid "Home"
 msgstr "Startseite"
 
 msgid "Purpose of payment"
-msgstr "Der Zahlungszweck"
+msgstr "Zahlungszweck"
 
 msgid "CHARITABLE ORGANIZATION"
-msgstr "WOHLTÄTIGE ORGANISATION"
+msgstr "Wohltätigkeitsorganisation"
 
 msgid "CHARITY FOUNDATION"
-msgstr "CHARITY FOUNDATION"
+msgstr "Wohltätigkeitsstiftung"
 
 msgid "LEGION"
 msgstr "LEGION"
 
 msgid "Postal address"
-msgstr "Postfach"
+msgstr "Postadresse"
 
 msgid "03142 Kyiv -142, post office 28"
-msgstr "03142, Kiew-142, Postfach 28"
+msgstr "03142 Kiew-142, Postfach 28"
 
 msgid "Attention"
 msgstr "Achtung"
@@ -47,10 +47,10 @@ msgid "Be sure to include the name of the organization and the purpose of the pa
 msgstr "Achten Sie darauf, den Namen der Organisation und den Zweck der Zahlung anzugeben"
 
 msgid "Charitable donation"
-msgstr "Der Zahlungszweck"
+msgstr "Spende"
 
 msgid "Сompany Name"
-msgstr "Der Name der Firma"
+msgstr "Firmenname"
 
 msgid "or"
 msgstr "oder"
@@ -59,10 +59,10 @@ msgid "СО «CF"
 msgstr "СО «CF"
 
 msgid "ID Code"
-msgstr "ID Code"
+msgstr "ID-Code"
 
 msgid "Name of the bank"
-msgstr "Der Name der Bank"
+msgstr "Name der Bank"
 
 msgid "FIRST UKRAINIAN INTERNATIONAL BANK 4, Andriivska Str., Kyiv, 04070, Ukraine"
 msgstr "ERSTE UKRAINISCHE INTERNATIONALE BANK St. Andriyivska 4, Kyjiw, 04070, Ukraine"
@@ -74,43 +74,46 @@ msgid "Amount in U.S. dollars"
 msgstr "Betrag in US-Dollar"
 
 msgid "e-mail"
-msgstr "email"
+msgstr "E-Mail"
 
 msgid "E-mail"
-msgstr "Email"
+msgstr "E-Mail"
 
 msgid "Charitable Foundation «Legion» was founded at the end of April 2022 in Kyiv. The fund's activities are aimed at material and technical support for the Armed Forces of Ukraine and other units operating in hostile environments protecting the civilian population, peaceful cities, and the sovereignty of Ukraine. The fund will not be used for lethal aid!"
-msgstr "Die «Legion» Wohltätigkeitsstiftung wurde Ende April 2022 in Kiew gegründet. Die Tätigkeit der Stiftung zielt auf die materialle und technischer Unterstützung der Streitkräfte der Ukraine und anderer Unterabschnitt, die an Feindseligkeiten teilnehmen, zum Schutz der Zivilbevölkerung, friedlicher Städte und der Souveränität der Ukraine. Die Stiftung liefert keine Waffen!"
+msgstr "Die Wohltätigkeitsstiftung «Legion» wurde Ende April 2022 in Kiew gegründet. Die Tätigkeit der Stiftung zielt auf die materielle und technische Unterstützung der Streitkräfte der Ukraine und anderer Einheiten ab, die in feindlichen Umgebungen zum Schutz der Zivilbevölkerung, friedlicher Städte und der Souveränität der Ukraine tätig sind. Die Stiftung wird nicht für tödliche Hilfe verwendet!"
 
 msgid "We provide reporting in videos and photos, documents, and acts of transfer."
-msgstr "Wir liefern Berichterstattung in Form von Video- und Fotomaterial, Dokumenten und Übertragungsakten."
+msgstr "Wir liefern Berichterstattung in Form von Videos und Fotos, Dokumenten und Übergabeakten."
 
 msgid "Since the invasion began on February 24th, the world was shocked by the Russian military's targeting of civilians and children. Russian artillery and rockets continue to destroy civilian infrastructure, homes, and communities. Inhabitants of captured territories suffer from the daily brutality of Russian military occupation."
-msgstr "Seit Februar 2022, als die russische Armee eine umfassende Invasion der Ukraine startete, hat die ganze Welt verstanden, dass Russland Zivilisten und Kinder tötet. Nur ukrainische Verteidiger, die Unterstützung brauchen, können die Eindringlinge aufhalten. Ukrainische Soldaten haben bereits ihren Mut, ihre Widerstandsfähigkeit und ihre Professionalität in Kampfhandlungen unter Beweis gestellt, was weltweit Ansehen erlangt hat."
+msgstr "Seit dem Beginn der Invasion am 24. Februar ist die Welt schockiert über das russische Militär, das Zivilisten und Kinder ins Visier nimmt. Russische Artillerie und Raketen zerstören weiterhin zivile Infrastruktur, Häuser und Gemeinden. Die Bewohner der eroberten Gebiete leiden täglich unter der Brutalität der russischen Militärbesatzung."
 
 msgid "Despite ongoing international support from our European and American allies on the diplomatic, economic, and military fronts; the soldiers of Ukraine continue to struggle with material and logistics shortages. The Charitable Foundation Legion is in constant contact with the Ukrainian military, that we can quickly respond when need arises. With the help of your donations, the volunteers of the Charitable Foundation “Legion” can become a reliable logistic supplier for our defenders."
-msgstr "Westliche Partner helfen uns, an der diplomatischen, wirtschaftlichen und militärischen Fronten zu gewinnen, aber unsere Verteidiger brauchen immer noch logistische Unterstützung. Wir stehen in ständiger Kommunikation mit dem ukrainischen Militär, damit wir schnell reagieren und ihre Bedürfnisse erfüllen können. Freiwillige der “Legion” Wohltätigkeitsstiftung können mit Hilfe Ihrer Spenden ein zuverlässiger Rückhalt für unsere Verteidiger sein."
+msgstr "Trotz der anhaltenden internationalen Unterstützung von unseren europäischen und amerikanischen Verbündeten an den diplomatischen, wirtschaftlichen und militärischen Fronten kämpfen die Soldaten der Ukraine weiterhin mit Material- und Logistikengpässen. Die Wohltätigkeitsstiftung Legion steht in ständigem Kontakt mit dem ukrainischen Militär, damit wir schnell reagieren können, wenn Bedarf entsteht. Mit Hilfe Ihrer Spenden können die Freiwilligen der Wohltätigkeitsstiftung „Legion“ zu einem zuverlässigen logistischen Lieferanten für unsere Verteidiger werden."
 
 msgid "By helping us, you will be saving the lives of Ukrainian defenders. Their families are waiting for them to return home!"
-msgstr "Indem Sie uns helfen, retten Sie das Leben des ukrainischen Militärs. Sie werden zu Hause erwartet!"
+msgstr "Indem Sie uns helfen, retten Sie das Leben der ukrainischen Verteidiger. Ihre Familien warten darauf, dass sie nach Hause zurückkehren!"
 
 msgid "Phone"
-msgstr "Telefone"
+msgstr "Telefon"
 
 msgid "We are on social media"
 msgstr "Wir sind in den sozialen Medien"
 
 msgid "Kyiv, 45 Peremohy Avenue"
-msgstr "Kyjiw, Prospekt Peremohy 45"
+msgstr "Kiew, Prospekt Peremohy 45"
 
 msgid "Constant needs of the armed forces of Ukraine"
-msgstr "Hilfe bei Material und technischer Ausstattung"
+msgstr "Ständiger Bedarf der Streitkräfte der Ukraine"
 
 msgid "Another way to help is to buy equipment for the army and send it to the fund. We will send technical equipment, personal protective equipment, and medicines to military units."
-msgstr "Eine andere Möglichkeit, zu helfen, besteht darin, selbst Ausrüstung für die Armee zu kaufen und an die Stiftung zu senden. Technische Ausrüstung, persönliche Schutzausrüstung und Medikamente werden auf Anfrage an Militäreinheiten versandt."
+msgstr "Eine andere Möglichkeit zu helfen besteht darin, Ausrüstung für die Armee zu kaufen und an den Fonds zu senden. Wir versenden technische Ausrüstung, persönliche Schutzausrüstung und Medikamente an Militäreinheiten."
 
-msgid "The parcel can be sent to our warehouse. Before sending, contact us at: +380960177075 or write a letter to"
-msgstr "Das Paket kann an unser Lager gesendet werden. Kontaktieren Sie uns vor dem Versenden unter: +380960177075 oder schreiben Sie einen Brief an "
+msgid "The parcel can be sent to our warehouse. Before sending, contact us at:"
+msgstr "Das Paket kann an unser Lager gesendet werden. Kontaktieren Sie uns vor dem Versenden unter:"
+
+msgid "or write a letter to"
+msgstr "oder schreiben Sie einen Brief an"
 
 msgid "First aid kit IFAK II"
 msgstr "Verbandskasten IFAK II"
@@ -170,13 +173,13 @@ msgid "Tactical Backpacks"
 msgstr "Rucksack"
 
 msgid "Army Ration Packs (dehydrated)"
-msgstr "sublimierte Trockenration"
+msgstr "Sublimierte Trockenration"
 
 msgid "Tactical knee pads"
-msgstr "Knieschützer"
+msgstr "Taktische Knieschützer"
 
 msgid "Tactical elbow pads"
-msgstr "Ellenbogenschützer"
+msgstr "Taktische Ellenbogenschützer"
 
 msgid "Founders"
 msgstr "Gründer des Fonds"
@@ -188,7 +191,7 @@ msgid "Director of the Foundation"
 msgstr "Direktor der Stiftung"
 
 msgid "Vehicles for the Armed Forces of Ukraine"
-msgstr "Autos für die Armee"
+msgstr "Fahrzeuge für die Streitkräfte der Ukraine"
 
 msgid "Currently, the demand for military transport far exceeds the capability of state support."
 msgstr "Derzeit übersteigt die Nachfrage nach Militärtransporten bei weitem die Kapazität der staatlichen Unterstützung."
@@ -197,19 +200,19 @@ msgid "The army needs vehicles to:"
 msgstr "Die Armee benötigt Fahrzeuge für:"
 
 msgid "increase the mobility of troops"
-msgstr "erhöhen die Mobilität der Truppen"
+msgstr "Erhöhen der Mobilität der Truppen"
 
 msgid "improve the material and technical capabilities of units"
-msgstr "verbessern die logistischen Fähigkeiten von Einheiten"
+msgstr "Verbessern der logistischen Fähigkeiten von Einheiten"
 
 msgid "save the lives of soldiers"
-msgstr "retten das Leben von Soldaten"
+msgstr "Rettung des Lebens von Soldaten"
 
 msgid "The army needs diesel pickups, SUVs, minibuses, and other all-terrain vehicles. This fund will use your donations on the necessary transport for the Armed Forces of Ukraine."
-msgstr "Die Armee braucht Diesel-Pickups, SUVs, Kleinbusse und andere Arten von Autos. Für Ihre Beiträge wird die “Legion” Stiftung die notwendigen Transportmittel für die Streitkräfte der Ukraine kaufen."
+msgstr "Die Armee braucht Diesel-Pickups, SUVs, Kleinbusse und andere Geländefahrzeuge. Diese Stiftung wird Ihre Spenden für den notwendigen Transport für die Streitkräfte der Ukraine verwenden."
 
 msgid "Every dollar will help save lives!"
-msgstr "Auch kleine Beiträge können Leben retten!"
+msgstr "Jeder Dollar hilft, Leben zu retten!"
 
 msgid "Legion"
 msgstr "Legion"
@@ -257,28 +260,28 @@ msgid "On behalf of ourselves and on behalf of our team, we express our sincere 
 msgstr "Im eigenen Namen und im Namen unseres Teams möchten wir Ihnen unseren aufrichtigen Dank für diese selbstlose Hilfe für unser Hauptzentrum aussprechen. Ihre Hilfe in Form von medizinischen Produkten und Hygieneprodukten ist ein unschätzbarer Beitrag nicht nur für die Sache der medizinischen Versorgung, sondern auch für die Souveränität unseres Landes, die medizinische Versorgung unserer Militärangehörigen und das Gefühl der Unterstützung durch die Mitarbeiter unseres Hauptzentrums. Gute Taten bleiben nicht unbemerkt – sie leuchten wie Leuchtfeuer für diejenigen, die auf Hilfe warten. Ich bin sicher, dass Ihr Beispiel für andere Wohltäter bezeichnend ist. Indem Sie in dieser für uns alle schwierigen Zeit Hilfe leisten, geben Sie nicht nur Medikamente, sondern auch Hoffnung, dass wir gemeinsam alle Widrigkeiten überwinden werden. Möge Ihre Freundlichkeit und Großzügigkeit hundertfach zu Ihnen zurückkehren. Ich wünsche Ihnen alles Gute, Gesundheit und Wohlstand. Ich freue mich auf eine weitere fruchtbare Zusammenarbeit im Rahmen der Unterstützung unseres Hauptzentrums."
 
 msgid "Head of the Main Center Colonel of the Medical Service - Volodymyr Lopaychuk August 10, 2022"
-msgstr "Leiter des Hauptzentrums Oberst des Sanitätsdienstes - Volodymyr Lopaychuk 10. August 2022"
+msgstr "Leiter des Hauptzentrums, Oberst des Sanitätsdienstes - Volodymyr Lopaychuk, 10. August 2022"
 
 msgid "10 August, Thank you letter from Main Military Medical Clinical Center."
-msgstr "10 August, Dankesschreiben des Main Military Medical Clinical Center."
+msgstr "10. August, Dankesschreiben vom Hauptmilitärmedizinischen Klinikzentrum."
 
 msgid "On September 11, Humaritarian aid has been dispached from Kyiv locals to Andriivka, Kyiv region."
-msgstr "Am 11. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Andriivka in der Region Kiew entsandt."
+msgstr "Am 11. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Andriivka, Region Kiew, entsandt."
 
 msgid "On September 19, Humaritarian aid has been dispached from Kyiv locals to Lypivka, Kyiv region."
-msgstr "Am 19. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Lypivka in der Region Kiew entsandt."
+msgstr "Am 19. September wurde humanitäre Hilfe von Einheimischen aus Kiew nach Lypivka, Region Kiew, entsandt."
 
 msgid "On October 1, IZUM of the Kharkiv region - (together with our partners - the Front Line Charitable Fund) delivered humanitarian aid to the residents of the city of IZUM, where 80% of the houses were destroyed. Food, medicines, clothes, household chemicals and hygiene products were handed over to residents."
-msgstr "Am 1. Oktober lieferte IZUM der Region Charkiw (zusammen mit unseren Partnern – dem Wohltätigkeitsfonds „Front Line“) humanitäre Hilfe an die Bewohner der Stadt IZUM, wo 80 % der Häuser zerstört wurden. Lebensmittel, Medikamente, Kleidung, Haushaltschemikalien und Hygieneartikel wurden den Bewohnern übergeben."
+msgstr "Am 1. Oktober lieferte IZUM aus der Region Charkiw (zusammen mit unseren Partnern – dem Wohltätigkeitsfonds „Front Line“) humanitäre Hilfe an die Bewohner der Stadt IZUM, wo 80 % der Häuser zerstört wurden. Lebensmittel, Medikamente, Kleidung, Haushaltschemikalien und Hygieneartikel wurden den Bewohnern übergeben."
 
 msgid "From 14th to 16th October, a trip with humanitarian aid to the liberated territories in the Kharkiv region was organized together with partners - the Front Line Charitable Foundation. Food, clothing, household chemicals and hygiene products, medicines and toys for children were delivered to the needy."
 msgstr "Vom 14. bis 16. Oktober wurde zusammen mit Partnern - der Front Line Charitable Foundation - eine Reise mit humanitärer Hilfe in die befreiten Gebiete in der Region Charkiw organisiert. Lebensmittel, Kleidung, Haushaltschemikalien und Hygieneartikel, Medikamente und Spielzeug für Kinder wurden an Bedürftige geliefert."
 
 msgid "On October 15, Shchaslyve, Izum Region."
-msgstr "Am 15. Oktober, Shchaslyve, Izum Region"
+msgstr "Am 15. Oktober, Shchaslyve, Izyum Region"
 
 msgid "On October 15, Lysohirka, Izum Region."
-msgstr "Am 15. Oktober, Lysohirka, Ізюм"
+msgstr "Am 15. Oktober, Lysohirka, Izyum Region"
 
 msgid "On October 16, a large family of a military serviceman - Iskra, Izyum district. A military serviceman's family with many children."
 msgstr "Am 16. Oktober 2022, eine große Familie eines Militärangehörigen - Iskra, Bezirk Izyum. Eine kinderreiche Soldatenfamilie"
@@ -286,10 +289,10 @@ msgstr "Am 16. Oktober 2022, eine große Familie eines Militärangehörigen - Is
 msgid "On October 3, 2022, medicines, bandage materials and hygiene products were purchased and delivered to the State Main Military Medical Clinical Center for the Wounded"
 msgstr "Am 3. Oktober 2022 wurden Medikamente, Verbandsmaterial und Hygieneartikel gekauft und an das Staatliche Hauptmilitärmedizinische Klinikzentrum für Verwundete geliefert"
 
-msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgid "On October 5, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6."
 msgstr "Am 5. Oktober 2022 wurde die Wohltätigkeitshilfe an das Kyiv City Clinical Hospital 6 übertragen."
 
-msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6"
+msgid "On October 21, 2022, charitable assistance was transferred to Kyiv City Clinical Hospital 6."
 msgstr "Am 21. Oktober 2022 wurde die Wohltätigkeitshilfe an das Kyiv City Clinical Hospital 6 übertragen"
 
 msgid "On October 23, together with our partner CONROLL company, we are preparing to hand over shoe insoles for the servicemen of the Armed Forces to the Armed Forces."
@@ -301,11 +304,17 @@ msgstr "Am 5. Januar 2023 haben wir zusammen mit Partnern - der gemeinnützigen 
 msgid "Pay with Card / GPay"
 msgstr "Bezahlen Sie mit Karte / GPay"
 
-msgid "On February 15, medicine for prisoners of war was sent to Kramatorsk."
-msgstr "Am 15. Februar wurden Medikamente für Kriegsgefangene nach Kramatorsk geschickt"
+msgid "On February 15, medicine for the war wounded was sent to Kramatorsk."
+msgstr "Am 15. Februar wurden Medikamente für die Kriegsverwundeten nach Kramatorsk geschickt."
 
 msgid "On Feb 7, 2023, delivery of medicines to the Vinnytsia hospital."
 msgstr "Am 7. Februar 2023 Lieferung von Medikamenten an das Krankenhaus Winnyzja"
 
 msgid "On February 13, medicine was sent to the hospital in the city of Kostyantynivka, Donetsk region."
 msgstr "Am 13. Februar wurden Medikamente in das Krankenhaus der Stadt Kostjantyniwka im Gebiet Donezk geschickt."
+
+msgid "On March 15, together with the <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a> Foundation delivered medicine for field hospital (medical unit) of the 72nd brigade."
+msgstr "Am 15. März lieferte die Stiftung zusammen mit der Stiftung <a href=\"https://frida-ukraine.com/\">www.FRIDA-Ukraine.com</a> Medizin für das Feldkrankenhaus (medizinische Einheit) der 72. Brigade."
+
+msgid "Our Partners"
+msgstr "Unsere Partner"
