@@ -42,9 +42,21 @@ public class UpdateHandlers
             { CallbackQuery: { } callbackQuery } => BotOnCallbackQueryReceived(callbackQuery, cancellationToken),
             { InlineQuery: { } inlineQuery } => BotOnInlineQueryReceived(inlineQuery, cancellationToken),
             { ChosenInlineResult: { } chosenInlineResult } => BotOnChosenInlineResultReceived(chosenInlineResult, cancellationToken),
+            { ChannelPost: { } channelPost } => BotOnChannelPostReceived(channelPost, cancellationToken), // Add this line
             _ => UnknownUpdateHandlerAsync(update, cancellationToken)
         };
         await handler;
+    }
+
+
+    private async Task BotOnChannelPostReceived(Message channelPost, CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Received channel post: {ChannelPost}", channelPost.Text);
+
+        await _botClient.SendTextMessageAsync(
+            chatId: channelPost.Chat.Id,
+            text: $"Received channel post: {channelPost.Text}",
+            cancellationToken: cancellationToken);
     }
 
     private async Task<Message> BotOnMessageReceivedFromGroup(Message message, CancellationToken cancellationToken)
