@@ -1,9 +1,9 @@
 using Telegram.Bot;
 using LegionWebApp.Controllers;
-using Telegram.Bot.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
+using LegionWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);

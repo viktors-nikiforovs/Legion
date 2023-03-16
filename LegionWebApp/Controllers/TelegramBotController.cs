@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Telegram.Bot.Filters;
-using Telegram.Bot.Services;
+using LegionWebApp.Services;
 using Telegram.Bot.Types;
 
 namespace LegionWebApp.Controllers;
