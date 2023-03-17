@@ -5,72 +5,72 @@
 @inject IViewLocalizer T
 
 @{
-    ViewData["Title"] = @T["Gallery"];
-    var Gallery = new GalleryModel(DbContext);
+	ViewData["Title"] = @T["Gallery"];
+	var Gallery = new GalleryModel(DbContext);
 
-    int i = 1;
-		/*
-	* animate modal
-	* on scrollup pause
-	* thumbnails in modal
-	* scroll one post at time
-	* FB Login
-	* Fund raising
-	* admin cp
-	* telegram bot
-	* facebook bot
-	* Contact email @domain
-	* subdomains
-	* card paytments
-	* parthners
+	int i = 1;
+			/*
+		* animate modal
+		* on scrollup pause
+		* thumbnails in modal
+		* scroll one post at time
+		* FB Login
+		* Fund raising
+		* admin cp
+		* telegram bot
+		* facebook bot
+		* Contact email @domain
+		* subdomains
+		* card paytments
+		* parthners
 	*/
 }
 <div class="feed-container">
-    @foreach (var item in Gallery.ItemList)
-    {
-        <div class="feed-post">
-            <div class="post-header">
-                <img src="/images/logo.png" class="profile-picture">
-                <div class="post-info">
-                    <div class="username">@T["Legion Foundation"]</div>
-                    <div class="post-time">@item.Date.ToString()</div>
-                </div>
-            </div>
-            <div class="post-content">
-                @T[@item.Title]
-            </div>
-            <div class="container post-media">
-                <div class="row row-cols-2 row-cols-sm-4">
-                    @foreach (var media in item.Media)
-                    {
-                        if (media is Video video)
-                        {
-                            <div class="col">
-                                <div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-                                    <video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" src=@video.Link poster="@video.Poster" type="video/mp4"></video>
-                                </div>
-                            </div>
-                        }
-                        else if (media is Image image)
-                        {
-                            <div class="col">
-                                <div class="media-item" data-post-id="@item.Id">
-                                    <img onclick="openModal(@item.Id, @i);currentSlide(@i);" src="@image.Link" />
-                                </div>
-                            </div>
-                        }
-                        i++;
-                    }
-                </div>
-            </div>
-        </div>
-    }
+	@foreach (var item in Gallery.ItemList)
+	{
+		<div class="feed-post">
+			<div class="post-header">
+				<img src="/images/logo.png" class="profile-picture">
+				<div class="post-info">
+					<div class="username">@T["Legion Foundation"]</div>
+					<div class="post-time">@item.Date.ToString()</div>
+				</div>
+			</div>
+			<div class="post-content">
+				@T[@item.Title]
+			</div>
+			<div class="container post-media">
+				<div class="row row-cols-2 row-cols-sm-4">
+					@foreach (var media in item.Media)
+					{
+						if (media is Video video)
+						{
+							<div class="col">
+								<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
+									<video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" data-src="@($"{video.Link}#t=0.5")" poster="@video.Poster" type="video/mp4"></video>
+								</div>
+							</div>
+						}
+						else if (media is Image image)
+						{
+							<div class="col">
+								<div class="media-item" data-post-id="@item.Id">
+									<img onclick="openModal(@item.Id, @i);currentSlide(@i);" data-src="@image.Link" />
+								</div>
+							</div>
+						}
+						i++;
+					}
+				</div>
+			</div>
+		</div>
+	}
 </div>
-	<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-		<a class="close" onclick="closeModal()"></a>
-	</div>
+<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	<a class="close" onclick="closeModal()"></a>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -84,6 +84,13 @@
 				$(this).find('.media-item').eq(5).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);')
 					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
 			}
+
+			// Set the src attribute for the first 6 media items
+			$(this).find('.media-item:lt(6)').each(function() {
+				var media = $(this).find('img, video');
+				var src = media.attr('data-src');
+				media.attr('src', src).removeAttr('data-src');
+			});
 		});
 		$(".media-item").each(function() {
 			var mediaItem = $(this);
@@ -147,6 +154,9 @@
 		posts.forEach(post => {
 			var postImgs = post.querySelectorAll('.media-item video, .media-item img');
 			postImgs.forEach(img => {
+				// Set the src attribute from the src attribute if not null, otherwise use data-src
+				var src = img.getAttribute('src') || img.getAttribute('data-src');
+				img.setAttribute('src', src);
 				imgs.push(img);
 			});
 		});
@@ -156,6 +166,8 @@
 		x.style.overflow = "hidden";
 		showSlides(slideIndex);
 	}
+
+
 	function closeModal() {
 		document.getElementById("ModalContent").style.display = "none";
 		var x = document.getElementsByTagName("BODY")[0];

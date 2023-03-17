@@ -11,7 +11,18 @@ namespace LegionWebApp.Models
 
         public GalleryModel(ApplicationDbContext dbContext)
         {
-            ItemList = dbContext.GalleryItems.Include(gi => gi.Media).ToList();
+            ItemList = dbContext.GalleryItems
+                .Include(gi => gi.Media)
+                .OrderByDescending(gi => gi.Id) // Sort GalleryItems by Id
+                .ToList();
+
+            // Sort the Media items in each GalleryItem by Id
+            foreach (var galleryItem in ItemList)
+            {
+                galleryItem.Media = galleryItem.Media
+                    .OrderBy(media => media.Id) // Sort Media by Id
+                    .ToList();
+            }
         }
     }
 
