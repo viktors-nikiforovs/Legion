@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LegionWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230316214827_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230317210205_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace LegionWebApp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("LegionWebApp.Models.Gallery", b =>
+            modelBuilder.Entity("LegionWebApp.Models.GalleryItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,66 +55,52 @@ namespace LegionWebApp.Migrations
                     b.Property<int>("GalleryItemId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MediaType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("GalleryItemId");
 
-                    b.ToTable("Media");
+                    b.ToTable("Media", (string)null);
+
+                    b.HasDiscriminator<string>("MediaType").HasValue("Media");
                 });
 
             modelBuilder.Entity("LegionWebApp.Models.Image", b =>
                 {
                     b.HasBaseType("LegionWebApp.Models.Media");
 
-                    b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.ToTable("Image", (string)null);
+                    b.HasDiscriminator().HasValue("Image");
                 });
 
             modelBuilder.Entity("LegionWebApp.Models.Video", b =>
                 {
                     b.HasBaseType("LegionWebApp.Models.Media");
-
-                    b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("Poster")
                         .HasColumnType("text");
 
-                    b.ToTable("Video", (string)null);
+                    b.HasDiscriminator().HasValue("Video");
                 });
 
             modelBuilder.Entity("LegionWebApp.Models.Media", b =>
                 {
-                    b.HasOne("LegionWebApp.Models.Gallery", null)
+                    b.HasOne("LegionWebApp.Models.GalleryItem", "GalleryItem")
                         .WithMany("Media")
                         .HasForeignKey("GalleryItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("GalleryItem");
                 });
 
-            modelBuilder.Entity("LegionWebApp.Models.Image", b =>
-                {
-                    b.HasOne("LegionWebApp.Models.Media", null)
-                        .WithOne()
-                        .HasForeignKey("LegionWebApp.Models.Image", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LegionWebApp.Models.Video", b =>
-                {
-                    b.HasOne("LegionWebApp.Models.Media", null)
-                        .WithOne()
-                        .HasForeignKey("LegionWebApp.Models.Video", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LegionWebApp.Models.Gallery", b =>
+            modelBuilder.Entity("LegionWebApp.Models.GalleryItem", b =>
                 {
                     b.Navigation("Media");
                 });

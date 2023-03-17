@@ -1,10 +1,9 @@
 ﻿using LegionWebApp.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LegionWebApp.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -21,15 +20,18 @@ namespace LegionWebApp.Data
 
             builder.Entity<GalleryItem>()
                 .HasMany(gi => gi.Media)
-                .WithOne()
-                .HasForeignKey(m => m.GalleryItemId)
+                .WithOne("GalleryItem")
+                .HasForeignKey("GalleryItemId")
                 .IsRequired();
 
-            builder.Entity<Image>()
-                .HasBaseType<Media>();
-
-            builder.Entity<Video>()
-                .HasBaseType<Media>();
+            // Configure TPH for the Media class
+            builder.Entity<Media>()
+                .ToTable("Media")
+                .HasDiscriminator<string>("MediaType")
+                .HasValue<Image>("Image")
+                .HasValue<Video>("Video");
         }
+
+
     }
 }

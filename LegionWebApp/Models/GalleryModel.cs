@@ -1,11 +1,7 @@
 ﻿using LegionWebApp.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Linq;
 
 namespace LegionWebApp.Models
 {
@@ -26,7 +22,6 @@ namespace LegionWebApp.Models
         public string Title { get; set; }
         public DateOnly Date { get; set; }
 
-        [ForeignKey("GalleryItemId")]
         public ICollection<Media> Media { get; set; }
     }
 
@@ -35,16 +30,19 @@ namespace LegionWebApp.Models
         [Key]
         public int Id { get; set; }
         public int GalleryItemId { get; set; }
+
+        [ForeignKey("GalleryItemId")]
+        public GalleryItem GalleryItem { get; set; }
+        public string Link { get; set; }
     }
 
     public class Image : Media
     {
-        public string Link { get; set; }
+        // No additional properties needed for the Image class
     }
 
     public class Video : Media
     {
-        public string Link { get; set; }
         public string? Poster { get; set; }
     }
 }
