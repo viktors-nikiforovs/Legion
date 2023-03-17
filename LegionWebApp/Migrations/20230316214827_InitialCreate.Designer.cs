@@ -24,7 +24,7 @@ namespace LegionWebApp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("LegionWebApp.Models.GalleryItem", b =>
+            modelBuilder.Entity("LegionWebApp.Models.Gallery", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace LegionWebApp.Migrations
 
             modelBuilder.Entity("LegionWebApp.Models.Media", b =>
                 {
-                    b.HasOne("LegionWebApp.Models.GalleryItem", null)
+                    b.HasOne("LegionWebApp.Models.Gallery", null)
                         .WithMany("Media")
                         .HasForeignKey("GalleryItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -114,7 +114,7 @@ namespace LegionWebApp.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LegionWebApp.Models.GalleryItem", b =>
+            modelBuilder.Entity("LegionWebApp.Models.Gallery", b =>
                 {
                     b.Navigation("Media");
                 });
