@@ -4,8 +4,17 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
 using LegionWebApp.Services;
+using LegionWebApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// Get connection string from configuration
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Configure DbContext to use PostgreSQL
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
 var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);
 builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
 
