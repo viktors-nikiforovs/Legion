@@ -7,9 +7,7 @@
 @{
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new GalleryModel(DbContext);
-
-	int i = 1;
-			/*
+	/*
 		* animate modal
 		* on scrollup pause
 		* thumbnails in modal
@@ -28,6 +26,7 @@
 <div class="feed-container">
 	@foreach (var item in Gallery.ItemList)
 	{
+		int i = 1;
 		<div class="feed-post">
 			<div class="post-header">
 				<img src="/images/logo.png" class="profile-picture">
@@ -55,7 +54,7 @@
 						{
 							<div class="col">
 								<div class="media-item" data-post-id="@item.Id">
-									<img onclick="openModal(@item.Id, @i);currentSlide(@i);" data-src="@image.Link" />
+									<img onclick="openModal(@item.Id, @i);" data-src="@image.Link" />
 								</div>
 							</div>
 						}
@@ -126,7 +125,7 @@
 <!-- Modal -->
 <script>
 	function togglePlayPause(element, itemId, itemNumber) {
-		openModal(itemId, itemNumber); currentSlide(itemNumber);
+		openModal(itemId, itemNumber);
 		if (element.paused) {
 			element.play();
 			element.style.display = "block";
@@ -177,16 +176,13 @@
 	function plusSlides(n) {
 		var numSlides = document.getElementsByClassName("mySlides").length;
 		slideIndex += n;
-		console.log(slideIndex);
+		console.log("current slide is: " + slideIndex);
 		if (slideIndex > numSlides) {
 			slideIndex = 1;
 		} else if (slideIndex < 1) {
 			slideIndex = numSlides;
 		}
 		showSlides(slideIndex);
-	}
-	function currentSlide(n) {
-		showSlides(slideIndex = n);
 	}
 	function showSlides(n) {
 		var i;
