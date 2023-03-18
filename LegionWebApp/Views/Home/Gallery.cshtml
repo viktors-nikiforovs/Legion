@@ -124,6 +124,8 @@
 </script>
 <!-- Modal -->
 <script>
+	let slideIndex = 1;
+
 	function togglePlayPause(element, itemId, itemNumber) {
 		openModal(itemId, itemNumber);
 		if (element.paused) {
@@ -147,24 +149,26 @@
 		});
 		modalContent.innerHTML += oldHtml;
 	}
-	function openModal(postId, slideIndex) {
-		var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
-		var imgs = [];
-		posts.forEach(post => {
-			var postImgs = post.querySelectorAll('.media-item video, .media-item img');
-			postImgs.forEach(img => {
-				// Set the src attribute from the src attribute if not null, otherwise use data-src
-				var src = img.getAttribute('src') || img.getAttribute('data-src');
-				img.setAttribute('src', src);
-				imgs.push(img);
-			});
-		});
-		CreateModal(imgs);
-		document.getElementById("ModalContent").style.display = "block";
-		var x = document.getElementsByTagName("BODY")[0];
-		x.style.overflow = "hidden";
-		showSlides(slideIndex);
-	}
+	function openModal(postId, itemNumber) {
+    slideIndex = itemNumber; // Add this line to update the global slideIndex value
+    var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
+    var imgs = [];
+    posts.forEach(post => {
+        var postImgs = post.querySelectorAll('.media-item video, .media-item img');
+        postImgs.forEach(img => {
+            // Set the src attribute from the src attribute if not null, otherwise use data-src
+            var src = img.getAttribute('src') || img.getAttribute('data-src');
+            img.setAttribute('src', src);
+            imgs.push(img);
+        });
+    });
+    CreateModal(imgs);
+    document.getElementById("ModalContent").style.display = "block";
+    var x = document.getElementsByTagName("BODY")[0];
+    x.style.overflow = "hidden";
+    showSlides(slideIndex);
+}
+
 
 
 	function closeModal() {
@@ -173,17 +177,19 @@
 		x.style.overflow = "auto";
 		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><a class="close" onclick="closeModal()"></a>';
 	}
-	function plusSlides(n) {
-		var numSlides = document.getElementsByClassName("mySlides").length;
-		slideIndex += n;
-		console.log("current slide is: " + slideIndex);
-		if (slideIndex > numSlides) {
-			slideIndex = 1;
-		} else if (slideIndex < 1) {
-			slideIndex = numSlides;
-		}
-		showSlides(slideIndex);
-	}
+function plusSlides(n) {
+    var numSlides = document.getElementsByClassName("mySlides").length;
+    var newSlideIndex = slideIndex + n;
+
+    if (newSlideIndex > numSlides) {
+        newSlideIndex = 1;
+    } else if (newSlideIndex < 1) {
+        newSlideIndex = numSlides;
+    }
+    slideIndex = newSlideIndex;
+    showSlides(slideIndex);
+}
+
 	function showSlides(n) {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
