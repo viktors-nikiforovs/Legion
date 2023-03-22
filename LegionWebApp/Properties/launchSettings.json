@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "TelegramBotConfiguration__HostAddres": "legion-foundation.org",
+        "TelegramBotConfiguration__HostAddress": "legion-foundation.org",
         "TelegramBotConfiguration__BotToken": "5479970688:AAEc5BZBtBIWXg44FuUi_92yHaDNTCnbWu4",
         "TelegramBotConfiguration__Route": "/bot",
         "TelegramBotConfiguration__SecretToken": "qqZosKOk70",
