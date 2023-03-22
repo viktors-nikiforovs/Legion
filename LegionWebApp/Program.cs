@@ -6,6 +6,9 @@ using System.Globalization;
 using LegionWebApp.Services;
 using LegionWebApp.Data;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
+
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,10 +64,13 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.SetMinimumLevel(LogLevel.Trace);
 });
 
+
 var app = builder.Build();
+
 
 if (app.Environment.IsDevelopment())
 {
+    
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }
