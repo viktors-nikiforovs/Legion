@@ -8,6 +8,8 @@ using LegionWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddEnvironmentVariables();
 // Get connection string from configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -15,6 +17,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+//var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);
 var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);
 builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
 
