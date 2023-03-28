@@ -25,6 +25,22 @@ namespace LegionWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Localization",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Key = table.Column<string>(type: "text", nullable: false),
+                    Value_FR = table.Column<string>(type: "text", nullable: false),
+                    Value_DE = table.Column<string>(type: "text", nullable: false),
+                    Value_UK = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Localization", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Media",
                 columns: table => new
                 {
@@ -54,6 +70,9 @@ namespace LegionWebApp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Localization");
+
             migrationBuilder.DropTable(
                 name: "Media");
 

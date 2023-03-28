@@ -7,9 +7,12 @@ using LegionWebApp.Services;
 using LegionWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
+using Microsoft.Extensions.Localization;
+using LegionWebApp.Localization;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
 
 Env.Load();
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddEnvironmentVariables();
@@ -39,7 +42,9 @@ builder.Services
 
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
-builder.Services.AddPortableObjectLocalization(options => options.ResourcesPath = "Localization");
+builder.Services.AddSingleton<IConfigureOptions<MvcOptions>, MvcOptionsConfigurer>();
+builder.Services.AddSingleton<IStringLocalizerFactory, PostgreSqlStringLocalizerFactory>();
+
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -63,13 +68,10 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.SetMinimumLevel(LogLevel.Trace);
 });
 
-
 var app = builder.Build();
 
-
 if (app.Environment.IsDevelopment())
-{
-    
+{    
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }
@@ -102,3 +104,18 @@ public class TelegramBotConfiguration
     public string Route { get; init; } = default!;
     public string SecretToken { get; init; } = default!;
 }
+public class MvcOptionsConfigurer : IConfigureOptions<MvcOptions>
+{
+    private readonly IServiceProvider _serviceProvider;
+
+    public MvcOptionsConfigurer(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
+
+    public void Configure(MvcOptions options)
+    {
+        // Add any other MvcOptions configuration here as necessary
+    }
+}
+

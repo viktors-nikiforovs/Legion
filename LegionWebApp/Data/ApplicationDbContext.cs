@@ -1,4 +1,5 @@
-﻿using LegionWebApp.Models;
+﻿using LegionWebApp.Localization;
+using LegionWebApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LegionWebApp.Data
@@ -13,6 +14,7 @@ namespace LegionWebApp.Data
         public DbSet<GalleryItem> GalleryItems { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<LocalizationString> Localization { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
