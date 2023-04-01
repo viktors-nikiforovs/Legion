@@ -10,7 +10,7 @@
 
 <div class="logo float-start">
 	<a asp-area="" asp-controller="Home" asp-action="Index">
-		<img src="/images/logo.png" style="height: 100%" />
+		<img src="https://legion.nyc3.cdn.digitaloceanspaces.com/logo.png" style="height: 100%" />
 	</a>
 </div>
 
@@ -38,8 +38,18 @@
 			<li class="nav-item">
 				<a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Finance"><button type="button" class="btn btn-danger btn-lg">@T["DONATE"]</button></a>
 			</li>
+			@if (User.IsInRole("Admin"))
+			{
+				<li class="nav-item">
+					<a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Index">@T["Control Panel"]</a>
+				</li>
+			}
 		</ul>
 	</div>
+	@if (User.Identity.IsAuthenticated)
+	{
+		<partial name="_LoginPartial" />
+	}
 	<span class="d-flex" style="margin-right: 25%;">
 		<form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
 			<select name="culture" class="btn-secondary" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit()"></select>

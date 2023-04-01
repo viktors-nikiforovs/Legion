@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LegionWebApp.Localization.LocalizationString>
+
+@{
+    ViewData["Title"] = "Cultures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cultures</h1>
+
+<p>
+    <a asp-action="CreateCulture">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_FR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_DE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value_UK)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_FR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_DE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value_UK)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

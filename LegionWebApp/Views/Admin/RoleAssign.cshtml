@@ -1,0 +1,30 @@
+﻿@model LegionWebApp.Models.AssignRoleViewModel
+@{
+    ViewData["Title"] = "Assign Role to User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Assign Role to User</h1>
+
+<form asp-action="AssignRoleToUser" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <label for="userId">User</label>
+        <select class="form-control" id="userId" name="userId" required>
+            <option value="">-- Select User --</option>
+            @foreach (var user in Model.Users)
+            {
+                <option value="@user.Id">@user.UserName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="roleId">Role</label>
+        <select class="form-control" id="roleId" name="roleId" required>
+            <option value="">-- Select Role --</option>
+            @foreach (var role in Model.Roles)
+            {
+                <option value="@role.Id">@role.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Assign Role</button>
+</form>

@@ -1,0 +1,13 @@
+﻿<h3>Create new Role</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="CreateRole" asp-controller="Admin" method="post">
+            <div class="form-group">
+                <label for="roleName">Role Name</label>
+                <input type="text" class="form-control" id="roleName" name="roleName" placeholder="Enter role name" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Create Role</button>
+        </form>
+    </div>
+</div>

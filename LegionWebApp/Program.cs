@@ -11,15 +11,13 @@ using Microsoft.Extensions.Localization;
 using LegionWebApp.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
+using LegionWebApp.Models;
+using Microsoft.AspNetCore.Identity;
 
 Env.Load();
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Configuration.AddEnvironmentVariables();
-// Get connection string from configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-// Configure DbContext to use PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -42,9 +40,7 @@ builder.Services
 
 builder.Services.AddRazorPages().AddViewLocalization();
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
-builder.Services.AddSingleton<IConfigureOptions<MvcOptions>, MvcOptionsConfigurer>();
 builder.Services.AddSingleton<IStringLocalizerFactory, PostgreSqlStringLocalizerFactory>();
-
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -68,10 +64,22 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.SetMinimumLevel(LogLevel.Trace);
 });
 
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
-{    
+{
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }
@@ -89,9 +97,19 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseRequestLocalization();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+//app.MapControllerRoute(
+//    name: "culture",
+//    pattern: "Admin/Culture/{action}/{id?}",
+//    defaults: new { controller = "Admin/culture", action = "Index" });
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 app.MapRazorPages();
 app.Run();
 
@@ -104,18 +122,3 @@ public class TelegramBotConfiguration
     public string Route { get; init; } = default!;
     public string SecretToken { get; init; } = default!;
 }
-public class MvcOptionsConfigurer : IConfigureOptions<MvcOptions>
-{
-    private readonly IServiceProvider _serviceProvider;
-
-    public MvcOptionsConfigurer(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
-
-    public void Configure(MvcOptions options)
-    {
-        // Add any other MvcOptions configuration here as necessary
-    }
-}
-
