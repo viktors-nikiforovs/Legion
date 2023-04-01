@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Amazon.S3;
+using Amazon.S3.Transfer;
 
 namespace LegionWebApp.Controllers
 {
@@ -48,6 +50,41 @@ namespace LegionWebApp.Controllers
         {
             var model = _dbContext.Set<LocalizationString>().OrderByDescending(ls => ls.Id).ToList();
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            string token = Environment.GetEnvironmentVariable("Spaces_Token");
+            string secret = Environment.GetEnvironmentVariable("Spaces_Secret");
+
+
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("Please select a file to upload.");
+            }
+
+            var fileName = Path.GetFileName(file.FileName);
+            var fileStream = file.OpenReadStream();
+
+            try
+            {
+                var transferUtility = new TransferUtility(new AmazonS3Client(token, secret, new AmazonS3Config
+                {
+                    ServiceURL = "https://nyc3.digitaloceanspaces.com"
+                }));
+                await transferUtility.UploadAsync(fileStream, "BUCKET_NAME", fileName);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+            finally
+            {
+                fileStream.Close();
+                fileStream.Dispose();
+            }
+
+            return RedirectToAction("Index");
         }
         #endregion
 
