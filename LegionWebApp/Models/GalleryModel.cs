@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata.Ecma335;
 
 namespace LegionWebApp.Models
 {
@@ -34,9 +35,9 @@ namespace LegionWebApp.Models
         public string Title { get; set; }
 		//public DateOnly Date { get; set; }
 		public string Date { get; set; }
-        public bool Visible { get; set; }
-
-		public ICollection<Media> Media { get; set; }
+        public bool Visible { get; set; }        
+        public int HideMediaOverlay { get; set; }
+        public ICollection<Media> Media { get; set; }
     }
 
     public abstract class Media
@@ -44,8 +45,8 @@ namespace LegionWebApp.Models
         [Key]
         public int Id { get; set; }
         public int GalleryItemId { get; set; }
-
-        [ForeignKey("GalleryItemId")]
+		public int DisplayOrder { get; set; }
+		[ForeignKey("GalleryItemId")]
         public GalleryItem GalleryItem { get; set; }
         public string Link { get; set; }
     }

@@ -70,17 +70,45 @@
 		</div>
 	</div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+<script>
+	function updateMediaItems() {
+		$(".media-item").each(function () {
+			var mediaItem = $(this);
+			var media = mediaItem.find("img, video");
+			if (media.prop('tagName') == 'IMG') {
+				var img = new Image();
+				img.onload = function () {
+					var aspectRatio = img.width / img.height;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+					}
+				};
+				img.src = media.attr('src');
+			} else if (media.prop('tagName') == 'VIDEO') {
+				if (media[0].readyState > 0) {
+					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+					}
+				} else {
+					media.on('loadedmetadata', function () {
+						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+						if (aspectRatio >= 1) {
+							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+						}
+					});
+				}
+			}
+		});
+	}
+</script>
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
 		var filesContainer = document.getElementById("files-container");
 		var previewContainer = document.getElementById("preview-container");
-		
 
 		let selectedFiles = [];
-
-
-
 		var titleTextarea = document.querySelector('.input-group textarea');
 		var dateInput = document.querySelector('input[type="date"]');
 		titleTextarea.addEventListener('input', updatePreview);
@@ -117,7 +145,7 @@
 
 				if (file.type.startsWith("image/")) {
 					var colDiv = document.createElement("div");
-					colDiv.className = "col";
+					colDiv.className = "col dragable";
 
 					var mediaItemDiv = document.createElement("div");
 					mediaItemDiv.className = "media-item position-relative";
@@ -133,7 +161,7 @@
 					mediaRow.appendChild(colDiv);
 				} else if (file.type.startsWith("video/")) {
 					var colDiv = document.createElement("div");
-					colDiv.className = "col";
+					colDiv.className = "col dragable";
 
 					var mediaItemDiv = document.createElement("div");
 					mediaItemDiv.className = "media-item position-relative";
@@ -149,169 +177,184 @@
 					mediaRow.appendChild(colDiv);
 				}
 			} // Removed extra closing parenthesis
+
+			initSortable(mediaRow);
+			updateMediaItems();
 		}
 
-				
-
-	function createVideoPreview(video, fileId, mediaItemDiv, removeIcon) {
-		video.addEventListener("loadedmetadata", function () {
-			video.currentTime = 1;
-		});
-
-		video.addEventListener("seeked", function () {
-			var canvas = document.createElement("canvas");
-			canvas.width = video.videoWidth;
-			canvas.height = video.videoHeight;
-			var ctx = canvas.getContext("2d");
-			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-			var img = document.createElement("img");
-			img.className = "img-fluid";
-			img.src = canvas.toDataURL("image/jpeg");
-
-			mediaItemDiv.appendChild(img);
-			mediaItemDiv.appendChild(removeIcon);
-		});
-	}
-
-	function createFileList(array) {
-		const dt = new DataTransfer();
-		for (let file of array) {
-			dt.items.add(file);
-		}
-		return dt.files;
-	}
-
-	async function uploadFiles(e) {
-		e.preventDefault(); // Prevent the form from submitting
-
-		const uploadProgress = document.getElementById('uploadProgress');
-		const uploadStatus = document.getElementById('uploadStatus');
-		let hasFile = false;
-
-		for (const fileObj of selectedFiles) {
-			hasFile = true; // Add this line
-			const newFileInput = document.createElement('input');
-			newFileInput.type = 'file';
-			newFileInput.name = 'files[]';
-			newFileInput.className = 'form-control-file d-none';
-			newFileInput.setAttribute('data-file-id', fileObj.id); // Add this line
-			newFileInput.files = createFileList([fileObj.file]);
-			filesContainer.appendChild(newFileInput);
-		}
-
-		if (!hasFile) {
-			alert("Please select at least one file.");
-			return;
-		}
-		var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'), { backdrop: 'static', keyboard: false });
-		uploadModal.show();
-
-		const formData = new FormData(); // Initialize formData
-
-		for (let i = 0; i < selectedFiles.length; i++) {
-			formData.append('files', selectedFiles[i].file);
-		}
-
-		//formData.append('Title', document.querySelector('input[name="Title"]').value);
-		const dateValue = document.querySelector('input[name="Date"]').value;
-		formData.append('Date', dateValue);
-
-		const xhr = new XMLHttpRequest();
-		xhr.upload.addEventListener('progress', function (e) {
-			if (e.lengthComputable) {
-				const progressBar = document.querySelector('.progress-bar');
-				progressBar.setAttribute('aria-valuenow', e.loaded);
-				progressBar.setAttribute('aria-valuemax', e.total);
-				progressBar.textContent = `${((e.loaded / e.total) * 100).toFixed(0)}%`;
-				progressBar.style.width = ((e.loaded / e.total) * 100) + '%';
-				uploadStatus.textContent = `Uploading...`;
+		function initSortable(container) {
+			// Make sure SortableJS is available before using it
+			if (typeof Sortable !== 'undefined') {
+				new Sortable(container, {
+					animation: 150,
+					draggable: '.dragable', // Specify the draggable items using their class
+					onUpdate: function (evt) {
+						// This function will be called when the order of items changes
+						console.log('Moved:', evt.item);
+					}
+				});
 			}
-		}, false);
+		}
 
-		xhr.addEventListener('load', function () {
-			if (xhr.status === 200) {
-				uploadStatus.textContent = 'Upload complete';
-				setTimeout(() => {
-					uploadStatus.textContent = '';
+		function createVideoPreview(video, fileId, mediaItemDiv, removeIcon) {
+			video.addEventListener("loadedmetadata", function () {
+				video.currentTime = 1;
+			});
+
+			video.addEventListener("seeked", function () {
+				var canvas = document.createElement("canvas");
+				canvas.width = video.videoWidth;
+				canvas.height = video.videoHeight;
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+				var img = document.createElement("img");
+				img.className = "img-fluid";
+				img.src = canvas.toDataURL("image/jpeg");
+
+				mediaItemDiv.appendChild(img);
+				mediaItemDiv.appendChild(removeIcon);
+			});
+		}
+
+		function createFileList(array) {
+			const dt = new DataTransfer();
+			for (let file of array) {
+				dt.items.add(file);
+			}
+			return dt.files;
+		}
+
+		async function uploadFiles(e) {
+			e.preventDefault(); // Prevent the form from submitting
+
+			const uploadProgress = document.getElementById('uploadProgress');
+			const uploadStatus = document.getElementById('uploadStatus');
+			let hasFile = false;
+
+			for (const fileObj of selectedFiles) {
+				hasFile = true; // Add this line
+				const newFileInput = document.createElement('input');
+				newFileInput.type = 'file';
+				newFileInput.name = 'files[]';
+				newFileInput.className = 'form-control-file d-none';
+				newFileInput.setAttribute('data-file-id', fileObj.id); // Add this line
+				newFileInput.files = createFileList([fileObj.file]);
+				filesContainer.appendChild(newFileInput);
+			}
+
+			if (!hasFile) {
+				alert("Please select at least one file.");
+				return;
+			}
+			var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'), { backdrop: 'static', keyboard: false });
+			uploadModal.show();
+
+			const formData = new FormData(); // Initialize formData
+
+			for (let i = 0; i < selectedFiles.length; i++) {
+				formData.append('files', selectedFiles[i].file);
+			}
+
+			//formData.append('Title', document.querySelector('input[name="Title"]').value);
+			const dateValue = document.querySelector('input[name="Date"]').value;
+			formData.append('Date', dateValue);
+
+			const xhr = new XMLHttpRequest();
+			xhr.upload.addEventListener('progress', function (e) {
+				if (e.lengthComputable) {
+					const progressBar = document.querySelector('.progress-bar');
+					progressBar.setAttribute('aria-valuenow', e.loaded);
+					progressBar.setAttribute('aria-valuemax', e.total);
+					progressBar.textContent = `${((e.loaded / e.total) * 100).toFixed(0)}%`;
+					progressBar.style.width = ((e.loaded / e.total) * 100) + '%';
+					uploadStatus.textContent = `Uploading...`;
+				}
+			}, false);
+
+			xhr.addEventListener('load', function () {
+				if (xhr.status === 200) {
+					uploadStatus.textContent = 'Upload complete';
+					setTimeout(() => {
+						uploadStatus.textContent = '';
+						uploadModal.hide();
+						// Submit the form after successful upload
+						document.getElementById('upload-form').removeEventListener('submit', uploadFiles);
+						document.getElementById('upload-form').submit();
+					}, 1000);
+				} else {
+					uploadStatus.textContent = 'Upload failed';
 					uploadModal.hide();
-					// Submit the form after successful upload
-					document.getElementById('upload-form').removeEventListener('submit', uploadFiles);
-					document.getElementById('upload-form').submit();
-				}, 1000);
-			} else {
+				}
+			}, false);
+
+			xhr.addEventListener('error', function () {
 				uploadStatus.textContent = 'Upload failed';
 				uploadModal.hide();
+			}, false);
+			xhr.open('POST', '@Url.Action("CreateGallery", "Admin")', true);
+			xhr.setRequestHeader("RequestVerificationToken", document.getElementsByName("__RequestVerificationToken")[0].value);
+			xhr.send(formData);
+		}
+
+		function addFileInput() {
+			var fileInput = document.createElement('input');
+			fileInput.type = 'file';
+			fileInput.name = 'files[]';
+			fileInput.className = 'form-control-file d-none';
+			fileInput.multiple = true;
+			fileInput.addEventListener('change', previewFile);
+			filesContainer.appendChild(fileInput);
+			fileInput.click();
+		}
+
+
+		function handleRemoveIconClick(fileId) {
+			selectedFiles = selectedFiles.filter(fileObj => fileObj.id !== fileId); // Remove the file from the selectedFiles array
+
+			var mediaItemDiv = document.querySelector('div[data-file-id="' + fileId + '"]');
+			if (mediaItemDiv) {
+				var colDiv = mediaItemDiv.parentElement;
+				colDiv.remove(); // Remove the parent div, which is the dynamically created 'col' div
 			}
-		}, false);
 
-		xhr.addEventListener('error', function () {
-			uploadStatus.textContent = 'Upload failed';
-			uploadModal.hide();
-		}, false);
-		xhr.open('POST', '@Url.Action("CreateGallery", "Admin")', true);
-		xhr.setRequestHeader("RequestVerificationToken", document.getElementsByName("__RequestVerificationToken")[0].value);
-		xhr.send(formData);
-	}
-
-	function addFileInput() {
-		var fileInput = document.createElement('input');
-		fileInput.type = 'file';
-		fileInput.name = 'files[]';
-		fileInput.className = 'form-control-file d-none';
-		fileInput.multiple = true;
-		fileInput.addEventListener('change', previewFile);
-		filesContainer.appendChild(fileInput);
-		fileInput.click();
-	}
-
-
-	function handleRemoveIconClick(fileId) {
-		selectedFiles = selectedFiles.filter(fileObj => fileObj.id !== fileId); // Remove the file from the selectedFiles array
-
-		var mediaItemDiv = document.querySelector('div[data-file-id="' + fileId + '"]');
-		if (mediaItemDiv) {
-			var colDiv = mediaItemDiv.parentElement;
-			colDiv.remove(); // Remove the parent div, which is the dynamically created 'col' div
+			// Find and remove the associated input element for the removed file
+			const fileInputToRemove = document.querySelector(`input[type="file"][data-file-id="${fileId}"]`);
+			if (fileInputToRemove) {
+				fileInputToRemove.remove();
+			}
 		}
 
-		// Find and remove the associated input element for the removed file
-		const fileInputToRemove = document.querySelector(`input[type="file"][data-file-id="${fileId}"]`);
-		if (fileInputToRemove) {
-			fileInputToRemove.remove();
+
+		function createFileList(array) {
+			const dt = new DataTransfer();
+			for (let file of array) {
+				dt.items.add(file);
+			}
+			return dt.files;
 		}
-	}
 
 
-	function createFileList(array) {
-		const dt = new DataTransfer();
-		for (let file of array) {
-			dt.items.add(file);
+
+		function getFileInputs(excludeId) {
+			const allFileInputs = document.querySelectorAll('#files-container input[type="file"]');
+			const filteredFileInputs = Array.from(allFileInputs).filter(input => input.id !== excludeId);
+			return filteredFileInputs;
 		}
-		return dt.files;
-	}
 
 
+		function updatePreview() {
+			var titleTextarea = document.querySelector('.input-group textarea');
+			var dateInput = document.querySelector('input[type="text"][name="Date"]');
+			var previewTitle = document.getElementById('preview-title');
+			var previewDate = document.getElementById('preview-date');
 
-	function getFileInputs(excludeId) {
-		const allFileInputs = document.querySelectorAll('#files-container input[type="file"]');
-		const filteredFileInputs = Array.from(allFileInputs).filter(input => input.id !== excludeId);
-		return filteredFileInputs;
-	}
-
-
-	function updatePreview() {
-		var titleTextarea = document.querySelector('.input-group textarea');
-		var dateInput = document.querySelector('input[type="text"][name="Date"]');
-		var previewTitle = document.getElementById('preview-title');
-		var previewDate = document.getElementById('preview-date');
-
-		previewTitle.textContent = titleTextarea.value;
-		previewDate.textContent = dateInput.value;
-	}
+			previewTitle.textContent = titleTextarea.value;
+			previewDate.textContent = dateInput.value;
+		}
 
 
-	document.getElementById('browseFilesButton').addEventListener('click', addFileInput);
-	document.getElementById('upload-form').addEventListener('submit', uploadFiles);
-			});
+		document.getElementById('browseFilesButton').addEventListener('click', addFileInput);
+		document.getElementById('upload-form').addEventListener('submit', uploadFiles);
+	});
 </script>

@@ -38,9 +38,9 @@
 			<div class="post-content">
 				@T[@item.Title]
 			</div>
-			<div class="container post-media">
+			<div class="container post-media" data-hide-media-overlay="@item.HideMediaOverlay">
 				<div class="row row-cols-2 row-cols-sm-4">
-					@foreach (var media in item.Media)
+					@foreach (var media in item.Media.OrderBy(m => m.DisplayOrder))
 					{
 						if (media is Video video)
 						{
@@ -70,27 +70,28 @@
 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 	<a class="close" onclick="closeModal()"></a>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
 <script>
 	$(document).ready(function() {
-		$('.feed-post').each(function() {
+		$('.feed-post').each(function () {
 			var mediaItemCount = $(this).find('.media-item').length;
-			if (mediaItemCount > 6) {
-				$(this).find('.media-item:gt(5)').hide();
-				var hiddenCount = mediaItemCount - 6;
-				var postId = $(this).find('.media-item:gt(5)').attr(`data-post-id`);
+			var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
+			if (mediaItemCount > hideMediaOverlay) {
+				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
+				var hiddenCount = mediaItemCount - hideMediaOverlay;
+				var postId = $(this).find('.media-item:gt(5)').attr('data-post-id');
 
-				$(this).find('.media-item').eq(5).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', 6);currentSlide(6);')
+				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', ' + hideMediaOverlay + ');currentSlide(' + hideMediaOverlay + '); ')
 					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
 			}
 
-			// Set the src attribute for the first 6 media items
-			$(this).find('.media-item:lt(6)').each(function() {
+			$(this).find('.media-item:lt(' + hideMediaOverlay + ')').each(function () {
 				var media = $(this).find('img, video');
 				var src = media.attr('data-src');
 				media.attr('src', src).removeAttr('data-src');
 			});
 		});
+
 		$(".media-item").each(function() {
 			var mediaItem = $(this);
 			var media = mediaItem.find("img, video");
