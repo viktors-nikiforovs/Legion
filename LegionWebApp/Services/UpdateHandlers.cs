@@ -18,25 +18,28 @@ public class UpdateHandlers
         _logger = logger;
     }
 
-    public Task HandleErrorAsync(Exception exception, CancellationToken cancellationToken)
-    {
-        var ErrorMessage = exception switch
-        {
-            ApiRequestException apiRequestException => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n{apiRequestException.Message}",
-            _ => exception.ToString()
-        };
+	public Task HandleErrorAsync(Exception exception, CancellationToken cancellationToken)
+	{
+		var ErrorMessage = exception switch
+		{
+			ApiRequestException apiRequestException => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n{apiRequestException.Message}",
+			_ => exception.ToString()
+		};
 
-        _logger.LogInformation("HandleError: {ErrorMessage}", ErrorMessage);
-        return Task.CompletedTask;
-    }
+		_logger.LogInformation("HandleError: {ErrorMessage}", ErrorMessage);
+		cancellationToken.ThrowIfCancellationRequested();
 
-    public async Task HandleUpdateAsync(Update update, CancellationToken cancellationToken)
+		return Task.CompletedTask;
+	}
+
+
+	public async Task HandleUpdateAsync(Update update, CancellationToken cancellationToken)
     {
         _logger.LogInformation("Received update: {UpdateType}", update.Type);
 
         var handler = update switch
         {
-            { Message: { Chat: { Type: ChatType.Group or ChatType.Supergroup } } message } => BotOnMessageReceivedFromGroup(message, cancellationToken),
+            { Message: { Chat.Type: ChatType.Group or ChatType.Supergroup } message } => BotOnMessageReceivedFromGroup(message, cancellationToken),
             { Message: { } message } => BotOnMessageReceived(message, cancellationToken),
             { EditedMessage: { } message } => BotOnMessageReceived(message, cancellationToken),
             { CallbackQuery: { } callbackQuery } => BotOnCallbackQueryReceived(callbackQuery, cancellationToken),
@@ -263,12 +266,14 @@ public class UpdateHandlers
             cancellationToken: cancellationToken);
     }
 
-    #endregion
+	#endregion
 
 
-    private Task UnknownUpdateHandlerAsync(Update update, CancellationToken cancellationToken)
-    {
-        _logger.LogInformation("Unknown update type: {UpdateType}", update.Type);
-        return Task.CompletedTask;
-    }
+	private Task UnknownUpdateHandlerAsync(Update update, CancellationToken cancellationToken)
+	{
+		_logger.LogInformation("Unknown update type: {UpdateType}", update.Type);
+		cancellationToken.ThrowIfCancellationRequested();
+		return Task.CompletedTask;
+	}
+
 }

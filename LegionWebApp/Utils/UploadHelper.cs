@@ -13,7 +13,7 @@ namespace LegionWebApp.Utils
     {
         public static async Task<FileUploadResult> StreamFile(HttpRequest request, string targetFolderPath)
         {
-            FileUploadResult result = new FileUploadResult();
+            var result = new FileUploadResult();
 
             if (!MultipartRequestHelper.IsMultipartContentType(request.ContentType))
             {
@@ -28,10 +28,9 @@ namespace LegionWebApp.Utils
 
             while (section != null)
             {
-                ContentDispositionHeaderValue contentDisposition;
-                bool hasContentDispositionHeader = ContentDispositionHeaderValue.TryParse(section.ContentDisposition, out contentDisposition);
+				bool hasContentDispositionHeader = ContentDispositionHeaderValue.TryParse(section.ContentDisposition, out ContentDispositionHeaderValue contentDisposition);
 
-                if (hasContentDispositionHeader)
+				if (hasContentDispositionHeader)
                 {
                     if (!string.IsNullOrEmpty(contentDisposition.FileName.Value))
                     {

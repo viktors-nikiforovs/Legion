@@ -93,14 +93,12 @@ namespace LegionWebApp.Controllers
 			return View("GalleryCreate");
 		}
 
-		private GalleryItem CreateItemPreview(GalleryItem galleryItem)
-		{
-			
-
+		private static GalleryItem CreateItemPreview(GalleryItem galleryItem)
+		{		
 			return galleryItem;
 		}
 
-		private async Task UploadFiles(string path, List<IFormFile> files)
+		private static async Task UploadFiles(string path, List<IFormFile> files)
 		{
 			string token = Environment.GetEnvironmentVariable("Spaces_Token");
 			string secret = Environment.GetEnvironmentVariable("Spaces_Secret");
@@ -113,17 +111,15 @@ namespace LegionWebApp.Controllers
 
 			foreach (var file in files)
 			{
-				using (var fileStream = file.OpenReadStream())
+				using var fileStream = file.OpenReadStream();
+				string fileName = file.FileName;
+				await transferUtility.UploadAsync(new TransferUtilityUploadRequest
 				{
-					string fileName = file.FileName;
-					await transferUtility.UploadAsync(new TransferUtilityUploadRequest
-					{
-						InputStream = fileStream,
-						BucketName = bucketName,
-						Key = path + "/" + fileName,
-						CannedACL = S3CannedACL.PublicRead // Set the ACL to public read
-					});
-				}
+					InputStream = fileStream,
+					BucketName = bucketName,
+					Key = path + "/" + fileName,
+					CannedACL = S3CannedACL.PublicRead
+				});
 			}
 		}
 
@@ -160,7 +156,7 @@ namespace LegionWebApp.Controllers
 		public IActionResult RoleAssign()
 		{
 			// Create a new AssignRoleViewModel and populate its properties
-			AssignRoleViewModel model = new AssignRoleViewModel
+			var model = new AssignRoleViewModel
 			{
 				Users = _userManager.Users.ToList(),
 				Roles = _roleManager.Roles.ToList()
@@ -175,7 +171,7 @@ namespace LegionWebApp.Controllers
 		{
 			if (!string.IsNullOrEmpty(roleName))
 			{
-				IdentityRole role = new IdentityRole(roleName);
+				var role = new IdentityRole(roleName);
 				IdentityResult result = await _roleManager.CreateAsync(role);
 
 				if (result.Succeeded)
