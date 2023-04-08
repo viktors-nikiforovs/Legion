@@ -7,21 +7,6 @@
 @{
 	ViewData["Title"] = @T["Gallery"];
 	var Gallery = new GalleryModel(DbContext);
-	/*
-		* animate modal
-		* on scrollup pause
-		* thumbnails in modal
-		* scroll one post at time
-		* FB Login
-		* Fund raising
-		* admin cp
-		* telegram bot
-		* facebook bot
-		* Contact email @domain
-		* subdomains
-		* card paytments
-		* parthners
-	*/
 }
 <div class="feed-container">
 	@foreach (var item in Gallery.ItemList)
@@ -32,7 +17,7 @@
 				<img src="~/images/logo.png" class="profile-picture">
 				<div class="post-info">
 					<div class="username">@T["Legion Foundation"]</div>
-					<div class="post-time">@item.Date.ToString()</div>
+					<div class="post-time">@T[DateOnly.Parse(item.Date).ToShortDateString()]</div>
 				</div>
 			</div>
 			<div class="post-content">
