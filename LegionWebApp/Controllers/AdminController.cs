@@ -81,9 +81,10 @@ namespace LegionWebApp.Controllers
 				//culture.Value_UK = TextUk;
 
 
-				//galleryItem.Date = Date;
-				//galleryItem.Media = (ICollection<Media>)files;
-
+				galleryItem.Date = Date;
+				
+				galleryItem.Media = (ICollection<Media>)files;
+				var test = "";
 
 				await UploadFiles(Date, files);
 

@@ -13,7 +13,8 @@ namespace LegionWebApp.Models
         {
             ItemList = dbContext.GalleryItems
                 .Include(gi => gi.Media)
-                .OrderByDescending(gi => gi.Id) // Sort GalleryItems by Id
+				.Where(gi => gi.Visible)
+				.OrderByDescending(gi => gi.Id) // Sort GalleryItems by Id
                 .ToList();
 
             // Sort the Media items in each GalleryItem by Id
@@ -33,7 +34,7 @@ namespace LegionWebApp.Models
         public string Title { get; set; }
 		//public DateOnly Date { get; set; }
 		public string Date { get; set; }
-
+        public bool Visible { get; set; }
 
 		public ICollection<Media> Media { get; set; }
     }
