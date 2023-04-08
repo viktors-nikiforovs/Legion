@@ -31,9 +31,11 @@ namespace LegionWebApp.Models
         [Key]
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateOnly Date { get; set; }
+		//public DateOnly Date { get; set; }
+		public string Date { get; set; }
 
-        public ICollection<Media> Media { get; set; }
+
+		public ICollection<Media> Media { get; set; }
     }
 
     public abstract class Media

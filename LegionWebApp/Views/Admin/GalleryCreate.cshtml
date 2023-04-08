@@ -1,36 +1,248 @@
 ﻿@model LegionWebApp.Models.GalleryItem
 
 @{
-    ViewData["Title"] = "GalleryCreate";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "GalleryCreate";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>GalleryCreate</h1>
 
 <h4>GalleryItem</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="GalleryCreate">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+	<div class="col-md-6">
+		<form id="upload-form" asp-controller="Admin" method="post" asp-action="CreateGallery" enctype="multipart/form-data">
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+			@*			<div class="input-group mb-3">
+			<span class="input-group-text">Text in English</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+			</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text">Text in Ukranian</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+			</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text">Text in German</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+			</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text">Text in French</span>
+			<textarea class="form-control" aria-label="With textarea"></textarea>
+			</div>*@
+			<div class="form-group mb-3 col-6">
+				<label asp-for="Date">Date:</label>
+				<input asp-for="Date" type="date" id="date" class="form-control" required>
+				<span asp-validation-for="Date" class="text-danger"></span>
+			</div>
+			<div id="files-container">
+				<input type="button" id="browseFilesButton" value="Browse Files" class="form-control-file btn btn-secondary">
+			</div>
 
+			<div id="preview-container" class="row mt-3 gx-2 gy-2"></div>
+			<div class="form-group mt-3">
+				<input type="submit" value="Create & Upload" class="btn btn-primary" />
+			</div>
+		</form>
+		<div class="modal" tabindex="-1" id="uploadModal" style="color:black; z-index:9999">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 id="uploadStatus" class="modal-title"></h5>
+					</div>
+					<div class="modal-body">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">25%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		var filesContainer = document.getElementById("files-container");
+		var previewContainer = document.getElementById("preview-container");
+		function previewFile(event) {
+			var files = event.target.files;
+
+			for (var i = 0; i < files.length; i++) {
+				var file = files[i];
+				var fileId = 'file-' + Date.now() + '-' + i;
+				event.target.id = fileId;
+				event.target.style.display = "none"; // Add this line
+
+				var previewDiv = document.createElement("div");
+				previewDiv.className = "preview-div col-auto position-relative";
+				previewDiv.id = "preview-" + fileId;
+
+				var removeIcon = document.createElement("span");
+				removeIcon.className = "position-absolute top-0 end-0 close";
+				removeIcon.style.cursor = "pointer";
+				removeIcon.onclick = (function (fileId) {
+					return function () {
+						handleRemoveIconClick(fileId);
+					};
+				})(fileId);
+
+
+
+
+				var img = document.createElement("img");
+				img.className = "img-fluid";
+				img.style.maxHeight = "200px";
+				img.style.marginBottom = "5px";
+				img.id = event.target.id;
+
+				var fileName = document.createElement("p");
+				fileName.textContent = file.name;
+				fileName.style.fontSize = "12px";
+				fileName.style.wordBreak = "break-all";
+				fileName.style.margin = "0";
+
+				if (file.type.startsWith("image/")) {
+					img.src = URL.createObjectURL(file);
+					previewDiv.appendChild(img);
+					previewDiv.appendChild(fileName);
+					previewDiv.appendChild(removeIcon);
+					previewContainer.appendChild(previewDiv);
+				} else if (file.type.startsWith("video/")) {
+					var video = document.createElement("video");
+					video.preload = "metadata";
+					video.src = URL.createObjectURL(file);
+					createVideoPreview(video, img, fileId, previewDiv, fileName, removeIcon, previewContainer);
+				}
+			}
+		}
+
+		
+
+
+
+		function createVideoPreview(video, img, fileId, previewDiv, fileName, removeIcon, previewContainer) {
+			video.addEventListener("loadedmetadata", function () {
+				video.currentTime = 1;
+			});
+
+			video.addEventListener("seeked", function () {
+				var canvas = document.createElement("canvas");
+				canvas.width = video.videoWidth;
+				canvas.height = video.videoHeight;
+				var ctx = canvas.getContext("2d");
+				ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+				img.src = canvas.toDataURL("image/jpeg");
+				previewDiv.appendChild(img);
+				previewDiv.appendChild(fileName);
+				previewDiv.appendChild(removeIcon);
+				previewContainer.appendChild(previewDiv);
+			});
+		}
+		var dateInput = document.getElementById("date");
+		var currentLanguage = "@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName";
+
+		flatpickr(dateInput, {
+			locale: currentLanguage,
+			dateFormat: "d.m.Y"
+		});
+
+		async function uploadFiles(e) {
+			e.preventDefault(); // Prevent the form from submitting
+			const uploadProgress = document.getElementById('uploadProgress');
+			const uploadStatus = document.getElementById('uploadStatus');
+			const fileInputs = getFileInputs(); // Use the new function here
+			let hasFile = false;
+			for (let i = 0; i < fileInputs.length; i) {
+				if (fileInputs[i].files.length > 0) {
+					hasFile = true;
+					break;
+				}
+			}
+			if (!hasFile) {
+				alert("Please select at least one file.");
+				return;
+			}
+			var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'), { backdrop: 'static', keyboard: false });
+			uploadModal.show();
+
+			const formData = new FormData();
+
+
+			for (let i = 0; i < fileInputs.length; i++) {
+				for (let j = 0; j < fileInputs[i].files.length; j++) {
+					formData.append('files', fileInputs[i].files[j]);
+				}
+			}
+
+			//formData.append('Title', document.querySelector('input[name="Title"]').value);
+			const dateValue = document.querySelector('input[name="Date"]').value;
+			formData.append('Date', dateValue);
+
+			const xhr = new XMLHttpRequest();
+			xhr.upload.addEventListener('progress', function (e) {
+				if (e.lengthComputable) {
+					const progressBar = document.querySelector('.progress-bar');
+					progressBar.setAttribute('aria-valuenow', e.loaded);
+					progressBar.setAttribute('aria-valuemax', e.total);
+					progressBar.textContent = `${((e.loaded / e.total) * 100).toFixed(0)}%`;
+					progressBar.style.width = ((e.loaded / e.total) * 100) + '%';
+					uploadStatus.textContent = `Uploading...`;
+				}
+			}, false);
+
+			xhr.addEventListener('load', function () {
+				if (xhr.status === 200) {
+					uploadStatus.textContent = 'Upload complete';
+					setTimeout(() => {
+						uploadStatus.textContent = '';
+						uploadModal.hide();
+						// Submit the form after successful upload
+						document.getElementById('upload-form').removeEventListener('submit', uploadFiles);
+						document.getElementById('upload-form').submit();
+					}, 1000);
+				} else {
+					uploadStatus.textContent = 'Upload failed';
+					uploadModal.hide();
+				}
+			}, false);
+
+			xhr.addEventListener('error', function () {
+				uploadStatus.textContent = 'Upload failed';
+				uploadModal.hide();
+			}, false);
+			xhr.open('POST', '@Url.Action("CreateGallery", "Admin")', true);
+			xhr.setRequestHeader("RequestVerificationToken", document.getElementsByName("__RequestVerificationToken")[0].value);
+			xhr.send(formData);
+		}
+
+		function addFileInput() {
+			var fileInput = document.createElement('input');
+			fileInput.type = 'file';
+			fileInput.name = 'files[]';
+			fileInput.className = 'form-control-file d-none';
+			fileInput.multiple = true;
+			fileInput.addEventListener('change', previewFile);
+			filesContainer.appendChild(fileInput);
+			fileInput.click();
+		}
+		function handleRemoveIconClick(fileId) {
+			var fileInput = document.getElementById(fileId);
+			if (fileInput) {
+				fileInput.removeEventListener('change', previewFile);
+				fileInput.remove(); // Remove the file input element
+			}
+			var previewDiv = document.getElementById('preview-' + fileId);
+			if (previewDiv) {
+				previewDiv.remove();
+			}
+		}
+
+		function getFileInputs(excludeId) {
+			const allFileInputs = document.querySelectorAll('#files-container input[type="file"]');
+			const filteredFileInputs = Array.from(allFileInputs).filter(input => input.id !== excludeId);
+			return filteredFileInputs;
+		}
+
+		document.getElementById('browseFilesButton').addEventListener('click', addFileInput);
+		document.getElementById('upload-form').addEventListener('submit', uploadFiles);
+	});
+</script>

@@ -1,6 +1,10 @@
 ﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer T
+
+@{
+	var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+}
 <!DOCTYPE html>
-<html>
+<html lang="@culture.RequestCulture.UICulture.Name">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,6 +14,15 @@
 	<link rel="stylesheet" href="~/sass/stylesheet.min.css" asp-append-version="true" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.4.5/css/flag-icons.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<!-- Add this to the <head> section of your _Layout.cshtml file -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+	<!-- Add the localization files you want to use -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/uk.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/fr.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/default.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/de.js"></script>
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SVB5355LZV"></script>
 	<script>

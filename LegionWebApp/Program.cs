@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using LegionWebApp.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Http.Features;
 
 Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -64,6 +66,14 @@ builder.Services.AddLogging(loggingBuilder =>
     loggingBuilder.SetMinimumLevel(LogLevel.Trace);
 });
 
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 100000000; // Set the limit for multipart body length to 100MB
+    options.MemoryBufferThreshold = Int32.MaxValue;
+});
+
+
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -75,6 +85,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = null; // Set the limit to null for unlimited size or set a specific limit (in bytes)
+});
+
 
 var app = builder.Build();
 
@@ -100,14 +116,9 @@ app.UseRequestLocalization();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "culture",
-//    pattern: "Admin/Culture/{action}/{id?}",
-//    defaults: new { controller = "Admin/culture", action = "Index" });
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Admin}/{action=GalleryCreate}/{id?}");
 
 
 app.MapRazorPages();
