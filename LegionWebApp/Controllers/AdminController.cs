@@ -72,6 +72,19 @@ namespace LegionWebApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				var galleryItem = new GalleryItem();
+				var culture = new CultureModel();
+
+				//culture.Key = TextEn;
+				//culture.Value_FR = TextEn;
+				//culture.Value_DE = TextDe;
+				//culture.Value_UK = TextUk;
+
+
+				//galleryItem.Date = Date;
+				//galleryItem.Media = (ICollection<Media>)files;
+
+
 				await UploadFiles(Date, files);
 
 				return RedirectToAction(nameof(Index));
@@ -79,6 +92,12 @@ namespace LegionWebApp.Controllers
 			return View("GalleryCreate");
 		}
 
+		private GalleryItem CreateItemPreview(GalleryItem galleryItem)
+		{
+			
+
+			return galleryItem;
+		}
 
 		private async Task UploadFiles(string path, List<IFormFile> files)
 		{
