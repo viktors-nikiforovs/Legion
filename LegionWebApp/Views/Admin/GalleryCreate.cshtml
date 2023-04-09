@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization;
-@model LegionWebApp.Models.GalleryItem
+@model LegionWebApp.Models.CreateGalleryModel
 @inject IViewLocalizer T
 
 @{
@@ -11,41 +11,76 @@
 
 <h4>GalleryItem</h4>
 <div class="row">
-	<div class="col-md-6">
-		<form id="upload-form" asp-controller="Admin" method="post" asp-action="CreateGallery" enctype="multipart/form-data">
-			<div class="input-group mb-3">
-				<span class="input-group-text">Title</span>
-				<textarea class="form-control" aria-label="With textarea"></textarea>
-			</div>
-			<div class="form-group mb-3 col-6">
-				<label asp-for="Date">Date:</label>
-				<input asp-for="Date" type="date" id="date" class="form-control" required>
-				<span asp-validation-for="Date" class="text-danger"></span>
-			</div>
-			<div id="files-container">
-				<input type="button" id="browseFilesButton" value="Browse Files" class="form-control-file btn btn-secondary">
-			</div>
-
-
-			<div class="form-group mt-3">
-				<input type="submit" value="Create & Upload" class="btn btn-primary" />
-			</div>
-		</form>
-		<div class="modal" tabindex="-1" id="uploadModal" style="color:black; z-index:9999">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 id="uploadStatus" class="modal-title"></h5>
+	<form id="upload-form" asp-controller="Admin" method="post" asp-action="CreateGallery" enctype="multipart/form-data">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-6 mb-1">
+					<div class="input-group">
+						<span asp-for="galleryItem.Title" id="engTitle" class="input-group-text">@T["English"]</span>
+						<textarea asp-for="localizationString.Key" class="form-control" aria-label="With textarea" rows="4"></textarea>
 					</div>
-					<div class="modal-body">
-						<div class="progress">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">25%</div>
+				</div>
+				<div class="col-6 mb-1">
+					<div class="input-group">
+						<span class="input-group-text">@T["Ukranian"]</span>
+						<textarea asp-for="localizationString.Value_UK" class="form-control" aria-label="With textarea" rows="4"></textarea>
+					</div>
+				</div>
+				<div class="col-6 mb-1">
+					<div class="input-group">
+						<span class="input-group-text">@T["French"]</span>
+						<textarea asp-for="localizationString.Value_FR" class="form-control" aria-label="With textarea" rows="4"></textarea>
+					</div>
+				</div>
+				<div class="col-6 mb-1">
+					<div class="input-group">
+						<span class="input-group-text">@T["German"]</span>
+						<textarea asp-for="localizationString.Value_DE" class="form-control" aria-label="With textarea" rows="4"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2 mb-1">
+					<div class="input-group">
+						<label class="input-group-text" asp-for="galleryItem.Date">@T["Date"]</label>
+						<input asp-for="galleryItem.Date" type="date" id="date" class="form-control" required>
+						<span asp-validation-for="galleryItem.Date" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-10 mb-1">
+					<div class="input-group">
+						<label class="form-label">@T["Hide media after"]</label>
+						<span id="customRangeValue" class=" mb-1">: 6</span>
+						<input asp-for="galleryItem.HideMediaOverlay" type="range" class="form-range" min="2" max="12" value="6" id="customRange">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2 mb-1">
+					<input type="button" id="browseFilesButton" value='@T["Browse Files"]' class="form-control-file btn btn-secondary">
+				</div>
+				<div class="col-2 mb-1">
+					<input type="submit" value='@T["Create & Upload"]' class="btn btn-primary" />
+				</div>
+			</div>
+			<div id="files-container"></div>
+			<input type="hidden" id="myFiles" name="myFiles" hidden />
+			<div class="modal" tabindex="-1" id="uploadModal" style="color:black; z-index:9999">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 id="uploadStatus" class="modal-title"></h5>
+						</div>
+						<div class="modal-body">
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">25%</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </div>
 <div class="row">
 	<div class="col-md-12">
@@ -72,44 +107,12 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 <script>
-	function updateMediaItems() {
-		$(".media-item").each(function () {
-			var mediaItem = $(this);
-			var media = mediaItem.find("img, video");
-			if (media.prop('tagName') == 'IMG') {
-				var img = new Image();
-				img.onload = function () {
-					var aspectRatio = img.width / img.height;
-					if (aspectRatio >= 1) {
-						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-					}
-				};
-				img.src = media.attr('src');
-			} else if (media.prop('tagName') == 'VIDEO') {
-				if (media[0].readyState > 0) {
-					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-					if (aspectRatio >= 1) {
-						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-					}
-				} else {
-					media.on('loadedmetadata', function () {
-						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-						if (aspectRatio >= 1) {
-							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-						}
-					});
-				}
-			}
-		});
-	}
-</script>
-<script>
 	document.addEventListener('DOMContentLoaded', function () {
 		var filesContainer = document.getElementById("files-container");
 		var previewContainer = document.getElementById("preview-container");
 
 		let selectedFiles = [];
-		var titleTextarea = document.querySelector('.input-group textarea');
+		var titleTextarea = document.getElementById("engTitle");
 		var dateInput = document.querySelector('input[type="date"]');
 		titleTextarea.addEventListener('input', updatePreview);
 		dateInput.addEventListener('input', updatePreview);
@@ -128,10 +131,12 @@
 			for (var i = 0; i < files.length; i++) {
 				var file = files[i];
 				var fileId = 'file-' + Date.now() + '-' + i;
+				var fileName = file.name;
 				selectedFiles.push({ id: fileId, file: file });
 
 				var fileInput = event.target;
 				fileInput.setAttribute('data-file-id', fileId); // Add a custom data attribute to store the file ID
+
 
 				var removeIcon = document.createElement("span");
 				removeIcon.className = "position-absolute top-0 end-0 close";
@@ -150,6 +155,7 @@
 					var mediaItemDiv = document.createElement("div");
 					mediaItemDiv.className = "media-item position-relative";
 					mediaItemDiv.setAttribute('data-file-id', fileId);
+					mediaItemDiv.setAttribute('data-file-name', fileName);
 
 					var img = document.createElement("img");
 					img.className = "img-fluid";
@@ -166,6 +172,7 @@
 					var mediaItemDiv = document.createElement("div");
 					mediaItemDiv.className = "media-item position-relative";
 					mediaItemDiv.setAttribute('data-file-id', fileId);
+					mediaItemDiv.setAttribute('data-file-name', fileName);
 
 					var video = document.createElement("video");
 					video.preload = "metadata";
@@ -176,11 +183,11 @@
 					colDiv.appendChild(mediaItemDiv);
 					mediaRow.appendChild(colDiv);
 				}
-			} // Removed extra closing parenthesis
-
+			} 
 			initSortable(mediaRow);
 			updateMediaItems();
 		}
+
 
 		function initSortable(container) {
 			// Make sure SortableJS is available before using it
@@ -225,77 +232,119 @@
 			return dt.files;
 		}
 
-		async function uploadFiles(e) {
-			e.preventDefault(); // Prevent the form from submitting
 
-			const uploadProgress = document.getElementById('uploadProgress');
-			const uploadStatus = document.getElementById('uploadStatus');
-			let hasFile = false;
+		//document.getElementById("upload-form").addEventListener("submit", function (event) {
+		//	event.preventDefault();
+		//	// Upload files via XHR first
+		//	uploadFiles().then(function () {
+		//		// After successful upload, submit the form without files
+		//		submitFormWithoutFiles();
+		//	}).catch(function () {
+		//		alert("File upload failed!");
+		//	});
+		//});
 
-			for (const fileObj of selectedFiles) {
-				hasFile = true; // Add this line
-				const newFileInput = document.createElement('input');
-				newFileInput.type = 'file';
-				newFileInput.name = 'files[]';
-				newFileInput.className = 'form-control-file d-none';
-				newFileInput.setAttribute('data-file-id', fileObj.id); // Add this line
-				newFileInput.files = createFileList([fileObj.file]);
-				filesContainer.appendChild(newFileInput);
-			}
+		function uploadFiles() {
+			return new Promise(function (resolve, reject) {
+				const uploadProgress = document.getElementById('uploadProgress');
+				const uploadStatus = document.getElementById('uploadStatus');
+				let hasFile = false;
 
-			if (!hasFile) {
-				alert("Please select at least one file.");
-				return;
-			}
-			var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'), { backdrop: 'static', keyboard: false });
-			uploadModal.show();
-
-			const formData = new FormData(); // Initialize formData
-
-			for (let i = 0; i < selectedFiles.length; i++) {
-				formData.append('files', selectedFiles[i].file);
-			}
-
-			//formData.append('Title', document.querySelector('input[name="Title"]').value);
-			const dateValue = document.querySelector('input[name="Date"]').value;
-			formData.append('Date', dateValue);
-
-			const xhr = new XMLHttpRequest();
-			xhr.upload.addEventListener('progress', function (e) {
-				if (e.lengthComputable) {
-					const progressBar = document.querySelector('.progress-bar');
-					progressBar.setAttribute('aria-valuenow', e.loaded);
-					progressBar.setAttribute('aria-valuemax', e.total);
-					progressBar.textContent = `${((e.loaded / e.total) * 100).toFixed(0)}%`;
-					progressBar.style.width = ((e.loaded / e.total) * 100) + '%';
-					uploadStatus.textContent = `Uploading...`;
+				for (const fileObj of selectedFiles) {
+					hasFile = true; // Add this line
+					const newFileInput = document.createElement('input');
+					newFileInput.type = 'file';
+					newFileInput.name = 'files[]';
+					newFileInput.className = 'form-control-file d-none';
+					newFileInput.setAttribute('data-file-id', fileObj.id); // Add this line
+					newFileInput.files = createFileList([fileObj.file]);					
+					filesContainer.appendChild(newFileInput);
 				}
-			}, false);
 
-			xhr.addEventListener('load', function () {
-				if (xhr.status === 200) {
-					uploadStatus.textContent = 'Upload complete';
-					setTimeout(() => {
-						uploadStatus.textContent = '';
+				if (!hasFile) {
+					alert("Please select at least one file.");
+					return;
+				}
+				var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'), { backdrop: 'static', keyboard: false });
+				uploadModal.show();
+
+				const formData = new FormData(); // Initialize formData
+
+				for (let i = 0; i < selectedFiles.length; i++) {
+					formData.append('files', selectedFiles[i].file);
+					//document.getElementById("myFiles").files = createFileList(selectedFiles.map(fileObj => fileObj.file));
+				}
+				const dateValue = document.getElementById("date").value;
+				formData.append('path', dateValue);
+
+				const xhr = new XMLHttpRequest();
+				xhr.upload.addEventListener('progress', function (e) {
+					if (e.lengthComputable) {
+						const progressBar = document.querySelector('.progress-bar');
+						progressBar.setAttribute('aria-valuenow', e.loaded);
+						progressBar.setAttribute('aria-valuemax', e.total);
+						progressBar.textContent = `${((e.loaded / e.total) * 100).toFixed(0)}%`;
+						progressBar.style.width = ((e.loaded / e.total) * 100) + '%';
+						uploadStatus.textContent = `Uploading...`;
+					}
+				}, false);
+
+				xhr.addEventListener('load', function () {
+					if (xhr.status === 200) {
+						const uploadedFileNames = JSON.parse(xhr.responseText);
+						console.log("JSON " + uploadedFileNames); // Array of uploaded file names
+
+						document.getElementById("myFiles").value = uploadedFileNames.join(",");
+
+						uploadStatus.textContent = 'Upload complete';
+						setTimeout(() => {
+							uploadStatus.textContent = '';
+							uploadModal.hide();
+							resolve();
+						}, 1000);
+					} else {
+						uploadStatus.textContent = 'Upload failed';
 						uploadModal.hide();
-						// Submit the form after successful upload
-						document.getElementById('upload-form').removeEventListener('submit', uploadFiles);
-						document.getElementById('upload-form').submit();
-					}, 1000);
-				} else {
+					}
+				}, false);
+
+				xhr.addEventListener('error', function () {
 					uploadStatus.textContent = 'Upload failed';
 					uploadModal.hide();
-				}
-			}, false);
+					reject();
+				}, false);
 
-			xhr.addEventListener('error', function () {
-				uploadStatus.textContent = 'Upload failed';
-				uploadModal.hide();
-			}, false);
-			xhr.open('POST', '@Url.Action("CreateGallery", "Admin")', true);
-			xhr.setRequestHeader("RequestVerificationToken", document.getElementsByName("__RequestVerificationToken")[0].value);
-			xhr.send(formData);
+				xhr.open('POST', '@Url.Action("UploadFiles", "Admin")', true);
+				xhr.setRequestHeader("RequestVerificationToken", document.getElementsByName("__RequestVerificationToken")[0].value);
+				xhr.send(formData);
+			});
 		}
+
+		function submitFormWithoutFiles() {
+			const form = document.getElementById("upload-form");
+			var myFiles = document.getElementById("myFiles");
+			console.log("files " + myFiles);
+
+			form.submit();
+		}
+
+
+		function handleFormSubmit(e) {
+			const form = e.target;
+			if (!form.checkValidity()) {
+				// If the form is not valid, let the browser show the validation errors
+				return;
+			}
+			e.preventDefault();
+			uploadFiles().then(function () {
+				// After successful upload, submit the form without files
+				submitFormWithoutFiles();
+			}).catch(function () {
+				alert("File upload failed!");
+			});
+		}
+
+		document.getElementById('upload-form').addEventListener('submit', handleFormSubmit);
 
 		function addFileInput() {
 			var fileInput = document.createElement('input');
@@ -344,11 +393,10 @@
 
 
 		function updatePreview() {
-			var titleTextarea = document.querySelector('.input-group textarea');
-			var dateInput = document.querySelector('input[type="text"][name="Date"]');
+			var titleTextarea = document.getElementById("engTitle");
+			var dateInput = document.getElementById("date");
 			var previewTitle = document.getElementById('preview-title');
 			var previewDate = document.getElementById('preview-date');
-
 			previewTitle.textContent = titleTextarea.value;
 			previewDate.textContent = dateInput.value;
 		}
@@ -357,4 +405,71 @@
 		document.getElementById('browseFilesButton').addEventListener('click', addFileInput);
 		document.getElementById('upload-form').addEventListener('submit', uploadFiles);
 	});
+</script>
+<script>
+	var hideMediaOverlay = 6;
+	const customRangeValue = document.getElementById('customRangeValue');
+	document.getElementById("customRange").addEventListener("input", function () {
+		hideMediaOverlay = this.value;
+		customRangeValue.innerText = ": " + this.value;
+		updateMediaItems();
+	});
+	function updateMediaItems() {
+		$('.feed-post').each(function () {
+			var mediaItemCount = $(this).find('.media-item').length;
+
+			if (mediaItemCount >= hideMediaOverlay) {
+				$(this).find('.media-item').show();
+				$(this).find('.count-overlay').removeClass('count-overlay');
+				$(this).find('.count-overlay-text').remove();
+				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
+				var hiddenCount = mediaItemCount - hideMediaOverlay;
+				var postId = $(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').attr('data-post-id');
+				if (hiddenCount > 0) {
+					$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
+						.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+				}
+			} else {
+				$(this).find('.media-item').show();
+				$(this).find('.count-overlay').removeClass('count-overlay');
+				$(this).find('.count-overlay-text').remove();
+				updateMediaItems();
+			}
+
+			$(this).find('.media-item:lt(' + hideMediaOverlay + ')').each(function () {
+				var media = $(this).find('img, video');
+				var src = media.attr('data-src');
+				media.attr('src', src).removeAttr('data-src');
+			});
+		});
+
+		$(".media-item").each(function () {
+			var mediaItem = $(this);
+			var media = mediaItem.find("img, video");
+			if (media.prop('tagName') == 'IMG') {
+				var img = new Image();
+				img.onload = function () {
+					var aspectRatio = img.width / img.height;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+					}
+				};
+				img.src = media.attr('src');
+			} else if (media.prop('tagName') == 'VIDEO') {
+				if (media[0].readyState > 0) {
+					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+					}
+				} else {
+					media.on('loadedmetadata', function () {
+						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+						if (aspectRatio >= 1) {
+							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
+						}
+					});
+				}
+			}
+		});
+	}
 </script>

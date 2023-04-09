@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Http;
 
 using DotNetEnv;
 using LegionWebApp.Utils;
-using Microsoft.AspNetCore.Hosting;
 using LegionWebApp.Attributes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
@@ -33,7 +32,7 @@ namespace LegionWebApp.Controllers
 		private readonly ILogger<AdminController> _logger;
 
 
-		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,	ApplicationDbContext dbContext,	IWebHostEnvironment env, ILogger<AdminController> logger)
+		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger)
 		{
 			_userManager = userManager;
 			_roleManager = roleManager;
@@ -68,41 +67,57 @@ namespace LegionWebApp.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> CreateGallery(string Date, List<IFormFile> files)
+		public async Task<IActionResult> CreateGallery(GalleryItem galleryItem, LocalizationString localizationString, string myFiles)
 		{
-			if (ModelState.IsValid)
+
+
+			List<string> myFilesList = myFiles.Split(',').ToList();
+			galleryItem.Title = localizationString.Key;
+			foreach (var file in myFilesList)
 			{
-				var galleryItem = new GalleryItem();
-				var culture = new CultureModel();
-
-				//culture.Key = TextEn;
-				//culture.Value_FR = TextEn;
-				//culture.Value_DE = TextDe;
-				//culture.Value_UK = TextUk;
-
-
-				//galleryItem.Date = Date;
-				
-				//galleryItem.Media = (ICollection<Media>)files;
-				//var test = "";
-
-				await UploadFiles(Date, files);
-
-				return RedirectToAction(nameof(Index));
+				if (file.Substring(file.IndexOf(".")).Contains("mp4"))
+				{
+					var video = new Video();
+					video.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					galleryItem.Media.Add(video);
+				}
+				else
+				{
+					var image = new Image();
+					image.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					galleryItem.Media.Add(image);
+				}
 			}
-			return View("GalleryCreate");
+
+			var tempGalleryItem = new GalleryItem();
+
+			tempGalleryItem.Title = galleryItem.Title;
+			tempGalleryItem.Media = galleryItem.Media;
+			tempGalleryItem.Date = galleryItem.Date;
+			tempGalleryItem.HideMediaOverlay = galleryItem.HideMediaOverlay;
+			tempGalleryItem.Visible = galleryItem.Visible;
+
+			_dbContext.GalleryItems.Add(tempGalleryItem);
+			await _dbContext.SaveChangesAsync();
+			//_dbContext.Localization.Add(localizationString);
+
+			return RedirectToAction(nameof(Index));
 		}
 
 		private static GalleryItem CreateItemPreview(GalleryItem galleryItem)
-		{		
+		{
 			return galleryItem;
 		}
 
-		private static async Task UploadFiles(string path, List<IFormFile> files)
+		[HttpPost]
+		public async Task<IActionResult> UploadFiles(string path, List<IFormFile> files)
 		{
 			string token = Environment.GetEnvironmentVariable("Spaces_Token");
 			string secret = Environment.GetEnvironmentVariable("Spaces_Secret");
 			string bucketName = Environment.GetEnvironmentVariable("Spaces_BucketName");
+
+			List<string> fileNames = new List<string>();
+
 
 			var transferUtility = new TransferUtility(new AmazonS3Client(token, secret, new AmazonS3Config
 			{
@@ -120,7 +135,9 @@ namespace LegionWebApp.Controllers
 					Key = path + "/" + fileName,
 					CannedACL = S3CannedACL.PublicRead
 				});
+				fileNames.Add(file.FileName);
 			}
+			return Json(fileNames);
 		}
 
 

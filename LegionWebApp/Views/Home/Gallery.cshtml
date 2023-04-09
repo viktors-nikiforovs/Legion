@@ -64,7 +64,7 @@
 			if (mediaItemCount > hideMediaOverlay) {
 				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
 				var hiddenCount = mediaItemCount - hideMediaOverlay;
-				var postId = $(this).find('.media-item:gt(5)').attr('data-post-id');
+				var postId = $(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').attr('data-post-id');
 
 				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', ' + hideMediaOverlay + ');currentSlide(' + hideMediaOverlay + '); ')
 					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');

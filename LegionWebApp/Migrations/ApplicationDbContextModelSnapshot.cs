@@ -35,15 +35,12 @@ namespace LegionWebApp.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Value_DE")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Value_FR")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Value_UK")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -127,18 +124,25 @@ namespace LegionWebApp.Migrations
 
             modelBuilder.Entity("LegionWebApp.Models.GalleryItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("HideMediaOverlay")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("Visible")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
@@ -147,11 +151,14 @@ namespace LegionWebApp.Migrations
 
             modelBuilder.Entity("LegionWebApp.Models.Media", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("integer");
 
                     b.Property<int>("GalleryItemId")
                         .HasColumnType("integer");

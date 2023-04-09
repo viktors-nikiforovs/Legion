@@ -1,4 +1,5 @@
 ﻿using LegionWebApp.Data;
+using LegionWebApp.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +7,13 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace LegionWebApp.Models
 {
-    public class GalleryModel
+	public class CreateGalleryModel
+	{
+        public LocalizationString localizationString { get; set; }
+        public GalleryItem galleryItem { get; set; }
+    }
+
+	public class GalleryModel
     {
         public List<GalleryItem> ItemList { get; set; }
 
@@ -30,10 +37,14 @@ namespace LegionWebApp.Models
 
     public class GalleryItem
     {
-        [Key]
-        public int Id { get; set; }
+		public GalleryItem()
+		{
+			Media = new List<Media>();
+		}
+
+		[Key]
+        public int? Id { get; set; }
         public string Title { get; set; }
-		//public DateOnly Date { get; set; }
 		public string Date { get; set; }
         public bool Visible { get; set; }        
         public int HideMediaOverlay { get; set; }
@@ -43,13 +54,13 @@ namespace LegionWebApp.Models
     public abstract class Media
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int GalleryItemId { get; set; }
-		public int DisplayOrder { get; set; }
+		public string Link { get; set; }
 		[ForeignKey("GalleryItemId")]
-        public GalleryItem GalleryItem { get; set; }
-        public string Link { get; set; }
-    }
+        public GalleryItem GalleryItem { get; set; }        
+		public int DisplayOrder { get; set; }
+	}
 
     public class Image : Media
     {
@@ -59,5 +70,5 @@ namespace LegionWebApp.Models
     public class Video : Media
     {
         public string? Poster { get; set; }
-    }
+    }   
 }

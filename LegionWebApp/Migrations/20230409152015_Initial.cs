@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LegionWebApp.Migrations
 {
-    public partial class InitApplicationUser : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,38 @@ namespace LegionWebApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GalleryItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Date = table.Column<string>(type: "text", nullable: false),
+                    Visible = table.Column<bool>(type: "boolean", nullable: false),
+                    HideMediaOverlay = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GalleryItems", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Localization",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Key = table.Column<string>(type: "text", nullable: false),
+                    Value_FR = table.Column<string>(type: "text", nullable: true),
+                    Value_DE = table.Column<string>(type: "text", nullable: true),
+                    Value_UK = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Localization", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,6 +189,29 @@ namespace LegionWebApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Media",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GalleryItemId = table.Column<int>(type: "integer", nullable: false),
+                    Link = table.Column<string>(type: "text", nullable: false),
+                    MediaType = table.Column<string>(type: "text", nullable: false),
+					Poster = table.Column<string>(type: "text", nullable: true),
+					DisplayOrder = table.Column<int>(type: "integer", nullable: false)					
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Media", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Media_GalleryItems_GalleryItemId",
+                        column: x => x.GalleryItemId,
+                        principalTable: "GalleryItems",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -193,6 +248,11 @@ namespace LegionWebApp.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Media_GalleryItemId",
+                table: "Media",
+                column: "GalleryItemId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -213,10 +273,19 @@ namespace LegionWebApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Localization");
+
+            migrationBuilder.DropTable(
+                name: "Media");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "GalleryItems");
         }
     }
 }
