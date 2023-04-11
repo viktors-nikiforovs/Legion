@@ -31,7 +31,7 @@
 						{
 							<div class="col">
 								<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-									<video disablePictureInPicture preload="metadata" muted controls controlslist="noplaybackrate nodownload nofullscreen" data-src="@($"{video.Link}#t=0.5")" poster="@video.Poster" type="video/mp4"></video>
+									<video disablePictureInPicture preload="auto" muted controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{video.Link}#t=0.5")" poster="@video.Poster" type="video/mp4"></video>
 								</div>
 							</div>
 						}
@@ -39,7 +39,7 @@
 						{
 							<div class="col">
 								<div class="media-item" data-post-id="@item.Id">
-									<img onclick="openModal(@item.Id, @i);" data-src="@image.Link" />
+									<img onclick="openModal(@item.Id, @i);" src="@image.Link" />
 								</div>
 							</div>
 						}
