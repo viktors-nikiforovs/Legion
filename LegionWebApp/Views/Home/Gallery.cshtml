@@ -43,7 +43,7 @@
 						{
 							<div class="col">
 								<div class="media-item">
-									<img class="lazyload smallMedia" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
+									<img class="lazyload smallMedia"  src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
 								</div>
 							</div>
 						}
@@ -241,11 +241,11 @@
 			var currentSrc = $(image).attr('data-src');
 			if (currentSrc) {
 				var newSrc = currentSrc.replace('/small', '');
-				$(image).attr('data-src', newSrc).data('original-src', currentSrc);
+				$(image).attr('src', newSrc).data('original-src', currentSrc);
 			}else{
 				var currentSrcLg = $(image).attr('src');
 				var newSrc = currentSrcLg.replace('/small', '');
-				$(image).attr('data-src', newSrc).data('original-src', currentSrcLg);
+				$(image).attr('src', newSrc).data('original-src', currentSrcLg);
 			}
 		}
 
