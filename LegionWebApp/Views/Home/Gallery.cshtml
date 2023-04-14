@@ -1,17 +1,15 @@
-﻿@using LegionWebApp.Models
+﻿@model IEnumerable<LegionWebApp.Models.GalleryItem>
+@using LegionWebApp.Models;
 @using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
-@inject LegionWebApp.Data.ApplicationDbContext DbContext
 @inject IViewLocalizer T
 
-@{
-	ViewData["Title"] = @T["Gallery"];
-	var Gallery = new GalleryModel(DbContext);
-}
 <div class="feed-container">
-	@foreach (var item in Gallery.ItemList)
-	{
+	@{
 		int i = 1;
+	}
+	@foreach (var item in Model)
+	{
 		<div class="feed-post">
 			<div class="post-header">
 				<img src="~/images/logo.png" class="profile-picture">
@@ -27,8 +25,6 @@
 					DateTime.TryParseExact(item.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out inputDate);
 					item.Date = inputDate.ToString("dd.MM.yyyy");
 				}
-				
-
 			</div>
 			<div class="container post-media" data-hide-media-overlay="@item.HideMediaOverlay">
 				<div class="row row-cols-2 row-cols-sm-4">
@@ -37,16 +33,17 @@
 						if (media is Video video)
 						{
 							<div class="col">
-								<div class="media-item" data-post-id="@item.Id" onclick="togglePlayPause(this,@item.Id, @i)" ontouchstart="togglePlayPause(this,@item.Id, @i)">
-									<video disablePictureInPicture preload="auto" muted controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + video.Link}#t=0.5")" poster="@video.Poster" type="video/mp4"></video>
+								<div class="media-item">
+									<video class="smallMedia" disablePictureInPicture preload="auto" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + video.Link}")" type="video/mp4">
+									</video>
 								</div>
 							</div>
 						}
 						else if (media is Image image)
 						{
 							<div class="col">
-								<div class="media-item" data-post-id="@item.Id">
-									<img onclick="openModal(@item.Id, @i);" src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
+								<div class="media-item">
+									<img class="lazyload smallMedia" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
 								</div>
 							</div>
 						}
@@ -57,45 +54,37 @@
 		</div>
 	}
 </div>
-<div id="ModalContent" class="modal" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-	<a class="close" onclick="closeModal()"></a>
-</div>
+
 
 <script>
-	$(document).ready(function() {
-		$('.feed-post').each(function () {
-			var mediaItemCount = $(this).find('.media-item').length;
-			var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
-			if (mediaItemCount > hideMediaOverlay) {
-				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
-				var hiddenCount = mediaItemCount - hideMediaOverlay;
-				var postId = $(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').attr('data-post-id');
+	$(document).ready(function () {
 
-				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay').attr('onclick', 'openModal(' + postId + ', ' + hideMediaOverlay + ');currentSlide(' + hideMediaOverlay + '); ')
-					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
-			}
+	});
 
-			$(this).find('.media-item:lt(' + hideMediaOverlay + ')').each(function () {
-				var media = $(this).find('img, video');
-				var src = media.attr('data-src');
-				media.attr('src', src).removeAttr('data-src');
-			});
+	$(document).ready(function () {
+		lazyLoadInstance.update();
+
+		$('img.lazyload').on('load', function () {
+			console.log('Lazy-loaded image:', this);
 		});
 
-		$(".media-item").each(function() {
+		$('video.lazyload').on('loadeddata', function () {
+			console.log('Lazy-loaded video:', this);
+		});
+
+		hideOverlay();
+		$(".media-item").each(function () {
 			var mediaItem = $(this);
 			var media = mediaItem.find("img, video");
 			if (media.prop('tagName') == 'IMG') {
 				var img = new Image();
-				img.onload = function() {
+				img.onload = function () {
 					var aspectRatio = img.width / img.height;
 					if (aspectRatio >= 1) {
 						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
 					}
 				};
-				img.src = media.attr('src');
+				img.src = media.attr('data-src');
 			} else if (media.prop('tagName') == 'VIDEO') {
 				if (media[0].readyState > 0) {
 					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
@@ -104,7 +93,7 @@
 					}
 
 				} else {
-					media.on('loadedmetadata', function() {
+					media.on('loadedmetadata', function () {
 						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
 						if (aspectRatio >= 1) {
 							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
@@ -113,184 +102,144 @@
 				}
 			}
 		});
-	});
-</script>
-<!-- Modal -->
-<script>
-	let slideIndex = 1;
 
-	function togglePlayPause(element, itemId, itemNumber) {
-		openModal(itemId, itemNumber);
-		if (element.paused) {
-			element.play();
-			element.style.display = "block";
-		} else {
-			element.pause();
-			element.style.display = "none";
-		}
-	}
-	function CreateModal(imgs) {
-		var modalContent = document.getElementById("ModalContent");
-		var oldHtml = modalContent.innerHTML;
-		modalContent.innerHTML = "";
-		imgs.forEach((img, index) => {
-			if (img.tagName == 'VIDEO') {
-				modalContent.innerHTML += '<div class="mySlides fullpage"><video disablePictureInPicture controls preload="none" controlslist="noplaybackrate nodownload nofullscreen"  onclick="this.paused?this.play():this.pause();" ontouchstart="this.paused?this.play():this.pause();" src="' + img.src + '" type="video/mp4"></video></div>';
+		function openModal($media) {
+			if ($media.parent().hasClass('mySlides fullpage')) {
+				if ($media.is('video')) {
+					if ($media[0].paused) {
+						$media[0].play();
+					} else {
+						$media[0].pause();
+					}
+				} else {
+					closeModal();
+				}
 			} else {
+				var $container = $media.closest('.post-media');
+				var $child = $container.children(); // row row-cols-2 row-cols-sm-4
+				var $childElements = $child.children(); // col
+				var $mediaItem = $($childElements.children()); // mediaItem $this
 
-				modalContent.innerHTML += '<div class="mySlides fullpage" onclick="closeModal();"><img src="' + img.src.replace("/small", "") + '"></div>';
+				var modalBefore = '<div id="ModalContent" class="modal">';
+				var modalAfter = `</div>`;
+				var modalBtns = '<a class="prev" onclick="nextSlides(-1)">&#10094;</a><a class="next" onclick="nextSlides(1)">&#10095;</a><a class="close"></a>';
+				$child.append(modalBtns);
+				$child.children().wrapAll(modalBefore + modalAfter);
+				$("#ModalContent").css('display', 'block');
+
+				$($mediaItem).each(function () {
+					$(this).removeClass("media-item count-overlay").addClass("mySlides fullpage").css('display', 'none');
+				});
+				$media.parent().css('display', 'block');
+
+				var currentSrc = $media.attr('data-src');
+				if (currentSrc) {
+					var newSrc = currentSrc.replace('/small', '');
+					$media.attr('src', newSrc).data('original-src', currentSrc);
+				}
+				$("html, body").css('overflow', 'hidden');
+
+				$container.find('.count-overlay-text').remove();
+
+				if ($media.is('video')) {
+					$media[0].play();
+				}
+			}
+		}
+
+		function closeModal($media) {
+			var $container = $media.closest('.post-media');
+			var $child = $container.children(); // row row-cols-2 row-cols-sm-4
+			var $childElements = $child.children(); // col
+			if ($media.is('video')) {
+				$media[0].pause();
+				$media[0].currentTime = 0;
+			}
+
+			$child.find('.prev').remove();
+			$child.find('.next').remove();
+			$child.find('.close').remove();
+			var $modalContent = $('#ModalContent');
+			$modalContent.children().unwrap();
+			$modalContent.remove();
+
+			$child.children().each(function (index, element) {
+				$(element).children().removeClass('mySlides fullpage').addClass('media-item').css('display', '');
+			});
+			$("html, body").css('overflow', '');
+		}
+
+
+
+		$('.smallMedia').on('click', function () {
+			var $media = $(this);
+			if ($media.parent().hasClass('mySlides fullpage')) {
+				closeModal($media);
+				hideOverlay();
+			} else {
+				openModal($media);
 			}
 		});
-		modalContent.innerHTML += oldHtml;
-	}
-	function openModal(postId, itemNumber) {
-    slideIndex = itemNumber; // Add this line to update the global slideIndex value
-    var posts = document.querySelectorAll(`[data-post-id='${postId}']`);
-    var imgs = [];
-    posts.forEach(post => {
-        var postImgs = post.querySelectorAll('.media-item video, .media-item img');
-        postImgs.forEach(img => {
-            // Set the src attribute from the src attribute if not null, otherwise use data-src
-				//var src = img.getAttribute('src') || img.getAttribute('data-src');
-				var src = img.getAttribute('src');
-            img.setAttribute('src', src);
-            imgs.push(img);
-        });
-    });
-    CreateModal(imgs);
-    document.getElementById("ModalContent").style.display = "block";
-    var x = document.getElementsByTagName("BODY")[0];
-    x.style.overflow = "hidden";
-    showSlides(slideIndex);
-}
 
+		$(document).on('click', '.close', function () {
+			var $media = $('#ModalContent').find('.mySlides.fullpage:visible').children();
+			closeModal($media);
+			hideOverlay();
+		});
 
-
-	function closeModal() {
-		document.getElementById("ModalContent").style.display = "none";
-		var x = document.getElementsByTagName("BODY")[0];
-		x.style.overflow = "auto";
-		document.getElementById("ModalContent").innerHTML = '<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><a class="close" onclick="closeModal()"></a>';
-	}
-function plusSlides(n) {
-    var numSlides = document.getElementsByClassName("mySlides").length;
-    var newSlideIndex = slideIndex + n;
-
-    if (newSlideIndex > numSlides) {
-        newSlideIndex = 1;
-    } else if (newSlideIndex < 1) {
-        newSlideIndex = numSlides;
-    }
-    slideIndex = newSlideIndex;
-    showSlides(slideIndex);
-}
-
-	function showSlides(n) {
-		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		if (n > slides.length) {
-			n = 1;
-		}
-		if (n < 1) {
-			n = slides.length;
-		}
-		for (i = 0; i < slides.length; i++) {
-			slides[i].style.display = "none";
-			if (slides[i].firstElementChild.tagName === "VIDEO") {
-				slides[i].firstElementChild.pause();
+		$(document).on('keydown', function (e) {
+			if (e.keyCode === 27) { // Check if the ESC key was pressed
+				var $closeBtn = $('#ModalContent').find('.close');
+				closeModal($closeBtn);
 			}
+		});
+		$('.prev').click(function () {
+			nextSlides(-1);
+		});
+
+		$('.next').click(function () {
+			nextSlides(1);
+		});
+
+	});
+	function nextSlides(n) {
+		var slides = $('.mySlides.fullpage');
+		var currentSlide = slides.filter(':visible');
+		var currentIndex = slides.index(currentSlide);
+		var nextIndex = (currentIndex + n + slides.length) % slides.length;
+		var nextSlide = slides.eq(nextIndex);
+		var currentVideo = currentSlide.find('video');
+		var nextVideo = nextSlide.find('video');
+		var image = nextSlide.find('img');
+
+		if (image != null) {
+			var currentSrc = $(image).attr('src');
+			var newSrc = currentSrc.replace('/small', '');
+			$(image).attr('src', newSrc).data('original-src', currentSrc);
 		}
-		slides[n - 1].style.display = "block";
-		if (slides[n - 1].firstElementChild.tagName === "VIDEO") {
-			slides[n - 1].firstElementChild.play();
+
+		if (currentVideo.length > 0) {
+			currentVideo.get(0).pause();
 		}
+		if (nextVideo.length > 0) {
+			nextVideo.get(0).play();
+		}
+		currentSlide.hide();
+		nextSlide.show();
+	}
+
+	function hideOverlay() {
+		$('.feed-post').each(function () {
+			var mediaItemCount = $(this).find('.media-item').length;
+			var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
+			var hiddenCount = mediaItemCount - hideMediaOverlay;
+
+			if (mediaItemCount > hideMediaOverlay) {
+				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
+				var hiddenCount = mediaItemCount - hideMediaOverlay;
+				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
+					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+			}
+		});
 	}
 </script>
-<script>
-	$(document).on("keypress", function(e) {
-		switch (e) {
-			case 37:
-				plusSlides(-1);
-				setTimeout(function() { }, 1000);
-				break;
-			case 39:
-				plusSlides(1);
-				break;
-			case 38:
-				// Up arrow key
-				closeModal();
-				break;
-			case 40:
-				// Down arrow key
-				closeModal();
-				break;
-		}
-	});
-	document.addEventListener('keydown', (event) => {
-		switch (event.keyCode) {
-			case 37:
-				plusSlides(-1);
-				break;
-			case 39:
-				plusSlides(1);
-				break;
-			case 38:
-				// Up arrow key
-				closeModal();
-				break;
-			case 40:
-				// Down arrow key
-				closeModal();
-				break;
-			case 27:
-				// Escape key
-				closeModal();
-				break;
-		}
-	});
-	let xDown = null;
-	let yDown = null;
-	function touchStart(event) {
-		xDown = event.touches[0].clientX;
-		yDown = event.touches[0].clientY;
-	}
-	function touchMove(event) {
-		if (!xDown || !yDown) {
-			return;
-		}
-		const xUp = event.touches[0].clientX;
-		const yUp = event.touches[0].clientY;
-		const xDiff = xDown - xUp;
-		const yDiff = yDown - yUp;
-		// Minimum distance to swipe before changing slides
-		const threshold = 5;
-		if (Math.abs(xDiff) > Math.abs(yDiff)) {
-			if (Math.abs(xDiff) > threshold) {
-				if (xDiff > 0) {
-					// Left swipe
-					plusSlides(1);
-				} else {
-					// Right swipe
-					plusSlides(-1);
-				}
-			}
-		} else {
-			if (Math.abs(yDiff) > threshold) {
-				if (yDiff > 0) {
-					// Up swipe or up arrow key
-					closeModal();
-				} else {
-					// Down swipe or down arrow key
-					closeModal();
-				}
-			}
-		}
-		xDown = null;
-		yDown = null;
-	}
-	function touchEnd(event) {
-		xDown = null;
-		yDown = null;
-	}
-</script>
-<!-- Modal End -->

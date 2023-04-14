@@ -12,12 +12,11 @@
 	<link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/sass/stylesheet.min.css" asp-append-version="true" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.4.5/css/flag-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-	<!-- Add this to the <head> section of your _Layout.cshtml file -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
-	<!-- Add the localization files you want to use -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/uk.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/fr.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/default.js"></script>
@@ -58,6 +57,12 @@
 	</script>
 </head>
 <body>
+	<script>
+		var lazyLoadInstance = new LazyLoad({
+			elements_selector: 'img.lazyload, source.lazyload'
+		});
+		console.log("LazyLoad instance created:", lazyLoadInstance);
+	</script>
 	<header>
 		<partial name="_Navbar" />
 	</header>

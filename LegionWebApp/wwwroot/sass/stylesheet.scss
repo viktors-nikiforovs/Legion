@@ -7,6 +7,7 @@ $body-color: #ffffff;
 $card-color: #000000;
 $input-color: #000000;
 $input-border-color: #000000;
+$table-color: #000000;
 
 .nav-link {
     color: white;
@@ -265,7 +266,7 @@ video::-webkit-media-controls-timeline {
 
 .fullpage {
     overflow: auto;
-    display: none;
+    //display: none;
     position: fixed;
     z-index: 9999;
     top: 0;
