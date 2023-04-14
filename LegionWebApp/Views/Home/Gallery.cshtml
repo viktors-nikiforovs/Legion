@@ -145,6 +145,18 @@
 					$media[0].play();
 				}
 			}
+
+			var modalContent = document.getElementById('ModalContent');
+			if (modalContent) {
+				modalContent.addEventListener('touchstart', function (e) {
+					touchstartX = e.changedTouches[0].screenX;
+				}, false);
+
+				modalContent.addEventListener('touchend', function (e) {
+					touchendX = e.changedTouches[0].screenX;
+					handleSwipe();
+				}, false);
+			}
 		}
 
 		function closeModal($media) {
@@ -191,8 +203,13 @@
 			if (e.keyCode === 27) { // Check if the ESC key was pressed
 				var $closeBtn = $('#ModalContent').find('.close');
 				closeModal($closeBtn);
+			} else if (e.keyCode === 37) { // Left arrow key
+				nextSlides(-1);
+			} else if (e.keyCode === 39) { // Right arrow key
+				nextSlides(1);
 			}
 		});
+
 		$('.prev').click(function () {
 			nextSlides(-1);
 		});
@@ -200,6 +217,14 @@
 		$('.next').click(function () {
 			nextSlides(1);
 		});
+
+		function handleSwipe() {
+			if (touchendX < touchstartX) {
+				nextSlides(1);
+			} else if (touchendX > touchstartX) {
+				nextSlides(-1);
+			}
+		}
 
 	});
 	function nextSlides(n) {
@@ -212,10 +237,16 @@
 		var nextVideo = nextSlide.find('video');
 		var image = nextSlide.find('img');
 
-		if (image != null) {
-			var currentSrc = $(image).attr('src');
-			var newSrc = currentSrc.replace('/small', '');
-			$(image).attr('src', newSrc).data('original-src', currentSrc);
+		if (image.length > 0) {
+			var currentSrc = $(image).attr('data-src');
+			if (currentSrc) {
+				var newSrc = currentSrc.replace('/small', '');
+				$(image).attr('data-src', newSrc).data('original-src', currentSrc);
+			}else{
+				var currentSrcLg = $(image).attr('src');
+				var newSrc = currentSrcLg.replace('/small', '');
+				$(image).attr('data-src', newSrc).data('original-src', currentSrcLg);
+			}
 		}
 
 		if (currentVideo.length > 0) {

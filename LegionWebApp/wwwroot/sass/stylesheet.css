@@ -10034,7 +10034,7 @@ video::-webkit-media-controls-timeline {
 }
 
 .fullpage {
-  overflow: auto;
+  overflow: hidden;
   position: fixed;
   z-index: 9999;
   top: 0;

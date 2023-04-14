@@ -55,7 +55,6 @@ $table-color: #000000;
 .icon {
     color: #3B529B;
     font-size: 3rem;
-    
 }
 
 .footer {
@@ -73,6 +72,7 @@ $table-color: #000000;
 .grid-item {
     padding: 0.3rem;
 }
+
 .gallery img:hover {
     cursor: zoom-in;
     opacity: 0.7;
@@ -84,6 +84,7 @@ $table-color: #000000;
     object-fit: cover;
     aspect-ratio: 1/1;
 }
+
 .gallery video:hover {
     cursor: pointer;
 }
@@ -114,6 +115,7 @@ body {
     background: linear-gradient(to bottom, rgba(3, 109, 95, 1), rgba(4, 62, 55, 1), rgba(3, 109, 95, 1));
     transition: background 0.5s ease;
 }
+
 .feed-container a:link {
     color: white;
     background-color: transparent;
@@ -265,8 +267,7 @@ video::-webkit-media-controls-timeline {
 }
 
 .fullpage {
-    overflow: auto;
-    //display: none;
+    overflow: hidden;
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -388,7 +389,7 @@ video::-webkit-media-controls-timeline {
     margin-right: auto;
     height: 100%;
     border-radius: 2rem;
-    z-index:-2;
+    z-index: -2;
 }
 
 .partner img {
@@ -412,8 +413,9 @@ video::-webkit-media-controls-timeline {
     font: bold;
     pointer-events: none;
     color: white;
-    z-index:-3;
+    z-index: -3;
 }
+
 @keyframes partner-running-line {
     0% {
         transform: translateX(100%);
