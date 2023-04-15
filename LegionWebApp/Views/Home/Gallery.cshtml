@@ -27,28 +27,43 @@
 				}
 			</div>
 			<div class="container post-media" data-hide-media-overlay="@item.HideMediaOverlay">
-				<div class="row row-cols-2 row-cols-sm-4">
-					@foreach (var media in item.Media.OrderBy(m => m.DisplayOrder))
+				@{
+					string width;
+					string col;
+					if (item.Media.Count < 2)
 					{
-						if (media is Video video)
-						{
-							<div class="col">
-								<div class="media-item">
-									<video class="smallMedia" disablePictureInPicture preload="auto" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + video.Link}")" type="video/mp4">
-									</video>
-								</div>
-							</div>
-						}
-						else if (media is Image image)
-						{
-							<div class="col">
-								<div class="media-item">
-									<img class="lazyload smallMedia"  src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
-								</div>
-							</div>
-						}
-						i++;
+						width = "row row-cols-2 row-cols-sm-2";
+						col = "col-6";
+
 					}
+					else
+					{
+						width = "row row-cols-2 row-cols-sm-4";
+						col = "col";
+					}
+				}
+					<div class="@width">
+						@foreach (var media in item.Media.OrderBy(m => m.DisplayOrder))
+						{
+							if (media is Video video)
+							{
+								<div class="@col">
+									<div class="media-item">
+										<video class="smallMedia" disablePictureInPicture preload="auto" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + video.Link}")" type="video/mp4">
+										</video>
+									</div>
+								</div>
+							}
+							else if (media is Image image)
+							{
+								<div class="@col">
+									<div class="media-item">
+										<img class="lazyload smallMedia" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
+									</div>
+								</div>
+							}
+							i++;
+						}
 				</div>
 			</div>
 		</div>
@@ -242,7 +257,7 @@
 			if (currentSrc) {
 				var newSrc = currentSrc.replace('/small', '');
 				$(image).attr('src', newSrc).data('original-src', currentSrc);
-			}else{
+			} else {
 				var currentSrcLg = $(image).attr('src');
 				var newSrc = currentSrcLg.replace('/small', '');
 				$(image).attr('src', newSrc).data('original-src', currentSrcLg);
