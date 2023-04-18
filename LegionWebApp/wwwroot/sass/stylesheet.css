@@ -3,6 +3,10 @@
   color: white;
 }
 
+#carouselNeeds .carousel-item {
+  height: auto;
+}
+
 #wardays input {
   background: transparent;
   border: none;
