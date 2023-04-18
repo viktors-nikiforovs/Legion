@@ -3,8 +3,14 @@
   color: white;
 }
 
+#carouselNeeds .carousel-item img {
+  height: 60vh;
+  object-fit: contain;
+}
+
 #carouselNeeds .carousel-item {
   height: auto;
+  max-height: 60vh;
 }
 
 #wardays input {
