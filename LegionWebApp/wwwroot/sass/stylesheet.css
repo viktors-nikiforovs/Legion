@@ -1,8 +1,40 @@
 ﻿@charset "UTF-8";
+#loading-gallery-items {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+  z-index: 5;
+  margin-bottom: 2rem;
+  display: none;
+}
+
 .nav-link {
   color: white;
 }
 
+#loading-gallery-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading-gallery-items::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #777;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 #carouselNeeds .carousel-item img {
   height: 60vh;
   object-fit: contain;
@@ -65,6 +97,7 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  text-align: center;
   z-index: 1;
 }
 

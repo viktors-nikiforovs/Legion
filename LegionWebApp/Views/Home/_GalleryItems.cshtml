@@ -1,0 +1,124 @@
+﻿@model IEnumerable<LegionWebApp.Models.GalleryItem>
+@using LegionWebApp.Models;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer T
+
+<div class="feed-container">
+	@{
+		int i = 1;
+	}
+	@foreach (var item in Model)
+	{
+		<div class="feed-post">
+			<div class="post-header">
+				<img src="~/images/logo.png" class="profile-picture">
+				<div class="post-info">
+					<div class="username">@T["Legion Foundation"]</div>
+					<div class="post-time">@T[DateOnly.Parse(item.Date).ToShortDateString()]</div>
+				</div>
+			</div>
+			<div class="post-content">
+				@T[@item.Title]
+				@{
+					DateTime inputDate;
+					DateTime.TryParseExact(item.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out inputDate);
+					item.Date = inputDate.ToString("dd.MM.yyyy");
+				}
+			</div>
+			<div class="container post-media" data-hide-media-overlay="@item.HideMediaOverlay">
+				@{
+					string width;
+					string col;
+					if (item.Media.Count < 2)
+					{
+						width = "row row-cols-2 row-cols-sm-2";
+						col = "col-6";
+
+					}
+					else
+					{
+						width = "row row-cols-2 row-cols-sm-4";
+						col = "col";
+					}
+				}
+				<div class="@width">
+					@foreach (var media in item.Media.OrderBy(m => m.DisplayOrder))
+					{
+						if (media is Video video)
+						{
+							<div class="@col">
+								<div class="media-item">
+									<video class="lazy smallMedia" disablePictureInPicture preload="metadata" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + video.Link}")"  type="video/mp4">
+									</video>
+								</div>
+							</div>
+						}
+						else if (media is Image image)
+						{
+							<div class="@col">
+								<div class="media-item">
+									@*<img class="lazy smallMedia" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />*@
+									<img class="lazy smallMedia" src="@($"https://cdn.legion-foundation.org/{item.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{item.Date + "/small/" + image.Link}")" />
+
+								</div>
+							</div>
+						}
+						i++;
+					}
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<script>
+	$(document).ready(function () {
+		hideOverlay();
+
+		$(".media-item").each(function () {
+			var mediaItem = $(this);
+			var media = mediaItem.find("img, video");
+			if (media.prop('tagName') == 'IMG') {
+				var img = new Image();
+				img.onload = function () {
+					var aspectRatio = img.width / img.height;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+				};
+				img.src = media.attr('data-src');
+			} else if (media.prop('tagName') == 'VIDEO') {
+				if (media[0].readyState > 0) {
+					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+					if (aspectRatio >= 1) {
+						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+					}
+
+				} else {
+					media.on('loadedmetadata', function () {
+						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
+						if (aspectRatio >= 1) {
+							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
+						}
+					});
+				}
+			}
+		});
+	});
+
+	function hideOverlay() {
+		$('.feed-post').each(function () {
+			var mediaItemCount = $(this).find('.media-item').length;
+			var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
+			var hiddenCount = mediaItemCount - hideMediaOverlay;
+
+			if (mediaItemCount > hideMediaOverlay) {
+				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
+				var hiddenCount = mediaItemCount - hideMediaOverlay;
+				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
+					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
+			}
+		});
+	}
+</script>

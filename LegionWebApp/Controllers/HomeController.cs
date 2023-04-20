@@ -57,11 +57,22 @@ namespace LegionWebApp.Controllers
 		{
 			return View();
 		}
-		public IActionResult Gallery()
+		[HttpGet]
+		public IActionResult Gallery(int page = 1, int pageSize = 3)
 		{
 			var galleryModel = new GalleryModel(_dbContext);
-			return View(galleryModel.ItemList);
+			var pagedItems = galleryModel.ItemList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+			var totalItems = galleryModel.ItemList.Count;
+			ViewBag.TotalItems = totalItems;
+			if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+			{				
+				return PartialView("_GalleryItems", pagedItems);				
+			}
+			
+			return View(pagedItems);
 		}
+
+
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
