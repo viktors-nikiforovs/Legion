@@ -46,11 +46,18 @@
 		
 		// Infinite scrolling code
 		// Infinite scrolling code
-		window.addEventListener('scroll', function () {
-			if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+		function isScrollAtBottom() {
+			return (window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 5;
+		}
+
+		function onScroll() {
+			if (isScrollAtBottom()) {
 				loadMoreItems();
 			}
-		});
+		}
+
+		window.addEventListener('scroll', onScroll);
+
 
 
 		var currentPage = 1;
