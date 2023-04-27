@@ -15,8 +15,6 @@
 @section Scripts {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-
 	<script>
 		// Create a new Intersection Observer
 		const observer = new IntersectionObserver((entries, observer) => {
@@ -45,21 +43,15 @@
 	</script>
 
 	<script>
-		// Remove the previous scroll event listener
-		window.removeEventListener('scroll', onScrollOrTouchMove);
-
-		// Initialize the waypoint at the bottom of the page
-		var waypoint = new Waypoint({
-			element: document.getElementById('loading-gallery-items'),
-			handler: function (direction) {
-				if (direction === 'down') {
+		const loadingObserver = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
 					loadMoreItems();
 				}
-			},
-			offset: 'bottom-in-view'
-		});
+			});
+		}, { threshold: 0.1 });
 
-
+		loadingObserver.observe(document.getElementById('loading-gallery-items'));
 
 		var currentPage = 1;
 		var isLoading = false;
