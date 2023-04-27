@@ -59,7 +59,7 @@ namespace LegionWebApp.Models
 		public string Link { get; set; }
 		[ForeignKey("GalleryItemId")]
         public GalleryItem GalleryItem { get; set; }
-        public int ColWidth { get; set; }
+        public string Col { get; set; }
         public int DisplayOrder { get; set; }
 	}
 
