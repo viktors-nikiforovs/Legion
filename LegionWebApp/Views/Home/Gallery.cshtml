@@ -45,11 +45,13 @@
 	<script>
 		
 		// Infinite scrolling code
-		$(window).scroll(function () {
-			if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+		// Infinite scrolling code
+		window.addEventListener('scroll', function () {
+			if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
 				loadMoreItems();
 			}
 		});
+
 
 		var currentPage = 1;
 		var isLoading = false;
