@@ -100,38 +100,7 @@
 
 
 	<script>
-		var modalOpen = false;		
-		function landscape(){
-			$(".media-item").each(function () {
-				var mediaItem = $(this);
-				var media = mediaItem.find("img, video");
-				if (media.prop('tagName') == 'IMG') {
-					var img = new Image();
-					img.onload = function () {
-						var aspectRatio = img.width / img.height;
-						if (aspectRatio >= 1) {
-							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
-						}
-					};
-					img.src = media.attr('data-src');
-				} else if (media.prop('tagName') == 'VIDEO') {
-					if (media[0].readyState > 0) {
-						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-						if (aspectRatio >= 1) {
-							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
-						}
-
-					} else {
-						media.on('loadedmetadata', function () {
-							var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-							if (aspectRatio >= 1) {
-								mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6");
-							}
-						});
-					}
-				}
-			});
-		}
+		var modalOpen = false;				
 
 		function hideOverlay() {
 			$('.feed-post').each(function () {
