@@ -6,7 +6,10 @@
 	ViewData["Title"] = "Gallery";
 }
 <div id="gallery-items" class="feed-container">
-	@await Html.PartialAsync("_GalleryItems", Model)
+	@foreach (var item in Model)
+	{
+		@await Html.PartialAsync("_GalleryItems", item)
+	}
 </div>
 <div class="load-more-placeholder"></div>
 
@@ -27,7 +30,6 @@
 				}
 			});
 		}, { threshold: 0.1 });
-
 		// Observe all lazy images
 		function observeLazyImages() {
 			const lazyImages = document.querySelectorAll('img.lazy:not(.loaded)');
@@ -87,8 +89,7 @@
 				var observer = new IntersectionObserver(function (entries, observer) {
 					entries.forEach(function (entry) {
 						if (entry.isIntersecting) {
-							loadMoreItems();
-							//landscape();
+							loadMoreItems();							
 						}
 					});
 				}, options);
@@ -100,25 +101,7 @@
 
 
 	<script>
-		var modalOpen = false;
-
-		function hideOverlay() {
-			$('.feed-post').each(function () {
-				var mediaItemCount = $(this).find('.media-item').length;
-				var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
-				var hiddenCount = mediaItemCount - hideMediaOverlay;
-
-				if (mediaItemCount > hideMediaOverlay) {
-					$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').each(function () {
-						$(this).hide();
-						$(this).find('img, video').removeAttr('src');
-					});
-					var hiddenCount = mediaItemCount - hideMediaOverlay;
-					$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
-						.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
-				}
-			});
-		}
+		var modalOpen = false;	
 
 		function openModal($media) {
 			if ($media.parent().hasClass('mySlides fullpage')) {
@@ -206,15 +189,11 @@
 						$media[0].pause();
 					}
 				} else {
-					console.log("closing modal");
-					console.log($media);
 					closeModal($media);
 					modalOpen = false;
 				}
 			} else {
 				openModal($media);
-				console.log("opening modal");
-				console.log($media);
 				modalOpen = true;
 			}
 		});

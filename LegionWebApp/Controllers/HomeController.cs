@@ -3,6 +3,8 @@ using LegionWebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
 
 namespace LegionWebApp.Controllers
 {
@@ -62,11 +64,9 @@ namespace LegionWebApp.Controllers
 		{
 			var galleryModel = new GalleryModel(_dbContext);
 			var pagedItems = galleryModel.ItemList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-			var totalItems = galleryModel.ItemList.Count;
-			ViewBag.TotalItems = totalItems;
 			if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
 			{				
-				return PartialView("_GalleryItems", pagedItems);				
+				return PartialView("_GalleryItems", pagedItems.FirstOrDefault());				
 			}
 			
 			return View(pagedItems);
