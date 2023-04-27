@@ -9,35 +9,8 @@ $input-color: #000000;
 $input-border-color: #000000;
 $table-color: #000000;
 
-
-#loading-gallery-items {
-    margin: auto;
-    width: 50%;
-    text-align: center;
-    padding: 10px;
-    z-index: 5;
-    margin-bottom: 2rem;
-    display: none;
-}
-
 .nav-link {
     color: white;
-}
-#loading-gallery-items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#loading-gallery-items::after {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    border-top-color: #777;
-    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

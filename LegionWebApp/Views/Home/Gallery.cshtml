@@ -5,12 +5,12 @@
 @{
 	ViewData["Title"] = "Gallery";
 }
-
-<div id="gallery-items">
-	@await Html.PartialAsync("_GalleryItems", Model)
+<div class="feed-container">
+	<div id="gallery-items">
+		@await Html.PartialAsync("_GalleryItems", Model)
+	</div>
 </div>
-
-<div id="loading-gallery-items">@T["Loading..."]</div>
+<div class="load-more-placeholder"></div>
 
 @section Scripts {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
@@ -43,54 +43,64 @@
 	</script>
 
 	<script>
-		const loadingObserver = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					loadMoreItems();
+		(function () {
+			$(document).ready(function () {
+				var page = 2;
+				var loading = false;
+				var hasMoreItems = true;
+
+				function loadMoreItems() {
+					if (loading || !hasMoreItems) return;
+
+					loading = true;
+					$('.load-more-placeholder').html('<div class="text-center"><div class="spinner-border" role="status"></div></div>');
+
+					$.ajax({
+						url: "/Home/Gallery",
+						type: "GET",
+						data: {
+							page: page,
+							pageSize: 1 // Set pageSize to 1
+						},
+						success: function (data) {
+							if (data.trim() !== "") {
+								$('#gallery-items').append(data);
+								page++;
+							} else {
+								hasMoreItems = false;
+							}
+
+							loading = false;
+							$('.load-more-placeholder').html('');
+						}
+					});
 				}
-			});
-		}, { threshold: 0.1 });
 
-		loadingObserver.observe(document.getElementById('loading-gallery-items'));
-
-		var currentPage = 1;
-		var isLoading = false;
-		var galleryUrl = '@Url.Action("Gallery", "Home")';
-
-		function loadMoreItems() {
-			if (isLoading) return;
-
-			isLoading = true;
-			$('#loading-gallery-items').show();
-			currentPage++;
-
-			$.get(galleryUrl + '?page=' + currentPage, function (data) {
-				if (data) {
-					$('#gallery-items').append(data);
-
-					// Observe new lazy images
-					observeLazyImages();
-
-					isLoading = false;
-
-					// Check if all items have been loaded					
-					var loadedItems = $('#gallery-items').children().length;
-					var totalItems = @ViewBag.TotalItems;
-					if (loadedItems === totalItems) {
-						$(window).off('scroll'); // Remove the scroll event listener
+				$(window).scroll(function () {
+					if ($(window).scrollTop() + $(window).height() > $('.load-more-placeholder').offset().top - 200) {
+						loadMoreItems();
 					}
-				}
-				$('#loading-gallery-items').hide();
-			}, 'html').fail(function (xhr, textStatus, error) {
-				// Handle AJAX errors here
-				console.error(xhr.responseText);
-			}).always(function () {
-				isLoading = false;
+				});
+
+				// Initialize the IntersectionObserver
+				var options = {
+					rootMargin: '0px',
+					threshold: 0.1
+				};
+
+				var observer = new IntersectionObserver(function (entries, observer) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							loadMoreItems();
+						}
+					});
+				}, options);
+
+				observer.observe($('.load-more-placeholder')[0]);
 			});
-		}
-
-
+		})();
 	</script>
+
 
 	<script>
 		var modalOpen = false;
