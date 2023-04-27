@@ -42,23 +42,18 @@
 
 	</script>
 
-	<script>
-		
-		// Infinite scrolling code
-		// Infinite scrolling code
-		function isScrollAtBottom() {
-			return (window.innerHeight + window.pageYOffset) >= document.documentElement.scrollHeight - 5;
-		}
-
-		function onScroll() {
-			if (isScrollAtBottom()) {
+	<script>		
+		// infiniteScroll function
+		function infiniteScroll() {
+			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
 				loadMoreItems();
 			}
 		}
-
-		window.addEventListener('scroll', onScroll);
-
-
+		$(document).ready(function () {
+			// bind the function to all needed events
+			$(window).on('scroll', infiniteScroll);
+			$(window).on('touchmove', infiniteScroll);
+		});
 
 		var currentPage = 1;
 		var isLoading = false;
