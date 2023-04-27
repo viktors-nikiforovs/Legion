@@ -3,7 +3,6 @@ $card-bg: rgb(255, 255, 255, 0.9);
 $navbar-padding-x: 10rem;
 $card-border-width: 0;
 $enable-shadows: true;
-$body-color: #ffffff;
 $card-color: #000000;
 $input-color: #000000;
 $input-border-color: #000000;
@@ -260,7 +259,7 @@ body {
 video::-webkit-media-controls-play-button,
 video::-webkit-media-controls-volume-slider,
 video::-webkit-media-controls-timeline {
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .mySlides video::-webkit-media-controls-play-button,

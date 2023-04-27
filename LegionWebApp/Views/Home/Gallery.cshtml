@@ -100,7 +100,7 @@
 
 
 	<script>
-		var modalOpen = false;				
+		var modalOpen = false;
 
 		function hideOverlay() {
 			$('.feed-post').each(function () {
@@ -109,7 +109,10 @@
 				var hiddenCount = mediaItemCount - hideMediaOverlay;
 
 				if (mediaItemCount > hideMediaOverlay) {
-					$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
+					$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').each(function () {
+						$(this).hide();
+						$(this).find('img, video').removeAttr('src');
+					});
 					var hiddenCount = mediaItemCount - hideMediaOverlay;
 					$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
 						.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
@@ -121,7 +124,9 @@
 			if ($media.parent().hasClass('mySlides fullpage')) {
 				if ($media.is('video')) {
 					if ($media[0].paused) {
-						$media[0].play();
+						$media[0].play().catch(() => {
+							// Handle the play() request interruption here
+						});
 					} else {
 						$media[0].pause();
 					}
@@ -154,8 +159,11 @@
 				$container.find('.count-overlay-text').remove();
 
 				if ($media.is('video')) {
-					$media[0].play();
+					$media[0].play().catch(() => {
+						// Handle the play() request interruption here
+					});
 				}
+
 			}
 		}
 
@@ -191,7 +199,9 @@
 			if (modalOpen) {
 				if ($media.is('video')) {
 					if ($media[0].paused) {
-						$media[0].play();
+						$media[0].play().catch(() => {
+							// Handle the play() request interruption here
+						});
 					} else {
 						$media[0].pause();
 					}
