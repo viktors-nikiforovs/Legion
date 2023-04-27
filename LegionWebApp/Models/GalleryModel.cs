@@ -47,7 +47,7 @@ namespace LegionWebApp.Models
         public string Title { get; set; }
 		public string Date { get; set; }
         public bool Visible { get; set; }        
-        public int HideMediaOverlay { get; set; }
+        public int MaxDisplay { get; set; }
         public ICollection<Media> Media { get; set; }
     }
 
@@ -58,8 +58,9 @@ namespace LegionWebApp.Models
         public int GalleryItemId { get; set; }
 		public string Link { get; set; }
 		[ForeignKey("GalleryItemId")]
-        public GalleryItem GalleryItem { get; set; }        
-		public int DisplayOrder { get; set; }
+        public GalleryItem GalleryItem { get; set; }
+        public int ColWidth { get; set; }
+        public int DisplayOrder { get; set; }
 	}
 
     public class Image : Media

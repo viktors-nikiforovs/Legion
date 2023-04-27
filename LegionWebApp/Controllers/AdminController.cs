@@ -94,7 +94,7 @@ namespace LegionWebApp.Controllers
 			tempGalleryItem.Title = galleryItem.Title;
 			tempGalleryItem.Media = galleryItem.Media;
 			tempGalleryItem.Date = galleryItem.Date;
-			tempGalleryItem.HideMediaOverlay = galleryItem.HideMediaOverlay;
+			tempGalleryItem.MaxDisplay = galleryItem.MaxDisplay;
 			tempGalleryItem.Visible = galleryItem.Visible;
 
 			_dbContext.GalleryItems.Add(tempGalleryItem);
