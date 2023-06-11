@@ -58,7 +58,7 @@ namespace LegionWebApp.Controllers
 			return View();
 		}
 		[HttpGet]
-		public IActionResult Gallery(int page = 1, int pageSize = 1)
+		public IActionResult Gallery(int page = 1, int pageSize = 2)
 		{
 			var galleryModel = new GalleryModel(_dbContext);
 			var pagedItems = galleryModel.ItemList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
