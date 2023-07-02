@@ -3,22 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using LegionWebApp.Data;
 using LegionWebApp.Models;
 using LegionWebApp.Localization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Amazon.S3;
 using Amazon.S3.Transfer;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.Http;
-
-using DotNetEnv;
-using LegionWebApp.Utils;
-using LegionWebApp.Attributes;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using System.Text.RegularExpressions;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using ImageSharpImage = SixLabors.ImageSharp.Image;
 
 namespace LegionWebApp.Controllers
 {
@@ -64,10 +54,16 @@ namespace LegionWebApp.Controllers
 			var model = _dbContext.Set<LocalizationString>().OrderByDescending(ls => ls.Id).ToList();
 			return View(model);
 		}
+		[HttpPost]
+		public async Task<IActionResult> GetGalleryItems(CreateGalleryModel model)
+		{
+			model.galleryItem.Title = model.localizationString.Key;
+			return PartialView("~/Views/Home/_GalleryItems.cshtml", model.galleryItem);
+		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> CreateGallery(GalleryItem galleryItem, LocalizationString localizationString, string myFiles)
+		public async Task<IActionResult> CreateGalleryItem(GalleryItem galleryItem, LocalizationString localizationString, string myFiles)
 		{
 
 
@@ -77,30 +73,23 @@ namespace LegionWebApp.Controllers
 			{
 				if (file.Substring(file.IndexOf(".")).Contains("mp4"))
 				{
-					var video = new Video();
-					video.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					var video = new Models.Video();
+					video.Link = "https://cdn.beta.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					video.Col = "col";
 					galleryItem.Media.Add(video);
 				}
 				else
 				{
-					var image = new Image();
-					image.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					var image = new Models.Image();
+					image.Link = "https://cdn.beta.legion-foundation.org/" + galleryItem.Date + "/" + file;
+					image.Col = "col";
 					galleryItem.Media.Add(image);
 				}
 			}
 
-			var tempGalleryItem = new GalleryItem();
-
-			tempGalleryItem.Title = galleryItem.Title;
-			tempGalleryItem.Media = galleryItem.Media;
-			tempGalleryItem.Date = galleryItem.Date;
-			tempGalleryItem.MaxDisplay = galleryItem.MaxDisplay;
-			tempGalleryItem.Visible = galleryItem.Visible;
-
-			_dbContext.GalleryItems.Add(tempGalleryItem);
+			_dbContext.GalleryItems.Add(galleryItem);			
+			_dbContext.Localization.Add(localizationString);
 			await _dbContext.SaveChangesAsync();
-			//_dbContext.Localization.Add(localizationString);
-
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -118,7 +107,6 @@ namespace LegionWebApp.Controllers
 
 			List<string> fileNames = new List<string>();
 
-
 			var transferUtility = new TransferUtility(new AmazonS3Client(token, secret, new AmazonS3Config
 			{
 				ServiceURL = "https://fra1.digitaloceanspaces.com"
@@ -127,7 +115,46 @@ namespace LegionWebApp.Controllers
 			foreach (var file in files)
 			{
 				using var fileStream = file.OpenReadStream();
+				using var image = ImageSharpImage.Load(fileStream);
+
+				int newWidth;
+				if (image.Width > image.Height)
+				{
+					// Landscape
+					newWidth = 454;
+				}
+				else
+				{
+					// Portrait
+					newWidth = 215;
+				}
+
+				int newHeight = (int)Math.Round((double)(newWidth * image.Height) / image.Width);
+
+				image.Mutate(x => x.Resize(new ResizeOptions
+				{
+					Size = new Size(newWidth, newHeight),
+					Mode = ResizeMode.Max
+				}));
+
 				string fileName = file.FileName;
+				string smallPath = path + "/small/" + fileName;
+
+				using var resizedStream = new MemoryStream();
+				image.Save(resizedStream, new JpegEncoder());
+				resizedStream.Seek(0, SeekOrigin.Begin);
+
+				// Upload resized image
+				await transferUtility.UploadAsync(new TransferUtilityUploadRequest
+				{
+					InputStream = resizedStream,
+					BucketName = bucketName,
+					Key = smallPath,
+					CannedACL = S3CannedACL.PublicRead
+				});
+
+				// Upload original image
+				fileStream.Seek(0, SeekOrigin.Begin);
 				await transferUtility.UploadAsync(new TransferUtilityUploadRequest
 				{
 					InputStream = fileStream,
@@ -135,10 +162,12 @@ namespace LegionWebApp.Controllers
 					Key = path + "/" + fileName,
 					CannedACL = S3CannedACL.PublicRead
 				});
-				fileNames.Add(file.FileName);
+
+				fileNames.Add(fileName);
 			}
 			return Json(fileNames);
 		}
+
 
 
 

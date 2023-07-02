@@ -3,6 +3,7 @@ using LegionWebApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Image = LegionWebApp.Models.Image;
 
 namespace LegionWebApp.Data
 {

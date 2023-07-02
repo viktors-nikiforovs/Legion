@@ -10,100 +10,83 @@
 <h1>GalleryCreate</h1>
 
 <h4>GalleryItem</h4>
-<div class="row">
-	<form id="upload-form" asp-controller="Admin" method="post" asp-action="CreateGallery" enctype="multipart/form-data">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-6 mb-1">
-					<div class="input-group">
-						<span asp-for="galleryItem.Title" id="engTitle" class="input-group-text">@T["English"]</span>
-						<textarea asp-for="localizationString.Key" class="form-control" aria-label="With textarea" rows="4"></textarea>
-					</div>
-				</div>
-				<div class="col-6 mb-1">
-					<div class="input-group">
-						<span class="input-group-text">@T["Ukranian"]</span>
-						<textarea asp-for="localizationString.Value_UK" class="form-control" aria-label="With textarea" rows="4"></textarea>
-					</div>
-				</div>
-				<div class="col-6 mb-1">
-					<div class="input-group">
-						<span class="input-group-text">@T["French"]</span>
-						<textarea asp-for="localizationString.Value_FR" class="form-control" aria-label="With textarea" rows="4"></textarea>
-					</div>
-				</div>
-				<div class="col-6 mb-1">
-					<div class="input-group">
-						<span class="input-group-text">@T["German"]</span>
-						<textarea asp-for="localizationString.Value_DE" class="form-control" aria-label="With textarea" rows="4"></textarea>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-2 mb-1">
-					<div class="input-group">
-						<label class="input-group-text" asp-for="galleryItem.Date">@T["Date"]</label>
-						<input asp-for="galleryItem.Date" type="date" id="date" class="form-control" required>
-						<span asp-validation-for="galleryItem.Date" class="text-danger"></span>
-					</div>
-				</div>
-				<div class="col-10 mb-1">
-					<div class="input-group">
-						<label class="form-label">@T["Hide media after"]</label>
-						<span id="customRangeValue" class=" mb-1">: 6</span>
-						<input asp-for="galleryItem.MaxDisplay" type="range" class="form-range" min="2" max="12" value="6" id="customRange">
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-2 mb-1">
-					<input type="button" id="browseFilesButton" value='@T["Browse Files"]' class="form-control-file btn btn-secondary">
-				</div>
-				<div class="col-2 mb-1">
-					<input type="submit" value='@T["Create & Upload"]' class="btn btn-primary" />
-				</div>
-			</div>
-			<div id="files-container"></div>
-			<input type="hidden" id="myFiles" name="myFiles" hidden />
-			<div class="modal" tabindex="-1" id="uploadModal" style="color:black; z-index:9999">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 id="uploadStatus" class="modal-title"></h5>
+<div id="gallery-items" class="feed-container">
+	<div class="row">
+		<form id="upload-form" asp-controller="Admin" method="post" asp-action="CreateGalleryItem" enctype="multipart/form-data">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-6 mb-1">
+						<div class="input-group">
+							<span asp-for="localizationString.Key" id="engTitle" class="input-group-text">@T["English"]</span>
+							<textarea asp-for="localizationString.Key" class="form-control" aria-label="With textarea" rows="4"></textarea>
 						</div>
-						<div class="modal-body">
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">25%</div>
+					</div>
+					<div class="col-6 mb-1">
+						<div class="input-group">
+							<span class="input-group-text">@T["Ukranian"]</span>
+							<textarea asp-for="localizationString.Value_UK" class="form-control" aria-label="With textarea" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="col-6 mb-1">
+						<div class="input-group">
+							<span class="input-group-text">@T["French"]</span>
+							<textarea asp-for="localizationString.Value_FR" class="form-control" aria-label="With textarea" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="col-6 mb-1">
+						<div class="input-group">
+							<span class="input-group-text">@T["German"]</span>
+							<textarea asp-for="localizationString.Value_DE" class="form-control" aria-label="With textarea" rows="4"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2 mb-1">
+						<div class="input-group">
+							<label class="input-group-text" asp-for="galleryItem.Date">@T["Date"]</label>
+							<input asp-for="galleryItem.Date" type="date" id="date" class="form-control" required>
+							<span asp-validation-for="galleryItem.Date" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="col-10 mb-1">
+						<div class="input-group">
+							<label class="form-label">@T["Hide media after"]</label>
+							<span id="customRangeValue" class=" mb-1">: 6</span>
+							<input asp-for="galleryItem.MaxDisplay" type="range" class="form-range" min="2" max="12" value="6" id="maxDisplayInput">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2 mb-1">
+						<input type="button" id="browseFilesButton" value='@T["Browse Files"]' class="form-control-file btn btn-secondary">
+					</div>
+					<div class="col-2 mb-1">
+						<input type="submit" value='@T["Create & Upload"]' class="btn btn-primary" />
+					</div>
+				</div>
+				<div id="files-container"></div>
+				<input type="hidden" id="myFiles" name="myFiles" hidden />
+				<div class="modal" tabindex="-1" id="uploadModal" style="color:black; z-index:9999">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 id="uploadStatus" class="modal-title"></h5>
+							</div>
+							<div class="modal-body">
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">25%</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div id="preview-container" class="row mt-3 gx-2 gy-2">
-			<div class="feed-container">
-				<div class="feed-post">
-					<div class="post-header">
-						<img src="~/images/logo.png" class="profile-picture">
-						<div class="post-info">
-							<div class="username">@T["Legion Foundation"]</div>
-							<div id="preview-date" class="post-time"></div>
-						</div>
-					</div>
-					<div id="preview-title" class="post-content">
-					</div>
-					<div class="container post-media">
-						<div class="row row-cols-2 row-cols-sm-4">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		</form>
 	</div>
+</div>
+
+<div id="preview">
+@await Html.PartialAsync("~/Views/Home/_GalleryItems.cshtml", Model)
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 <script>
@@ -112,18 +95,7 @@
 		var previewContainer = document.getElementById("preview-container");
 
 		let selectedFiles = [];
-		var titleTextarea = document.getElementById("engTitle");
-		var dateInput = document.querySelector('input[type="date"]');
-		titleTextarea.addEventListener('input', updatePreview);
-		dateInput.addEventListener('input', updatePreview);
-
-		var dateInput = document.getElementById("date");
-		var currentLanguage = "@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName";
-
-		flatpickr(dateInput, {
-			locale: currentLanguage,
-			dateFormat: "d.m.Y"
-		});
+		
 		function previewFile(event) {
 			var files = event.target.files;
 			var mediaRow = document.querySelector('.row.row-cols-2.row-cols-sm-4');
@@ -183,9 +155,8 @@
 					colDiv.appendChild(mediaItemDiv);
 					mediaRow.appendChild(colDiv);
 				}
-			} 
+			}
 			initSortable(mediaRow);
-			updateMediaItems();
 		}
 
 
@@ -232,18 +203,6 @@
 			return dt.files;
 		}
 
-
-		//document.getElementById("upload-form").addEventListener("submit", function (event) {
-		//	event.preventDefault();
-		//	// Upload files via XHR first
-		//	uploadFiles().then(function () {
-		//		// After successful upload, submit the form without files
-		//		submitFormWithoutFiles();
-		//	}).catch(function () {
-		//		alert("File upload failed!");
-		//	});
-		//});
-
 		function uploadFiles() {
 			return new Promise(function (resolve, reject) {
 				const uploadProgress = document.getElementById('uploadProgress');
@@ -257,7 +216,7 @@
 					newFileInput.name = 'files[]';
 					newFileInput.className = 'form-control-file d-none';
 					newFileInput.setAttribute('data-file-id', fileObj.id); // Add this line
-					newFileInput.files = createFileList([fileObj.file]);					
+					newFileInput.files = createFileList([fileObj.file]);
 					filesContainer.appendChild(newFileInput);
 				}
 
@@ -346,16 +305,24 @@
 
 		document.getElementById('upload-form').addEventListener('submit', handleFormSubmit);
 
-		function addFileInput() {
+		function addFileInput(mediaType) {
 			var fileInput = document.createElement('input');
 			fileInput.type = 'file';
 			fileInput.name = 'files[]';
 			fileInput.className = 'form-control-file d-none';
 			fileInput.multiple = true;
+
+			if (mediaType === 'Image') {
+				fileInput.setAttribute('asp-for', 'galleryItem.Media.Image');
+			} else if (mediaType === 'video') {
+				fileInput.setAttribute('asp-for', 'galleryItem.Media.Video');
+			}
+
 			fileInput.addEventListener('change', previewFile);
 			filesContainer.appendChild(fileInput);
 			fileInput.click();
 		}
+
 
 
 		function handleRemoveIconClick(fileId) {
@@ -391,85 +358,53 @@
 			return filteredFileInputs;
 		}
 
+		document.getElementById('browseFilesButton').addEventListener('click', function () {
+			// Pass the media type, either 'image' or 'video', to the addFileInput function
+			addFileInput('Image'); // or 'video' if you want to add a video input
+		});
 
-		function updatePreview() {
-			var titleTextarea = document.getElementById("engTitle");
-			var dateInput = document.getElementById("date");
-			var previewTitle = document.getElementById('preview-title');
-			var previewDate = document.getElementById('preview-date');
-			previewTitle.textContent = titleTextarea.value;
-			previewDate.textContent = dateInput.value;
-		}
-
-
-		document.getElementById('browseFilesButton').addEventListener('click', addFileInput);
 		document.getElementById('upload-form').addEventListener('submit', uploadFiles);
 	});
+</script>
+
+<script>
+	$(document).ready(function () {
+		$('#upload-form').on('input', function () {
+			//updateGalleryItems();
+		});
+	});
+</script>
+<script>
+	function updateGalleryItems() {
+		const formData = new FormData(document.getElementById("upload-form"));
+
+		$.ajax({
+			url: '@Url.Action("GetGalleryItems", "Admin")', // Replace "Home" with your controller name if necessary
+			type: 'POST',
+			data: formData,
+			processData: false,
+			contentType: false,
+			success: function (result) {
+				$('#preview').html(result);
+			},
+			error: function () {
+				console.error('Failed to update gallery items');
+			}
+		});
+	}
+	flatpickr(document.getElementById("date"), {
+		locale: "@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName",
+		dateFormat: "d.m.Y"
+	});
+
 </script>
 <script>
 	var hideMediaOverlay = 6;
 	const customRangeValue = document.getElementById('customRangeValue');
-	document.getElementById("customRange").addEventListener("input", function () {
+	document.getElementById("maxDisplayInput").addEventListener("input", function () {
 		hideMediaOverlay = this.value;
 		customRangeValue.innerText = ": " + this.value;
-		updateMediaItems();
+		$('.post-media').attr('data-hide-media-overlay', hideMediaOverlay);
+		hideOverlay();
 	});
-	function updateMediaItems() {
-		$('.feed-post').each(function () {
-			var mediaItemCount = $(this).find('.media-item').length;
-
-			if (mediaItemCount >= hideMediaOverlay) {
-				$(this).find('.media-item').show();
-				$(this).find('.count-overlay').removeClass('count-overlay');
-				$(this).find('.count-overlay-text').remove();
-				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').hide();
-				var hiddenCount = mediaItemCount - hideMediaOverlay;
-				var postId = $(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').attr('data-post-id');
-				if (hiddenCount > 0) {
-					$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
-						.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
-				}
-			} else {
-				$(this).find('.media-item').show();
-				$(this).find('.count-overlay').removeClass('count-overlay');
-				$(this).find('.count-overlay-text').remove();
-				updateMediaItems();
-			}
-
-			$(this).find('.media-item:lt(' + hideMediaOverlay + ')').each(function () {
-				var media = $(this).find('img, video');
-				var src = media.attr('data-src');
-				media.attr('src', src).removeAttr('data-src');
-			});
-		});
-
-		$(".media-item").each(function () {
-			var mediaItem = $(this);
-			var media = mediaItem.find("img, video");
-			if (media.prop('tagName') == 'IMG') {
-				var img = new Image();
-				img.onload = function () {
-					var aspectRatio = img.width / img.height;
-					if (aspectRatio >= 1) {
-						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-					}
-				};
-				img.src = media.attr('src');
-			} else if (media.prop('tagName') == 'VIDEO') {
-				if (media[0].readyState > 0) {
-					var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-					if (aspectRatio >= 1) {
-						mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-					}
-				} else {
-					media.on('loadedmetadata', function () {
-						var aspectRatio = media[0].videoWidth / media[0].videoHeight;
-						if (aspectRatio >= 1) {
-							mediaItem.parent().removeClass("col").addClass("col-12 col-sm-6 dragable");
-						}
-					});
-				}
-			}
-		});
-	}
 </script>
