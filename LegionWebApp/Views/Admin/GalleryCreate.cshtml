@@ -240,9 +240,12 @@
 				fetch(imgURL)
 					.then(response => response.blob())
 					.then(blob => {
-						var file = new File([blob], "image.jpg");
+						var fileName = file.name;
+						var substring = fileName.substring(0, fileName.lastIndexOf(".mp4")) + ".jpg";
+						var tempFile = new File([blob], substring);
 						// Now you can use the 'file' object as needed
-						media.Poster = file;
+						media.Poster = tempFile;
+						
 					});
 				$video[0].poster = imgURL;
 				$snapButton.removeClass('btn-primary').addClass('btn-secondary');

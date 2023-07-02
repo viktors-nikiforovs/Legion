@@ -47,7 +47,7 @@ namespace LegionWebApp.Models
         public string Title { get; set; }
 		public string Date { get; set; }
         public bool Visible { get; set; }        
-        public int? MaxDisplay { get; set; }
+        public int MaxDisplay { get; set; }
         public ICollection<Media> Media { get; set; }
     }
 
