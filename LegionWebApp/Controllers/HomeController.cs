@@ -60,26 +60,17 @@ namespace LegionWebApp.Controllers
 			return View();
 		}
 		[HttpGet]
-		public IActionResult Gallery(int page = 1, int pageSize = 2)
+		public IActionResult Gallery(int page = 1, int pageSize = 3)
 		{
 			var galleryModel = new GalleryModel(_dbContext);
 			var pagedItems = galleryModel.ItemList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
 			if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-			{
-				var item = pagedItems.FirstOrDefault();
-
-				if (item == null)
-				{
-					return Content(string.Empty); // Return an empty ContentResult
-				}
-
-				return PartialView("_GalleryItems", item);
+			{				
+				return PartialView("_GalleryItems", pagedItems.FirstOrDefault());				
 			}
-
+			
 			return View(pagedItems);
 		}
-
 
 
 

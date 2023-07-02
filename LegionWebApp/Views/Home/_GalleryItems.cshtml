@@ -1,63 +1,82 @@
 ﻿@model LegionWebApp.Models.GalleryItem
 @using LegionWebApp.Models;
-@using Microsoft.AspNetCore.Mvc.Localization
-@using System.Globalization
-@inject IViewLocalizer T
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer T;
+@{
+	string cdnLink = Environment.GetEnvironmentVariable("Spaces_CDN");
+	int maxDisplay = Model.MaxDisplay;
+}
 
+@if (Model != null)
+{
+	<div class="feed-post">
+		<div class="post-header">
+			<img src="~/images/logo.png" class="profile-picture">
+			<div class="post-info">
+				<div class="username">@T["Legion Foundation"]</div>
+				<div class="post-time">
+					@if (Model.Date != null)
+					{
+						@T[Model.Date]
+					}
+				</div>
+			</div>
+		</div>
+		<div class="post-content">
+			@if (Model.Title != null)
+			{
+				@T[@Model.Title]
+			}
+		</div>
+		<div class="container post-media">
+			<div class="row row-cols-2 row-cols-sm-4" data-hidden-count="@((Model.Media.Count() - maxDisplay).ToString())">
+				@if (Model.Media != null)
+				{
+					int count = 0;
+					foreach (var media in Model.Media.OrderBy(m => m.DisplayOrder))
+					{
+						count++;
 
-<div class="feed-post">
-	<div class="post-header">
-		<img src="~/images/logo.png" class="profile-picture">
-		<div class="post-info">
-			<div class="username">@T["Legion Foundation"]</div>
-			<div class="post-time">
-				@(Model != null && !string.IsNullOrEmpty(Model.Date) ? Model.Date : "")
+						<div class="@media.Col">
+							<div class="media-item">
+								@if (count == maxDisplay && Model.Media.Count() > maxDisplay)
+								{
+									<div class="count-overlay">
+										<div class="count-overlay-text">+@((Model.Media.Count() - maxDisplay).ToString())</div>
+										@if (media is Image image)
+										{
+											<img class="lazy smallMedia" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+										}
+										else if (media is Video video)
+										{
+											<video class="lazy smallMedia" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
+										}
+									</div>
+								}
+								else if (count >= maxDisplay && Model.Media.Count() >= maxDisplay)
+								{
+									@if (media is Image image)
+									{
+										<img class="lazy smallMedia" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+									}
+								}
+								else
+								{
+									if (media is Video video)
+									{
+										<video class="lazy smallMedia" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
+									}
+									else if (media is Image image)
+									{
+										<img class="lazy smallMedia" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+									}
+								}
+							</div>
+						</div>
+					}
+				}
 			</div>
 		</div>
 	</div>
-	<div class="post-content">
-		@(Model != null && !string.IsNullOrEmpty(Model.Title) ? T[Model.Title] : "")
-	</div>
-	<div class="container post-media" data-hide-media-overlay="@((Model != null && Model.MaxDisplay.HasValue) ? Model.MaxDisplay.Value.ToString() : "")">
-		<div class="row row-cols-2 row-cols-sm-4">
-			@if (Model != null && Model.Media != null)
-			{
-				@foreach (var media in Model.Media.OrderBy(m => m.DisplayOrder))
-				{
-					<div class="@media.Col">
-						<div class="media-item">
-							@if (media is Video video)
-							{
-								<video class="lazy smallMedia" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster=https://cdn.legion-foundation.org/{Model.Date + "/thumbnail/" + video.Poster}" : "") type="video/mp4">
-								</video>
-							}
-							else if (media is Image image)
-							{
-								<img class="lazy smallMedia" src="@($"https://cdn.legion-foundation.org/{Model.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{Model.Date + "/small/" + image.Link}")" />
-							}
-						</div>
-					</div>
-				}
-			}
-		</div>
-	</div>
-</div>
-<script>
-	function hideOverlay() {
-		$('.feed-post').each(function () {
-			var mediaItemCount = $(this).find('.media-item').length;
-			var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
-			var hiddenCount = mediaItemCount - hideMediaOverlay;
-
-			if (mediaItemCount > hideMediaOverlay) {
-				$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').each(function () {
-					$(this).hide();
-					$(this).find('img, video').removeAttr('src');
-				});
-				var hiddenCount = mediaItemCount - hideMediaOverlay;
-				$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
-					.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
-			}
-		});
-	}
-</script>
+}

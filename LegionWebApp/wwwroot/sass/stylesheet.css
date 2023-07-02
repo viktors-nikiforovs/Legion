@@ -9976,7 +9976,7 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-.media-item img, .media-item video {
+.media-item img, .media-item video, .media-item .count-overlay {
   width: 100%;
   border-radius: 1rem;
   cursor: pointer;
