@@ -3,7 +3,9 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using System.Globalization
 @inject IViewLocalizer T
-
+@{
+	string cdnLink = Environment.GetEnvironmentVariable("Spaces_CDN");
+}
 <div class="feed-post">
 	<div class="post-header">
 		<img src="~/images/logo.png" class="profile-picture">
@@ -31,7 +33,7 @@
 					{
 						<div class="col">
 							<div class="media-item">
-								<video class="lazy smallMedia" disablePictureInPicture preload="auto" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"https://cdn.legion-foundation.org/{Model.Date + "/" + video.Link}")" type="video/mp4">
+								<video class="lazy smallMedia" disablePictureInPicture preload="auto" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" type="video/mp4">
 								</video>
 							</div>
 						</div>
@@ -40,7 +42,7 @@
 					{
 						<div class="col">
 							<div class="media-item">
-								<img class="lazy smallMedia" src="@($"https://cdn.legion-foundation.org/{Model.Date + "/" + image.Link}")" data-src="@($"https://cdn.legion-foundation.org/{Model.Date + "/small/" + image.Link}")" />
+								<img class="lazy smallMedia" src="@($"h{cdnLink}{Model.Date + "/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" />
 
 							</div>
 						</div>

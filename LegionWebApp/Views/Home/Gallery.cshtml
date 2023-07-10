@@ -6,7 +6,10 @@
 	ViewData["Title"] = "Gallery";
 }
 <div id="gallery-items" class="feed-container">
-	@await Html.PartialAsync("_GalleryItems", Model)
+	@foreach (var item in Model)
+	{
+		@await Html.PartialAsync("_GalleryItems", item)
+	}
 </div>
 <div class="load-more-placeholder"></div>
 
@@ -27,7 +30,6 @@
 				}
 			});
 		}, { threshold: 0.1 });
-
 		// Observe all lazy images
 		function observeLazyImages() {
 			const lazyImages = document.querySelectorAll('img.lazy:not(.loaded)');
@@ -60,7 +62,6 @@
 						success: function (data) {
 							if (data.trim() !== "") {
 								$('#gallery-items').append(data);
-								hideOverlay();
 								page++;
 							} else {
 								hasMoreItems = false;
@@ -88,7 +89,6 @@
 					entries.forEach(function (entry) {
 						if (entry.isIntersecting) {
 							loadMoreItems();
-							//landscape();
 						}
 					});
 				}, options);
@@ -102,25 +102,8 @@
 	<script>
 		var modalOpen = false;
 
-		function hideOverlay() {
-			$('.feed-post').each(function () {
-				var mediaItemCount = $(this).find('.media-item').length;
-				var hideMediaOverlay = $(this).find('.post-media').attr('data-hide-media-overlay');
-				var hiddenCount = mediaItemCount - hideMediaOverlay;
-
-				if (mediaItemCount > hideMediaOverlay) {
-					$(this).find('.media-item:gt(' + (hideMediaOverlay - 1) + ')').each(function () {
-						$(this).hide();
-						$(this).find('img, video').removeAttr('src');
-					});
-					var hiddenCount = mediaItemCount - hideMediaOverlay;
-					$(this).find('.media-item').eq(hideMediaOverlay - 1).addClass('count-overlay')
-						.append('<div class="count-overlay-text">+' + hiddenCount + '</div>');
-				}
-			});
-		}
-
 		function openModal($media) {
+			console.log($media[0].outerHTML);
 			if ($media.parent().hasClass('mySlides fullpage')) {
 				if ($media.is('video')) {
 					if ($media[0].paused) {
@@ -132,28 +115,47 @@
 					}
 				}
 			} else {
-				var $container = $media.closest('.post-media');
-				var $child = $container.children(); // row row-cols-2 row-cols-sm-4
-				var $childElements = $child.children(); // col
-				var $mediaItem = $($childElements.children()); // mediaItem $this
-
-				var modalBefore = '<div id="ModalContent" class="modal">';
-				var modalAfter = `</div>`;
-				var modalBtns = '<a class="prev" onclick="nextSlides(-1)">&#10094;</a><a class="next" onclick="nextSlides(1)">&#10095;</a><a class="close"></a>';
-				$child.append(modalBtns);
-				$child.children().wrapAll(modalBefore + modalAfter);
-				$("#ModalContent").css('display', 'block');
-
-				$($mediaItem).each(function () {
-					$(this).removeClass("media-item count-overlay").addClass("mySlides fullpage").css('display', 'none');
-				});
-				$media.parent().css('display', 'block');
-
 				var currentSrc = $media.attr('data-src');
 				if (currentSrc) {
 					var newSrc = currentSrc.replace('/small', '');
 					$media.attr('src', newSrc).data('original-src', currentSrc);
 				}
+
+				var $container = $media.closest('.post-media'); // <div class="container post-media">
+				//console.log("$container: " + $container[0].outerHTML);
+				var $rowCols = $container.children(); // <div class="row row-cols-2 row-cols-sm-4"> single row for all media items
+				//console.log("$child " + $rowCols[0].outerHTML);
+				var $col = $rowCols.children(); // <div class="col">
+				//console.log("$childElements " + $col[0].outerHTML);
+				var $mediaItem = $($col.children()); // mediaItem $this <div class="media-item" style="">
+				//console.log("$mediaItem " + $mediaItem[0].outerHTML);
+
+				var modalBefore = '<div id="ModalContent" class="modal">';
+				var modalAfter = `</div>`;
+				var modalBtns = '<a class="prev" onclick="nextSlides(-1)">&#10094;</a><a class="next" onclick="nextSlides(1)">&#10095;</a><a class="close"></a>';
+				$rowCols.append(modalBtns);
+				$rowCols.children().wrapAll(modalBefore + modalAfter);
+				$("#ModalContent").css('display', 'block');
+
+				$($mediaItem).each(function () {
+					if ($(this).children().hasClass('count-overlay')) {
+						var $lastImage = $(this).children().html();
+						$(this).children().remove();
+						$(this).append($lastImage);
+						$(this).children().addClass('LastImage');
+					}					
+					$(this).removeClass("count-overlay").addClass("mySlides fullpage").css('display', 'none');
+				});
+				
+				$($mediaItem).children().each(function () {
+					if ($(this).attr('src') == "" || !$(this).attr('src')) {
+						$(this).addClass('NonLoad');
+					}
+				});
+
+				$media.css('display', 'block');
+
+				
 				$("html, body").css('overflow', 'hidden');
 
 				$container.find('.count-overlay-text').remove();
@@ -172,29 +174,54 @@
 				$media[0].pause();
 			}
 			var $container = $media.closest('.post-media');
-			var $child = $container.children(); // row row-cols-2 row-cols-sm-4
-			var $childElements = $child.children(); // col
+			var $rowCols = $container.children(); // row row-cols-2 row-cols-sm-4
+			//console.log("$rowCols " + $rowCols[0].outerHTML);
+			var $modalElement = $rowCols.children(); // <div id="ModalContent" class="modal" style="display: block;">
+			//console.log("$modalElement " + $modalElement[0].outerHTML);
+			var $col = $modalElement.children(); // <div class="col">
+			//console.log("$col " + $col[0].outerHTML);
+			var $mediaItem = $col.children();
+			//console.log("$mediaItem " + $mediaItem[0].outerHTML);
+
+
+			var hiddenCount = $rowCols.data('hidden-count');
+
+			$mediaItem.children().each(function () {
+				if ($(this).hasClass('NonLoad')) {
+					$(this).removeAttr('src');
+					$(this).removeClass('NonLoad');
+				}
+				if ($(this).hasClass('LastImage')) {
+					$(this).removeClass("LastImage").addClass("count-overlay");
+					$(this).wrap('<div class="count-overlay"></div>');
+					$(this).parent().prepend('<div class="count-overlay-text">+' + hiddenCount + '</div>')
+				}
+			});
+
+
 			if ($media.is('video')) {
 				$media[0].pause();
 				$media[0].currentTime = 0;
 			}
 
-			$child.find('.prev').remove();
-			$child.find('.next').remove();
-			$child.find('.close').remove();
+			$rowCols.find('.prev').remove();
+			$rowCols.find('.next').remove();
+			$rowCols.find('.close').remove();
 			var $modalContent = $('#ModalContent');
 			$modalContent.children().unwrap();
 			$modalContent.remove();
 
-			$child.children().each(function (index, element) {
+			$rowCols.children().each(function (index, element) {
+				if ($(this).css('display') === 'none') {
+				}
 				$(element).children().removeClass('mySlides fullpage').addClass('media-item').css('display', '');
 			});
 			$("html, body").css('overflow', '');
-			hideOverlay();
 		}
 
-		$(document).on('click', '.smallMedia', function () {
-			var $media = $(this);
+		$(document).on('click', '.smallMedia, .count-overlay', function (e) {
+			var $media = $(this).is('img, video') ? $(this) : $(this).find('img, video');
+			var $mediaItem = $media.closest('.media-item');
 
 			if (modalOpen) {
 				if ($media.is('video')) {
@@ -206,18 +233,18 @@
 						$media[0].pause();
 					}
 				} else {
-					console.log("closing modal");
-					console.log($media);
 					closeModal($media);
 					modalOpen = false;
 				}
 			} else {
 				openModal($media);
-				console.log("opening modal");
-				console.log($media);
+				$mediaItem.css('display', 'block');
 				modalOpen = true;
 			}
+			e.stopPropagation();
 		});
+
+
 
 		$(document).on('click', '.close', function () {
 			var $media = $('.mySlides.fullpage:visible').find('img, video');

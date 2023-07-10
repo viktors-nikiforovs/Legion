@@ -3,6 +3,7 @@ $card-bg: rgb(255, 255, 255, 0.9);
 $navbar-padding-x: 10rem;
 $card-border-width: 0;
 $enable-shadows: true;
+$body-color: white;
 $card-color: #000000;
 $input-color: #000000;
 $input-border-color: #000000;
@@ -208,7 +209,7 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-.media-item img, .media-item video {
+.media-item img, .media-item video, .media-item .count-overlay {
     width: 100%;
     border-radius: 1rem;
     cursor: pointer;

@@ -3,15 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using LegionWebApp.Data;
 using LegionWebApp.Models;
 using LegionWebApp.Localization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Amazon.S3;
 using Amazon.S3.Transfer;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.Http;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using ImageSharpImage = SixLabors.ImageSharp.Image;
 
 using DotNetEnv;
 using LegionWebApp.Utils;
@@ -19,6 +16,13 @@ using LegionWebApp.Attributes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Text.RegularExpressions;
+using LegionWebApp.Services;
+using System.Configuration;
+using Telegram.Bot.Types;
+using Newtonsoft.Json.Linq;
+using Octokit;
+using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LegionWebApp.Controllers
 {
@@ -30,15 +34,17 @@ namespace LegionWebApp.Controllers
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly IWebHostEnvironment _env;
 		private readonly ILogger<AdminController> _logger;
+		private readonly IFileUploadService _fileUploadService;
 
 
-		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger)
+		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger, IFileUploadService fileUploadService)
 		{
 			_userManager = userManager;
 			_roleManager = roleManager;
 			_dbContext = dbContext;
 			_env = env;
 			_logger = logger;
+			_fileUploadService = fileUploadService;
 		}
 
 
@@ -47,183 +53,90 @@ namespace LegionWebApp.Controllers
 			return View();
 		}
 
-		#region Gallery
-
 		public IActionResult GalleryCreate()
 		{
 			return View();
 		}
-		public IActionResult GalleryList()
-		{
-			var model = new GalleryModel(_dbContext);
-			return View(model.ItemList);
-		}
-
-		public IActionResult CultureList()
-		{
-			var model = _dbContext.Set<LocalizationString>().OrderByDescending(ls => ls.Id).ToList();
-			return View(model);
-		}
 
 		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> CreateGallery(GalleryItem galleryItem, LocalizationString localizationString, string myFiles)
+		public async Task<IActionResult> CreateGallery(int id, string title, string date, bool visible, int maxDisplay,
+	int localizationStringId, string key, string value_FR, string value_DE, string value_UK, List<IFormFile> media, List<string> mediaCol, List<IFormFile> mediaPoster)
 		{
-
-
-			List<string> myFilesList = myFiles.Split(',').ToList();
-			galleryItem.Title = localizationString.Key;
-			foreach (var file in myFilesList)
+			// Create new GalleryItem
+			var galleryItem = new GalleryItem
 			{
-				if (file.Substring(file.IndexOf(".")).Contains("mp4"))
+				Title = title,
+				Date = date,
+				Visible = visible,
+				MaxDisplay = maxDisplay
+			};
+			int j = 0;
+
+			// Create new LocalizationString
+			var localizationString = new LocalizationString
+			{
+				Key = key,
+				Value_FR = value_FR,
+				Value_DE = value_DE,
+				Value_UK = value_UK
+			};
+
+			var posterList = new List<IFormFile>();
+			
+			for (int i = 0; i < media.Count; i++)
+			{
+				Media _media = null;
+
+				switch (media[i].ContentType.ToLower())
 				{
-					var video = new Video();
-					video.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
-					galleryItem.Media.Add(video);
+					case "image/jpeg":
+						_media = (Media)new Models.Image();
+						break;
+					case "video/mp4":
+						_media = (Media)new Models.Video();
+						if (_media is Models.Video video)
+						{
+							if (mediaPoster[j] != null)
+							{
+								video.Poster = mediaPoster[j].FileName;
+								posterList.Add(mediaPoster[j]);
+								j++;
+							}							
+						}
+						break;
+					default:
+						throw new Exception("Unsupported media type: " + media[i].ContentType);
 				}
-				else
-				{
-					var image = new Image();
-					image.Link = "https://cdn.legion-foundation.org/" + galleryItem.Date + "/" + file;
-					galleryItem.Media.Add(image);
-				}
+				_media.Link = media[i].FileName;
+				_media.DisplayOrder = i;
+				_media.Col = mediaCol[i];				
+				galleryItem.Media.Add(_media);
 			}
 
-			var tempGalleryItem = new GalleryItem();
+			await UploadFiles($"{date}", media);
+			await UploadFiles($"{date}/thumbnail", posterList);
 
-			tempGalleryItem.Title = galleryItem.Title;
-			tempGalleryItem.Media = galleryItem.Media;
-			tempGalleryItem.Date = galleryItem.Date;
-			tempGalleryItem.MaxDisplay = galleryItem.MaxDisplay;
-			tempGalleryItem.Visible = galleryItem.Visible;
-
-			_dbContext.GalleryItems.Add(tempGalleryItem);
+			_dbContext.GalleryItems.Add(galleryItem);
+			_dbContext.Localization.Add(localizationString);
 			await _dbContext.SaveChangesAsync();
-			//_dbContext.Localization.Add(localizationString);
-
-			return RedirectToAction(nameof(Index));
+			return Ok();
 		}
 
-		private static GalleryItem CreateItemPreview(GalleryItem galleryItem)
-		{
-			return galleryItem;
-		}
 
 		[HttpPost]
 		public async Task<IActionResult> UploadFiles(string path, List<IFormFile> files)
 		{
-			string token = Environment.GetEnvironmentVariable("Spaces_Token");
-			string secret = Environment.GetEnvironmentVariable("Spaces_Secret");
-			string bucketName = Environment.GetEnvironmentVariable("Spaces_BucketName");
-
-			List<string> fileNames = new List<string>();
-
-
-			var transferUtility = new TransferUtility(new AmazonS3Client(token, secret, new AmazonS3Config
+			var s3Settings = new S3Settings
 			{
-				ServiceURL = "https://fra1.digitaloceanspaces.com"
-			}));
+				Token = Environment.GetEnvironmentVariable("Spaces_Token"),
+				Secret = Environment.GetEnvironmentVariable("Spaces_Secret"),
+				BucketName = Environment.GetEnvironmentVariable("Spaces_BucketName"),
+				ServiceURL = Environment.GetEnvironmentVariable("Spaces_ServiceURL") ?? "https://fra1.digitaloceanspaces.com"
+			};
 
-			foreach (var file in files)
-			{
-				using var fileStream = file.OpenReadStream();
-				string fileName = file.FileName;
-				await transferUtility.UploadAsync(new TransferUtilityUploadRequest
-				{
-					InputStream = fileStream,
-					BucketName = bucketName,
-					Key = path + "/" + fileName,
-					CannedACL = S3CannedACL.PublicRead
-				});
-				fileNames.Add(file.FileName);
-			}
+			List<string> fileNames = await _fileUploadService.UploadFilesAsync(s3Settings, path, files);
 			return Json(fileNames);
 		}
 
-
-
-		#endregion
-
-		#region Culture
-
-		[HttpPost]
-		public async Task<IActionResult> CultureCreate(LocalizationString model)
-		{
-			if (ModelState.IsValid)
-			{
-				_dbContext.Localization.Add(model);
-				await _dbContext.SaveChangesAsync();
-				return RedirectToAction("Cultures");
-			}
-			return View(model);
-		}
-
-		public IActionResult CreateCulture()
-		{
-			return View();
-		}
-		#endregion
-
-		#region Role
-		public IActionResult RoleCreate()
-		{
-			return View();
-		}
-
-		public IActionResult RoleAssign()
-		{
-			// Create a new AssignRoleViewModel and populate its properties
-			var model = new AssignRoleViewModel
-			{
-				Users = _userManager.Users.ToList(),
-				Roles = _roleManager.Roles.ToList()
-			};
-
-			// Pass the model to the view
-			return View(model);
-		}
-
-		[HttpPost]
-		public async Task<IActionResult> RoleCreate(string roleName)
-		{
-			if (!string.IsNullOrEmpty(roleName))
-			{
-				var role = new IdentityRole(roleName);
-				IdentityResult result = await _roleManager.CreateAsync(role);
-
-				if (result.Succeeded)
-				{
-					return RedirectToAction("Index");
-				}
-			}
-			return View();
-		}
-		public async Task<IActionResult> AssignRoleToUser(string userId, string roleId)
-		{
-			var user = await _userManager.FindByIdAsync(userId);
-			if (user == null)
-			{
-				return NotFound("User not found.");
-			}
-
-			var role = await _roleManager.FindByIdAsync(roleId);
-			if (role == null)
-			{
-				return NotFound("Role not found.");
-			}
-
-			var result = await _userManager.AddToRoleAsync(user, role.Name);
-
-			if (result.Succeeded)
-			{
-				return RedirectToAction("Index");
-			}
-			foreach (var error in result.Errors)
-			{
-				ModelState.AddModelError("", error.Description);
-			}
-			return View();
-		}
-		#endregion
 	}
 }

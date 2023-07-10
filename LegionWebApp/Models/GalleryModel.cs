@@ -9,8 +9,8 @@ namespace LegionWebApp.Models
 {
 	public class CreateGalleryModel
 	{
-        public LocalizationString localizationString { get; set; }
-        public GalleryItem galleryItem { get; set; }
+        public LocalizationString LocalizationString { get; set; }
+        public GalleryItem GalleryItem { get; set; }
     }
 
 	public class GalleryModel
