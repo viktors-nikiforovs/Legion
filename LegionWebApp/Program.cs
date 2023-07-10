@@ -123,7 +123,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Admin}/{action=GalleryCreate}/{id?}"
+	pattern: "{controller=Home}/{action=Index}/{id?}"
 );
 
 

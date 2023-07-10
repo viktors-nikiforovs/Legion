@@ -109,7 +109,7 @@ namespace LegionWebApp.Controllers
 				}
 				_media.Link = media[i].FileName;
 				_media.DisplayOrder = i;
-				_media.Col = mediaCol[i];				
+				_media.Col = "col-" + mediaCol[i];				
 				galleryItem.Media.Add(_media);
 			}
 
