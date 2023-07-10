@@ -65,7 +65,6 @@ namespace LegionWebApp.Controllers
 			// Create new GalleryItem
 			var galleryItem = new GalleryItem
 			{
-				Id = id,
 				Title = title,
 				Date = date,
 				Visible = visible,
@@ -76,7 +75,6 @@ namespace LegionWebApp.Controllers
 			// Create new LocalizationString
 			var localizationString = new LocalizationString
 			{
-				Id = localizationStringId,
 				Key = key,
 				Value_FR = value_FR,
 				Value_DE = value_DE,
@@ -117,6 +115,10 @@ namespace LegionWebApp.Controllers
 
 			await UploadFiles($"{date}", media);
 			await UploadFiles($"{date}/thumbnail", posterList);
+
+			_dbContext.GalleryItems.Add(galleryItem);
+			_dbContext.Localization.Add(localizationString);
+			await _dbContext.SaveChangesAsync();
 			return Ok();
 		}
 
