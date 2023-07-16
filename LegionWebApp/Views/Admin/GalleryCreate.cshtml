@@ -146,6 +146,19 @@
 		localizationString.Value_FR = $('#textFR').val();
 		localizationString.Value_DE = $('#textDE').val();
 
+		var urlPattern = /\b((?:https?:\/\/)?[\w.-]+\.[a-z]{2,})\b/gim;
+
+		function convertUrlsToLinks(text) {
+			return text.replace(urlPattern, function (_, url) {
+				var prefix = /^https?:\/\//.test(url) ? '' : 'https://';
+				return '<a href="' + prefix + url + '" target="_blank">' + url + '</a>';
+			});
+		}
+
+		localizationString.Key = convertUrlsToLinks(localizationString.Key);
+		localizationString.Value_UK = convertUrlsToLinks(localizationString.Value_UK);
+		localizationString.Value_FR = convertUrlsToLinks(localizationString.Value_FR);
+		localizationString.Value_DE = convertUrlsToLinks(localizationString.Value_DE);
 
 		galleryItem.Title = localizationString.Key;
 		galleryItem.Date = $('#date').val();
@@ -157,7 +170,7 @@
 
 			$('#maxDisplayPreview').text(': ' + galleryItem.MaxDisplay);
 		}
-		$('#titlePreview').text(galleryItem.Title);
+		$('#titlePreview').html(galleryItem.Title);
 		$('#datePreview').text(galleryItem.Date);
 	});
 
@@ -175,7 +188,7 @@
 			var files = this.files;
 			for (var i = 0; i < files.length; i++) {
 				var file = files[i];
-				
+
 				var media = {
 					Id: fileCount,
 					File: file,
@@ -245,7 +258,7 @@
 						var tempFile = new File([blob], substring);
 						// Now you can use the 'file' object as needed
 						media.Poster = tempFile;
-						
+
 					});
 				$video[0].poster = imgURL;
 				$snapButton.removeClass('btn-primary').addClass('btn-secondary');

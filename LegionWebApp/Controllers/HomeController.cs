@@ -3,7 +3,6 @@ using LegionWebApp.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 
 namespace LegionWebApp.Controllers

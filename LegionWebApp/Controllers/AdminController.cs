@@ -4,25 +4,7 @@ using LegionWebApp.Data;
 using LegionWebApp.Models;
 using LegionWebApp.Localization;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
-using Amazon.S3;
-using Amazon.S3.Transfer;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using ImageSharpImage = SixLabors.ImageSharp.Image;
-
-using DotNetEnv;
-using LegionWebApp.Utils;
-using LegionWebApp.Attributes;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using System.Text.RegularExpressions;
 using LegionWebApp.Services;
-using System.Configuration;
-using Telegram.Bot.Types;
-using Newtonsoft.Json.Linq;
-using Octokit;
-using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LegionWebApp.Controllers
 {
