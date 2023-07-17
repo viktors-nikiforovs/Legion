@@ -1,37 +1,33 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Transfer;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
-using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Processing;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace LegionWebApp.Services
 {
 	public interface IFileUploadService
 	{
-		Task<List<string>> UploadFilesAsync(S3Settings s3Settings, string path, List<IFormFile> files);
+		Task UploadFilesAsync(S3Settings s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress);
 	}
+
 
 	public class S3FileUploadService : IFileUploadService
 	{
-		public async Task<List<string>> UploadFilesAsync(S3Settings s3Settings, string path, List<IFormFile> files)
+		public async Task UploadFilesAsync(S3Settings s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress)
 		{
 			var transferUtility = new TransferUtility(new AmazonS3Client(s3Settings.Token, s3Settings.Secret, new AmazonS3Config
 			{
 				ServiceURL = s3Settings.ServiceURL
 			}));
 
-			List<string> fileNames = new();
-
-			foreach (var file in files)
+			foreach (var pair in pathFilePairs)
 			{
+				var path = pair.Path;
+				var file = pair.File;
+
 				using var fileStream = file.OpenReadStream();
-				byte[] fileBytes = new byte[fileStream.Length];
-				await fileStream.ReadAsync(fileBytes, 0, (int)fileStream.Length);
+				using var progressStream = new ProgressStream(fileStream, progress);
+				byte[] fileBytes = new byte[progressStream.Length];
+				await progressStream.ReadAsync(fileBytes, 0, (int)progressStream.Length);
 
 				using var originalStream = new MemoryStream(fileBytes);
 				string fileName = file.FileName;
@@ -46,9 +42,7 @@ namespace LegionWebApp.Services
 					CannedACL = S3CannedACL.PublicRead
 				});
 
-				fileNames.Add(fileName);
-
-				// If the file is an image, create a thumbnail and upload
+				// If the file is a video and no thumbnail is provided, create a thumbnail from the first frame
 				if (IsImage(file))
 				{
 					using var thumbnailStream = new MemoryStream(fileBytes);
@@ -63,10 +57,7 @@ namespace LegionWebApp.Services
 					});
 				}
 			}
-
-			return fileNames;
 		}
-
 		private bool IsImage(IFormFile file)
 		{
 			string[] imageMimeTypes = new[] { "image/jpeg", "image/pjpeg", "image/png", "image/gif", "image/bmp", "image/tiff", "image/x-tiff" };
@@ -91,6 +82,51 @@ namespace LegionWebApp.Services
 
 			thumbnailStream.Seek(0, SeekOrigin.Begin);
 			return thumbnailStream;
+		}
+	}
+
+	public class ProgressStream : Stream
+	{
+		private readonly Stream _stream;
+		private readonly IProgress<long> _progress;
+
+		public ProgressStream(Stream stream, IProgress<long> progress)
+		{
+			_stream = stream;
+			_progress = progress;
+		}
+
+		public override bool CanRead => _stream.CanRead;
+
+		public override bool CanSeek => _stream.CanSeek;
+
+		public override bool CanWrite => _stream.CanWrite;
+
+		public override long Length => _stream.Length;
+
+		public override long Position
+		{
+			get => _stream.Position;
+			set => _stream.Position = value;
+		}
+
+		public override void Flush() => _stream.Flush();
+
+		public override int Read(byte[] buffer, int offset, int count)
+		{
+			var bytesRead = _stream.Read(buffer, offset, count);
+			_progress.Report(bytesRead);
+			return bytesRead;
+		}
+
+		public override long Seek(long offset, SeekOrigin origin) => _stream.Seek(offset, origin);
+
+		public override void SetLength(long value) => _stream.SetLength(value);
+
+		public override void Write(byte[] buffer, int offset, int count)
+		{
+			_stream.Write(buffer, offset, count);
+			_progress.Report(count);
 		}
 	}
 }

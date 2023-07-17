@@ -46,30 +46,34 @@
 										<div class="count-overlay-text">+@((Model.Media.Count() - maxDisplay).ToString())</div>
 										@if (media is Image image)
 										{
-											<img class="lazy smallMedia" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+											<img class="lazy smallMedia first" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
 										}
 										else if (media is Video video)
 										{
-											<video class="lazy smallMedia" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
+											<video class="lazy smallMedia first" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
 										}
 									</div>
 								}
 								else if (count >= maxDisplay && Model.Media.Count() >= maxDisplay)
 								{
-									@if (media is Image image)
+									if (media is Image image)
 									{
-										<img class="lazy smallMedia" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+										<img class="lazy smallMedia second" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+									}
+									else if (media is Video video)
+									{
+										<video class="lazy smallMedia second" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" data-src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
 									}
 								}
 								else
 								{
 									if (media is Video video)
 									{
-										<video class="lazy smallMedia" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
+										<video class="lazy smallMedia third" disablePictureInPicture preload="none" controls controlslist="noplaybackrate nodownload nofullscreen" src="@($"{cdnLink}{Model.Date + "/" + video.Link}")" @(video.Poster != null ? $"poster={cdnLink}{Model.Date}/thumbnail/{video.Poster}" : "") type="video/mp4"></video>
 									}
 									else if (media is Image image)
 									{
-										<img class="lazy smallMedia" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
+										<img class="lazy smallMedia third" src="@($"{cdnLink}{Model.Date + "/small/" + image.Link}")" data-src="@($"{cdnLink}{Model.Date + "/" + image.Link}")" />
 									}
 								}
 							</div>

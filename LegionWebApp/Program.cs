@@ -9,13 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
 using Microsoft.Extensions.Localization;
 using LegionWebApp.Localization;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Mvc;
 using LegionWebApp.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Http.Features;
-using System.Configuration;
 
 Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -63,6 +59,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 	options.SupportedUICultures = supportedCultures;
 });
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 builder.Services.AddLogging(loggingBuilder =>
 {
 	loggingBuilder.ClearProviders();
@@ -121,12 +118,22 @@ app.UseRequestLocalization();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}"
-);
+//app.MapControllerRoute(
+//	name: "default",
+//	pattern: "{controller=Home}/{action=Index}/{id?}"
+//);
 
+app.UseEndpoints(endpoints =>
+{
+	endpoints.MapControllerRoute(
+		name: "default",
+		pattern: "{controller=Home}/{action=Index}/{id?}"
+	);
+	endpoints.MapRazorPages();
+});
 
+// Map a route to your SignalR hub
+app.MapHub<ProgressHub>("/progressHub");
 
 app.MapRazorPages();
 app.Run();

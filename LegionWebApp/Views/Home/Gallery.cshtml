@@ -22,7 +22,7 @@
 				if (entry.isIntersecting) {
 					const img = entry.target;
 					const src = img.getAttribute('data-src');
-					img.setAttribute('src', src);
+					//img.setAttribute('src', src);
 					img.classList.add('loaded');
 
 					// Unobserve the element
@@ -69,9 +69,20 @@
 
 							loading = false;
 							$('.load-more-placeholder').html('');
+
+							var rect = $('.load-more-placeholder')[0].getBoundingClientRect();
+							console.log("rect" + rect)
+							var isInViewport = rect.top < window.innerHeight && rect.bottom >= 0;
+							console.log("isInViewport " + isInViewport)
+							if (isInViewport) {
+								// If it's not, manually trigger loadMoreItems
+								setTimeout(loadMoreItems, 100); // Add a delay to prevent infinite loop
+							}
 						}
 					});
 				}
+
+				loadMoreItems(); // Call loadMoreItems once when the document is ready
 
 				$(window).scroll(function () {
 					if ($(window).scrollTop() + $(window).height() > $('.load-more-placeholder').offset().top - 200) {
@@ -95,6 +106,7 @@
 
 				observer.observe($('.load-more-placeholder')[0]);
 			});
+
 		})();
 	</script>
 

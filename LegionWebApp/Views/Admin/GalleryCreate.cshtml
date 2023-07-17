@@ -11,6 +11,17 @@
 	body {
 		color: white;
 	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 9998;
+		background-color: rgba(0,0,0,0); /* adjust as needed */
+	}
+
 </style>
 
 <h2>GalleryCreate</h2>
@@ -72,6 +83,51 @@
 	</div>
 </form>
 
+
+<div id="overlay" class="overlay" style="display: none;"></div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="uploadProgressModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true" style="color: black; z-index: 9997;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="uploadProgressModalLabel">Upload Progress</h5>
+			</div>
+			<div class="modal-body">
+				<!-- Progress bar container -->
+				<div class="progress-container" style="height: 20px; width: 100%;">
+					<!-- Progress bar -->
+					<div id="uploadProgress" class="progress" style="height: 100%; width: 100%;">
+						<div id="uploadProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true" style="color: black">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="uploadModalLabel">Upload Result</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body" id="uploadModalBody">
+				<!-- Upload result message will be inserted here -->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <div class="feed-post">
 	<div class="post-header">
 		<img src="~/images/logo.png" class="profile-picture">
@@ -87,7 +143,25 @@
 	</div>
 </div>
 
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.9/signalr.min.js"></script>
+<script>
+	var connection = new signalR.HubConnectionBuilder().withUrl("/progressHub").build();
+
+	connection.start().catch(function (err) {
+		return console.error(err.toString());
+	});
+
+	connection.on("ReceiveProgress", function (progress) {
+		$("#uploadProgressBar").text(progress + "%");
+		$("#uploadProgressBar").attr('aria-valuenow', progress);
+		console.log("Progress: " + progress);
+	});
+</script>
+
 <script>
 	$(document).ready(function () {
 		var mediaContainer = document.getElementById('hiddenCountPreview');
@@ -192,7 +266,7 @@
 				var media = {
 					Id: fileCount,
 					File: file,
-					Col: "4",
+					Col: "col-4", // read value from range
 					Poster: null,
 					DisplayOrder: galleryItem.Media.length
 				};
@@ -283,7 +357,6 @@
 		$mediaItem.append($removeButton);
 		$colDiv.append($mediaItem);
 		$('#hiddenCountPreview').append($colDiv);
-		console.log(galleryItem.Media);
 	}
 
 	function createFileRow(file, fileCount) {
@@ -316,23 +389,30 @@
 			var widthValue = $(this).val();
 			var fileCount = $(this).data("file-count"); // Retrieve fileCount from data attribute
 			if ($('#lockResize').is(':checked')) {
-				$('#mediaSettings .form-range').val(widthValue);
 				$('#mediaSettings .form-range').each(function () {
-					var fileCount = $(this).data("file-count");
+					var fileCount = $(this).data("file-count"); // Get fileCount from each item
+					$(this).val(widthValue); // Set the value for each item
 					$('#widthValue' + fileCount).text(widthValue);
 					$("#fileMedia" + fileCount).attr("class", "draggable-media-item col-" + widthValue);
+					var media = galleryItem.Media.find(m => m.Id === fileCount);
+					if (media) { // Check if media is not undefined
+						media.Col = "col-" + widthValue;
+					} else {
+						console.error('media is undefined');
+					}
 				});
 			} else {
 				$('#widthValue' + fileCount).text(widthValue);
 				$("#fileMedia" + fileCount).attr("class", "draggable-media-item col-" + widthValue);
-			}
-			var media = galleryItem.Media.find(m => m.Id === fileCount);
-			if (media) { // Check if media is not undefined
-				media.Col = "col-" + widthValue;
-			} else {
-				console.error('media is undefined');
+				var media = galleryItem.Media.find(m => m.Id === fileCount);
+				if (media) { // Check if media is not undefined
+					media.Col = "col-" + widthValue;
+				} else {
+					console.error('media is undefined');
+				}
 			}
 		});
+
 
 
 		$colAutoInput.append($input);
@@ -394,7 +474,6 @@
 		if (fileSettingElement) {
 			fileSettingElement.parentNode.removeChild(fileSettingElement);
 		}
-		console.log(galleryItem.Media);
 	}
 
 	$("#upload-form").on("submit", function (e) {
@@ -425,20 +504,56 @@
 
 
 
+		var uploadProgressModal = new bootstrap.Modal(document.getElementById('uploadProgressModal'));
+		uploadProgressModal.show();
+		$("#overlay").show();
+
 		$.ajax({
+
+			
+
+
 			url: '@Url.Action("CreateGallery", "Admin")',
 			type: 'POST',
 			data: formData,
-			processData: false,  // tell jQuery not to process the data
-			contentType: false,  // tell jQuery not to set contentType
+			processData: false,
+			contentType: false,
+			xhr: function () {
+				var xhr = new window.XMLHttpRequest();
+				xhr.upload.addEventListener("progress", function (evt) {
+					if (evt.lengthComputable) {
+						var percentComplete = evt.loaded / evt.total;
+						percentComplete = parseInt(percentComplete * 100);
+						$('#uploadProgressBar').width(percentComplete + '%').attr('aria-valuenow', percentComplete);
+					}
+				}, false);
+
+				return xhr;
+			},
 			success: function (data) {
-				alert("Gallery item and localization string have been sent successfully.");
+				// Hide progress bar, show modal with success message, and enable background
+				uploadProgressModal.hide();
+				$("#uploadModalBody").text("Gallery item and localization string have been sent successfully.");
+				var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'));
+				uploadModal.show();
+				$("#overlay").hide();
+				$("body").css("pointer-events", "auto");
 			},
 			error: function (xhr, status, error) {
-				alert("Error: " + error);
+				// Hide progress bar, show modal with error message, and enable background
+				uploadProgressModal.hide();
+				$("#uploadModalBody").text("Error: " + error);
+				var uploadModal = new bootstrap.Modal(document.getElementById('uploadModal'));
+				uploadModal.show();
+				$("#overlay").hide();
+				$("body").css("pointer-events", "auto");
 			}
 		});
 	});
 
+	// Reload page when modal is hidden
+	$('#uploadModal').on('hidden.bs.modal', function (e) {
+		location.reload();
 
+	});
 </script>

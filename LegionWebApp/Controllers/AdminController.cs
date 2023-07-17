@@ -5,6 +5,7 @@ using LegionWebApp.Models;
 using LegionWebApp.Localization;
 using Microsoft.AspNetCore.Authorization;
 using LegionWebApp.Services;
+using Microsoft.AspNetCore.SignalR;
 
 namespace LegionWebApp.Controllers
 {
@@ -17,9 +18,10 @@ namespace LegionWebApp.Controllers
 		private readonly IWebHostEnvironment _env;
 		private readonly ILogger<AdminController> _logger;
 		private readonly IFileUploadService _fileUploadService;
+		private readonly IHubContext<ProgressHub> _progressHubContext;
 
 
-		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger, IFileUploadService fileUploadService)
+		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger, IFileUploadService fileUploadService, IHubContext<ProgressHub> progressHubContext)
 		{
 			_userManager = userManager;
 			_roleManager = roleManager;
@@ -27,6 +29,7 @@ namespace LegionWebApp.Controllers
 			_env = env;
 			_logger = logger;
 			_fileUploadService = fileUploadService;
+			_progressHubContext = progressHubContext;
 		}
 
 
@@ -52,6 +55,8 @@ namespace LegionWebApp.Controllers
 				Visible = visible,
 				MaxDisplay = maxDisplay
 			};
+			var pathFilePairs = new List<(string, IFormFile)>();
+
 			int j = 0;
 
 			// Create new LocalizationString
@@ -64,10 +69,11 @@ namespace LegionWebApp.Controllers
 			};
 
 			var posterList = new List<IFormFile>();
-			
+
 			for (int i = 0; i < media.Count; i++)
 			{
 				Media _media = null;
+				pathFilePairs.Add(($"{date}", media[i]));
 
 				switch (media[i].ContentType.ToLower())
 				{
@@ -80,10 +86,10 @@ namespace LegionWebApp.Controllers
 						{
 							if (mediaPoster[j] != null)
 							{
-								video.Poster = mediaPoster[j].FileName;
-								posterList.Add(mediaPoster[j]);
+								pathFilePairs.Add(($"{date}/thumbnail", mediaPoster[j]));
+								video.Poster = mediaPoster[j].FileName; // Set the Poster property
 								j++;
-							}							
+							}
 						}
 						break;
 					default:
@@ -91,12 +97,12 @@ namespace LegionWebApp.Controllers
 				}
 				_media.Link = media[i].FileName;
 				_media.DisplayOrder = i;
-				_media.Col = "col-" + mediaCol[i];				
+				_media.Col = mediaCol[i];
+
+
 				galleryItem.Media.Add(_media);
 			}
-
-			await UploadFiles($"{date}", media);
-			await UploadFiles($"{date}/thumbnail", posterList);
+			await UploadFiles(pathFilePairs);
 
 			_dbContext.GalleryItems.Add(galleryItem);
 			_dbContext.Localization.Add(localizationString);
@@ -106,7 +112,7 @@ namespace LegionWebApp.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> UploadFiles(string path, List<IFormFile> files)
+		public async Task UploadFiles(List<(string Path, IFormFile File)> pathFilePairs)
 		{
 			var s3Settings = new S3Settings
 			{
@@ -116,9 +122,35 @@ namespace LegionWebApp.Controllers
 				ServiceURL = Environment.GetEnvironmentVariable("Spaces_ServiceURL") ?? "https://fra1.digitaloceanspaces.com"
 			};
 
-			List<string> fileNames = await _fileUploadService.UploadFilesAsync(s3Settings, path, files);
-			return Json(fileNames);
+			// Calculate total file size
+			long totalFileSize = pathFilePairs.Sum(pair => pair.File.Length);
+
+			// Variable to keep track of total bytes transferred
+			long totalBytesTransferred = 0;
+
+			IProgress<long> progress = new Progress<long>(bytesTransferred =>
+			{
+				// Update total bytes transferred
+				totalBytesTransferred += bytesTransferred;
+
+				// Calculate the percentage of the total file size that has been transferred
+				int progressPercentage = (int)((double)totalBytesTransferred / totalFileSize * 100);
+
+				// Send the progress to the client
+				_progressHubContext.Clients.All.SendAsync("ReceiveProgress", progressPercentage);
+			});
+
+			foreach (var pair in pathFilePairs)
+			{
+				var path = pair.Path;
+				var file = pair.File;
+
+				// Upload the file and add its name to the list
+				await _fileUploadService.UploadFilesAsync(s3Settings, new List<(string, IFormFile)> { (path, file) }, progress);
+			}
 		}
+
+
 
 	}
 }
