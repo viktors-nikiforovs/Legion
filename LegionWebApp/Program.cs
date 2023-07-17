@@ -135,6 +135,8 @@ app.UseEndpoints(endpoints =>
 // Map a route to your SignalR hub
 app.MapHub<ProgressHub>("/progressHub");
 
+
+
 app.MapRazorPages();
 app.Run();
 

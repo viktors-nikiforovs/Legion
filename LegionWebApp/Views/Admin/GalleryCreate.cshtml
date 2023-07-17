@@ -396,7 +396,7 @@
 					$("#fileMedia" + fileCount).attr("class", "draggable-media-item col-" + widthValue);
 					var media = galleryItem.Media.find(m => m.Id === fileCount);
 					if (media) { // Check if media is not undefined
-						media.Col = "col-" + widthValue;
+						media.Col = widthValue;
 					} else {
 						console.error('media is undefined');
 					}
