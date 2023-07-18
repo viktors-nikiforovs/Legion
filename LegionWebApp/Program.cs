@@ -12,7 +12,6 @@ using LegionWebApp.Localization;
 using LegionWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http.Features;
-using LegionWebApp.Configuration;
 
 Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -24,14 +23,6 @@ builder.Services.AddScoped<IFileUploadService, S3FileUploadService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseNpgsql(connectionString));
-
-
-
-var OpenAiConfigurationSection = builder.Configuration.GetSection(OpenAiConfiguration.Configuration);
-builder.Services.Configure<TelegramBotConfiguration>(OpenAiConfigurationSection);
-builder.Services.AddScoped<IOpenAiService, OpenAiService>();
-
-
 
 var telegramBotConfigurationSection = builder.Configuration.GetSection(TelegramBotConfiguration.Configuration);
 builder.Services.Configure<TelegramBotConfiguration>(telegramBotConfigurationSection);
@@ -127,6 +118,11 @@ app.UseRequestLocalization();
 app.UseAuthentication();
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//	name: "default",
+//	pattern: "{controller=Home}/{action=Index}/{id?}"
+//);
+
 app.UseEndpoints(endpoints =>
 {
 	endpoints.MapControllerRoute(
@@ -138,5 +134,26 @@ app.UseEndpoints(endpoints =>
 
 // Map a route to your SignalR hub
 app.MapHub<ProgressHub>("/progressHub");
+
+
+
 app.MapRazorPages();
 app.Run();
+
+public class TelegramBotConfiguration
+{
+	public static readonly string Configuration = "TelegramBotConfiguration";
+
+	public string BotToken { get; init; } = default!;
+	public string HostAddress { get; init; } = default!;
+	public string Route { get; init; } = default!;
+	public string SecretToken { get; init; } = default!;
+}
+
+public class S3Settings
+{
+	public string Token { get; set; }
+	public string Secret { get; set; }
+	public string BucketName { get; set; }
+	public string ServiceURL { get; set; }
+}

@@ -6,7 +6,6 @@ using LegionWebApp.Localization;
 using Microsoft.AspNetCore.Authorization;
 using LegionWebApp.Services;
 using Microsoft.AspNetCore.SignalR;
-using LegionWebApp.Configuration;
 
 namespace LegionWebApp.Controllers
 {
@@ -20,9 +19,9 @@ namespace LegionWebApp.Controllers
 		private readonly ILogger<AdminController> _logger;
 		private readonly IFileUploadService _fileUploadService;
 		private readonly IHubContext<ProgressHub> _progressHubContext;
-		private readonly IOpenAiService _openAiService;
 
-		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger, IFileUploadService fileUploadService, IHubContext<ProgressHub> progressHubContext, IOpenAiService openAiService) // Add openAiService to the constructor
+
+		public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext dbContext, IWebHostEnvironment env, ILogger<AdminController> logger, IFileUploadService fileUploadService, IHubContext<ProgressHub> progressHubContext)
 		{
 			_userManager = userManager;
 			_roleManager = roleManager;
@@ -31,8 +30,8 @@ namespace LegionWebApp.Controllers
 			_logger = logger;
 			_fileUploadService = fileUploadService;
 			_progressHubContext = progressHubContext;
-			_openAiService = openAiService; // Assign the injected service to the field
 		}
+
 
 		public IActionResult Index()
 		{
@@ -44,20 +43,10 @@ namespace LegionWebApp.Controllers
 			return View();
 		}
 
-
 		[HttpPost]
-		public async Task<string> TranslateText(string language, string text)
+		public async Task<IActionResult> CreateGallery(int id, string title, string date, bool visible, int maxDisplay,
+	int localizationStringId, string key, string value_FR, string value_DE, string value_UK, List<IFormFile> media, List<string> mediaCol, List<IFormFile> mediaPoster)
 		{
-			var result = await _openAiService.TranslateText(language, text);
-
-			return result;
-		}
-
-		[HttpPost]
-		public async Task<IActionResult> CreateGallery(int id, string title, string date, bool visible, int maxDisplay, string key, string value_FR, string value_DE, string value_UK, List<IFormFile> media, List<string> mediaCol, List<IFormFile> mediaPoster)
-		{
-			
-			
 			// Create new GalleryItem
 			var galleryItem = new GalleryItem
 			{
@@ -79,7 +68,7 @@ namespace LegionWebApp.Controllers
 				Value_UK = value_UK
 			};
 
-			//var posterList = new List<IFormFile>();
+			var posterList = new List<IFormFile>();
 
 			for (int i = 0; i < media.Count; i++)
 			{
@@ -125,7 +114,7 @@ namespace LegionWebApp.Controllers
 		[HttpPost]
 		public async Task UploadFiles(List<(string Path, IFormFile File)> pathFilePairs)
 		{
-			var s3Settings = new S3Configuration
+			var s3Settings = new S3Settings
 			{
 				Token = Environment.GetEnvironmentVariable("Spaces_Token"),
 				Secret = Environment.GetEnvironmentVariable("Spaces_Secret"),

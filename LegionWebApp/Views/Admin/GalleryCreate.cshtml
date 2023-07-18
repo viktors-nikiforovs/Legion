@@ -21,6 +21,7 @@
 		z-index: 9998;
 		background-color: rgba(0,0,0,0); /* adjust as needed */
 	}
+
 </style>
 
 <h2>GalleryCreate</h2>
@@ -147,84 +148,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.9/signalr.min.js"></script>
-<script>
-	$(document).ready(function () {
-		var typingTimer; // Timer identifier
-		var doneTypingInterval = 2000; // Time in ms, 500ms = 0.5s
-
-		// On keyup, start the countdown
-		$('textarea').on('keyup', function () {
-			clearTimeout(typingTimer);
-			typingTimer = setTimeout(doneTyping.bind(this), doneTypingInterval);
-		});
-
-		// On keydown, clear the countdown
-		$('textarea').on('keydown', function () {
-			clearTimeout(typingTimer);
-		});
-
-		// User is "finished typing," do something
-		function doneTyping() {
-			var sourceId = $(this).attr('id');
-			var text = $(this).val();
-			var languages = [];
-
-			if (text === "") {
-				$('#textDE').val("");
-				$('#textEN').val("");
-				$('#textUA').val("");
-				$('#textFR').val("");
-			} else {
-				switch (sourceId) {
-					case 'textEN':
-						languages.push({ lang: 'ukranian', target: '#textUA' });
-						languages.push({ lang: 'french', target: '#textFR' });
-						languages.push({ lang: 'german', target: '#textDE' });
-						break;
-					case 'textUA':
-						languages.push({ lang: 'english', target: '#textEN' });
-						languages.push({ lang: 'french', target: '#textFR' });
-						languages.push({ lang: 'german', target: '#textDE' });
-						break;
-					case 'textFR':
-						languages.push({ lang: 'english', target: '#textEN' });
-						languages.push({ lang: 'ukranian', target: '#textUA' });
-						languages.push({ lang: 'german', target: '#textDE' });
-						break;
-					case 'textDE':
-						languages.push({ lang: 'english', target: '#textEN' });
-						languages.push({ lang: 'ukranian', target: '#textUA' });
-						languages.push({ lang: 'french', target: '#textFR' });
-						break;
-				}
-
-				// Only send a request if there are languages to translate to
-				if (languages.length > 0) {
-					languages.forEach(function (language) {
-						$.ajax({
-							url: '@Url.Action("TranslateText", "Admin")',
-							type: 'POST',
-							data: {
-								text: text,
-								language: language.lang
-							},
-							success: function (response) {
-								// Populate the text areas with the translations
-								console.log("target: " + language.target);
-								console.log("response: " + response);
-								$(language.target).val(response);
-							},
-							error: function (error) {
-								console.error('Error:', error);
-							}
-						});
-					});
-				}
-			}
-		}
-	});
-</script>
-
 <script>
 	var connection = new signalR.HubConnectionBuilder().withUrl("/progressHub").build();
 
@@ -388,8 +311,8 @@
 			});
 
 			var $snapButton = $('<button>', {
-				class: "btn btn-primary position-absolute bi bi-camera-fill icon",
-				text: "",
+				class: "btn btn-primary position-absolute",
+				text: "snap",
 				style: "top: 5px; left: 5px; z-index: 10;"
 			});
 
@@ -434,10 +357,6 @@
 		$mediaItem.append($removeButton);
 		$colDiv.append($mediaItem);
 		$('#hiddenCountPreview').append($colDiv);
-	}
-
-	function createPoster(VideoElement){
-		var $video = $(this).siblings('video')[0];
 	}
 
 	function createFileRow(file, fileCount) {
@@ -590,6 +509,10 @@
 		$("#overlay").show();
 
 		$.ajax({
+
+			
+
+
 			url: '@Url.Action("CreateGallery", "Admin")',
 			type: 'POST',
 			data: formData,
@@ -627,7 +550,10 @@
 			}
 		});
 	});
+
+	// Reload page when modal is hidden
 	$('#uploadModal').on('hidden.bs.modal', function (e) {
 		location.reload();
+
 	});
 </script>

@@ -1,19 +1,18 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Transfer;
-using LegionWebApp.Configuration;
 using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace LegionWebApp.Services
 {
 	public interface IFileUploadService
 	{
-		Task UploadFilesAsync(S3Configuration s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress);
+		Task UploadFilesAsync(S3Settings s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress);
 	}
 
 
 	public class S3FileUploadService : IFileUploadService
 	{
-		public async Task UploadFilesAsync(S3Configuration s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress)
+		public async Task UploadFilesAsync(S3Settings s3Settings, List<(string Path, IFormFile File)> pathFilePairs, IProgress<long> progress)
 		{
 			var transferUtility = new TransferUtility(new AmazonS3Client(s3Settings.Token, s3Settings.Secret, new AmazonS3Config
 			{
