@@ -106,7 +106,7 @@ else
 	app.UseExceptionHandler("/Error");
 	app.UseHsts();
 }
-app.MapBotWebhookRoute<TelegramBotController>(route: telegramBotConfiguration.Route);
+//app.MapBotWebhookRoute<TelegramBotController>(route: telegramBotConfiguration.Route);
 app.MapControllers();
 
 app.UseHttpsRedirection();
