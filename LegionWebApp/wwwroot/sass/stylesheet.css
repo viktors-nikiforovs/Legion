@@ -21,7 +21,7 @@
 #wardays input {
   background: transparent;
   border: none;
-  width: 4.5rem;
+  width: 16.5rem;
   color: white;
   font-weight: 600;
 }
@@ -33,7 +33,7 @@
   text-align: center;
   border: none;
   border-radius: 2rem;
-  width: 14rem;
+  width: 18rem;
   float: right;
   color: white;
 }
