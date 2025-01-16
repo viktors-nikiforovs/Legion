@@ -29,14 +29,6 @@ $table-color: #000000;
     max-height: 60vh;    
 }
 
-#wardays input {
-    background: transparent;
-    border: none;
-    width: 3.5rem;
-    color: white;
-    font-weight: 600;
-}
-
 #wardays {
     font-weight: 600;
     font-size: 2rem;
@@ -44,9 +36,8 @@ $table-color: #000000;
     text-align: center;
     border: none;
     border-radius: 2rem;
-    width: 14rem;
+    width: 4rem;
     float: right;
-    color: white;
 }
 
 .carousel-item {

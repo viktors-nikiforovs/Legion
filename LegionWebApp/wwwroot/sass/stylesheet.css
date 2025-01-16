@@ -18,12 +18,14 @@
   max-height: 60vh;
 }
 
-#wardays input {
-  background: transparent;
-  border: none;
-  width: 16.5rem;
-  color: white;
-  font-weight: 600;
+#counter {
+    background: transparent;
+    border: none;
+    width: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-weight: 600;
 }
 
 #wardays {
@@ -33,7 +35,7 @@
   text-align: center;
   border: none;
   border-radius: 2rem;
-  width: 18rem;
+  padding-left: 10px;
   float: right;
   color: white;
 }
